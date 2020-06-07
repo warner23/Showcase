@@ -1,33 +1,7 @@
 
 $(document).ready(function () {
 
-   // WICart.addTotals();
-    $("body").delegate(".qty", "keyup", function(){
-        var pid =  $(".qty").attr("pid");
-        alert(pid);
-    var qty = $("#qty_"+pid).attr('value');
-    alert(qty);
-    var price = $("#price_"+pid).html();
-    alert(price);
-        var total = qty* price;
-        $(".total_"+pid).html(total);
-        });
-
-    $(document).on('input', '.qty', function(){
-        var pid =  $(".qty").attr("pid");
-        alert(pid);
-    var qty = $("#qty_"+pid).val();
-    alert(qty);
-    var price = $("#price_"+pid).text();
-    alert(price);
-        var total = qty* price;
-        $(".total_"+pid).html(total);
-})
-
        
-
-
-
         $("body").delegate(".update", "click", function(){
             event.preventDefault();
             var pid = $(this).attr("update_id");

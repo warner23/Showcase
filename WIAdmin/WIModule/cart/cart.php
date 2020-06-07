@@ -240,22 +240,7 @@ echo '<div class="container-fluid text-center">
 
 					echo $this->cart->CheckCart();
 
-					echo '</tbody>
-					<tfoot>
-						<tr class="visible-xs">
-							<td class="text-center"><strong>Total</strong></td>
-						</tr>
-						<tr>
-							<td style="width:15%;"><a href="index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-							<td></td>
-							<td class="hidden-xs text-center" id="vat"><strong>VAT :</strong></td>
-
-							<td class="hidden-xs text-center" id="total"><strong>Total :</strong></td>
-
-							<td><a href="checkout.php" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
-						</tr>
-					</tfoot>
-				</table>
+					echo '</table>
 		</div>';
 
 		if(isset($page)){			

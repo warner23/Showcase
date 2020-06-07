@@ -96,6 +96,7 @@ class WICart
 
 	}
 
+
 	public function CheckCart()
 	{
 		$userId = WISession::get('user_id');
@@ -104,12 +105,14 @@ class WICart
 		$query = $this->WIdb->prepare($sql);
 		$query->bindParam(':userId', $userId, PDO::PARAM_INT);
 		$query->execute();
-		$no = 1;
+		$count = 0;
+		$total = 0;
 		while($result = $query->fetchAll() ){
-
+         $len = count($result);
 			foreach ($result as $basket) {
 				$subtotal = $basket['price'] * $basket['quantity'];
-				echo '						<tr>
+				$total =+ $subtotal;
+				echo '<tr>
 							<td data-th="Product">
 								<div class="row">
 									<div class="col-sm-2 hidden-xs"><img src="../../../WIAdmin/WIMedia/Img/shop/' . $basket['product_image'] . '" alt="..." class="img-responsive"/></div>
@@ -124,15 +127,67 @@ class WICart
 							<span id="price_' . $basket['id'] . '">' . $basket['price'] . ' </span>
 							</td>
 							<td data-th="Quantity">
-					<input type="number" pid="' . $basket['id'] . '" class="form-control text-center qty" id="qty_' . $basket['id'] . ' placeholder="' . $basket['quantity'] . '" value="' . $basket['quantity'] . '">
+					<input type="number" pid="' . $basket['id'] . '" class="form-control text-center qty" id="qty_' . $basket['id'] . '" placeholder="' . $basket['quantity'] . '" value="' . $basket['quantity'] . '">
 							</td>
-							<td data-th="Subtotal" class="text-center subtotal total_' . $basket['id'] . '">' . $subtotal .'</td>
+							<td data-th="Subtotal" class="text-center subtotal" id="total_' . $basket['id'] . '">' . $subtotal .'</td>
 							<td class="actions" data-th="">
 								<button class="btn btn-info btn-sm update"><i class="fa fa-refresh"></i></button>
 								<button class="btn btn-danger btn-sm delete"><i class="fa fa-trash-o"></i></button>								
 							</td>
-						</tr>';
+						</tr>
+						<script type="text/javascript">
+
+						$(document).ready(function () {
+
+						    $("body").delegate("#qty_' . $basket['id'] . '", "keyup", function(){
+						    var qty = $("#qty_' . $basket['id'] . '").val();
+						    console.log(qty);
+						    var price = $("#price_' . $basket['id'] . '").html();
+						    console.log(price);
+						    var total = qty * price;
+						    console.log(total);
+						    $("#total_' . $basket['id'] . '").html(total);
+
+						        });
+
+						    $(document).on("input", "#qty_' . $basket['id'] . '", function(){
+						    var qty = $("#qty_' . $basket['id'] . '").val();
+						    var price = $("#price_' . $basket['id'] . '").text();
+						    var total = qty* price;
+						    $("#total_' . $basket['id'] . '").html(total);
+						});
+
+						});
+
+						</script>';
+
+				   if($count == $len){
+					$total =+ $subtotal;
+				}
+						$count++;
 			}
+
+			echo '</tbody>
+					<tfoot>
+						<tr class="visible-xs">
+							<td class="text-center"><strong>Total</strong></td>
+						</tr>
+						<tr>
+							<td style="width:15%;"><a href="index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td></td>
+							<td class="hidden-xs text-center" id="vat"><strong>VAT :</strong></td>
+
+							<td class="hidden-xs text-center" >
+							
+							<strong>Total: £</strong>
+							<span id="total">' .$total .'</span>
+
+							</td>
+
+							<td><a href="checkout.php" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+						</tr>
+					</tfoot>
+				';
 			
 		}
 
