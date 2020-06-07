@@ -1,0 +1,177 @@
+[24-Apr-2018 13:14:21 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/warner/public_html/Xgox_Dev/WIForum/WICore/WIClass/WIModules.php on line 53
+[24-Apr-2018 13:30:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIForum::forum_menu() in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php:237
+
+  thrown in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php on line 237
+[24-Apr-2018 13:34:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIForum::forum_menu() in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php:237
+Stack trace:
+#0 /home/warner/public_html/Xgox_Dev/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#1 /home/warner/public_html/Xgox_Dev/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#2 {main}
+  thrown in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php on line 237
+[24-Apr-2018 13:36:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIForum::forum_menu() in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php:237
+Stack trace:
+#0 /home/warner/public_html/Xgox_Dev/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#1 /home/warner/public_html/Xgox_Dev/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#2 {main}
+  thrown in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php on line 237
+[24-Apr-2018 13:41:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIForum::forum_menu() in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php:237
+Stack trace:
+#0 /home/warner/public_html/Xgox_Dev/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#1 /home/warner/public_html/Xgox_Dev/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#2 {main}
+  thrown in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php on line 237
+[24-Apr-2018 13:41:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIForum::forum_menu() in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php:237
+Stack trace:
+#0 /home/warner/public_html/Xgox_Dev/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#1 /home/warner/public_html/Xgox_Dev/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#2 {main}
+  thrown in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php on line 237
+[24-Apr-2018 13:42:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIForum::forum_menu() in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php:237
+Stack trace:
+#0 /home/warner/public_html/Xgox_Dev/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#1 /home/warner/public_html/Xgox_Dev/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#2 {main}
+  thrown in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php on line 237
+[24-Apr-2018 13:47:04 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIForum::forum_menu() in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php:237
+Stack trace:
+#0 /home/warner/public_html/Xgox_Dev/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#1 /home/warner/public_html/Xgox_Dev/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#2 {main}
+  thrown in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php on line 237
+[24-Apr-2018 13:49:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIForum::forum_menu() in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php:237
+Stack trace:
+#0 /home/warner/public_html/Xgox_Dev/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#1 /home/warner/public_html/Xgox_Dev/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#2 {main}
+  thrown in /home/warner/public_html/Xgox_Dev/WIAdmin/WIModule/forum/forum.php on line 237
+[07-Mar-2019 09:35:39 UTC] PHP Warning:  require_once(/home/warner23/public_html/WIAdmin/WIModule//.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIForum/WICore/WIClass/WIModules.php on line 53
+[07-Mar-2019 09:35:39 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/warner23/public_html/WIAdmin/WIModule//.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIForum/WICore/WIClass/WIModules.php on line 53
+[07-Mar-2019 09:36:17 UTC] PHP Warning:  require_once(/home/warner23/public_html/WIAdmin/WIModule//.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIForum/WICore/WIClass/WIModules.php on line 53
+[07-Mar-2019 09:36:17 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/warner23/public_html/WIAdmin/WIModule//.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIForum/WICore/WIClass/WIModules.php on line 53
+[07-Mar-2019 21:17:09 UTC] PHP Warning:  require_once(/home/warner23/public_html/WIAdmin/WIModule//.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIForum/WICore/WIClass/WIModules.php on line 53
+[07-Mar-2019 21:17:09 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/warner23/public_html/WIAdmin/WIModule//.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIForum/WICore/WIClass/WIModules.php on line 53
+[10-Mar-2019 01:52:46 UTC] PHP Warning:  require_once(/home/warner23/public_html/WIAdmin/WIModule//.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIForum/WICore/WIClass/WIModules.php on line 53
+[10-Mar-2019 01:52:46 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/warner23/public_html/WIAdmin/WIModule//.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIForum/WICore/WIClass/WIModules.php on line 53
+[11-Mar-2019 02:29:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIForum::forum_Menu() in /home/warner23/public_html/WIAdmin/WIModule/forum/forum.php:237
+Stack trace:
+#0 /home/warner23/public_html/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#1 /home/warner23/public_html/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#2 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIModule/forum/forum.php on line 237
+[11-Mar-2019 02:31:55 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIForum::forum_Menu() in /home/warner23/public_html/WIAdmin/WIModule/forum/forum.php:237
+Stack trace:
+#0 /home/warner23/public_html/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#1 /home/warner23/public_html/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#2 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIModule/forum/forum.php on line 237
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/start_up.php on line 5
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 1
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 1
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 2
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 2
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 3
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 3
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 4
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 4
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 5
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 5
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 6
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 6
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 8
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 8
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 10
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 10
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 1
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 1
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 8
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 8
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 9
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 9
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 10
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 10
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/panel.php on line 173
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/panel.php on line 175
+[11-Mar-2019 02:34:11 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/panel.php on line 177
+[11-Mar-2019 02:34:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIWebsite::header() in /home/warner23/public_html/WIForum/section.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/warner23/public_html/WIForum/section.php on line 10
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/start_up.php on line 5
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 1
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 1
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 2
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 2
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 3
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 3
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 4
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 4
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 5
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 5
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 6
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 6
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 8
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 8
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 10
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/css_links.php on line 10
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 1
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 1
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 8
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 8
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 9
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 9
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 10
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/js_links.php on line 10
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/panel.php on line 173
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/panel.php on line 175
+[11-Mar-2019 02:37:23 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/panel.php on line 177
+[11-Mar-2019 02:37:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIWebsite::header() in /home/warner23/public_html/WIForum/section.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/warner23/public_html/WIForum/section.php on line 10
+[11-Mar-2019 02:41:31 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/forum_menu.php on line 20
+[11-Mar-2019 02:41:31 UTC] PHP Notice:  Undefined variable: forum in /home/warner23/public_html/WIForum/WIInc/section.php on line 26
+[11-Mar-2019 02:41:31 UTC] PHP Fatal error:  Uncaught Error: Call to a member function WISection() on null in /home/warner23/public_html/WIForum/WIInc/section.php:26
+Stack trace:
+#0 /home/warner23/public_html/WIForum/section.php(55): include_once()
+#1 {main}
+  thrown in /home/warner23/public_html/WIForum/WIInc/section.php on line 26
+[11-Mar-2019 02:43:44 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/forum_menu.php on line 20
+[11-Mar-2019 10:42:18 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/forum_menu.php on line 20
+[11-Mar-2019 10:46:20 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/forum_menu.php on line 20
+[11-Mar-2019 10:56:24 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/forum_menu.php on line 20
+[11-Mar-2019 20:01:40 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/forum_menu.php on line 7
+[11-Mar-2019 21:09:27 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/forum_menu.php on line 20
+[12-Mar-2019 08:45:59 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.wi_forum_cat' doesn't exist in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 24
+[12-Mar-2019 08:47:12 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ordered' in 'order clause' in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 24
+[12-Mar-2019 08:48:18 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ASC LIMIT 10' at line 1 in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 24
+[12-Mar-2019 08:49:02 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ASC' at line 1 in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 24
+[12-Mar-2019 11:26:16 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 35
+[12-Mar-2019 11:26:16 UTC] PHP Notice:  Undefined index: image in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 36
+[12-Mar-2019 11:26:16 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 37
+[12-Mar-2019 11:26:16 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 35
+[12-Mar-2019 11:26:16 UTC] PHP Notice:  Undefined index: image in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 36
+[12-Mar-2019 11:26:16 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 37
+[12-Mar-2019 11:31:08 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIForum/WIInc/forum_menu.php on line 7
+[12-Mar-2019 13:33:28 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function WIForum::WISection(), 0 passed in /home/warner23/public_html/WIAdmin/WIModule/topic/topic.php on line 246 and exactly 1 expected in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php:48
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WIModule/topic/topic.php(246): WIForum->WISection()
+#1 /home/warner23/public_html/WIForum/WICore/WIClass/WIModules.php(57): topic->mod_name('topic', 'topic')
+#2 /home/warner23/public_html/WIForum/topic.php(58): WIModules->getModMain(Object(topic), 'topic', 'topic')
+#3 {main}
+  thrown in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 48
+[12-Mar-2019 21:20:00 UTC] PHP Fatal error:  Uncaught Error: Class 'WIUserInfo' not found in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php:17
+Stack trace:
+#0 /home/warner23/public_html/WIForum/WICore/WIClass/WI.php(39): WIForum->__construct()
+#1 /home/warner23/public_html/WIForum/WICore/init.php(6): require('/home/warner23/...')
+#2 /home/warner23/public_html/WIForum/WIInc/WI_StartUp.php(3): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIForum/topic.php(4): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 17
+[12-Mar-2019 21:25:20 UTC] PHP Notice:  Object of class WIUserInfo could not be converted to int in /home/warner23/public_html/WIForum/WICore/WIClass/WI.php on line 40
+[12-Mar-2019 21:50:32 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 59
+[12-Mar-2019 22:11:37 UTC] PHP Warning:  require_once(/home/warner23/public_html/WIAdmin/WIModule//.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIForum/WICore/WIClass/WIModules.php on line 53
+[12-Mar-2019 22:11:37 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/warner23/public_html/WIAdmin/WIModule//.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIForum/WICore/WIClass/WIModules.php on line 53
+[13-Mar-2019 13:31:20 UTC] PHP Parse error:  syntax error, unexpected 'array' (T_ARRAY) in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 184
+[13-Mar-2019 13:32:43 UTC] PHP Parse error:  syntax error, unexpected 'array' (T_ARRAY) in /home/warner23/public_html/WIForum/WICore/WIClass/WIForum.php on line 184
+[14-Mar-2019 13:42:08 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/warner23/public_html/WIAdmin/WIModule/posts/posts.php on line 249
+[14-Mar-2019 13:44:40 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/warner23/public_html/WIAdmin/WIModule/posts/posts.php on line 252

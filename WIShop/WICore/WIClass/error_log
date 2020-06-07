@@ -1,0 +1,17 @@
+[19-Mar-2018 21:08:38 UTC] PHP Notice:  Undefined index: product_title in /home/warner/public_html/WIShop/WICore/WIClass/WICart.php on line 38
+[19-Mar-2018 21:08:38 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'product_title' cannot be null in /home/warner/public_html/WIShop/WICore/WIClass/WICart.php on line 49
+[19-Mar-2018 21:09:04 UTC] PHP Notice:  Undefined index: product_title in /home/warner/public_html/WIShop/WICore/WIClass/WICart.php on line 38
+[19-Mar-2018 21:09:04 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'product_title' cannot be null in /home/warner/public_html/WIShop/WICore/WIClass/WICart.php on line 49
+[19-Mar-2018 21:10:17 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'product_title' cannot be null in /home/warner/public_html/WIShop/WICore/WIClass/WICart.php on line 49
+[02-Mar-2019 21:20:10 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null in /home/warner23/public_html/WIShop/WICore/WIClass/WICart.php on line 49
+[02-Mar-2019 21:41:15 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_wicms.wi_categories' doesn't exist in /home/warner23/public_html/WIShop/WICore/WIClass/WIShop.php on line 22
+[02-Mar-2019 21:41:15 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_wicms.wi_brands' doesn't exist in /home/warner23/public_html/WIShop/WICore/WIClass/WIShop.php on line 40
+[07-Mar-2019 09:02:20 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null in /home/warner23/public_html/WIShop/WICore/WIClass/WICart.php on line 49
+[07-Mar-2019 09:02:35 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null in /home/warner23/public_html/WIShop/WICore/WIClass/WICart.php on line 49
+[07-Mar-2019 11:51:00 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIShop/WICore/WIClass/WIAjax.php on line 141
+[10-Mar-2019 02:31:00 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIShop/WICore/WIClass/WIAjax.php on line 141
+[10-Mar-2019 06:02:00 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIShop/WICore/WIClass/WIAjax.php on line 141
+[10-Mar-2019 06:02:39 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIShop/WICore/WIClass/WIAjax.php on line 141
+[17-Mar-2019 00:37:30 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIShop/WICore/WIClass/WIAjax.php on line 141
+[04-Apr-2019 13:01:42 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIShop/WICore/WIClass/WIAjax.php on line 141
+[30-Jul-2019 20:35:17 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIShop/WICore/WIClass/WIAjax.php on line 141

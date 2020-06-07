@@ -1,0 +1,42 @@
+.svg-icon {
+  display: inline-block;
+  width: $action-btn-width;
+  height: $action-btn-width;
+  pointer-events: none;
+}
+
+.icon-remove {
+  &:hover {
+    fill: $brand-error;
+  }
+}
+
+button[class*='-remove'] {
+  &:hover {
+    background-color: $brand-error !important;
+
+    .svg-icon {
+      fill: $white;
+    }
+  }
+}
+
+button[class*='-clone'] {
+  &:hover {
+    background-color: $brand-success !important;
+
+    .svg-icon {
+      fill: $white;
+    }
+  }
+}
+
+.item-edit-toggle {
+  &:hover {
+    background-color: $brand-primary !important;
+
+    .svg-icon {
+      fill: $white;
+    }
+  }
+}

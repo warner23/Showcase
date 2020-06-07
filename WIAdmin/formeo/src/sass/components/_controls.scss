@@ -1,0 +1,243 @@
+.formeo-controls {
+  float: right;
+  width: 26%;
+  overflow: hidden;
+
+  &.pull-left {
+    .form-actions {
+      float: left;
+    }
+  }
+
+  .filtered-term {
+    background-color: $white;
+    text-align: center;
+    border-radius: $input-border-radius $input-border-radius 0 0;
+    border: 1px solid $gray-lighter;
+    border-bottom: 0 none;
+    width: calc(100% - 2px);
+  }
+
+  nav {
+    position: relative;
+    padding: 0 $action-btn-width;
+    overflow: hidden;
+
+    h5 {
+      font-size: 13px;
+      line-height: 22px;
+    }
+
+    button {
+      position: absolute;
+      width: $action-btn-width;
+      color: $black;
+      height: calc(100% + 1px);
+      padding: 0;
+      line-height: 0;
+      margin: 0;
+      border-color: $gray-lighter;
+
+      &.next-group {
+        right: 0;
+        top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: $border-radius;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &.prev-group {
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  .panels-wrap {
+    font-size: .85em;
+    line-height: 1.8em;
+  }
+
+  .panel-labels {
+    border-top: 1px solid $gray-lighter;
+
+    // border-radius: $border-radius;
+
+  }
+
+  .panel-count-1 {
+    border-bottom-left-radius: 0;
+
+    .panel-nav {
+      display: none;
+    }
+
+    .control-group {
+      li:first-child {
+        border-radius: $border-radius $border-radius 0 0;
+      }
+    }
+  }
+
+  ul {
+    @extend %no-list-style;
+  }
+
+  .control-group {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    border-top: 1px solid $gray-lighter;
+
+    > li {
+      &:first-child {
+        border-top-right-radius: 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 $border-radius $border-radius;
+      }
+    }
+  }
+
+  &.filtered {
+    .panel-nav {
+      display: none;
+    }
+
+    .control-group {
+      display: block;
+
+      > li {
+        border-radius: 0;
+      }
+
+      &:last-child {
+        > li {
+          &:last-child {
+            border-radius: 0 0 0 $input-border-radius;
+          }
+        }
+      }
+    }
+  }
+
+  .control-groups {
+    white-space: nowrap;
+  }
+
+  .control-group-labels {
+    height: 100%;
+    background: $white;
+    overflow: hidden;
+
+    div {
+      white-space: nowrap;
+    }
+
+    h4 {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+
+  .form-actions {
+    float: right;
+    margin-top: 5px;
+
+    .svg-icon {
+      fill: $gray;
+      display: none;
+
+      &:hover {
+        fill: $black;
+      }
+    }
+
+    .save-form,
+    .clear-form {
+      &:hover {
+        color: $white;
+      }
+    }
+
+    .save-form {
+      &:hover {
+        background-color: $brand-primary;
+      }
+    }
+
+    .clear-form {
+      &:hover {
+        background-color: $brand-error;
+      }
+    }
+  }
+
+  @include breakpoint('phone-lrg') {
+    width: 45px;
+
+    .control-group {
+      text-indent: -9999px;
+    }
+
+    .form-actions {
+      display: inline-block;
+      width: 100%;
+      position: relative;
+      vertical-align: middle;
+      float: none;
+      margin-top: 10px;
+
+      > button + button {
+        margin-top: -$input-btn-border-width;
+        margin-left: 0;
+      }
+
+      > button {
+        max-width: 100%;
+        padding: 10px;
+        border-radius: 0;
+        line-height: 0;
+        width: 100%;
+        float: none;
+        position: relative;
+        display: block;
+
+        &:not(:first-child):not(:last-child) {
+          border-radius: 0;
+        }
+
+        &:first-child:not(:last-child) {
+          border-top-right-radius: $input-border-radius;
+          border-top-left-radius: $input-border-radius;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+
+        &:last-child:not(:first-child) {
+          border-bottom-left-radius: $input-border-radius;
+          border-bottom-right-radius: $input-border-radius;
+          border-top-right-radius: 0;
+          border-top-left-radius: 0;
+        }
+      }
+
+      .svg-icon,
+      .glyphicon {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+  }
+
+
+  .field-control {
+    @extend %field-control;
+
+    .svg-icon {
+      pointer-events: none;
+    }
+  }
+}

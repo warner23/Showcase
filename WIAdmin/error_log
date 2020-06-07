@@ -1,0 +1,254 @@
+[02-Mar-2019 18:29:02 UTC] PHP Warning:  include_once(WIConfig.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WICore/WIClass/WI.php on line 6
+[02-Mar-2019 18:29:02 UTC] PHP Warning:  include_once(): Failed opening 'WIConfig.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WICore/WIClass/WI.php on line 6
+[02-Mar-2019 18:29:02 UTC] PHP Notice:  Use of undefined constant DB_TYPE - assumed 'DB_TYPE' in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 33
+[02-Mar-2019 18:29:02 UTC] PHP Notice:  Use of undefined constant DB_HOST - assumed 'DB_HOST' in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 33
+[02-Mar-2019 18:29:02 UTC] PHP Notice:  Use of undefined constant DB_NAME - assumed 'DB_NAME' in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 33
+[02-Mar-2019 18:29:02 UTC] PHP Notice:  Use of undefined constant DB_USER - assumed 'DB_USER' in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 33
+[02-Mar-2019 18:29:02 UTC] PHP Notice:  Use of undefined constant DB_PASS - assumed 'DB_PASS' in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 33
+[02-Mar-2019 18:29:37 UTC] PHP Warning:  include_once(WIConfig.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WICore/WIClass/WI.php on line 6
+[02-Mar-2019 18:29:37 UTC] PHP Warning:  include_once(): Failed opening 'WIConfig.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WICore/WIClass/WI.php on line 6
+[02-Mar-2019 18:29:37 UTC] PHP Notice:  Use of undefined constant DB_TYPE - assumed 'DB_TYPE' in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 33
+[02-Mar-2019 18:29:37 UTC] PHP Notice:  Use of undefined constant DB_HOST - assumed 'DB_HOST' in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 33
+[02-Mar-2019 18:29:37 UTC] PHP Notice:  Use of undefined constant DB_NAME - assumed 'DB_NAME' in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 33
+[02-Mar-2019 18:29:37 UTC] PHP Notice:  Use of undefined constant DB_USER - assumed 'DB_USER' in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 33
+[02-Mar-2019 18:29:37 UTC] PHP Notice:  Use of undefined constant DB_PASS - assumed 'DB_PASS' in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 33
+[02-Mar-2019 18:34:30 UTC] PHP Notice:  Undefined variable: google_map_api in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIConfig.php on line 105
+[02-Mar-2019 18:50:35 UTC] PHP Notice:  Undefined variable: google_map_api in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIConfig.php on line 105
+[02-Mar-2019 19:53:06 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.wI_Categories' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[02-Mar-2019 19:53:06 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/site/WIShop/change_product.php on line 62
+[02-Mar-2019 19:53:06 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/site/WIShop/change_product.php on line 62
+[04-Mar-2019 18:18:03 UTC] PHP Warning:  include_once(WIInc/WIBlog_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 18:18:03 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/WIBlog_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 18:25:18 UTC] PHP Warning:  include_once(WIInc/WIBlog_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 18:25:18 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/WIBlog_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 18:28:13 UTC] PHP Warning:  include_once(WIInc/site/WIBlog/WIBlog_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 18:28:13 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/site/WIBlog/WIBlog_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 18:32:30 UTC] PHP Warning:  include_once(WIInc/site/WIBlog/WIBlog_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 18:32:30 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/site/WIBlog/WIBlog_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 18:34:32 UTC] PHP Warning:  include_once(WIInc/site/WIBlog/WIBlog_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 18:34:32 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/site/WIBlog/WIBlog_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 18:35:52 UTC] PHP Warning:  include_once(WIInc/site/WIBlog/WIBlog_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 18:35:52 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/site/WIBlog/WIBlog_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 18:37:45 UTC] PHP Warning:  include_once(WIInc/site/WIBlog/WIBlog_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 18:37:45 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/site/WIBlog/WIBlog_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 22:18:21 UTC] PHP Warning:  include_once(WIInc/site/WIBlog/WIBlog_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 22:18:21 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/site/WIBlog/WIBlog_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIBlog_Options.php on line 10
+[04-Mar-2019 22:19:48 UTC] PHP Warning:  include_once(WIInc/set_up.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIInc/site/WIBlog/blog_options.php on line 41
+[04-Mar-2019 22:19:48 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/set_up.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIInc/site/WIBlog/blog_options.php on line 41
+[04-Mar-2019 22:19:48 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php on line 38
+[04-Mar-2019 22:19:48 UTC] PHP Notice:  Undefined variable: site in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php on line 12
+[04-Mar-2019 22:19:48 UTC] PHP Fatal error:  Uncaught Error: Call to a member function Website_Info() on null in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php:12
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php(40): include_once()
+#1 /home/warner23/public_html/WIAdmin/WIInc/permissions.php(24): WIPermissions->permissionTabs()
+#2 /home/warner23/public_html/WIAdmin/WIInc/site/WIBlog/blog_options.php(44): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIBlog_Options.php(10): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php on line 12
+[04-Mar-2019 22:22:17 UTC] PHP Warning:  include_once(WIInc/set_up.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIInc/site/WIBlog/blog_options.php on line 41
+[04-Mar-2019 22:22:17 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/set_up.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIInc/site/WIBlog/blog_options.php on line 41
+[04-Mar-2019 22:22:17 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php on line 38
+[04-Mar-2019 22:22:17 UTC] PHP Notice:  Undefined variable: site in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php on line 12
+[04-Mar-2019 22:22:17 UTC] PHP Fatal error:  Uncaught Error: Call to a member function Website_Info() on null in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php:12
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php(40): include_once()
+#1 /home/warner23/public_html/WIAdmin/WIInc/permissions.php(24): WIPermissions->permissionTabs()
+#2 /home/warner23/public_html/WIAdmin/WIInc/site/WIBlog/blog_options.php(44): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIBlog_Options.php(10): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php on line 12
+[04-Mar-2019 22:23:59 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function WIPagination::Pagination(), 4 passed in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIWebsite.php on line 892 and exactly 5 expected in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPagination.php:46
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIWebsite.php(892): WIPagination->Pagination(15, 1, 409, 28)
+#1 /home/warner23/public_html/WIAdmin/WIInc/site/WIBlog/permissions.php(78): WIWebsite->viewTrans()
+#2 /home/warner23/public_html/WIAdmin/WIInc/site/WIBlog/blog_options.php(44): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIBlog_Options.php(10): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPagination.php on line 46
+[05-Mar-2019 03:59:54 UTC] PHP Warning:  include_once(WIInc/WIShop_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIShop_Options.php on line 9
+[05-Mar-2019 03:59:54 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/WIShop_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIShop_Options.php on line 9
+[05-Mar-2019 04:30:56 UTC] PHP Warning:  include_once(WIInc/WIShop_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIShop_Options.php on line 9
+[05-Mar-2019 04:30:56 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/WIShop_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIShop_Options.php on line 9
+[05-Mar-2019 04:48:48 UTC] PHP Warning:  include_once(WIInc/WIShop_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIShop_Options.php on line 9
+[05-Mar-2019 04:48:48 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/WIShop_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIShop_Options.php on line 9
+[05-Mar-2019 04:58:52 UTC] PHP Warning:  include_once(WIInc/WIShop_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIShop_Options.php on line 9
+[05-Mar-2019 04:58:52 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/WIShop_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIShop_Options.php on line 9
+[11-Mar-2019 10:39:55 UTC] PHP Warning:  include_once(WIInc/WIShop_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIForum_Options.php on line 9
+[11-Mar-2019 10:39:55 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/WIShop_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIForum_Options.php on line 9
+[11-Mar-2019 10:41:53 UTC] PHP Warning:  include_once(WIInc/WIShop_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIForum_Options.php on line 9
+[11-Mar-2019 10:41:53 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/WIShop_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIForum_Options.php on line 9
+[11-Mar-2019 10:46:01 UTC] PHP Warning:  include_once(WIInc/WIForum_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIForum_Options.php on line 9
+[11-Mar-2019 10:46:01 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/WIForum_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIForum_Options.php on line 9
+[11-Mar-2019 10:51:27 UTC] PHP Warning:  include_once(WIInc/WIForum_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIForum_Options.php on line 9
+[11-Mar-2019 10:51:27 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/WIForum_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIForum_Options.php on line 9
+[11-Mar-2019 10:56:07 UTC] PHP Warning:  include_once(WIInc/WIForum_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIForum_Options.php on line 9
+[11-Mar-2019 10:56:07 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/WIForum_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIForum_Options.php on line 9
+[14-Mar-2019 07:08:23 UTC] PHP Warning:  include_once(WIInc/WIForum_Options.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIForum_Options.php on line 9
+[14-Mar-2019 07:08:23 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/WIForum_Options.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIForum_Options.php on line 9
+[14-Mar-2019 07:10:40 UTC] PHP Warning:  include_once(WIInc/site/WIForum/set_up.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php on line 40
+[14-Mar-2019 07:10:40 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/site/WIForum/set_up.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php on line 40
+[14-Mar-2019 07:10:40 UTC] PHP Warning:  include_once(WIInc/site/WIForum/permissions.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php on line 43
+[14-Mar-2019 07:10:40 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/site/WIForum/permissions.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php on line 43
+[14-Mar-2019 12:23:27 UTC] PHP Warning:  include_once(WIInc/site/WIForum/set_up.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php on line 40
+[14-Mar-2019 12:23:27 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/site/WIForum/set_up.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php on line 40
+[14-Mar-2019 12:23:27 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.WI_Brands' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[14-Mar-2019 12:23:27 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.wI_Categories' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[14-Mar-2019 12:23:27 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/product/change_product.php on line 62
+[14-Mar-2019 12:23:27 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/product/change_product.php on line 62
+[14-Mar-2019 12:25:40 UTC] PHP Warning:  include_once(WIInc/site/WIForum/set_up.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php on line 40
+[14-Mar-2019 12:25:40 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/site/WIForum/set_up.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php on line 40
+[14-Mar-2019 12:25:40 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.WI_Brands' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[14-Mar-2019 12:25:40 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.wI_Categories' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[14-Mar-2019 12:25:40 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/product/change_product.php on line 62
+[14-Mar-2019 12:25:40 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/product/change_product.php on line 62
+[14-Mar-2019 12:27:17 UTC] PHP Warning:  include_once(WIInc/site/WIForum/set_up.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php on line 40
+[14-Mar-2019 12:27:17 UTC] PHP Warning:  include_once(): Failed opening 'WIInc/site/WIForum/set_up.php' for inclusion (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php on line 40
+[14-Mar-2019 12:27:17 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.WI_Brands' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[14-Mar-2019 12:27:17 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.wI_Categories' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[14-Mar-2019 12:27:17 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/product/change_product.php on line 62
+[14-Mar-2019 12:27:17 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/product/change_product.php on line 62
+[14-Mar-2019 12:27:59 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.WI_Brands' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[14-Mar-2019 12:27:59 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.wI_Categories' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[14-Mar-2019 12:27:59 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/product/change_product.php on line 62
+[14-Mar-2019 12:27:59 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/product/change_product.php on line 62
+[14-Mar-2019 12:28:12 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.WI_Brands' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[14-Mar-2019 12:28:12 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.wI_Categories' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[14-Mar-2019 12:28:12 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/product/change_product.php on line 62
+[14-Mar-2019 12:28:12 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/product/change_product.php on line 62
+[14-Mar-2019 12:32:40 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.WI_Brands' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[14-Mar-2019 12:32:40 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.wI_Categories' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[14-Mar-2019 12:32:40 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/product/change_product.php on line 62
+[14-Mar-2019 12:32:40 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/product/change_product.php on line 62
+[14-Mar-2019 12:32:40 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php on line 38
+[14-Mar-2019 12:32:40 UTC] PHP Notice:  Undefined variable: site in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php on line 12
+[14-Mar-2019 12:32:40 UTC] PHP Fatal error:  Uncaught Error: Call to a member function Website_Info() on null in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php:12
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php(40): include_once()
+#1 /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/permissions.php(24): WIPermissions->permissionTabs()
+#2 /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php(43): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIForum_Options.php(9): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php on line 12
+[14-Mar-2019 12:35:25 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.WI_Brands' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[14-Mar-2019 12:35:25 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner23_showcase.wI_Categories' doesn't exist in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIdb.php on line 52
+[14-Mar-2019 12:35:25 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/product/change_product.php on line 62
+[14-Mar-2019 12:35:25 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/product/change_product.php on line 62
+[14-Mar-2019 12:35:25 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php on line 38
+[14-Mar-2019 12:35:25 UTC] PHP Notice:  Undefined variable: site in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php on line 12
+[14-Mar-2019 12:35:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function Website_Info() on null in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php:12
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php(40): include_once()
+#1 /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/permissions.php(24): WIPermissions->permissionTabs()
+#2 /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php(43): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIForum_Options.php(9): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php on line 12
+[14-Mar-2019 12:37:26 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php on line 38
+[14-Mar-2019 12:37:26 UTC] PHP Notice:  Undefined variable: site in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php on line 12
+[14-Mar-2019 12:37:26 UTC] PHP Fatal error:  Uncaught Error: Call to a member function Website_Info() on null in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php:12
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php(40): include_once()
+#1 /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/permissions.php(24): WIPermissions->permissionTabs()
+#2 /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php(43): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIForum_Options.php(9): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php on line 12
+[14-Mar-2019 12:39:31 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php on line 38
+[14-Mar-2019 12:39:31 UTC] PHP Notice:  Undefined variable: site in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php on line 12
+[14-Mar-2019 12:39:31 UTC] PHP Fatal error:  Uncaught Error: Call to a member function Website_Info() on null in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php:12
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php(40): include_once()
+#1 /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/permissions.php(24): WIPermissions->permissionTabs()
+#2 /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php(43): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIForum_Options.php(9): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/User.php on line 12
+[14-Mar-2019 13:28:09 UTC] PHP Notice:  Undefined variable: site in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/Administrator.php on line 16
+[14-Mar-2019 13:28:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function Website_Info() on null in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/Administrator.php:16
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php(74): include_once()
+#1 /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/permissions.php(24): WIPermissions->ForumPermissionTabs()
+#2 /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php(43): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIForum_Options.php(9): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/Administrator.php on line 16
+[14-Mar-2019 13:28:53 UTC] PHP Notice:  Undefined variable: site in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/Administrator.php on line 16
+[14-Mar-2019 13:28:53 UTC] PHP Fatal error:  Uncaught Error: Call to a member function Website_Info() on null in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/Administrator.php:16
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php(74): include_once()
+#1 /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/permissions.php(24): WIPermissions->ForumPermissionTabs()
+#2 /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php(43): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIForum_Options.php(9): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIInc/site/permissions/Administrator.php on line 16
+[14-Mar-2019 13:58:44 UTC] PHP Notice:  Undefined variable: site in /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/Administrator.php on line 16
+[14-Mar-2019 13:58:44 UTC] PHP Fatal error:  Uncaught Error: Call to a member function Website_Info() on null in /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/Administrator.php:16
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php(74): include_once()
+#1 /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/permissions.php(24): WIPermissions->ForumPermissionTabs()
+#2 /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php(43): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIForum_Options.php(9): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/Administrator.php on line 16
+[14-Mar-2019 14:14:14 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/site/lang/set_up.php on line 40
+[14-Mar-2019 14:14:14 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/site/lang/set_up.php on line 40
+[14-Mar-2019 14:14:14 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/site/lang/set_up.php on line 79
+[14-Mar-2019 14:14:14 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/site/lang/set_up.php on line 79
+[14-Mar-2019 14:14:14 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function WIPagination::Pagination(), 4 passed in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIWebsite.php on line 892 and exactly 5 expected in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPagination.php:46
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIWebsite.php(892): WIPagination->Pagination(15, 1, 409, 28)
+#1 /home/warner23/public_html/WIAdmin/WIInc/site/lang/add.php(78): WIWebsite->viewTrans()
+#2 /home/warner23/public_html/WIAdmin/WIInc/mlang.php(50): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIMlang.php(9): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPagination.php on line 46
+[15-Mar-2019 22:56:48 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/site/lang/set_up.php on line 40
+[15-Mar-2019 22:56:48 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/site/lang/set_up.php on line 40
+[15-Mar-2019 22:56:48 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/site/lang/set_up.php on line 79
+[15-Mar-2019 22:56:48 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/site/lang/set_up.php on line 79
+[15-Mar-2019 22:56:48 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function WIPagination::Pagination(), 4 passed in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIWebsite.php on line 892 and exactly 5 expected in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPagination.php:46
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIWebsite.php(892): WIPagination->Pagination(15, 1, 409, 28)
+#1 /home/warner23/public_html/WIAdmin/WIInc/site/lang/add.php(78): WIWebsite->viewTrans()
+#2 /home/warner23/public_html/WIAdmin/WIInc/mlang.php(50): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIMlang.php(9): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPagination.php on line 46
+[15-Mar-2019 22:58:47 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/site/lang/set_up.php on line 40
+[15-Mar-2019 22:58:47 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/site/lang/set_up.php on line 40
+[15-Mar-2019 22:58:47 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/site/lang/set_up.php on line 79
+[15-Mar-2019 22:58:47 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/site/lang/set_up.php on line 79
+[15-Mar-2019 22:58:47 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function WIPagination::Pagination(), 4 passed in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIWebsite.php on line 892 and exactly 5 expected in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPagination.php:46
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIWebsite.php(892): WIPagination->Pagination(15, 1, 409, 28)
+#1 /home/warner23/public_html/WIAdmin/WIInc/site/lang/add.php(78): WIWebsite->viewTrans()
+#2 /home/warner23/public_html/WIAdmin/WIInc/mlang.php(50): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIMlang.php(9): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPagination.php on line 46
+[16-Mar-2019 09:28:03 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/user.php on line 142
+[16-Mar-2019 09:28:03 UTC] PHP Notice:  Undefined variable: WI in /home/warner23/public_html/WIAdmin/WIInc/user.php on line 142
+[16-Mar-2019 09:29:12 UTC] PHP Notice:  Undefined variable: site in /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/Administrator.php on line 16
+[16-Mar-2019 09:29:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function Website_Info() on null in /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/Administrator.php:16
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php(74): include_once()
+#1 /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/permissions.php(24): WIPermissions->ForumPermissionTabs()
+#2 /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php(43): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIForum_Options.php(9): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/Administrator.php on line 16
+[16-Mar-2019 23:11:30 UTC] PHP Notice:  Undefined variable: WISite in /home/warner23/public_html/WIAdmin/WIInc/forum.php on line 38
+[16-Mar-2019 23:11:30 UTC] PHP Fatal error:  Uncaught Error: Call to a member function Website_Info() on null in /home/warner23/public_html/WIAdmin/WIInc/forum.php:38
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WIForum.php(9): include_once()
+#1 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIInc/forum.php on line 38
+[16-Mar-2019 23:18:46 UTC] PHP Notice:  Undefined variable: site in /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/Administrator.php on line 16
+[16-Mar-2019 23:18:46 UTC] PHP Fatal error:  Uncaught Error: Call to a member function Website_Info() on null in /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/Administrator.php:16
+Stack trace:
+#0 /home/warner23/public_html/WIAdmin/WICore/WIClass/WIPermissions.php(74): include_once()
+#1 /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/permissions.php(24): WIPermissions->ForumPermissionTabs()
+#2 /home/warner23/public_html/WIAdmin/WIInc/WIForum_Options.php(43): include_once('/home/warner23/...')
+#3 /home/warner23/public_html/WIAdmin/WIForum_Options.php(9): include_once('/home/warner23/...')
+#4 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIInc/site/WIForum/Administrator.php on line 16
