@@ -1,6 +1,7 @@
 <?php
 include_once 'WI.php';
 require_once 'WIA.php';
+
 //csrf protection
 if(empty($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') 
     die("Sorry bro!");
@@ -11,8 +12,8 @@ if( !isset( $url['host']) || ($url['host'] != $_SERVER['SERVER_NAME']))
 
 $action = isset($_POST['action']) ? $_POST['action'] : null;
 switch ($action) {
-
-        case 'checkLogin':
+	//login and user
+	 case 'checkLogin':
         $logged = $login->userLogin($_POST['username'], $_POST['password']);
         if($logged === true)
             echo json_encode(array(
@@ -121,19 +122,21 @@ switch ($action) {
         echo json_encode($user->getAll());
         break;
 
-         case 'site_settings':
+    //System settings  site 
+
+     case 'site_settings':
         onlyAdmin();
         $site = new WISite();
         $site->Site_Settings($_POST['settings']);
         break;    
 
- case 'database_settings':
+    case 'database_settings':
          onlyAdmin();
         $site = new WISite();
         $site->DataBase_settings($_POST['settings']);
         break;
 
-        case "email_settings":
+    case "email_settings":
         onlyAdmin();
         $site = new WISite();
         $site->Email_settings($_POST['settings']);
@@ -188,46 +191,36 @@ switch ($action) {
         $site->lang_Settings($_POST['settings']);
         break;
 
-        case "lang_selector":
-    onlyAdmin();
-        $site = new WISite();
-        $site->lang_selector($_POST['settings'],$_POST['radioValue']);
-        break;
-
-         case "multilanguage":
+    case "multilanguage":
     onlyAdmin();
         $site = new WISite();
         $site->AddMultiLang($_POST['lang'], $_POST['keyword'],$_POST['trans']);
         break;
 
-        case "multiLang":
+    case "multiLang":
     onlyAdmin();
         $web = new WIWebsite(); 
         $web->CheckMultiLang();
         break;
 
-        case "EditModLang":
+    case "version_control":
+    onlyAdmin();
+        $site = new WISite();
+        $site->VersionControl($_POST['version']);
+        break;
+
+    //Mod settings  module 
+
+    case "EditModLang":
     onlyAdmin();
         $web = new WIWebsite(); 
         $web->EditModLang($_POST['code'], $_POST['keyword'],$_POST['trans'], $_POST['mod_name']);
         break;
 
-         case "EditModLangpara":
+    case "EditModLangpara":
     onlyAdmin();
         $web = new WIWebsite(); 
         $web->EditModLangPara($_POST['code'], $_POST['keyword'],$_POST['trans'], $_POST['mod_name']);
-        break;
-
-    case "AddLang":
-    onlyAdmin();
-        $site = new WISite();
-        $site->AddLang($_POST['lang']);
-        break;
-
-    case "AddCSS":
-    onlyAdmin();
-        $site = new WISite();
-        $site->AddCSS($_POST['CSS']);
         break;
 
     case "mod_install":
@@ -239,13 +232,19 @@ switch ($action) {
         case "element_install":
     onlyAdmin();
         $mod = new WIModules();
-        $mod->installElement($_POST['element_name'], $_POST['author'] );
+        $mod->installElement($_POST['element_name'] );
         break;
 
     case "mod_uninstall":
     onlyAdmin();
         $mod = new WIModules();
         $mod->uninstall_mod($_POST['mod_name']);
+        break;
+
+    case "ele_uninstall":
+    onlyAdmin();
+        $mod = new WIModules();
+        $mod->unistall_Element($_POST['mod_name']);
         break;
 
     case "mod_enable":
@@ -266,41 +265,22 @@ switch ($action) {
         $mod->deactive_available_mod($_POST['mod_name'], $_POST['disable']);
         break;
 
-         case "drop_call":
+    case "drop_call":
     onlyAdmin();
         $mod = new WIModules();
         $mod->dropElement($_POST['mod_name']);
         break;
 
-            case "col_call":
+    case "col_call":
     onlyAdmin();
         $mod = new WIModules();
         $mod->dropColElement($_POST['mod_name']);
         break;
 
-          case "edit_drop_mod":
+    case "edit_drop_mod":
     onlyAdmin();
         $mod = new WIModules();
         $mod->editDropElement($_POST['mod_name'], $_POST['page_id']);
-        break;
-
-    case "Translations":
-    onlyAdmin();
-        $web = new WIWebsite();
-        $web->viewTrans();
-        break;
-
-     case "lang_page":
-    onlyAdmin();
-        $web = new WIWebsite();
-        $web->viewTrans($_POST['page']);
-        break;
-
-
-          case "getInfo":
-    onlyAdmin();
-        $page = new WIPage();
-        $page->PageInfo($_POST['page']);
         break;
 
     case "Next":
@@ -308,16 +288,16 @@ switch ($action) {
         $mod = new WIModules();
         $mod->getActiveMods();
         break;
-     case "NextPage":
+    case "NextPage":
     onlyAdmin();
         $mod = new WIModules();
         $mod->getActiveMods($_POST['page']);
         break;
 
-     case "NextModPage":
+    case "NextModPage":
     onlyAdmin();
         $mod = new WIModules();
-        $mod->getModules($_POST['page']);
+        $mod->getPageModules();
         break;
 
     case "NextElementsPage":
@@ -332,10 +312,220 @@ switch ($action) {
         $mod->getActiveMods($_POST['page']);
         break;
 
-     case "NextModPage":
+    case "NextModPage":
     onlyAdmin();
         $mod = new WIModules();
         $mod->getActiveMods();
+        break;
+
+    case "createMod":
+    onlyAdmin();
+        $mod = new WIModules();
+        $mod->createMod($_POST['contents'], $_POST['mod_name'], $_POST['layout'],$_POST['elements'],$_POST['columnPreset']);
+            
+        break;
+
+    case "EditMod":
+    onlyAdmin();
+        $mod = new WIModules();
+        $mod->editContents($_POST['title'], $_POST['para'], $_POST['mod_name']);
+        break;
+
+    case "save_mod":
+    onlyAdmin();
+        $mod = new WIModules();
+        $mod->save_mod( $_POST['mod_name'], $_POST['contents'], $_POST['content']);
+        break;
+
+    case "assign":
+    onlyAdmin();
+        $page = new WIPage();
+        $page->assign( $_POST['mod'], $_POST['page']);
+        break;
+
+    //lang settings  translations
+    case "AddLang":
+    onlyAdmin();
+        $site = new WISite();
+        $site->AddLang($_POST['lang']);
+        break;
+
+   case "editlang":
+    onlyAdmin();
+        $site = new WISite();
+        $site->editlang($_POST['lang']);
+        break;
+
+    case "SaveEditLang":
+    onlyAdmin();
+        $site = new WISite();
+        $site->SaveEditLang($_POST['lang']);
+        break;
+
+    case "AddTrans":
+    onlyAdmin();
+        $site = new WISite();
+        $site->AddTrans($_POST['trans']);
+        break;
+
+    case "edittrans":
+    onlyAdmin();
+        $site = new WISite();
+        $site->edittrans($_POST['id']);
+        break;
+
+    case "saveedittrans":
+    onlyAdmin();
+        $site = new WISite();
+        $site->saveedittrans($_POST['trans']);
+        break;
+
+    case "Translations":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->viewTrans();
+        break;
+
+    case "lang_page":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->viewTrans($_POST['page']);
+        break;
+
+    case "saveLang":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->saveLang($_POST['name'], $_POST['code'], $_POST['flag']);
+        break;
+
+    case "AddeditLang":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->saveeditLang($_POST['name'], $_POST['code'], $_POST['flag'], $_POST['id']);
+        break;
+
+    case "resfresh":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->viewLang();
+        break;
+
+    case "deleteLangCountry":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->DeleteCountryLang($_POST['id']);
+        break;
+
+    case "transitemdelete":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->transitemdelete($_POST['id']);
+        break;
+
+    case "ChangePageViewLang":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->viewTrans($_POST['page']);
+        break;
+
+    //styling settings  styling
+
+    case "AddCSS":
+    onlyAdmin();
+        $site = new WISite();
+        $site->AddCSS($_POST['style']);
+        break;
+
+        case "changeJsPage":
+    onlyAdmin();
+        $page = new WIPage();
+        $page->LoadJsPage($_POST['page']);
+        break;
+
+    case "changeCssPage":
+    onlyAdmin();
+        $page = new WIPage();
+        $page->LoadCssPage($_POST['page']);
+        break;
+
+    case "viewCss":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->ViewCSS($_POST['page']);
+        break;
+
+        case "href":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->Href($_POST['href']);
+        break;
+
+    case "editCss":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->ViewEditCss($_POST['id']);
+        break;
+
+    case "editCssDetails":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->EditCss($_POST['CSS']);
+        break;
+
+    case "DeleteCss":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->DeleteCss($_POST['id']);
+        break;
+
+    case "viewjs":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->ViewJS($_POST['page']);
+        break;
+
+
+    case "ViewEditJs":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->ViewEditJs($_POST['id']);
+        break;
+
+    case "addJsDetails":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->EditaddJs($_POST['id'], $_POST['js']);
+        break;
+
+    case "editJsDetails":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->EditJs($_POST['script']);
+        break;
+
+    case "deletejs":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->deletejs($_POST['id']);
+        break;
+
+    case "new_css":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->newCss($_POST['styling'], $_POST['href']);
+        break;
+
+    case "editScript":
+    onlyAdmin();
+        $web = new WIWebsite();
+        $web->editScript($_POST['script']);
+        break;
+
+    //page settings  page
+    case "getInfo":
+    onlyAdmin();
+        $page = new WIPage();
+        $page->PageInfo($_POST['page']);
         break;
 
     case "getLangInfo":
@@ -344,26 +534,8 @@ switch ($action) {
         $web->getLangInfo($_POST['lang']);
         break;
 
-     case "sendmessage":
-     onlyAdmin();
-        $chat = new WIAdminChat();
-        $chat->SendMessage($_POST['Message'], $_POST['user_id']);
-        break;
-
-    case "todoListcomplete":
+    case "loadPage":
     onlyAdmin();
-        $dash = new WIDashboard();
-        $dash->completetodo($_POST['id']);
-        break;
-
-    case "todoListAdd":
-    onlyAdmin();
-        $dash = new WIDashboard();
-        $dash->addToDoListItem($_POST['todoItem']);
-        break;
-
-     case "loadPage":
-     onlyAdmin();
         $page = new WIPage();
         $page->LoadPage($_POST['page']);
         break;
@@ -374,7 +546,13 @@ switch ($action) {
         $page->loadPageOptions($_POST['page']);
         break;
 
-            case "changePage":
+    case "loadPageOptions":
+    onlyAdmin();
+        $page = new WIPage();
+        $page->loadPageOptions($_POST['page']);
+        break;
+
+    case "changePage":
     onlyAdmin();
         $page = new WIPage();
         $page->LoadPage($_POST['page']);
@@ -405,6 +583,24 @@ switch ($action) {
         $page->changeLSC($_POST['page'], $_POST['col']);
         break;
 
+    case "changePageElement":
+    onlyAdmin();
+        $page = new WIPage();
+        $page->changePageElement($_POST['page'], $_POST['element']);
+        break;
+
+    case "changePanel":
+    onlyAdmin();
+        $page = new WIPage();
+        $page->changePanel($_POST['page']);
+        break;
+
+        case "changeTopHead":
+    onlyAdmin();
+        $page = new WIPage();
+        $page->changeTopHead($_POST['page']);
+        break;
+
     case "rsc_changed":
     onlyAdmin();
         $page = new WIPage();
@@ -420,10 +616,32 @@ switch ($action) {
     case "page_delete":
     onlyAdmin();
         $page = new WIPage();
-        $page->deletePage($_POST['page_id']);
+        $page->deletePage($_POST['page_id'],$_POST['name']);
         break;
 
-    case "changePic":
+    //admin settings  dashboard
+
+    case "sendmessage":
+     onlyAdmin();
+        $chat = new WIAdminChat();
+        $chat->SendMessage($_POST['Message'], $_POST['user_id']);
+        break;
+
+    case "todoListcomplete":
+    onlyAdmin();
+        $dash = new WIDashboard();
+        $dash->completetodo($_POST['id']);
+        break;
+
+    case "todoListAdd":
+    onlyAdmin();
+        $dash = new WIDashboard();
+        $dash->addToDoListItem($_POST['todoItem']);
+        break;
+    
+    //header settings  header
+
+        case "changePic":
     onlyAdmin();
         $site = new WISite();
         $site->headerPic($_POST['img']);
@@ -435,47 +653,33 @@ switch ($action) {
         $site->faviconPic($_POST['img']);
         break;
 
-    case "saveLang":
-    onlyAdmin();
-        $web = new WIWebsite();
-        $web->saveLang($_POST['name'], $_POST['code'], $_POST['flag']);
+    //menu settings  menu
+
+    case "editMenu":
+        onlyAdmin();
+        $web = new WIWebsite(); 
+        $web->editMenu( $_POST['id']);
         break;
 
-    case "AddeditLang":
-    onlyAdmin();
-        $web = new WIWebsite();
-        $web->saveeditLang($_POST['name'], $_POST['code'], $_POST['flag'], $_POST['id']);
+    case "menuEdit":
+        onlyAdmin();
+        $web = new WIWebsite(); 
+        $web->menuEdit( $_POST['menu']);
         break;
 
-    case "resfresh":
-    onlyAdmin();
-        $web = new WIWebsite();
-        $web->viewLang();
+    case "newmenuitem":
+        onlyAdmin();
+        $web = new WIWebsite(); 
+        $web->newmenuitem( $_POST['menu']);
         break;
 
-    case "folder":
-    onlyAdmin();
-        $img = new WIImage();
-        $img->Folder($_POST['folder']);
+    case "DeleteMenu":
+        onlyAdmin();
+        $web = new WIWebsite(); 
+        $web->DeleteMenu( $_POST['id']);
         break;
 
-    case "back":
-    onlyAdmin();
-        $img = new WIImage();
-        $img->AllPics();
-        break;
-
-    case "createMod":
-    onlyAdmin();
-        $mod = new WIModules();
-        $mod->createMod($_POST['contents'], $_POST['mod_name']);
-        break;
-
-    case "EditMod":
-    onlyAdmin();
-        $mod = new WIModules();
-        $mod->editContents($_POST['title'], $_POST['para'], $_POST['mod_name']);
-        break;
+    //seo settings  seo
 
     case "changeMetaPage":
     onlyAdmin();
@@ -483,36 +687,7 @@ switch ($action) {
         $page->LoadMetaPage($_POST['page']);
         break;
 
-    case "changeJsPage":
-    onlyAdmin();
-        $page = new WIPage();
-        $page->LoadJsPage($_POST['page']);
-        break;
-
-    case "changeCssPage":
-    onlyAdmin();
-        $page = new WIPage();
-        $page->LoadCssPage($_POST['page']);
-        break;
-
-    case "viewThemes":
-    onlyAdmin();
-        $web = new WIWebsite();
-        $web->viewThemes();
-        break;
-
-    case "themeActivate":
-    onlyAdmin();
-        $web = new WIWebsite();
-        $web->activateThemes($_POST['id']);
-        break;
-
-         case "themeDeactivate":
-        $web = new WIWebsite();
-        $web->deactivateThemes($_POST['id']);
-        break;
-        
-        case "viewMeta":
+    case "viewMeta":
     onlyAdmin();
         $web = new WIWebsite();
         $web->ViewMeta($_POST['page']);
@@ -527,7 +702,7 @@ switch ($action) {
     case "editMetaDetails":
     onlyAdmin();
         $web = new WIWebsite();
-        $web->EditMeta($_POST['id'], $_POST['name'], $_POST['content'], $_POST['auth']);
+        $web->EditMeta($_POST['meta']);
         break;
 
     case "DeleteMeta":
@@ -536,104 +711,146 @@ switch ($action) {
         $web->DeleteMeta($_POST['id']);
         break;
 
-    case "viewCss":
+    //image settings  image
+
+        case "folder":
+    onlyAdmin();
+        $img = new WIImage();
+        $img->Folder($_POST['folder']);
+        break;
+
+    case "back":
+    onlyAdmin();
+        $img = new WIImage();
+        $img->AllPics();
+        break;
+
+    //theme settings  theme
+
+        case "viewThemes":
     onlyAdmin();
         $web = new WIWebsite();
-        $web->ViewCSS($_POST['page']);
+        $web->viewThemes();
         break;
 
-    case "editCss":
+    case "themeActivate":
     onlyAdmin();
         $web = new WIWebsite();
-        $web->ViewEditCss($_POST['id']);
+        $web->activateThemes($_POST['id']);
         break;
 
-    case "editCssDetails":
+    case "theme":
     onlyAdmin();
         $web = new WIWebsite();
-        $web->EditCss($_POST['id'], $_POST['css']);
+        $web->NewTheme($_POST['name']);
         break;
 
-    case "deletecss":
+    case "setTheme":
     onlyAdmin();
         $web = new WIWebsite();
-        $web->DeleteCss($_POST['id']);
+        $web->setTheme($_POST['id'], $_POST['val']);
         break;
 
-    case "viewjs":
+    case "themeDeactivate":
     onlyAdmin();
         $web = new WIWebsite();
-        $web->ViewJS($_POST['page']);
+        $web->deactivateThemes($_POST['id']);
         break;
 
-
-    case "ViewEditJs":
+    case "deletetheme":
     onlyAdmin();
         $web = new WIWebsite();
-        $web->ViewEditJs($_POST['id']);
+        $web->deletetheme($_POST['id']);
         break;
 
-    case "editJsDetails":
-    onlyAdmin();
-        $web = new WIWebsite();
-        $web->EditJs($_POST['id'], $_POST['js']);
-        break;
-
-    case "deleteJs":
-    onlyAdmin();
-        $web = new WIWebsite();
-        $web->DeleteJs($_POST['id']);
-        break;
-
-    case "addNew":
-    onlyAdmin();
-        $topic = new WITopic();
-        $topic->addNew();
-        break;
-
-    case "newTopic":
-    onlyAdmin();
-        $topic = new WITopic();
-        $topic->newTopic($_POST['topic']);
-        break;
-
-    case "Topics":
-    onlyAdmin();
-        $topic = new WITopic();
-        $topic->topic_Info();
-        break;
-
-    case "editTopics":
-    onlyAdmin();
-        $topic = new WITopic();
-        $topic->editTopics($_POST['topic'], $_POST['id']);
-        break;
-
-    case "version_control":
-    onlyAdmin();
-        $site = new WISite();
-        $site->VersionControl($_POST['version']);
-        break;
-
-        case "ChangePageViewLang":
-    onlyAdmin();
-        $web = new WIWebsite();
-        $web->viewTrans($_POST['page']);
-        break;
-
-        case "install_plugin":
+    //plugin settings  plugin
+    case "install_plugin":
     onlyAdmin();
         $plug = new WIPlugin();
         $plug->Install($_POST['plug'], $_POST['plugin']);
         break;
 
-        case "enable_plugin":
+    case "enable_plugin":
     onlyAdmin();
         $plug = new WIPlugin();
         $plug->Activate($_POST['plug']);
         break;
-    
 
+    //permission settings  perm
+    case "site_perm":
+    onlyAdmin();
+        $perm = new WIPermissions();
+        $perm->site_perm($_POST['ed'],$_POST['id'],$_POST['edit']);
+        break;
+
+    // Blog section and settings ONLY
+
+        // Blog functions
+
+    case "getCat":
+        $blog = new WIBlog();
+        $blog->Cat($_POST['category']);
+        break;
+
+    case "getResource":
+
+        $resource = new WIResources();
+        $resource->Resource($_POST['get_resource']);
+        break;
+
+     case "selected_cat":
+        $blog = new WIBlog();
+        $blog->selectedCat($_POST['cat_id']);
+        break;
+
+    case "selectCat":
+        $blog = new WIBlog();
+        $blog->SelectCategory();
+        break;
+
+        case "keyword":
+        $resource = new WIResources();
+        $resource->Search($_POST['keyword']);
+        break;
+
+        case "nomodepost":
+        $blog = new WIBlog();
+        $blog->noMedia($_POST['day'], $_POST['month'], $_POST['post_title'], $_POST['blog_post'], $_POST['type'], $_POST['user'],$_POST['cat_id']);
+        break;
+
+        case "haveposts":
+        $blog = new WIBlog();
+        $blog->hasPosts();
+        break;
+
+        case "postimage":
+        $blog = new WIBlog();
+        $blog->blogPostImage($_POST['day'], $_POST['month'], $_POST['post_title'], $_POST['blog_post'], $_POST['type'], $_POST['cat_id'], $_POST['user'], $_POST['Image']);
+        break;
+
+        case "postslider":
+        $blog = new WIBlog();
+        $blog->blogPostSlider($_POST['day'], $_POST['month'], $_POST['post_title'], $_POST['blog_post'], $_POST['type'], $_POST['cat_id'], $_POST['user'], $_POST['Image0'], $_POST['Image1'], $_POST['Image2'], $_POST['caption'], $_POST['caption1'], $_POST['caption2']);
+        break;
+
+        case "postaudio":
+        $blog = new WIBlog();
+        $blog->blogPostAudio($_POST['day'], $_POST['month'], $_POST['post_title'], $_POST['blog_post'], $_POST['type'], $_POST['cat_id'], $_POST['user'], $_POST['audio']);
+        break;
+
+        case "PostVideo":
+        $blog = new WIBlog();
+        $blog->blogPostVideo($_POST['day'], $_POST['month'], $_POST['post_title'], $_POST['blog_post'], $_POST['type'], $_POST['user'],$_POST['cat_id'], $_POST['video']);
+        break;
+
+        case "youtube":
+        $blog = new WIBlog();
+        $blog->YoutubeMedia($_POST['day'], $_POST['month'], $_POST['post_title'], $_POST['ytlink'], $_POST['blog_post'], $_POST['type'], $_POST['user'],$_POST['cat_id']);
+        break;
+    // end of blog section and settings
+
+
+         //END END END DO NOT REMOVE
         default:
 
         break;
@@ -674,6 +891,18 @@ switch($action){
        $site->RegisteredUsers() ;
        break;
 
+       case "UniqueVisit":
+        onlyAdmin();
+       $dashboard = new WIDashboard();
+       $dashboard->UniqueVisit() ;
+       break;
+
+       case "boucerate":
+        onlyAdmin();
+       $dashboard = new WIDashboard();
+       $dashboard->BounceRate() ;
+       break;
+
         case "NotificationsCount":
         onlyAdmin();
         $site = new WISite();
@@ -704,6 +933,11 @@ switch($action){
         $dash->Info_Boxes();
         break;
 
+        case "calendar":
+        $cal = new WICalendar();
+        $cal->getCalendar();
+        break;
+
         case "getMessages":
         $contact = new WIContact();
         $contact->Messages();
@@ -720,6 +954,11 @@ switch($action){
         $mod = new WIModules();
         $mod->tasks();
         break;
+
+        case "mapData":
+        $dash = new WIDashboard();
+        $dash->Map_visitors();
+        break;
         
         default:
         break;
@@ -732,3 +971,5 @@ function onlyAdmin() {
     $loggedUser = new WIAdmin(WISession::get("user_id"));
     if( ! $loggedUser->isAdmin() ) exit();
 }
+
+?>

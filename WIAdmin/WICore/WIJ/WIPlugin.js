@@ -1,9 +1,6 @@
 /***********
 ** WIPlugin NAMESPACE
 **************/
-
-
-
 var WIPlugin = {};
 
 WIPlugin.enable = function(plugin){
@@ -37,7 +34,7 @@ WIPlugin.Install = function(plugin){
             var res = JSON.parse(result);
 
              if( res.status === 'success' ){
-              window.location = res.elink;
+              window.location = res.link;
            }
     	}
     });

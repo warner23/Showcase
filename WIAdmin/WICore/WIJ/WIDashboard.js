@@ -6,6 +6,8 @@ $(document).ready(function(event)
     WIDashboard.MessagesCount();
     WIDashboard.registeredUsercount();
     WIDashboard.TasksCount();
+    WIDashboard.BouceRate();
+    WIDashboard.UniqueVisit();
    
 
 
@@ -159,6 +161,22 @@ WIDashboard.registeredUsercount = function(){
     });
 }
 
+WIDashboard.BouceRate = function(){
+
+     $.ajax({
+        url: "WICore/WIClass/WIAjax.php",
+        type: "GET",
+        data: {
+            action : "boucerate"
+                    },
+        success: function(result)
+        {
+             $("#bounce").html(result)
+        }
+    });
+}
+
+
 WIDashboard.messages = function(){
 
      $.ajax({
@@ -233,4 +251,41 @@ WIDashboard.info_box = function(){
              $("#small-box").html(result)
         }
     });
+}
+
+
+WIDashboard.calendar = function(){
+
+     $.ajax({
+        url: "WICore/WIClass/WIAjax.php",
+        type: "GET",
+        data: {
+            action : "calendar"
+                    },
+        success: function(result)
+        {
+            if ($("#calender_section").hasClass('showing_cal')) {
+                $("#calendar").removeClass('cal');
+                $("#calendar").addClass('no_cal');
+            }
+             $("#calendar").html(result);
+             $("#calendar").addClass('cal');
+        }
+    });
+}
+
+WIDashboard.UniqueVisit = function(){
+
+     $.ajax({
+        url: "WICore/WIClass/WIAjax.php",
+        type: "GET",
+        data: {
+            action : "UniqueVisit"
+                    },
+        success: function(result)
+        {
+           $("#visitors").html(result)
+        }
+    });
+
 }

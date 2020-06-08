@@ -115,7 +115,7 @@ class WICart
 				echo '<tr>
 							<td data-th="Product">
 								<div class="row">
-									<div class="col-sm-2 hidden-xs"><img src="../../../WIAdmin/WIMedia/Img/shop/' . $basket['product_image'] . '" alt="..." class="img-responsive"/></div>
+									<div class="col-sm-2 hidden-xs"><img src="../../../WIAdmin/WIMedia/Img/shop/' . $basket['product_image'] . '" alt="..." cwqlass="img-responsive"/></div>
 									<div class="col-sm-10">
 										<h4 class="nomargin">' . $basket['product_title'] . '</h4>
 										<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>

@@ -1,17 +1,7 @@
 <?php
 require_once "WIClass/WILib.php";
 require_once "WIClass/WISettings.php";
-//DATABASE CONFIGURATION
-
-define("HOST", "mysql1006.mochahost.com"); 
-
-define("TYPE", "mysql"); 
-
-define("USER", "warner23_show"); 
-
-define("PASS", "t4yl0r22"); 
-
-define("NAME", "warner23_showcase"); 
+require_once "db.php";
 
 $WIC = WILib::getInstance();
 $config =  new WISettings();
@@ -55,7 +45,8 @@ $social                = $config->Website_Info("social_callback_url");
 $google                = $config->Website_Info("google_enabled");
 $google_id             = $config->Website_Info("google_id");
 $google_secret         = $config->Website_Info("google_secret");
-$google_map_api         = $config->Website_Info("google_map_api");
+$google_map_api        = $config->Website_Info("google_map_api");
+$google_charts_api_key = $config->Website_Info("google_charts_api_key");
 $fb                    = $config->Website_Info("facebook_enabled");
 $fb_id                 = $config->Website_Info("facebook_id");
 $fb_secret             = $config->Website_Info("facebook_secret");

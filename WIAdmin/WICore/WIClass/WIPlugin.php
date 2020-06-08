@@ -41,7 +41,7 @@ class WIPlugin
         $result = array(
             "status"  => "success",
             "msg"     => $msg,
-            "elink"    => $configs['link2']
+            "link"    => $configs['link2']
         );
 
         echo json_encode($result);

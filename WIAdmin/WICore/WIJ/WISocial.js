@@ -1,59 +1,62 @@
 /***********
-** WISITE NAMESPACE
+** WISocial NAMESPACE
 **************/
-
-
 
 $(document).ready(function(event)
 {
 
-     $("#tw-enabled").click(function(){
-                        //alert('clicked');
-                        $("#tw-login").attr("value", 'yes')
-                        $("#tw-disabled").removeClass('btn-danger active')
-                        $("#tw-enabled").addClass('btn-success active');
-                    })
+ $("#ter").click(function(){// twit
+                    //alert('clicked');
+    //console.log("passd");
+    var twit = $("#tw-login").attr("value");
+    
+    if (twit === "false"){
+    $("#twit").prop("checked", true);
+    $("#ter").text('ON');
+    $("#tw-login").attr("value", 'true');
+   }else if (twit === "true"){
+    $("#twit").removeAttr('checked');
+    $("#tw-login").attr("value", 'false');
+    $("#ter").text('OFF');
+    $("#ter").css('padding-left', '50%');
+   }
+    })
 
-    $("#tw-disabled").click(function(){
-                        //alert('clicked');
-                        $("#tw-login").attr("value", 'no')
-                        $("#tw-enabled").removeClass('btn-success active')
-                        $("#tw-disabled").addClass('btn-danger active');
-                    })
+    $("#log").click(function(){
+    //alert('clicked');
+    var fb = $("#fb-login").attr("value")
+    
+    if (fb === "false"){
+    $("#fb").prop("checked", true);
+    $("#log").text('ON');
+    $("#fb-login").attr("value", 'true')
+   }else if (fb === "true"){
+    $("#fb").removeAttr('checked');
+    $("#fb-login").attr("value", 'false')
+    $("#log").text('OFF');
+    $("#log").css('padding-left', '50%');
+   }
+})
 
-    $("#fb-enabled").click(function(){
-                        //alert('clicked');
-                        $("#fb-login").attr("value", 'yes')
-                        $("#fb-disabled").removeClass('btn-danger active')
-                        $("#fb-enabled").addClass('btn-success active');
-                    })
-
-    $("#fb-disabled").click(function(){
-                        //alert('clicked');
-                        $("#fb-login").attr("value", 'no')
-                        $("#fb-enabled").removeClass('btn-success active')
-                        $("#fb-disabled").addClass('btn-danger active');
-                    })
-
-    $("#gp-enabled").click(function(){
-                        //alert('clicked');
-                        $("#gp-login").attr("value", 'yes')
-                        $("#gp-disabled").removeClass('btn-danger active')
-                        $("#gp-enabled").addClass('btn-success active');
-                    })
-
-    $("#gp-disabled").click(function(){
-                        //alert('clicked');
-                        $("#gp-login").attr("value", 'no')
-                        $("#gp-enabled").removeClass('btn-success active')
-                        $("#gp-disabled").addClass('btn-danger active');
-                    })
+    $("#glogin").click(function(){
+    //alert('clicked');
+    var google = $("#gp-login").attr("value")
+    
+    if (google === "false"){
+    $("#googleplus").prop("checked", true);
+    $("#glogin").text('ON');
+    $("#gp-login").attr("value", 'true');
+   }else if (google === "true"){
+    $("#googleplus").removeAttr('checked');
+    $("#gp-login").attr("value", 'false');
+    $("#glogin").text('OFF');
+    $("#glogin").css('padding-left', '50%');
+   }
+})
     
 	// button register click below
 	$("#social_btn").click(function()
 	{
-
-
 			var tw_login             = $("#tw-login").attr('value'),
             fb_login                 = $("#fb-login").attr('value'),
             gp_login                 = $("#gp-login").attr('value'),
@@ -63,10 +66,7 @@ $(document).ready(function(event)
              fb_secret               = $("#tw_secret").val(),
              gp_key                  = $("#tw_key").val(),
              gp_secret               = $("#tw_secret").val()
-
-
 			 //create data that will be sent over server
-
 			 var social = {
 			 	UserData:{
 			 	    tw_login           : tw_login,
@@ -78,8 +78,6 @@ $(document).ready(function(event)
                     fb_secret          : fb_secret,
                     gp_key             : gp_key,
                     gp_secret          : gp_secret
-  
-
 			 	},
 			 	FieldId:{
 			 		tw_login           : "tw-login",
@@ -91,12 +89,10 @@ $(document).ready(function(event)
                     fb_secret           : "fb_secret",
                    gp_key           : "gp_key",
                     gp_secret           : "gp_secret"
-			 		
-
 			 	}
 			 };
 			 // send data to server
-			 WISocial.sendData(social);
+	      WISocial.sendData(social);
 	});
 });
 
@@ -121,10 +117,6 @@ WISocial.sendData = function(social){
     	{
     		// return the button to normasl state
     		WICore.removeLoadingButton(btn);
-    		console.log(result);
-            //window.alert(result);
-    		//parse the data to json
-            //var res = JSON.stringify(result);
     		var res = JSON.parse(result);
             //var res = $.parseJSON(result);
             console.log(res);

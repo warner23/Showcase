@@ -3,12 +3,18 @@ $(document).ready(function(){
   $("img").click(function() {      
     $(this).toggleClass("hover");
     var id = $(".hover").attr("id");
-   // alert(id);
+
+    if($(this).hasClass('favicon')){
+      WIMedia.changefavicon(id);
+    }else{
+         // alert(id);
     WIMedia.change(id);
+    }
+
   });
 
-
   var obj = $("#dragandrophandler");
+  var media = $("#mediadragandrophandler");
   var dir = $("#supload").attr("value");
 obj.on('dragenter', function (e) 
 {
@@ -29,7 +35,31 @@ obj.on('drop', function (e)
      var files = e.originalEvent.dataTransfer.files;
  
      //We need to send dropped files to Server
+     console.log(files,obj, dir);
      handleFileUpload(files,obj,dir);
+});
+
+media.on('dragenter', function (e) 
+{
+    e.stopPropagation();
+    e.preventDefault();
+    $(this).css('border', '2px solid #0B85A1');
+});
+media.on('dragover', function (e) 
+{
+     e.stopPropagation();
+     e.preventDefault();
+});
+media.on('drop', function (e) 
+{
+ 
+     $(this).css('border', '2px dotted #0B85A1');
+     e.preventDefault();
+     var files = e.originalEvent.dataTransfer.files;
+ 
+     //We need to send dropped files to Server
+     console.log(files,media, dir);
+     handleFileUpload(files,media,dir);
 });
 $(document).on('dragenter', function (e) 
 {
@@ -53,77 +83,110 @@ $(document).on('drop', function (e)
 var WIMedia = {};
 
 WIMedia.media = function(){
-   $("#modal-header-edit").removeClass("on");
-    $("#modal-header-edit").addClass("off");
-     $("#modal-header-media").removeClass("off");
-    $("#modal-header-media").addClass("on");
+   $("#modal-header-edit-details").removeClass("hide").addClass("show");
+    $("#modal-header-media-details").removeClass("hide").addClass("show");
+}
+
+WIMedia.langmedia = function(){
+   $("#modal-lang-selection-details").removeClass("hide").addClass("show");
+    $("#modal-lang-media-details").removeClass("hide").addClass("show");
+}
+
+WIMedia.Langupload = function(){
+   $("#modal-lang-selection-details").removeClass("show").addClass("hide");
+    $("#modal-lang-upload-details").removeClass("hide").addClass("show");
+}
+
+WIMedia.pagemedia = function(){
+   $("#modal-page-edit-details").removeClass("hide").addClass("show");
+  $("#modal-page-media-details").removeClass("hide").addClass("show");
+}
+
+WIMedia.pagemediagallery = function(){
+   $("#modal-media-edit-details").removeClass("hide").addClass("show");
+     $("#modal-media-media-details").removeClass("hide").addClass("show");
 }
 
 WIMedia.changeiconPic = function(){
-   $("#modal-favicon-edit").removeClass("on");
-    $("#modal-favicon-edit").addClass("off");
-     $("#modal-favicon-media").removeClass("off");
-    $("#modal-favicon-media").addClass("on");
+   $("#modal-favicon-edit-details").removeClass("show").addClass("hide");
+     $("#modal-favicon-media-details").removeClass("hide").addClass("show");
 }
 
+WIMedia.changePic = function(ele){
 
-  WIMedia.changePic = function(){
+  	     $("#modal-"+ele+"-details").removeClass("hide").addClass("show");
+  }
 
-  	     $("#modal-header-edit").removeClass("off");
-    $("#modal-header-edit").addClass("on");
+WIMedia.editPic = function(ele){
+
+    var t = $(event.target).parent().parent().children();
+    t.closest('.view').attr('id','newpic');
+    $("#modal-"+ele+"-details").removeClass("hide").addClass("show");
+  }
+
+WIMedia.LangPics = function(){
+
+    var t = $(event.target).parent().parent().children();
+    t.closest('.view').attr('id','newpic');
+    $("#modal-"+ele+"-details").removeClass("hide").addClass("show");
   }
 
 WIMedia.changefaviconPic = function(){
 
-         $("#modal-favicon-edit").removeClass("off");
-    $("#modal-favicon-edit").addClass("on");
+         $("#modal-favicon-edit-details").removeClass("hide").addClass("show");
   }
 
   WIMedia.closeEdit = function(){
 
-  	 $("#modal-header-edit").removeClass("on");
-    $("#modal-header-edit").addClass("off");
+  	 $("#modal-header-edit-details").removeClass("show").addClass("hide");
+  }
+
+  WIMedia.closed = function(ele){
+
+     $("#modal-"+ele+"-details").removeClass("show").addClass("hide");
   }
 
     WIMedia.closeFEdit = function(){
 
-     $("#modal-favicon-edit").removeClass("on");
-    $("#modal-favicon-edit").addClass("off");
+     $("#modal-favicon-edit-details").removeClass("show").addClass("hide");
   }
 
   WIMedia.closeMedia = function(){
-    $("#modal-header-media").removeClass("on");
-    $("#modal-header-media").addClass("off");
+    $("#modal-header-media-details").removeClass("show").addClass("hide");
   }
 
     WIMedia.closeFMedia = function(){
-    $("#modal-favicon-media").removeClass("on");
-    $("#modal-favicon-media").addClass("off");
+    $("#modal-favicon-media-details").removeClass("show").addClass("hide");
   }
 
   WIMedia.closeUpload = function(){
-    $("#modal-header-upload").removeClass("on");
-    $("#modal-header-upload").addClass("off");
+    $("#modal-header-upload-details").removeClass("show").addClass("hide");
   }
 
     WIMedia.closeFUpload = function(){
-    $("#modal-favicon-upload").removeClass("on");
-    $("#modal-favicon-upload").addClass("off");
+    $("#modal-favicon-upload-details").removeClass("show").addClass("hide");
   }
 
   WIMedia.change = function(img){
 
-  	  	$("#modal-header-media").removeClass("on");
-    $("#modal-header-media").addClass("off");
+  	$("#modal-header-media-details").removeClass("show").addClass("hide");
+    $("#modal-header-edit-details").removeClass("show").addClass("hide");
     $(".cp").attr("src", "WIMedia/Img/header/"+img);
-    $(".cp").attr("id", img);
+    $(".cp").attr("value", img);
   }
 
+  WIMedia.changefavicon = function(img){
+
+    $("#modal-favicon-media-details").removeClass("show").addClass("hide");
+    $("#modal-favicon-edit-details").removeClass("show").addClass("hide");
+    $(".cp").attr("src", "WIMedia/Img/favicon/"+img);
+    $(".cp").attr("value", img);
+  }
 
 
   WIMedia.savePic = function(){
 
-  	var img = $(".cp").attr("id");
+  	var img = $(".cp").attr("value");
   	//alert(img);
 
   	    $.ajax({
@@ -137,7 +200,7 @@ WIMedia.changefaviconPic = function(){
         {
             var res = JSON.parse(result);
             if (res.status === "successful") {
-             $("#results").append(res.msg).fadeOut("slow");
+             $("#hresults").append(res.msg).fadeOut("slow");
             
         }
     }
@@ -146,7 +209,7 @@ WIMedia.changefaviconPic = function(){
 
     WIMedia.savefaviconPic = function(){
 
-    var img = $(".cp").attr("id");
+    var img = $(".cp").attr("value");
     //alert(img);
 
         $.ajax({
@@ -169,19 +232,33 @@ WIMedia.changefaviconPic = function(){
 
 
   WIMedia.upload = function(){
-  	  	     $("#modal-header-edit").removeClass("on");
-    $("#modal-header-edit").addClass("off");
-  	  	$("#modal-header-upload").removeClass("off");
-    $("#modal-header-upload").addClass("on");
-
+  	  	     $("#modal-header-edit-details").removeClass("show").addClass("hide");
+  	  	$("#modal-header-upload-details").removeClass("hide").addClass("show");
   }
 
-    WIMedia.faviconupload = function(){
-             $("#modal-favicon-edit").removeClass("on");
-    $("#modal-favicon-edit").addClass("off");
-        $("#modal-favicon-upload").removeClass("off");
-    $("#modal-favicon-upload").addClass("on");
+    WIMedia.Langupload = function(){
+    $("#modal-lanf-selection-details").removeClass("show").addClass("hide");
+        $("#modal-lang-upload-details").removeClass("hide").addClass("show");
+  }
 
+    WIMedia.pageupload = function(){
+             $("#modal-page-edit-details").removeClass("show").addClass("hide");
+        $("#modal-page-upload-details").removeClass("hide").addClass("show");
+  }
+
+      WIMedia.PageMediaUploadPics = function(){
+        $("#modal-media-edit-details").removeClass("show").addClass("hide");
+        $("#modal-media-upload-details").removeClass("hide").addClass("show");;
+  }
+
+  WIMedia.PageMediaPics = function(){
+   $("#modal-media-edit-details").removeClass("hide").addClass("show");
+     $("#modal-media-media-details").removeClass("hide").addClass("show");
+}
+
+    WIMedia.faviconupload = function(){
+             $("#modal-favicon-edit-details").removeClass("show").addClass("hide");
+        $("#modal-favicon-upload-details").removeClass("hide").addClass("show");
   }
 
   WIMedia.ImageMedia = function(){

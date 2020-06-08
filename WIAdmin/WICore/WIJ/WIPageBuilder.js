@@ -2,125 +2,83 @@
 $(document).ready(function(event)
 {
 
-var obj = $(".stage");
-//var drag = $("#draggable li");
-obj.on('dragenter', function (e) 
-{
-    e.stopPropagation();
-    e.preventDefault();
-    $(this).css('border', '2px solid #0B85A1');
-    $('<li class="stageRow" data-hover-tag="Row" data data-editing-hover-tag="Editing Row" id="dropStage"></li>').insertAfter('ul.stage');
-});
-
-
-obj.on('dragleave', function (e) 
-{
-    e.stopPropagation();
-    e.preventDefault();
-    $("#dropStage").remove();
-
-});
-
-obj.on('dragover', function (e) 
-{
-     e.stopPropagation();
-     e.preventDefault();
-});
-
-/*drag.on( "dragstart", function( event, ui ) 
-{
-        event.stopPropagation();
-    event.preventDefault();
-     $(this).attr("id");
-});*/
-
-obj.on('drop', function (e) 
-{
- 
-     $(this).css('border', '2px dotted #0B85A1');
-     e.preventDefault();
-     //var files = e.originalEvent.dataTransfer.files;
-     alert('dropped');
-    var mod_name = contents
-           // alert(id);
-    alert(mod_name);
-    WIMod.dropping(mod_name);
- 
-     //We need to send dropped files to Server
-     //handleFileUpload(files,obj,dir);
-});
-$(document).on('dragenter', function (e) 
-{
-    e.stopPropagation();
-    e.preventDefault();
-});
-$(document).on('dragover', function (e) 
-{
-  e.stopPropagation();
-  e.preventDefault();
-  obj.css('border', '2px dotted #0B85A1');
-});
-$(document).on('drop', function (e) 
-{
-    e.stopPropagation();
-    e.preventDefault();
-});
-
-$(document).on('dragstart', function (e) 
-{
-    e.stopPropagation();
-    e.preventDefault();
-});
-
-
-
-
-       
-
                
 });
-
 
 var WIPageBuilder = {};
 
 WIPageBuilder.Rotate = function(){
 
-	if($(".elementsE").hasClass('on') ) {
-	$(".elementsE").removeClass('on').addClass('off');
-	$(".elementsL").removeClass('off').addClass('on');
-	$( "#html" ).removeClass('on').addClass('off');
-	$( "#layout" ).removeClass('off').addClass('on');
-	}
-	if ($(".elementsC").hasClass('on') ) {
+	if($(".elementsG").hasClass('on') ) {
+		console.log('clicked');
+	$(".elementsG").removeClass('on').addClass('off');
+	$(".elementsB").removeClass('off').addClass('on');
+	$( "#grid" ).removeClass('on').addClass('off');
+	$( "#base" ).removeClass('off').addClass('on');
+	}else if($(".elementsB").hasClass('on') ) {
+		console.log('cli');
+	$(".elementsB").removeClass('on').addClass('off');
+	$(".elementsC").removeClass('off').addClass('on');
+	$( "#base" ).removeClass('on').addClass('off');
+	$( "#components" ).removeClass('off').addClass('on');
+    }else if($(".elementsC").hasClass('on') ) {
+    	console.log('clic');
 	$(".elementsC").removeClass('on').addClass('off');
-	$(".elementsE").removeClass('off').addClass('on');
-	$( "#common" ).removeClass('on').addClass('off');
-	$( "#html" ).removeClass('off').addClass('on');
-    }
-
-
-	
+	$(".elementsF").removeClass('off').addClass('on');
+	$( "#components" ).removeClass('on').addClass('off');
+	$( "#forms" ).removeClass('off').addClass('on');
+    }else if($(".elementsF").hasClass('on') ) {
+    	console.log('click');
+	$(".elementsF").removeClass('on').addClass('off');
+	$(".elementsJ").removeClass('off').addClass('on');
+	$( "#forms" ).removeClass('on').addClass('off');
+	$( "#javascript" ).removeClass('off').addClass('on');
+    }	
 }
 
 WIPageBuilder.RotateX = function(){
 	
-	    if ($(".elementsE").hasClass('on') ) {
-	$(".elementsE").removeClass('on').addClass('off');
+	    if ($(".elementsJ").hasClass('on') ) {
+	$(".elementsJ").removeClass('on').addClass('off');
+	$(".elementsF").removeClass('off').addClass('on');
+	$( "#javascript" ).removeClass('on').addClass('off');
+	$( "#forms" ).removeClass('off').addClass('on');
+    }else if ($(".elementsF").hasClass('on') ) {
+	$(".elementsF").removeClass('on').addClass('off');
 	$(".elementsC").removeClass('off').addClass('on');
-	$( "#html" ).removeClass('on').addClass('off');
-	$( "#common" ).removeClass('off').addClass('on');
+	$( "#forms" ).removeClass('on').addClass('off');
+	$( "#components" ).removeClass('off').addClass('on');
+    }else if ($(".elementsC").hasClass('on') ) {
+	$(".elementsC").removeClass('on').addClass('off');
+	$(".elementsB").removeClass('off').addClass('on');
+	$( "#components" ).removeClass('on').addClass('off');
+	$( "#base" ).removeClass('off').addClass('on');
+    }else if ($(".elementsB").hasClass('on') ) {
+	$(".elementsB").removeClass('on').addClass('off');
+	$(".elementsG").removeClass('off').addClass('on');
+	$( "#base" ).removeClass('on').addClass('off');
+	$( "#grid" ).removeClass('off').addClass('on');
     }
-
-	if ($(".elementsL").hasClass('on') ) {
-	$(".elementsL").removeClass('on').addClass('off');
-	$(".elementsE").removeClass('off').addClass('on');
-	$( "#layout" ).removeClass('on').addClass('off');
-	$( "#html" ).removeClass('off').addClass('on');
-    }
-
 }
 
-WIPageBuilder.Draggable = function(){
-	$("#appearing_button").attr('draggable', true);
+
+WIPageBuilder.edit = function(){
+
+	if( $(".groupConfig").hasClass('edit') ){
+    $(".groupConfig").css("display", "none");
+	$(".groupConfig").removeClass('edit');
+	$(".stageColumn").css("display", "block");
+	}else{
+	$(".groupConfig").css("display", "block");
+	$(".groupConfig").addClass('edit');
+	$(".stageColumn").css("display", "none");	
+	}
 }
 
+WIPageBuilder.clone = function(){
+	$( "#dropStage" ).clone().appendTo( "ul#stage" );
+}
+
+WIPageBuilder.delete= function(){
+$( "#dropStage" ).remove()
+}

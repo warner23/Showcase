@@ -8,7 +8,6 @@
   }
 </style>
 
-
           <div class="span9 users-wrapper">
               <a class="btn btn-primary" href="javascript:void(0);" 
                   onclick="users.showAddUserModal()" > 

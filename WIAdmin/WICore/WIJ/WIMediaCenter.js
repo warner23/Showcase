@@ -4,6 +4,7 @@ function sendFileToHeaderServer(formData,status)
 {
       var uploadURL ="WICore/WIClass/HeaderImageUpload.php"; //Upload URL
     var extraData ={}; //Extra Data.
+    $(".ajax-loading").removeClass("hide").addClass("show");
     var jqXHR=$.ajax({
             xhr: function() {
             var xhrobj = $.ajaxSettings.xhr();
@@ -31,11 +32,11 @@ function sendFileToHeaderServer(formData,status)
             info = JSON.parse(data);
             //alert(info.name);
             status.setProgress(100);
+            $(".ajax-loading").removeClass("show").addClass("hide");
             $("#status").append("File upload Done<br>").fadeOut(7000);
             $("#dragandrophandler").remove()
             $("#headerPic").remove()
-            $("#modal-header-upload").removeClass("on");
-            $("#modal-header-upload").addClass("off"); 
+            $("#modal-header-upload-details").removeClass("show").addClass("hide"); 
             preview = ('<img src="'+info.name+'" class="img-responsive cp" id="headerPic" value="'+info.id+'">');
             $("#HeaderImg").append(preview);        
         }
@@ -44,7 +45,182 @@ function sendFileToHeaderServer(formData,status)
     status.setAbort(jqXHR);
 }
 
+function sendFileToPageServer(formData,status)
+{
+      var uploadURL ="WICore/WIClass/PageImageUpload.php"; //Upload URL
+    var extraData ={}; //Extra Data.
+    var jqXHR=$.ajax({
+            xhr: function() {
+            var xhrobj = $.ajaxSettings.xhr();
+            if (xhrobj.upload) {
+                    xhrobj.upload.addEventListener('progress', function(event) {
+                        var percent = 0;
+                        var position = event.loaded || event.position;
+                        var total = event.total;
+                        if (event.lengthComputable) {
+                            percent = Math.ceil(position / total * 100);
+                        }
+                        //Set progress
+                        status.setProgress(percent);
+                    }, false);
+                }
+            return xhrobj;
+        },
+    url: uploadURL,
+    type: "POST",
+    contentType:false,
+    processData: false,
+        cache: false,
+        data: formData,
+        success: function(data){
+            info = JSON.parse(data);
+            console.log(info.name);
+            status.setProgress(100);
+            $("#dragandrophandler").remove();
+            $("img.cp").remove();
+            $("#modal-page-upload-details").removeClass("show").addClass("hide");
+            var preview = '<img src="'+info.name+'" class="img-responsive cp" style="width:140px;" id="pagePic" value="'+info.id+'">';
+            $("#newpic .mediaPic").before(preview);
+            $("#newpic").removeAttr("id");
 
+        }
+    }); 
+ 
+    status.setAbort(jqXHR);
+}
+
+
+function sendFileToMediaServer(formData,status)
+{
+      var uploadURL ="WICore/WIClass/MediaImageUpload.php"; //Upload URL
+    var extraData ={}; //Extra Data.
+    var jqXHR=$.ajax({
+            xhr: function() {
+            var xhrobj = $.ajaxSettings.xhr();
+            if (xhrobj.upload) {
+                    xhrobj.upload.addEventListener('progress', function(event) {
+                        var percent = 0;
+                        var position = event.loaded || event.position;
+                        var total = event.total;
+                        if (event.lengthComputable) {
+                            percent = Math.ceil(position / total * 100);
+                        }
+                        //Set progress
+                        status.setProgress(percent);
+                    }, false);
+                }
+            return xhrobj;
+        },
+    url: uploadURL,
+    type: "POST",
+    contentType:false,
+    processData: false,
+        cache: false,
+        data: formData,
+        success: function(data){
+            info = JSON.parse(data);
+            console.log(info.name);
+            status.setProgress(100);
+            $("#mediadragandrophandler").remove();
+            //$("img.cp").remove();
+            $("#modal-media-upload-details").removeClass("show").addClass("hide"); 
+            var preview = '<img src="'+info.name+'" class="img-responsive cp" style="width:140px;" id="pagePic" value="'+info.id+'">';
+            $("#mediaPic").append(preview);
+            $("#mediaPic").removeAttr("id");
+
+        }
+    }); 
+ 
+    status.setAbort(jqXHR);
+}
+
+function sendFileToLangServer(formData,status)
+{
+      var uploadURL ="WICore/WIClass/LangImageUpload.php"; //Upload URL
+    var extraData ={}; //Extra Data.
+    var jqXHR=$.ajax({
+            xhr: function() {
+            var xhrobj = $.ajaxSettings.xhr();
+            if (xhrobj.upload) {
+                    xhrobj.upload.addEventListener('progress', function(event) {
+                        var percent = 0;
+                        var position = event.loaded || event.position;
+                        var total = event.total;
+                        if (event.lengthComputable) {
+                            percent = Math.ceil(position / total * 100);
+                        }
+                        //Set progress
+                        status.setProgress(percent);
+                    }, false);
+                }
+            return xhrobj;
+        },
+    url: uploadURL,
+    type: "POST",
+    contentType:false,
+    processData: false,
+        cache: false,
+        data: formData,
+        success: function(data){
+            info = JSON.parse(data);
+            console.log(info.name);
+            status.setProgress(100);
+            $("#dragandrophandler").remove();
+            //$("img.cp").remove();
+            $("#modal-lang-add-upload-details").removeClass("show").addClass("hide"); 
+            var preview = '<img src="'+info.name+'" class="img-responsive cp" style="width:140px;" id="pagePic" value="'+info.id+'">';
+            $("#addimg").append(preview);
+
+        }
+    }); 
+ 
+    status.setAbort(jqXHR);
+}
+
+
+function sendFileToEditLangServer(formData,status)
+{
+      var uploadURL ="WICore/WIClass/LangImageUpload.php"; //Upload URL
+    var extraData ={}; //Extra Data.
+    var jqXHR=$.ajax({
+            xhr: function() {
+            var xhrobj = $.ajaxSettings.xhr();
+            if (xhrobj.upload) {
+                    xhrobj.upload.addEventListener('progress', function(event) {
+                        var percent = 0;
+                        var position = event.loaded || event.position;
+                        var total = event.total;
+                        if (event.lengthComputable) {
+                            percent = Math.ceil(position / total * 100);
+                        }
+                        //Set progress
+                        status.setProgress(percent);
+                    }, false);
+                }
+            return xhrobj;
+        },
+    url: uploadURL,
+    type: "POST",
+    contentType:false,
+    processData: false,
+        cache: false,
+        data: formData,
+        success: function(data){
+            info = JSON.parse(data);
+            console.log(info.name);
+            status.setProgress(100);
+            $("#editdragandrophandler").remove();
+            //$("img.cp").remove();
+            $("#modal-lang-upload-details").removeClass("show").addClass("hide"); 
+            $("#imglang").remove();
+            var preview = '<img src="'+info.name+'" class="img-responsive cp" style="width:140px;" id="editLangPic" value="'+info.id+'">';
+            $("#editimglang").append(preview);
+
+        }
+    }); 
+ 
+    status.setAbort(jqXHR);
+}
 function sendFileToFaviconServer(formData,status)
 {
       var uploadURL ="WICore/WIClass/FaviconImageUpload.php"; //Upload URL
@@ -161,6 +337,14 @@ function handleFileUpload(files,obj,dir)
              sendFileToBlogServer(fd,status);
         }else if(dir === "forum"){
             sendFileToForumServer(fd,status);
+        }else if(dir === "page"){
+            sendFileToPageServer(fd,status);
+        }else if(dir === "media"){
+            sendFileToMediaServer(fd,status);
+        }else if(dir === "lang"){
+            sendFileToLangServer(fd,status);
+        }else if(dir === "editlang"){
+            sendFileToEditLangServer(fd,status);
         }
  
    }

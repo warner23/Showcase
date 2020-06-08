@@ -4,8 +4,9 @@
 $(document).ready(function(event)
 {
                 
+    var page = $.cookie("page");
     var page_id = $.cookie("page_id");
-   WIEditpage.getInfo(page_id);
+   WIEditpage.getInfo(page);
 
   WIEditpage.NextMod();
  //executes code below when user click on pagination links
@@ -35,20 +36,19 @@ $(document).ready(function(event)
 
          });
 
-    WIEditpage.loadPage(page_id);
-    WIEditpage.loadOptions(page_id);
-
-
+    WIEditpage.loadPage(page);
+    WIEditpage.loadOptions(page);
 
 });
 
 
 var WIEditpage = {}
 
-WIEditpage.getInfo = function(page_id){
- $("#page-title").attr("placeholder", page_id)
- $("#page-title").attr("value", page_id)
-$("#page_selection").val(page_id).prop("selected", "selected");
+WIEditpage.getInfo = function(page){
+
+          $("#page-title").attr("placeholder", page)
+ $("#page-title").attr("value", page)
+$("#page_selection").val(page).prop("selected", "selected");
 
 }
 
@@ -73,18 +73,53 @@ WIEditpage.NextMod = function(){
     });
 }
 
+WIEditpage.assignMod = function(){
+            $("#modal-assign-details").removeClass('hide fade');
+            $("#modal-assign-details").addClass('show');
+}
 
-WIEditpage.loadPage = function(page_id){
+
+WIEditpage.assign = function(mod){
+
+        var page = $("#page-title").val();
+         $.ajax({
+        url: "WICore/WIClass/WIAjax.php",
+        type: "POST",
+        data: {
+            action : "assign",
+            mod   : mod,
+            page  : page
+        },
+        success: function(result)
+        {
+            console.log(result);
+            $("#mod-assigned").val(mod);
+            $("#modal-assign-details").removeClass('show');
+            $("#modal-assign-details").addClass('hide fade');
+            WIEditpage.loadPage(page);
+        }
+
+        });
+    
+}
+
+WIEditpage.closed = function(id){
+    $("#modal-"+id+"-details").removeClass("show")
+    $("#modal-"+id+"-details").addClass("hide fade")
+ }
+
+WIEditpage.loadPage = function(page){
 
      $.ajax({
         url: "WICore/WIClass/WIAjax.php",
         type: "POST",
         data: {
             action : "loadPage",
-            page   : page_id
+            page   : page
         },
         success: function(result)
         {
+            console.log(result);
             $("#pages").html(result);
 
         }
@@ -93,14 +128,15 @@ WIEditpage.loadPage = function(page_id){
     });
 }
 
-WIEditpage.loadOptions = function(page_id){
+
+WIEditpage.loadOptions = function(page){
 
      $.ajax({
         url: "WICore/WIClass/WIAjax.php",
         type: "POST",
         data: {
             action : "loadOptions",
-            page   : page_id
+            page   : page
         },
         success: function(result)
         {
@@ -120,6 +156,12 @@ WIEditpage.loadOptions = function(page_id){
                 }else{
                     $("#rsc").prop("unchecked");
                 }
+
+                if(res.content.length > 0){
+                    $("#mod-assigned").val(res.content);
+                }else{
+                    $("#mod-assigned").val("No Module Assigned");
+                }
                 
             }
 
@@ -129,14 +171,14 @@ WIEditpage.loadOptions = function(page_id){
     });
 }
 
-WIEditpage.changePage = function(page_id){
+WIEditpage.changePage = function(page){
 
      $.ajax({
         url: "WICore/WIClass/WIAjax.php",
         type: "POST",
         data: {
             action : "changePage",
-            page   : page_id
+            page   : page
         },
         success: function(result)
         {
@@ -148,14 +190,14 @@ WIEditpage.changePage = function(page_id){
     });
 }
 
-WIEditpage.togglelsc = function(page_id){
+WIEditpage.togglelsc = function(page){
 
          $.ajax({
         url: "WICore/WIClass/WIAjax.php",
         type: "POST",
         data: {
             action : "togglelsc_change",
-            page   : page_id,
+            page   : page,
             col    : "left_sidebar"
         },
         success: function(result)
@@ -176,14 +218,14 @@ WIEditpage.togglelsc = function(page_id){
 } );
 }
 
-WIEditpage.lsc = function(page_id){
+WIEditpage.lsc = function(page){
 
          $.ajax({
         url: "WICore/WIClass/WIAjax.php",
         type: "POST",
         data: {
             action : "lsc_change",
-            page   : page_id,
+            page   : page,
             col    : "left"
         },
         success: function(result)
@@ -195,21 +237,19 @@ WIEditpage.lsc = function(page_id){
                 }else{
                     $("#lsc").attr("checked");
                 }
-        }
-       
-        
+        }   
     }
 } );
 }
 
-WIEditpage.rsc = function(page_id){
+WIEditpage.rsc = function(page){
 
          $.ajax({
         url: "WICore/WIClass/WIAjax.php",
         type: "POST",
         data: {
             action : "rsc_change",
-            page   : page_id,
+            page   : page,
             col    : "right"
         },
         success: function(result)
@@ -230,13 +270,13 @@ WIEditpage.rsc = function(page_id){
 
 WIEditpage.changeLHC = function(){
 
-var page_id = $("#page-title").val();
+var page = $("#page-title").val();
          $.ajax({
         url: "WICore/WIClass/WIAjax.php",
         type: "POST",
         data: {
             action : "lsc_changed",
-            page   : page_id,
+            page   : page,
             col    : "left"
         },
         success: function(result)
@@ -268,13 +308,8 @@ var page_id = $("#page-title").val();
                     $("#block").before(Div);
                     $("#sidenavL").load("WIInc/edit/WIInc/left_sidebar.php");
 
-
-
-
                 }
         }
-       
-        
     }
 } );
 }
@@ -282,13 +317,13 @@ var page_id = $("#page-title").val();
 
 WIEditpage.changeRHC = function(){
 
-var page_id = $("#page-title").val();
+var page = $("#page-title").val();
          $.ajax({
         url: "WICore/WIClass/WIAjax.php",
         type: "POST",
         data: {
             action : "rsc_changed",
-            page   : page_id,
+            page   : page,
             col    : "right"
         },
         success: function(result)
@@ -317,18 +352,8 @@ var page_id = $("#page-title").val();
                     '</div>';
                     $("#col").append(Div);
                     $("#sidenavR").load("WIInc/edit/WIInc/right_sidebar.php");
-
-
-
-
                 }
         }
-       
-        
     }
 } );
-}
-
-WIEditpage.edit = function(){
-    
 }

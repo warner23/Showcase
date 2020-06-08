@@ -11,6 +11,18 @@
                 <section class="content">
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
+
+                        <div class="box-header">
+                                    <!-- tools box -->
+                                    <div class="pull-right box-tools">
+                                        <button class="btn btn-danger btn-sm refresh-btn" data-toggle="tooltip" title="Reload"><i class="fa fa-refresh"></i></button>
+                                        <button class="btn btn-danger btn-sm" data-widget='collapse' data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                                        <button class="btn btn-danger btn-sm" data-widget='remove' data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+                                    </div><!-- /. tools -->
+                                    <i class="fa fa-cloud"></i>
+
+                                    <h3 class="box-title">Site Info</h3>
+                                </div><!-- /.box-header -->
                         <div id="small-box">
                        
                     </div>
@@ -46,8 +58,7 @@
                                         <div class="col-sm-7">
                                             <!-- bar chart -->
                                             <div class="chart" id="bar-chart" style="height: 250px;">
-                                              
-                                            </div>
+                                     </div>
                                         </div>
                                         <div class="col-sm-5">
                                             <div class="pad">
@@ -109,7 +120,12 @@
                                 </div><!-- /.box-footer -->
                             </div><!-- /.box -->        
                             
-                            <!-- Custom tabs (Charts with tabs)-->
+                            <?php
+
+                             $check = dirname(dirname(dirname(dirname(dirname(dirname(dirname(__FILE__))))))) . '/WIShop/';
+
+                            if(file_exists($check)){
+                            echo ' <!-- Custom tabs (Charts with tabs)-->
                             <div class="nav-tabs-custom">
                                 <!-- Tabs within a box -->
                                 <ul class="nav nav-tabs pull-right">
@@ -122,7 +138,10 @@
                                     <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
                                     <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
                                 </div>
-                            </div><!-- /.nav-tabs-custom -->
+                            </div><!-- /.nav-tabs-custom -->';
+                            }
+                            ?>
+                           
                                                 
                             <!-- Calendar -->
                             <div class="box box-warning">
@@ -139,7 +158,7 @@
                                                 <li><a href="#">Add new event</a></li>
                                                 <li><a href="#">Clear events</a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="#">View calendar</a></li>
+                                                <li><a href="javascript:void(0);" onclick="WIDashboard.calendar();">View calendar</a></li>
                                             </ul>
                                         </div>
                                     </div><!-- /. tools -->                                    
@@ -197,6 +216,48 @@
                                     </h3>
                                 </div>
                                 <div class="box-body no-padding">
+                                        
+                                     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                    <script type="text/javascript">
+                                      google.charts.load('current', {
+                                        'packages':['geochart'],
+                                        // Note: you will need to get a mapsApiKey for your project.
+                                        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+                                        
+                                        'mapsApiKey': '<?php  echo google_charts_api_key; ?>'
+                                      });
+                                      google.charts.setOnLoadCallback(load_map_data);
+
+
+                                      function load_map_data(){
+                                        $.ajax({
+                                              url: "WICore/WIClass/WIAjax.php",
+                                              dataType: "json",
+                                              type : "GET",
+                                              async: false,
+                                              data : {
+                                                action : "mapData"
+                                              },
+                                              success : function(map_values){
+                                                console.log(map_values);
+                                                drawRegionsMap(map_values);
+                                              }
+                                              });
+                                      }
+
+
+                                      function drawRegionsMap(map_values) {
+                                       
+                                        //var data = new google.visualization.DataTable(map_values);
+                                        var data = google.visualization.arrayToDataTable(map_values);
+
+                                        var options = {};
+
+                                        var chart = new google.visualization.GeoChart(document.getElementById('world-map'));
+
+                                        chart.draw(data, options);
+                                      }
+    </script>
                                     <div id="world-map" style="height: 300px;"></div>
                                     <div class="table-responsive">
                                         <!-- .table - Uses sparkline charts-->

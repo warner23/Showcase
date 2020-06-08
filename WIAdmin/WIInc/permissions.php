@@ -32,4 +32,5 @@
                      </section>
 <script type="text/javascript" src="WICore/WIJ/WICore.js"></script>
 
+    <script type="text/javascript" src="WICore/WIJ/WIPermissions.js"></script>
    

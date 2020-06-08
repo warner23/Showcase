@@ -9,6 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="WIInc/css/mod.css">
 	<link rel="stylesheet" type="text/css" href="WIInc/css/wipagebuilder.css">
 
+	<link rel="stylesheet" type="text/css" href="WIInc/css/switcher.css">
+
 	<script src="WIInc/js/jquery.js"></script>
 	<script type="text/javascript" src="WIInc/js/bootstrap.min.js"></script>
 	
@@ -24,6 +26,8 @@
 <script type="text/javascript">
             var $_lang = <?php echo WILang::all(); ?>;
         </script> 
+
+
 </head>
 <body>
 

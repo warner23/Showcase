@@ -93,7 +93,6 @@ define('SMTP_ENCRYPTION', $smpt_encryption);
 
 define('SOCIAL_CALLBACK_URI', $social); 
 
-
 // GOOGLE
 
 define('GOOGLE_ENABLED', $google); 
@@ -104,7 +103,7 @@ define('GOOGLE_SECRET', $google_secret);
 
 define('GOOGLE_MAP_API', $google_map_api); 
 
-
+define('GOOGLE_CHARTS_API_KEY', $google_charts_api_key); 
 // FACEBOOK
 
 define('FACEBOOK_ENABLED', $fb); 
@@ -133,3 +132,4 @@ define('DEFAULT_LANGUAGE', $default_lang);
 // VERSION 
 define('WICMS_VERSION', $version);
 
+define("INCLUDE_CHECK", true);

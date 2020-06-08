@@ -16,18 +16,21 @@ class WIDashboard
 
     public function Info_Boxes()
     {
-        $sql = "SELECT * FROM `wi_admin_info_box`";
+/*        $sql = "SELECT * FROM `wi_admin_info_box`";
 
         $query = $this->WIdb->prepare($sql);
         $query->execute();
 
-        $result = $query->fetchAll();
+        $result = $query->fetchAll();*/
+
+        $result = $this->WIdb->select("SELECT * FROM `wi_admin_info_box`");
+
         //print_r($result);
         //echo $result;
         foreach ($result as $box) {
             echo ' <div class="col-lg-3 col-xs-6">
                             <!-- small box -->
-                            <div class="small-box bg-aqua">
+                            <div class="small-box styleswitcher">
                                 <div class="inner">
                                     <h3 id="' .$box['info'] . '">
                                         
@@ -159,11 +162,22 @@ class WIDashboard
 
     public function completetodo($id)
     {
-    	$sql = "UPDATE  `wi_admin_todo_list` SET  `completed` =  'y' WHERE  `wi_admin_todo_list`.`id` =id";
+/*    	$sql = "UPDATE  `wi_admin_todo_list` SET  `completed` =  'y' WHERE  `wi_admin_todo_list`.`id` =id";
 
     	$query = $this->WIdb->prepare($sql);
     	$query->bindParam(':id', $id, PDO::PARAM_INT);
-    	$query->execute();
+    	$query->execute();*/
+
+        $completed = "y";
+
+        $this->WIdb->update(
+                    'wi_admin_todo_list',
+                     array(
+                         "completed" => $completed
+                     ),
+                     "`id` = :id",
+                     array("id" => $id)
+                );
     }
 
     public function addToDoListItem($todoItem)
@@ -179,25 +193,32 @@ class WIDashboard
      {
 
         //echo "user" . $userId;
-                $query = $this->WIdb->prepare('SELECT * FROM `wi_members` WHERE `user_id` =:value ');
+/*                $query = $this->WIdb->prepare('SELECT * FROM `wi_members` WHERE `user_id` =:value');
         $query->bindParam(':value', $userId, PDO::PARAM_INT);
-        $query->execute();
-        while ($result = $query->fetchAll(PDO::FETCH_ASSOC) ) {
+        $query->execute();*/
+
+            $result = $this->WIdb->select("SELECT * FROM `wi_members` WHERE `user_id` =:user_id", 
+            array(
+            "user_id" => $user_id
+            )
+        );
             //print_r($result);
             return $result[0]['username'];
-       }
+       
     }
 
 
     public function Notifications()
     {
-        $sql = "SELECT * FROM wi_notifications ORDER BY id DESC LIMIT 10";
+/*        $sql = "SELECT * FROM wi_notifications ORDER BY id DESC LIMIT 10";
 
         $query = $this->WIdb->prepare($sql);
-        $query->execute();
+        $query->execute();*/
+
+        $result = $this->WIdb->select("SELECT * FROM wi_notifications ORDER BY id DESC LIMIT 10");
+
         echo '<ul id="nots">';
-        while ($res = $query->fetchAll(PDO::FETCH_ASSOC)) {
-            foreach ($res as $key => $value) {
+            foreach ($result as $key => $value) {
                $username = WIDashboard::NotificationUsername($value['user']);
                 echo '<li> <a href="#">
                       <i class="fa fa-users text-aqua"></i> ' . $value['opperation'] . '
@@ -205,7 +226,7 @@ class WIDashboard
                   </li>';
 
 
-            }
+            
             
         }
 
@@ -286,27 +307,56 @@ class WIDashboard
 
     public function VisitorCount($country)
     {
-
-     $sql = "SELECT * FROM `wi_visitors_log` WHERE `country`=:country";
+        //echo $country;
+/*     $sql = "SELECT * FROM `wi_visitors_log` WHERE `country`=:country";
      $query = $this->WIdb->prepare($sql);
      $query->bindParam(':country', $country, PDO::PARAM_STR);
      $query->execute();
 
-     $result = $query->fetchAll(PDO::FETCH_ASSOC);
+     $result = $query->fetchAll(PDO::FETCH_ASSOC);*/
 
-        //print_r($result);
-        echo count($result);
+     $result = $this->WIdb->select("SELECT * FROM `wi_visitors_log` WHERE `country`=:country", 
+            array(
+            "country" => $country
+            )
+        );
+
+     if( count($result) >0)
+        {
+            echo count($result);
+        }else{
+            echo "0";
+        }
+
+       
+    }
+
+        public function MapCount($country)
+    {
+        //echo $country;
+     $result = $this->WIdb->select("SELECT * FROM `wi_visitors_log` WHERE `country`=:country", array(
+                       "country" => $country
+                     ));
+     if( count($result) >0)
+        {
+            return count($result);
+        }else{
+            return "0";
+        }
+
+       
     }
 
     public function Visitors_ip()
     {
-         $sql = "SELECT * FROM `wi_visitors_log` ORDER BY ip";
+/*         $sql = "SELECT * FROM `wi_visitors_log` ORDER BY ip";
         $query = $this->WIdb->prepare($sql);
         $query->execute();
         
-        $res = $query->fetchAll(PDO::FETCH_ASSOC);
+        $res = $query->fetchAll(PDO::FETCH_ASSOC);*/
 
-          foreach ($res as $key) {
+        $result = $this->WIdb->select("SELECT * FROM `wi_visitors_log` ORDER BY ip");
+          foreach ($result as $key) {
             //print_r($key);
 
             $Ip = $key['ip'];
@@ -316,20 +366,22 @@ class WIDashboard
         
     }
 
+
+
+
     public function Visitors()
     {
         //$ip = $this->Visitors_ip();
-        $sql = "SELECT * FROM `wi_track` group by country";
+/*        $sql = "SELECT * FROM `wi_track` group by country";
         
         $query = $this->WIdb->prepare($sql);
         //$query->bindParam(':ip', $ip, PDO::PARAM_STR);
-        $query->execute();
+        $query->execute();*/
 
-
-        while($res = $query->fetchAll(PDO::FETCH_ASSOC)){
+        $result = $this->WIdb->select("SELECT * FROM `wi_track` group by country");
             //print_r($res);
            // $country = $res['country'];
-            foreach ($res as $key) {
+            foreach ($result as $key) {
             //print_r($key);
             //$Ip = $key['ip'];
                 echo ' <tr>
@@ -338,16 +390,130 @@ class WIDashboard
             <td>0</td>
             <td></td>
             </tr>';        
-        }  
+         
         }
+
+    }
         //print_r($res);
 
+        public function BounceRate()
+        {
+            //bounce rate
+            //Bounce Rate = (Visits With Only 1 Pageview) / (Total Visits)
+            $result = $this->WIdb->select("SELECT * FROM `wi_visitors_log`");
+            $counter = "0";
+            foreach ($result as $res ) {
+                //var_dump($res);
+                $ip = $res["ip"];
+                $page = $res["page"];
+
+
+            }
+            
+            $total_view = count($result);
+            $bouce = $counter / $total_view;
+
+            if(count($bouce) > 1){
+                return $bouce;
+            }else{
+                return "0";
+            }
+            
+
+        }
+
+        public function UniqueVisit()
+        {
+            $result = $this->WIdb->select("SELECT * FROM `wi_track`");
+            $viewers = count($result);
+
+            
+
+            if(count($viewers) > 1){
+                return $viewers;
+            }else{
+                return "0";
+            }
+        }
+
+
+        public function Map_visitors()
+    {
+         $result = $this->WIdb->select("SELECT * FROM `wi_track` group by country");
+
         
-        
+         $values = array();
+         $values[] = array('Country', 'Popularity',);
+
+            foreach ($result as $key) {
+                 $values[]=array($key["country"] ,  $this->MapCount($key["country"])  );
+            }
+        echo json_encode($values);
 
     }
 
 
+    public function get_server_load()
+{
+
+    $serverload = array();
+
+    // DIRECTORY_SEPARATOR checks if running windows
+    if(DIRECTORY_SEPARATOR != '\\')
+    {
+        if(function_exists("sys_getloadavg"))
+        {
+            // sys_getloadavg() will return an array with [0] being load within the last minute.
+            $serverload = sys_getloadavg();
+            $serverload[0] = round($serverload[0], 4);
+        }
+        else if(@file_exists("/proc/loadavg") && $load = @file_get_contents("/proc/loadavg"))
+        {
+            $serverload = explode(" ", $load);
+            $serverload[0] = round($serverload[0], 4);
+        }
+        if(!is_numeric($serverload[0]))
+        {
+            if(@ini_get('safe_mode') == 'On')
+            {
+                return "Unknown";
+            }
+
+            // Suhosin likes to throw a warning if exec is disabled then die - weird
+            if($func_blacklist = @ini_get('suhosin.executor.func.blacklist'))
+            {
+                if(strpos(",".$func_blacklist.",", 'exec') !== false)
+                {
+                    return "Unknown";
+                }
+            }
+            // PHP disabled functions?
+            if($func_blacklist = @ini_get('disable_functions'))
+            {
+                if(strpos(",".$func_blacklist.",", 'exec') !== false)
+                {
+                    return "Unknown";
+                }
+            }
+
+            $load = @exec("uptime");
+            $load = explode("load average: ", $load);
+            $serverload = explode(",", $load[1]);
+            if(!is_array($serverload))
+            {
+                return "Unknown";
+            }
+        }
+    }
+    else
+    {
+        return "Unknown";
+    }
+
+    $returnload = trim($serverload[0]);
+
+    return $returnload;
+}
 
 
 
