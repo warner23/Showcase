@@ -178,6 +178,18 @@ class WIAdmin
         return $this->userId;
     }
 
+        public function getUsername($user_id)
+    {
+        $result = $this->WIdb->select("SELECT * FROM `wi_members` WHERE `user_id`=:id",
+                    array(
+                        "id"  => $user_id
+                    )
+                );
+
+            $username = $result[0]['username'];
+            return $username;
+    }
+
     /**
      * Check if user is admin.
      * @return boolean TRUE if user is admin, FALSE otherwise.

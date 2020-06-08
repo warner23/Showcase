@@ -849,6 +849,24 @@ switch ($action) {
         break;
     // end of blog section and settings
 
+        // forum
+        case "new_category":
+        onlyAdmin();
+        $forum = new WIForum();
+        $forum->New_Category($_POST['Cat']);
+        break;
+
+        case "new_section":
+        onlyAdmin();
+        $forum = new WIForum();
+        $forum->New_Section($_POST['Section']);
+        break;
+
+       case "delete_category":
+        onlyAdmin();
+        $forum = new WIForum();
+        $forum->DeleteCategory($_POST['id']);
+        break;
 
          //END END END DO NOT REMOVE
         default:

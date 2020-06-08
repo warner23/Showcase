@@ -13,14 +13,97 @@
 	public function __construct()
 	{
 		$this->WIdb = WIdb::getInstance();
-		$this->login = new WILogin();
-        $this->Info = new WIUserInfo();
-        $this->user   = new WIUser(WISession::get('user_id'));
+        $this->admin   = new WIAdmin(WISession::get('user_id'));
+	}
+
+
+	public function forum()
+	{
+		$categories = $this->WIdb->select("SELECT * FROM `wi_forum_categories`");
+		$sections = $this->WIdb->select("SELECT * FROM `wi_forum_sections`");
+		$posts = $this->WIdb->select("SELECT * FROM `wi_forum_posts`");
+
+		echo '  <script>
+			  $( function() {
+
+			    var index = "key";
+			    //  Define friendly data store name
+			    var dataStore = window.sessionStorage;
+			    //  Start magic!
+			    try {
+			        // getter: Fetch previous value
+			        var oldIndex = dataStore.getItem(index);
+			    } catch(e) {
+			        // getter: Always default to first tab in error state
+			        var oldIndex = 0;
+			    }
+
+			    
+			    $( "#tabs" ).tabs({
+			        // The zero-based index of the panel that is active (open)
+			        active : oldIndex,
+			        // Triggered after a tab has been activated
+			        activate : function( event, ui ){
+			            //  Get future value
+			            var newIndex = ui.newTab.parent().children().index(ui.newTab);
+			            //  Set future value
+			            dataStore.setItem( index, newIndex ) 
+			        }
+			    }).addClass( "ui-tabs-vertical ui-helper-clearfix" ); 
+			    $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+
+				    });
+				  </script>
+				  <div id="tabs">
+				  <ul>';
+
+				  foreach ($categories as $res) {
+				  	echo '<li>
+				  	<a href="#tabs-'. $res['id'] .'">' . $res['title'] .'</a>
+				  	<div class="col-sm-1 col-md-1 col-lg-1 col-xs-2">
+				<a href="javascript:void(0)" onclick="WIForum.ShowEditCategory(`' . $res['id'].'`)">
+				<i class="fa fa-edit"></i>
+				</a>
+				</div>
+                <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
+                <a href="javascript:void(0)" class="glyphicon glyphicon-trash" onclick="WIForum.DeleteCategoryModel(`' . $res['id'].'`)">
+                </a>
+				</div>
+				  	</li>';
+				  }
+
+			  echo '</ul>
+			  <ul class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">';
+
+				  foreach ($sections as $res) {
+				  	echo '<li>
+				  	<a href="#tabs-'. $res['id'] .'">' . $res['title'] .'</a>
+				  	<div class="col-sm-1 col-md-1 col-lg-1 col-xs-2">
+				<a href="javascript:void(0)" onclick="WIForum.ShowEditCategory(`' . $res['id'].'`)">
+				<i class="fa fa-edit"></i>
+				</a>
+				</div>
+                <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
+                <a href="javascript:void(0)" class="glyphicon glyphicon-trash" onclick="WIForum.DeleteCategoryModel(`' . $res['id'].'`)">
+                </a>
+				</div>
+				  	</li>';
+				  }
+
+			  echo '</ul>';
+
+			  foreach ($posts as $res) {
+				  	echo '<div id="tabs-'. $res['category_id'] .'">
+				  		  <div>'. $res['title'] .'</div>
+			              </div>';
+				  }
+
+			  echo '</div>';
 	}
 
     public function WICategories()
     {
-	  $result = $this->WIdb->select("SELECT * FROM `wi_forum_categories` ORDER BY ordered ASC LIMIT 10");
+	  $result = $this->WIdb->select("SELECT * FROM `wi_forum_categories`");
 	  foreach ($result as $res ) {
 	  	echo  '<div class="col-cats">
 				<div class="col-category">
@@ -42,9 +125,55 @@
 				<a href="section.php?id=' . $res['id'] . '">
 				<p class="text">' . $res['title'] . '</p>
 				</a>
-				</div><!-- end of col-category-->
-				</div><!-- end of col-cats-->';
+				</div>
+				<div class="col-sm-1 col-md-1 col-lg-1 col-xs-2">
+				<a href="#" onclick="WIForum.showCategoryModal(' . $res['id'].')">
+				<i class="fa fa-edit"></i>
+				</a>
+				</div>
+                <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
+                <a href="#" class="glyphicon glyphicon-trash" onclick="WIForum.DeletecategoryModal(' . $res['id'].')">
+                </a>
+				</div></div>';
 	  }
+	}
+
+	public function new_category($title)
+	{
+		$cat = $title['CatData'];
+		$username= $this->admin->id();
+		$this->WIdb->insert('wi_forum_categories', array(
+            "title"     => strip_tags($cat['new_cat']),
+            "user_created"  => $username
+        )); 
+
+        $result = array(
+        	"status" => "completed",
+        	"msg"    => "successfully added new category named " . strip_tags($cat['new_cat'])
+        );
+
+        echo json_encode($result);
+
+	}
+
+
+		public function new_section($title)
+	{
+		$section = $title['SectionData'];
+		$username= $this->admin->id();
+		$this->WIdb->insert('wi_forum_sections', array(
+            "title"     => strip_tags($section['new_section']),
+            "category_id"    => $section['cat'],
+            "user_created"  => $username
+        )); 
+
+        $result = array(
+        	"status" => "completed",
+        	"msg"    => "successfully added new category named " . strip_tags($cat['new_cat'])
+        );
+
+        echo json_encode($result);
+
 	}
 
 	public function WISection($id)
@@ -62,8 +191,6 @@
 		<div class="col-topic-author">'. $res['user_created'] .'
 		</a>
 		</div>';
-		 	 
-
 		}
 	}
 
@@ -113,7 +240,7 @@
 
 	}
 
-	public function forum_Menu()
+	public function ForumMenu()
 	{
 		
 			if(!$this->login->isLoggedIn()) // guest
@@ -155,6 +282,28 @@
 			 </nav>';
 
 		};
+	}
+
+	public function category_selector()
+	{
+		$result = $this->WIdb->select("SELECT * FROM `wi_forum_categories`");
+
+		foreach ($result as $res) {
+			echo '<option value="' . $res['id']. '">' . $res['title'] . '</option>';
+		}
+	}
+
+
+	public function DeleteCategory($id)
+	{
+		$this->WIdb->delete("wi_forum_categories", "id = :id", array( "id" => $id ));
+
+	 $result = array(
+        	"status" => "completed",
+        	"msg"    => "successfully deleted this category"
+        );
+
+        echo json_encode($result);
 	}
 
 

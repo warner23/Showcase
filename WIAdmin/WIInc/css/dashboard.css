@@ -2390,6 +2390,14 @@ body > .header .logo .icon {
   z-index: 1020;
   background: transparent url('../img/ajax-loader1.gif') 50% 50% no-repeat;
 }
+
+
+
+.modal-body {
+    position: relative;
+    padding: 15px;
+    margin-top: 23px;
+}
 /*
 Component: timeline
 --------------------

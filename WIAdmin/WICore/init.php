@@ -32,7 +32,8 @@ $pagination     = new WIPagination();
 $perm           = new WIPermissions();
 $editor         = new WIEditor();
 $modal          = new WIModal();
-$blog          = new WIBlog();
+$blog           = new WIBlog();
 $forum          = new WIForum();
+
 
 ?>

@@ -15,7 +15,7 @@ include_once 'WICalendar.php';
 include_once 'WIEditor.php';
 include_once 'WIBlog.php';
 
-
+include_once 'WIForum.php';
 /*
 spl_autoload_register(function($class)
 {
@@ -36,5 +36,6 @@ $img          = new WIImage();
 $plug         = new WIPlugin();
 $mod          = new WIModules();
 $editor       = new WIEditor();
-$blog       = new WIBlog();
+$blog         = new WIBlog();
+$forum        = new WIForum();
 ?>

@@ -19,9 +19,10 @@ spl_autoload_register(function($class)
 $user         = new WIUser(WISession::get("user_id"));
 $userInfo     = $user->getInfo();
 $userDetails  = $user->getDetails();
-$web   = new WIWebsite();
-$mod  = new WIModules();
-$maint  = new WIMaintenace();
+$web          = new WIWebsite();
+$mod          = new WIModules();
+$maint        = new WIMaintenace();
+$modal        = new WIModal();
 
 
 

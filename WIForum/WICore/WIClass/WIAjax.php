@@ -135,6 +135,8 @@ switch ($action) {
         $calendar->getEvents($_POST['date']) ;
         break;
 
+        // forum section
+
         case "topicInfo":
         $forum = new WIForum();
         $forum->WISection($_POST['id']) ;
@@ -159,6 +161,33 @@ switch ($action) {
         $forum = new WIForum();
         $forum->add_new_post($_POST['post'],$_POST['topic_id'], $_POST['cat_id'], $_POST['title']) ;
         break;
+
+        //admin side forum settings
+                // forum
+        case "new_category":
+        onlyAdmin();
+        $forum = new WIForum();
+        $forum->New_Category($_POST['Cat']);
+        break;
+
+        case "new_section":
+        onlyAdmin();
+        $forum = new WIForum();
+        $forum->New_Section($_POST['Section']);
+        break;
+
+       case "delete_category":
+        onlyAdmin();
+        $forum = new WIForum();
+        $forum->DeleteCategory($_POST['id']);
+        break;
+
+        case "scf":
+        onlyAdmin();
+        $forum = new WIForum();
+        $forum->SCF($_POST['id']);
+        break;
+
 
             default:
         

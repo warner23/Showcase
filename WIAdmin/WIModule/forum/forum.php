@@ -15,6 +15,7 @@ class forum
 		$this->mod  = new WIModules();
 		$this->page = new WIPage();
 		$this->WIForum = new WIForum();
+		$this->modal   = new WIModal();
 	}
 
 		public function editMod()
@@ -230,30 +231,54 @@ echo '<div class="container-fluid text-center">
 
 		}
 
-echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-						
+			echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+			  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+			  <link rel="stylesheet" href="/resources/demos/style.css">
+			  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+			  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+						<style>
+					.center{
+					 text-align: -webkit-center;
+					}
+
+					.col-forum-main{
+						margin-top: 30px;
+					}
+
+
+					   .ui-tabs-vertical { width: 55em; }
+					  .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+					  .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+					  .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+					  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
+					  .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
+
+
+						</style>
+						<div class="col-lg-12 col-xs-12 col-xl-12 col-md-12">';
+						          echo $this->WIForum->ForumMenu();
+						echo '</div>
 						<div class="col-forum-main">
-<div class="col-menu">';
-          echo $this->WIForum->forumMenu();
-echo '</div>
-<div class="col-info"></div><!-- end of col-info-->
-<div class="col-cat-box">
-<div class="col-labels">
-<div class="col-100">Categories</div><!-- end col1-->
-
-</div><!-- end of col-labels-->';
-
-  echo $this->WIForum->WICategories();
-
-
-
-echo '</div><!-- end of col-cats-->
-</div><!-- end col-cat-box-->
-</div><!-- end  col-forum-main-->
-
+						
+						<div class="modal-body">
+                          <div class="well">';
+						  echo $this->WIForum->forum();
+						echo '</div>
 					</div>
 					</div>
-					<script type="text/javascript" src="WICore/WIJ/forum.js"></script>';
+					</div>
+					</div>
+					<script type="text/javascript" src="WICore/WIJ/WIForum.js"></script>';
+	$this->modal->moduleModal('new-cat', 'Add new categor', 'WIForum', 'ForumCategory','create category'); 
+
+    $this->modal->moduleModal('new-section', 'Add new section', 'WIForum', 'ForumSection','create section'); 
+
+    $this->modal->moduleModal('edit-cat', 'Edit category', 'WIForum', 'ForumEditCategory','edit category'); 
+
+    $this->modal->moduleModal('edit-section', 'Edit Section', 'WIForum', 'ForumEditSection','edit section'); 
+
+    $this->modal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory','delete category'); 
+		
 
 		
 		//echo $Panel;

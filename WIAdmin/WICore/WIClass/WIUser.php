@@ -276,6 +276,18 @@ class WIUser
                );
     }
 
+    public function getUsername($user_id)
+    {
+        $result = $this->WIdb->select("SELECT * FROM `wi_members` WHERE `user_id`=:id",
+                    array(
+                        "id"  => $user_id
+                    )
+                );
+
+            $username = $result[0]['username'];
+            return $username;
+    }
+
     
     /**
      * Get user details (First Name, Last Name, Address and Phone)
