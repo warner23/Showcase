@@ -118,7 +118,7 @@ WIForum.DeleteCategory = function(){
 }
 
 WIForum.SCF = function(id){
-    
+    $("#category-"+id).addClass('ui-state-active');
     console.log(id);
         $.ajax({
             type: 'POST',
@@ -136,7 +136,7 @@ WIForum.SCF = function(id){
 }
 
 WIForum.CSF = function(id){
-    
+    $("#section-"+id).addClass('ui-state-active');
     console.log(id);
         $.ajax({
             type: 'POST',
@@ -153,8 +153,21 @@ WIForum.CSF = function(id){
     });
 }
 
-WIForum.CreatePost = function(){
-    
+WIForum.CreatePost = function(cat_id, section_id){
+    console.log(cat_id);
+    $.ajax({
+            type: 'POST',
+            url: 'WICore/WIClass/WIAjax.php',
+            data: {
+              action   : "createpost",
+              cat_id : cat_id,
+              section_id : section_id          
+            },
+            success: function (result) {
+            $(result).insertAfter('ul#postviewer>li:last');
+            }
+    });
+      
 }
 
 

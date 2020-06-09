@@ -20,6 +20,7 @@ include_once 'WISite.php';
 include_once 'WIMaintenace.php';
 include_once 'WIUserInfo.php';
 include_once 'WIForum.php';
+include_once 'WIWYSIWYG.php';
 
 
 
@@ -39,7 +40,7 @@ $validator = new WIValidator();
 $maint = new WIMaintenace();
 $Info  = new WIUserInfo();
 $forum   = new WIForum();
-
+$wysiwyg      = new WIWYSIWYG();
 
 if ( isset ( $_GET['lang'] ) )
 	WILang::setLanguage($_GET['lang']);

@@ -15,6 +15,7 @@
 		$this->WIdb = WIdb::getInstance();
 		$this->login = new WILogin();
         $this->user   = new WIUser(WISession::get('user_id'));
+        $this->wysiwyg  = new WIWYSIWYG();
 	}
 
     public function forum()
@@ -114,16 +115,16 @@
 				  foreach ($categories as $res) {
 
 				  	if($count == "0"){
-				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left active" role="tab">
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" role="tab" id="category-'. $res['id'] .'">
 				  	<a href="javascript:void(0)" onclick="WIForum.SCF('. $res['id'] .')" class="font-align">' . $res['title'] .'</a>
 				  	</li>';
 				  	}else{
-				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" role="tab">
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" role="tab" id="category-'. $res['id'] .'">
 				  	<a href="javascript:void(0)" onclick="WIForum.SCF('. $res['id'] .')" class="font-align">' . $res['title'] .'</a>
 				  	</li>';
 				  	}
 				  	if ($count == $len) {
-				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" role="tab">
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" role="tab" id="category-'. $res['id'] .'">
 				  	<a href="javascript:void(0)" onclick="WIForum.SCF('. $res['id'] .')" class="font-align">' . $res['title'] .'</a>
 				  	</li>';
 				  	}
@@ -137,18 +138,18 @@
 				   $len1 = count($sections);
 				  foreach ($sections as $res) {
 				  	if($count1 == "0"){
-				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left active" aria-controls="ui-id-'. $res['id'] .'" role="tab">
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left active" aria-controls="ui-id-'. $res['id'] .'" role="tab" id="'. $res['id'] .'">
 				  	<a href="javascript:void(0)" onclick="WIForum.CSF('. $res['id'] .')" class="font-align">' . $res['title'] .'</a>
 				  	</li>';
 				  	}else{
-				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" aria-controls="ui-id-'. $res['id'] .'" role="tab">
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" aria-controls="ui-id-'. $res['id'] .'" role="tab" id="'. $res['id'] .'">
 				  	<a href="javascript:void(0)" onclick="WIForum.CSF('. $res['id'] .')" class="font-align">' . $res['title'] .'</a>
 				  	</li>';
 				  	}
 				  	
 
 				  	if ($count1 == $len1) {
-				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" aria-controls="ui-id-'. $res['id'] .'" role="tab">
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" aria-controls="ui-id-'. $res['id'] .'" role="tab" id="'. $res['id'] .'">
 				  	<a href="javascript:void(0)" onclick="WIForum.CSF('. $res['id'] .')" class="font-align">' . $res['title'] .'</a>
 				  	</li>';
 				  	}
@@ -156,7 +157,7 @@
 				  }
 			  echo '</ul>';
 
-			  echo '<ul id="postviewer"class="ui-tabs-panel ui-corner-bottom ui-widget-content active"  aria-hidden="true" role="tabpanel">
+			  echo '<ul id="postviewer"class="ui-tabs-panel ui-corner-bottom ui-widget-content"  aria-hidden="true" role="tabpanel">
 				  		  <div id="forum_post_title"></div>
 				  		  <div id="forum_post"></div>
 			              </ul>';
@@ -359,7 +360,7 @@
 					);
 
 		foreach ($result as $res) {
-			echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
+			echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" id="section-'. $res['id'] .'">
 				  	<a href="javascript:void(0)" onclick="WIForum.CSF('. $res['id'] .')" class="font-align">' . $res['title'] .'</a>
 				  	</li>';
 		}
@@ -380,23 +381,27 @@
 			if($count == "0" || $count == $len){
 				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
 			<div class-"col-lg-12 col-xs-11 col-md-12">
-					<input type="hidden" id="'. $res['id'] .'">
+					<input type="hidden" id="post_id" value="'. $res['id'] .'">
+					<input type="hidden" id="section_id" value="'. $res['section_id'] .'">
+					<input type="hidden" id="cat_id" value="'. $res['category_id'] .'">
 				  	<div id="forum_post_title">' . $res['title'] .'</div>
 				  		  <div id="forum_post">' . $res['post'] .'</div>
-				  		  </div><li><button onclick="WIForum.CreatePost()">Reply</button></li>
+				  		  </div><li><button onclick="WIForum.CreatePost(`'. $res['category_id'] .'`,`'. $res['section_id'] .'`)">Reply</button></li>
 				  	</li>';
 			}elseif($count == $len){
 				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
 			<div class-"col-lg-12 col-xs-11 col-md-12">
-					<input type="hidden" id="'. $res['id'] .'">
+					<input type="hidden" id="post_id" value="'. $res['id'] .'">
+					<input type="hidden" id="section_id" value="'. $res['section_id'] .'">
+					<input type="hidden" id="cat_id" value="'. $res['category_id'] .'">
 				  	<div id="forum_post_title">' . $res['title'] .'</div>
 				  		  <div id="forum_post">' . $res['post'] .'</div>
 				  		  </div>
-				  	</li><li><button>Reply</button></li>';
+				  	</li><li><button onclick="WIForum.CreatePost(`'. $res['category_id'] .'`,`'. $res['section_id'] .'`)">Reply</button></li>';
 			}else{
 				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
 			<div class-"col-lg-12 col-xs-11 col-md-12">
-					<input type="hidden" id="'. $res['id'] .'">
+					<input type="hidden" id="post_id" value="'. $res['id'] .'">
 				  	<div id="forum_post_title">' . $res['title'] .'</div>
 				  		  <div id="forum_post">' . $res['post'] .'</div>
 				  		  </div>
@@ -408,7 +413,14 @@
 
 	}
 
-
+	public function CreatePost($cat_id, $section_id)
+	{
+		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
+		<input id="'.$cat_id.'" class="casting" name="category_id" type="hidden">
+		<input id="'.$section_id.'" class="casting" name="section_id" type="hidden">';
+		$this->wysiwyg->Editor();
+		echo '</li>';
+	}
 
 
 }

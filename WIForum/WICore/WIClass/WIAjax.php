@@ -192,6 +192,11 @@ switch ($action) {
         $forum->CSF($_POST['id']);
         break;
 
+        case "createpost":
+        $forum = new WIForum();
+        $forum->CreatePost($_POST['cat_id'], $_POST['section_id']);
+        break;
+
 
             default:
         
