@@ -13,17 +13,64 @@
 	public function __construct()
 	{
 		$this->WIdb = WIdb::getInstance();
-        $this->admin   = new WIAdmin(WISession::get('user_id'));
+		$this->login = new WILogin();
+        $this->admin   = new WIadmin(WISession::get('admin_id'));
 	}
 
-
-	public function forum()
+    public function forum()
 	{
 		$categories = $this->WIdb->select("SELECT * FROM `wi_forum_categories`");
 		$sections = $this->WIdb->select("SELECT * FROM `wi_forum_sections`");
 		$posts = $this->WIdb->select("SELECT * FROM `wi_forum_posts`");
 
-		echo '  <script>
+		echo ' <style>
+			#postviewer{
+			    width: 71%;
+    float: right;
+    overflow: scroll;
+			}
+
+			.well {
+    height: 32em;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+		}
+
+		.ui-tabs-vertical
+		 {
+    height: 29em;
+		}
+
+		.ui-tabs-vertical .ui-tabs-nav li {
+    clear: left;
+    width: 100%;
+    border-bottom-width: 1px !important;
+    border-right-width: 0 !important;
+    margin: 0 -1px .2em 0;
+    height: 2.27em;
+}
+
+		#forum_category {
+
+}
+
+.ui-tabs-vertical .ui-tabs-nav{
+	padding: 0.2em 0.1em 0.2em 0.2em;
+    float: left;
+    width: 12em;
+    height: 28.5em;
+    overflow: scroll;
+}
+.active{
+	    background: #0000f152;
+}
+
+				</style>  <script>
 			  $( function() {
 
 			    var index = "key";
@@ -39,64 +86,68 @@
 			    }
 
 			    
-			    $( "#tabs" ).tabs({
-			        // The zero-based index of the panel that is active (open)
-			        active : oldIndex,
-			        // Triggered after a tab has been activated
-			        activate : function( event, ui ){
-			            //  Get future value
-			            var newIndex = ui.newTab.parent().children().index(ui.newTab);
-			            //  Set future value
-			            dataStore.setItem( index, newIndex ) 
-			        }
-			    }).addClass( "ui-tabs-vertical ui-helper-clearfix" ); 
+			    $( "#tabs" ).addClass( "ui-tabs-vertical ui-helper-clearfix" ); 
 			    $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
 
 				    });
-				  </script>
-				  <div id="tabs">
-				  <ul>';
+				  </script> 
+				 
+				  <div id="tabs" class="ui-tabs ui-corner-all ui-widget ui-widget-content ui-tabs-vertical ui-helper-clearfix">
+				   <ul id="forum_category" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">';
+				   $count = "0";
 
+				   $len = count($categories);
 				  foreach ($categories as $res) {
-				  	echo '<li>
-				  	<a href="#tabs-'. $res['id'] .'">' . $res['title'] .'</a>
-				  	<div class="col-sm-1 col-md-1 col-lg-1 col-xs-2">
-				<a href="javascript:void(0)" onclick="WIForum.ShowEditCategory(`' . $res['id'].'`)">
-				<i class="fa fa-edit"></i>
-				</a>
-				</div>
-                <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
-                <a href="javascript:void(0)" class="glyphicon glyphicon-trash" onclick="WIForum.DeleteCategoryModel(`' . $res['id'].'`)">
-                </a>
-				</div>
+
+				  	if($count == "0"){
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left active" role="tab">
+				  	<a href="javascript:void(0)" onclick="WIForum.SCF('. $res['id'] .')">' . $res['title'] .'</a>
 				  	</li>';
+				  	}else{
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" role="tab">
+				  	<a href="javascript:void(0)" onclick="WIForum.SCF('. $res['id'] .')">' . $res['title'] .'</a>
+				  	</li>';
+				  	}
+				  	if ($count == $len) {
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" role="tab">
+				  	<a href="javascript:void(0)" onclick="WIForum.SCF('. $res['id'] .')">' . $res['title'] .'</a>
+				  	</li>';
+				  	}
+				  	$count++;
 				  }
 
 			  echo '</ul>
-			  <ul class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">';
+				  <ul id="forum_section" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">';
+				  $count1 = "0";
 
+				   $len1 = count($sections);
 				  foreach ($sections as $res) {
-				  	echo '<li>
-				  	<a href="#tabs-'. $res['id'] .'">' . $res['title'] .'</a>
-				  	<div class="col-sm-1 col-md-1 col-lg-1 col-xs-2">
-				<a href="javascript:void(0)" onclick="WIForum.ShowEditCategory(`' . $res['id'].'`)">
-				<i class="fa fa-edit"></i>
-				</a>
-				</div>
-                <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
-                <a href="javascript:void(0)" class="glyphicon glyphicon-trash" onclick="WIForum.DeleteCategoryModel(`' . $res['id'].'`)">
-                </a>
-				</div>
+				  	if($count1 == "0"){
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left active" aria-controls="ui-id-'. $res['id'] .'" role="tab">
+				  	<a href="javascript:void(0)" onclick="WIForum.CSF('. $res['id'] .')">' . $res['title'] .'</a>
 				  	</li>';
-				  }
+				  	}else{
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" aria-controls="ui-id-'. $res['id'] .'" role="tab">
+				  	<a href="javascript:void(0)" onclick="WIForum.CSF('. $res['id'] .')">' . $res['title'] .'</a>
+				  	</li>';
+				  	}
+				  	
 
+				  	if ($count1 == $len1) {
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" aria-controls="ui-id-'. $res['id'] .'" role="tab">
+				  	<a href="javascript:void(0)" onclick="WIForum.CSF('. $res['id'] .')">' . $res['title'] .'</a>
+				  	</li>';
+				  	}
+				  	$count1++;
+				  }
 			  echo '</ul>';
 
-			  foreach ($posts as $res) {
-				  	echo '<div id="tabs-'. $res['category_id'] .'">
-				  		  <div>'. $res['title'] .'</div>
-			              </div>';
-				  }
+			  echo '<ul id="postviewer"class="ui-tabs-panel ui-corner-bottom ui-widget-content active"  aria-hidden="true" role="tabpanel"style="width: 54%;float: right;">
+				  		  <div id="forum_post_title"></div>
+				  		  <div id="forum_post"></div>
+			              </ul>';
+
+			
 
 			  echo '</div>';
 	}
@@ -141,10 +192,10 @@
 	public function new_category($title)
 	{
 		$cat = $title['CatData'];
-		$username= $this->admin->id();
+		$adminname= $this->admin->id();
 		$this->WIdb->insert('wi_forum_categories', array(
             "title"     => strip_tags($cat['new_cat']),
-            "user_created"  => $username
+            "admin_created"  => $adminname
         )); 
 
         $result = array(
@@ -160,11 +211,11 @@
 		public function new_section($title)
 	{
 		$section = $title['SectionData'];
-		$username= $this->admin->id();
+		$adminname= $this->admin->id();
 		$this->WIdb->insert('wi_forum_sections', array(
             "title"     => strip_tags($section['new_section']),
             "category_id"    => $section['cat'],
-            "user_created"  => $username
+            "admin_created"  => $adminname
         )); 
 
         $result = array(
@@ -178,7 +229,7 @@
 
 	public function WISection($id)
 	{
-		 $result = $this->WIdb->select("SELECT * FROM `wi_forum_sections` WHERE `section_id` = :i",
+		 $result = $this->WIdb->select("SELECT * FROM `wi_forum_sections` WHERE `section_id` = :id",
 		 	array(
 		 	"section_id" => $id
 		 	)
@@ -188,7 +239,7 @@
 		 echo  '<div class="col-topics">
 		<a href="post.php?id='. $res['id'] .'">
 		<div class="col-topic-section">'. $res['title'] .'</div>
-		<div class="col-topic-author">'. $res['user_created'] .'
+		<div class="col-topic-author">'. $res['admin_created'] .'
 		</a>
 		</div>';
 		}
@@ -198,7 +249,7 @@
 		public function WIEditSection($id)
 	{
 
-		 $result = $this->WIdb->select("SELECT * FROM `wi_forum_sections` WHERE `section_id` = :i",
+		 $result = $this->WIdb->select("SELECT * FROM `wi_forum_sections` WHERE `section_id` = :id",
 		 	array(
 		 	"section_id" => $id
 		 	)
@@ -207,7 +258,7 @@
 		 echo  '<div class="col-topics">
 		<a href="post.php?id='. $res['id'] .'">
 		<div class="col-topic-section">'. $res['title'] .'</div>
-		<div class="col-topic-author">'. $res['user_created'] .'
+		<div class="col-topic-author">'. $res['admin_created'] .'
 		</a>
 		</div>';
 		 	 
@@ -246,40 +297,19 @@
 			if(!$this->login->isLoggedIn()) // guest
 			{
 
-			echo ' <nav role="navigation" class="navbar navbar-default">
-			<ul class="navbar-nav nav">
-			<li><a href="">Categories</a></li>
-			<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
-			<li><a href="#">Post</a></li>
-			<li><a href="#"></a></li>
-			 </nav>';
+			echo '';
 
 			 
-			} elseif($this->user->isAdmin())  // admin
+			} elseif($this->admin->isAdmin())  // admin
 			{
 			
-			echo '<nav role="navigation" class="navbar navbar-default">
-			<ul class="navbar-nav nav">
-			<li><a href="#">Categories</a></li>
-			<li><a href="#">Topics</a></li>
-			<li><a href="#">Create New Category</a></li>
-			<li><a href="#">Create New Topic</a></li>
-			<li><a href="#">Post</a></li>
-			<li><a href="#">Edit Post</a></li>
-			 </nav>';
+			echo '<button id="opencatModal">New Category</button>
+                <button id="opensectionModal">New Section</button>';
 			
-			}else{ // user
+			}else{ // admin
 			
-			echo '<nav role="navigation" class="navbar navbar-default">
-			<ul class="navbar-nav nav">
-			<li><a href="#">Categories</a></li>
-			<li><a href="#">Topics</a></li>
-			<li><a href="#"></a></li>
-			<li><a href="#">Create New Topic</a></li>
-			<li><a href="#">Post</a></li>
-			<li><a href="#"></a></li>
-			 </nav>';
+			echo '<button id="opencatModal">New Category</button>
+                  <button id="opensectionModal">New Section</button>';
 
 		};
 	}
@@ -305,6 +335,70 @@
 
         echo json_encode($result);
 	}
+
+	public function SCF($id)
+	{
+		$result = $this->WIdb->select("SELECT * FROM `wi_forum_sections` WHERE `category_id`=:id",
+						array(
+						"id" => $id	
+						)
+					);
+
+		foreach ($result as $res) {
+			echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
+				  	<a href="javascript:void(0)" onclick="WIForum.CSF('. $res['id'] .')">' . $res['title'] .'</a>
+				  	</li>';
+		}
+	}
+
+		public function CSF($id)
+	{
+		$result = $this->WIdb->select("SELECT * FROM `wi_forum_posts` WHERE `section_id`=:id",
+						array(
+						"id" => $id	
+						)
+					);
+		$count = "0";
+		$len = count($result);
+
+		if($len >0){
+			echo '<li><p>There are no posts for this currently, be the first to comment</p> <button>Create New Post</button></li>';
+		}
+		foreach ($result as $res) {
+
+			if($count == "0"){
+				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
+			<div class-"col-lg-12 col-xs-11 col-md-12">
+					<input type="hidden" id="'. $res['id'] .'">
+				  	<div id="forum_post_title">' . $res['title'] .'</div>
+				  		  <div id="forum_post">' . $res['post'] .'</div>
+				  		  </div>
+				  	</li>';
+			}else{
+				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
+			<div class-"col-lg-12 col-xs-11 col-md-12">
+					<input type="hidden" id="'. $res['id'] .'">
+				  	<div id="forum_post_title">' . $res['title'] .'</div>
+				  		  <div id="forum_post">' . $res['post'] .'</div>
+				  		  </div>
+				  	</li>';
+			}
+			
+
+			if($count == $len){
+				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
+			<div class-"col-lg-12 col-xs-11 col-md-12">
+					<input type="hidden" id="'. $res['id'] .'">
+				  	<div id="forum_post_title">' . $res['title'] .'</div>
+				  		  <div id="forum_post">' . $res['post'] .'</div>
+				  		  </div>
+				  	</li><li><button>Reply</button></li>';
+			}
+
+			$count++;
+		}
+	}
+
 
 
 

@@ -128,8 +128,27 @@ WIForum.SCF = function(id){
               id : id              
             },
             success: function (result) {
-            var res = JSON.parse(result);
-            $("ul#ForumSection").html(result);
+            //var res = JSON.parse(result);
+            $('ul#forum_section').empty()
+            $("ul#forum_section").html(result);
+            }
+    });
+}
+
+WIForum.CSF = function(id){
+    
+    console.log(id);
+        $.ajax({
+            type: 'POST',
+            url: 'WICore/WIClass/WIAjax.php',
+            data: {
+              action   : "csf",
+              id : id              
+            },
+            success: function (result) {
+            //var res = JSON.parse(result);
+            $('ul#postviewer').empty()
+            $("ul#postviewer").html(result);
             }
     });
 }

@@ -1,10 +1,12 @@
 $(document).ready(function(){
 
-  $("#opencatModal").click(function(){
+  $("#opencatModal").click(function(e){
+    event.preventDefault();
     $("#modal-new-cat-details").removeClass('hide').addClass('show')
   });
 
-    $("#opensectionModal").click(function(){
+    $("#opensectionModal").click(function(e){
+        event.preventDefault();
     $("#modal-new-section-details").removeClass('hide').addClass('show')
   });
 
@@ -22,11 +24,11 @@ WIForum.select_cat = function(){
 }
 
 WIForum.ForumCategory = function(e){
-	event.preventDefault();
+    event.preventDefault();
 
-	var new_cat = $("#cat_name").val();
+    var new_cat = $("#cat_name").val();
 
-		Cat = {
+        Cat = {
         CatData:{
             new_cat           : new_cat
         },
@@ -35,8 +37,8 @@ WIForum.ForumCategory = function(e){
         }
      };
 
-	 $(".ajax-loading").removeClass('hide').addClass('show');
-	    $.ajax({
+     $(".ajax-loading").removeClass('hide').addClass('show');
+        $.ajax({
             type: 'POST',
             url: 'WICore/WIClass/WIAjax.php',
             data: {
@@ -46,10 +48,10 @@ WIForum.ForumCategory = function(e){
             success: function (result) {
             var res = JSON.parse(result);
 
-	            if(res.status == "completed"){
-	            $(".ajax-loading").removeClass('show').addClass('hide');
-	            WICore.Refresh();
-	            }
+                if(res.status == "completed"){
+                $(".ajax-loading").removeClass('show').addClass('hide');
+                WICore.Refresh();
+                }
             }
     });
 
@@ -58,12 +60,12 @@ WIForum.ForumCategory = function(e){
 
 WIForum.ForumSection = function(e){
 
-		event.preventDefault();
+        event.preventDefault();
 
-	var new_section = $("#section_name").val()
-	 cat = $( "#category_selector option:selected" ).val();
+    var new_section = $("#section_name").val()
+     cat = $( "#category_selector option:selected" ).val();
 
-		Section = {
+        Section = {
         SectionData:{
             new_section           : new_section,
             cat                   : cat
@@ -74,8 +76,8 @@ WIForum.ForumSection = function(e){
         }
      };
 
-	 $(".ajax-loading").removeClass('hide').addClass('show');
-	    $.ajax({
+     $(".ajax-loading").removeClass('hide').addClass('show');
+        $.ajax({
             type: 'POST',
             url: 'WICore/WIClass/WIAjax.php',
             data: {
@@ -85,19 +87,19 @@ WIForum.ForumSection = function(e){
             success: function (result) {
             var res = JSON.parse(result);
 
-	            if(res.status == "completed"){
-	            $(".ajax-loading").removeClass('show').addClass('hide');
-	            WICore.Refresh();
-	            }
+                if(res.status == "completed"){
+                $(".ajax-loading").removeClass('show').addClass('hide');
+                WICore.Refresh();
+                }
             }
     });
 }
 
 WIForum.DeleteCategory = function(){
-	var id = $(".delete_id").attr('id');
-	console.log(id);
-		$(".ajax-loading").removeClass('hide').addClass('show');
-	    $.ajax({
+    var id = $(".delete_id").attr('id');
+    console.log(id);
+        $(".ajax-loading").removeClass('hide').addClass('show');
+        $.ajax({
             type: 'POST',
             url: 'WICore/WIClass/WIAjax.php',
             data: {
@@ -107,34 +109,58 @@ WIForum.DeleteCategory = function(){
             success: function (result) {
             var res = JSON.parse(result);
 
-	            if(res.status == "completed"){
-	            $(".ajax-loading").removeClass('show').addClass('hide');
-	            WICore.Refresh();
-	            }
+                if(res.status == "completed"){
+                $(".ajax-loading").removeClass('show').addClass('hide');
+                WICore.Refresh();
+                }
             }
     });
 }
 
 WIForum.SCF = function(id){
-	
+    
+    console.log(id);
+        $.ajax({
+            type: 'POST',
+            url: 'WICore/WIClass/WIAjax.php',
+            data: {
+              action   : "scf",
+              id : id              
+            },
+            success: function (result) {
+            //var res = JSON.parse(result);
+            $('ul#forum_section').empty()
+            $("ul#forum_section").html(result);
+            }
+    });
+}
+
+WIForum.CSF = function(id){
+    
+    console.log(id);
+        $.ajax({
+            type: 'POST',
+            url: 'WICore/WIClass/WIAjax.php',
+            data: {
+              action   : "csf",
+              id : id              
+            },
+            success: function (result) {
+            //var res = JSON.parse(result);
+            $('ul#postviewer').empty()
+            $("ul#postviewer").html(result);
+            }
+    });
 }
 
 
 WIForum.ShowEditCategory = function(id){
-	$("#modal-edit-cat-details").removeClass('hide').addClass('show')
+    $("#modal-edit-cat-details").removeClass('hide').addClass('show')
 }
 
 WIForum.DeleteCategoryModel= function(id){
-	console.log(id);
-	$(".delete_id").attr("id",id);
-	$("#modal-delete-cat-details").removeClass('hide').addClass('show');
+    console.log(id);
+    $(".delete_id").attr("id",id);
+    $("#modal-delete-cat-details").removeClass('hide').addClass('show');
 }
-
-
-
-
-
-
-
-
 

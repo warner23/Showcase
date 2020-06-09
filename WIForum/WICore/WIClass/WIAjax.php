@@ -183,9 +183,13 @@ switch ($action) {
         break;
 
         case "scf":
-        onlyAdmin();
         $forum = new WIForum();
         $forum->SCF($_POST['id']);
+        break;
+
+        case "csf":
+        $forum = new WIForum();
+        $forum->CSF($_POST['id']);
         break;
 
 

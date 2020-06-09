@@ -849,7 +849,8 @@ switch ($action) {
         break;
     // end of blog section and settings
 
-        // forum
+        //admin side forum settings
+                // forum
         case "new_category":
         onlyAdmin();
         $forum = new WIForum();
@@ -866,6 +867,18 @@ switch ($action) {
         onlyAdmin();
         $forum = new WIForum();
         $forum->DeleteCategory($_POST['id']);
+        break;
+
+        case "scf":
+        onlyAdmin();
+        $forum = new WIForum();
+        $forum->SCF($_POST['id']);
+        break;
+
+        case "csf":
+        onlyAdmin();
+        $forum = new WIForum();
+        $forum->CSF($_POST['id']);
         break;
 
          //END END END DO NOT REMOVE
