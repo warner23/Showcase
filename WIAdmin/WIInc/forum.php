@@ -42,7 +42,7 @@
                               
             <div class="well">
 
-              <?php  $forum->forum(); ?>
+              <?php  $forum->edit_forum(); ?>
 
                      </div>
                      </div>

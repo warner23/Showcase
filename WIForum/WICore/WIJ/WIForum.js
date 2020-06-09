@@ -153,6 +153,10 @@ WIForum.CSF = function(id){
     });
 }
 
+WIForum.CreatePost = function(){
+    
+}
+
 
 WIForum.ShowEditCategory = function(id){
     $("#modal-edit-cat-details").removeClass('hide').addClass('show')

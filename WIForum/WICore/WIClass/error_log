@@ -1,1 +1,0 @@
-[09-Jun-2020 01:31:27 UTC] PHP Parse error:  syntax error, unexpected ']', expecting case (T_CASE) or default (T_DEFAULT) or '}' in /home/warner23/public_html/WIForum/WICore/WIClass/WIAjax.php on line 191

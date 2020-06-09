@@ -66,9 +66,7 @@
     height: 28.5em;
     overflow: scroll;
 }
-.active{
-	    background: #0000f152;
-}
+
 
 				</style>  <script>
 			  $( function() {
@@ -100,7 +98,7 @@
 				  foreach ($categories as $res) {
 
 				  	if($count == "0"){
-				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left active" role="tab">
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left ui-state-active" role="tab">
 				  	<a href="javascript:void(0)" onclick="WIForum.SCF('. $res['id'] .')">' . $res['title'] .'</a>
 				  	</li>';
 				  	}else{
@@ -123,7 +121,7 @@
 				   $len1 = count($sections);
 				  foreach ($sections as $res) {
 				  	if($count1 == "0"){
-				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left active" aria-controls="ui-id-'. $res['id'] .'" role="tab">
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left ui-state-active" aria-controls="ui-id-'. $res['id'] .'" role="tab">
 				  	<a href="javascript:void(0)" onclick="WIForum.CSF('. $res['id'] .')">' . $res['title'] .'</a>
 				  	</li>';
 				  	}else{
@@ -142,7 +140,7 @@
 				  }
 			  echo '</ul>';
 
-			  echo '<ul id="postviewer"class="ui-tabs-panel ui-corner-bottom ui-widget-content active"  aria-hidden="true" role="tabpanel"style="width: 54%;float: right;">
+			  echo '<ul id="postviewer"class="ui-tabs-panel ui-corner-bottom ui-widget-content"  aria-hidden="true" role="tabpanel"style="width: 54%;float: right;">
 				  		  <div id="forum_post_title"></div>
 				  		  <div id="forum_post"></div>
 			              </ul>';
@@ -151,6 +149,194 @@
 
 			  echo '</div>';
 	}
+
+	    public function edit_forum()
+	{
+		$categories = $this->WIdb->select("SELECT * FROM `wi_forum_categories`");
+		$sections = $this->WIdb->select("SELECT * FROM `wi_forum_sections`");
+		$posts = $this->WIdb->select("SELECT * FROM `wi_forum_posts`");
+
+		echo ' <style>
+			#postviewer{
+			    width: 71%;
+    float: right;
+    overflow: scroll;
+			}
+
+			.well {
+    height: 32em;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+		}
+
+		.ui-tabs-vertical
+		 {
+    height: 29em;
+		}
+
+		.ui-tabs-vertical .ui-tabs-nav li {
+    clear: left;
+    width: 100%;
+    border-bottom-width: 1px !important;
+    border-right-width: 0 !important;
+    margin: 0 -1px .2em 0;
+    height: 2.27em;
+}
+
+		#forum_category {
+
+}
+
+.ui-tabs-vertical .ui-tabs-nav{
+	padding: 0.2em 0.1em 0.2em 0.2em;
+    float: left;
+    width: 12em;
+    height: 28.5em;
+    overflow: scroll;
+}
+
+
+				</style>  <script>
+			  $( function() {
+
+			    var index = "key";
+			    //  Define friendly data store name
+			    var dataStore = window.sessionStorage;
+			    //  Start magic!
+			    try {
+			        // getter: Fetch previous value
+			        var oldIndex = dataStore.getItem(index);
+			    } catch(e) {
+			        // getter: Always default to first tab in error state
+			        var oldIndex = 0;
+			    }
+
+			    
+			    $( "#tabs" ).addClass( "ui-tabs-vertical ui-helper-clearfix" ); 
+			    $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+
+				    });
+				  </script> 
+				 
+				  <div id="tabs" class="ui-tabs ui-corner-all ui-widget ui-widget-content ui-tabs-vertical ui-helper-clearfix">
+				   <ul id="forum_category" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">';
+				   $count = "0";
+
+				   $len = count($categories);
+				  foreach ($categories as $res) {
+
+				  	if($count == "0"){
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left ui-state-active" role="tab">
+				  	<a href="javascript:void(0)" onclick="WIForum.SCF('. $res['id'] .')">' . $res['title'] .'</a>
+				  	<div class="col-sm-1 col-md-1 col-lg-1 col-xs-2">
+				<a href="#" onclick="WIForum.showCategoryModal(' . $res['id'].')">
+				<i class="fa fa-edit"></i>
+				</a>
+				</div>
+                <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
+                <a href="#" class="glyphicon glyphicon-trash" onclick="WIForum.DeletecategoryModal(' . $res['id'].')">
+                </a>
+				</div><
+				  	</li>';
+				  	}else{
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" role="tab">
+				  	<a href="javascript:void(0)" onclick="WIForum.SCF('. $res['id'] .')">' . $res['title'] .'</a>
+				  	<div class="col-sm-1 col-md-1 col-lg-1 col-xs-2">
+				<a href="#" onclick="WIForum.showCategoryModal(' . $res['id'].')">
+				<i class="fa fa-edit"></i>
+				</a>
+				</div>
+                <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
+                <a href="#" class="glyphicon glyphicon-trash" onclick="WIForum.DeletecategoryModal(' . $res['id'].')">
+                </a>
+				</div><
+				  	</li>';
+				  	}
+				  	if ($count == $len) {
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" role="tab">
+				  	<a href="javascript:void(0)" onclick="WIForum.SCF('. $res['id'] .')">' . $res['title'] .'</a>
+				  	<div class="col-sm-1 col-md-1 col-lg-1 col-xs-2">
+				<a href="#" onclick="WIForum.showCategoryModal(' . $res['id'].')">
+				<i class="fa fa-edit"></i>
+				</a>
+				</div>
+                <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
+                <a href="#" class="glyphicon glyphicon-trash" onclick="WIForum.DeletecategoryModal(' . $res['id'].')">
+                </a>
+				</div><
+				  	</li>';
+				  	}
+				  	$count++;
+				  }
+
+			  echo '</ul>
+				  <ul id="forum_section" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">';
+				  $count1 = "0";
+
+				   $len1 = count($sections);
+				  foreach ($sections as $res) {
+				  	if($count1 == "0"){
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left ui-state-active" aria-controls="ui-id-'. $res['id'] .'" role="tab">
+				  	<a href="javascript:void(0)" onclick="WIForum.CSF('. $res['id'] .')">' . $res['title'] .'</a>
+				  	<div class="col-sm-1 col-md-1 col-lg-1 col-xs-2">
+				<a href="#" onclick="WIForum.showCategoryModal(' . $res['id'].')">
+				<i class="fa fa-edit"></i>
+				</a>
+				</div>
+                <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
+                <a href="#" class="glyphicon glyphicon-trash" onclick="WIForum.DeletecategoryModal(' . $res['id'].')">
+                </a>
+				</div><
+				  	</li>';
+				  	}else{
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" aria-controls="ui-id-'. $res['id'] .'" role="tab">
+				  	<a href="javascript:void(0)" onclick="WIForum.CSF('. $res['id'] .')">' . $res['title'] .'</a>
+				  	<div class="col-sm-1 col-md-1 col-lg-1 col-xs-2">
+				<a href="#" onclick="WIForum.showCategoryModal(' . $res['id'].')">
+				<i class="fa fa-edit"></i>
+				</a>
+				</div>
+                <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
+                <a href="#" class="glyphicon glyphicon-trash" onclick="WIForum.DeletecategoryModal(' . $res['id'].')">
+                </a>
+				</div><
+				  	</li>';
+				  	}
+				  	
+
+				  	if ($count1 == $len1) {
+				  		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left" aria-controls="ui-id-'. $res['id'] .'" role="tab">
+				  	<a href="javascript:void(0)" onclick="WIForum.CSF('. $res['id'] .')">' . $res['title'] .'</a>
+				  	<div class="col-sm-1 col-md-1 col-lg-1 col-xs-2">
+				<a href="#" onclick="WIForum.showCategoryModal(' . $res['id'].')">
+				<i class="fa fa-edit"></i>
+				</a>
+				</div>
+                <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
+                <a href="#" class="glyphicon glyphicon-trash" onclick="WIForum.DeletecategoryModal(' . $res['id'].')">
+                </a>
+				</div><
+				  	</li>';
+				  	}
+				  	$count1++;
+				  }
+			  echo '</ul>';
+
+			  echo '<ul id="postviewer"class="ui-tabs-panel ui-corner-bottom ui-widget-content"  aria-hidden="true" role="tabpanel"style="width: 54%;float: right;">
+				  		  <div id="forum_post_title"></div>
+				  		  <div id="forum_post"></div>
+			              </ul>';
+
+			
+
+			  echo '</div>';
+	}
+
 
     public function WICategories()
     {
@@ -347,6 +533,15 @@
 		foreach ($result as $res) {
 			echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
 				  	<a href="javascript:void(0)" onclick="WIForum.CSF('. $res['id'] .')">' . $res['title'] .'</a>
+				  	<div class="col-sm-1 col-md-1 col-lg-1 col-xs-2">
+				<a href="#" onclick="WIForum.showCategoryModal(' . $res['id'].')">
+				<i class="fa fa-edit"></i>
+				</a>
+				</div>
+                <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
+                <a href="#" class="glyphicon glyphicon-trash" onclick="WIForum.DeletecategoryModal(' . $res['id'].')">
+                </a>
+				</div><
 				  	</li>';
 		}
 	}
@@ -361,9 +556,7 @@
 		$count = "0";
 		$len = count($result);
 
-		if($len >0){
-			echo '<li><p>There are no posts for this currently, be the first to comment</p> <button>Create New Post</button></li>';
-		}
+
 		foreach ($result as $res) {
 
 			if($count == "0"){
