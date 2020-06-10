@@ -269,8 +269,10 @@ echo '<div class="container-fluid text-center">
 					</div>
 					</div>
 					<script type="text/javascript" src="WICore/WIJ/WICore.js"></script>
+					<script type="text/javascript" src="WICore/WIJ/WIEditor.js"></script>
+					<script type="text/javascript" src="WICore/WIJ/WIWYSIWYG.js"></script>
 					<script type="text/javascript" src="WICore/WIJ/WIForum.js"></script>
-					<script type="text/javascript" src="WICore/WIJ/WIWYSIWYG.js"></script>';
+';
 	$this->modal->moduleModal('new-cat', 'Add new categor', 'WIForum', 'ForumCategory','create category'); 
 
     $this->modal->moduleModal('new-section', 'Add new section', 'WIForum', 'ForumSection','create section'); 
