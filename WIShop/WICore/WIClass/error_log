@@ -1,6 +1,0 @@
-[17-Jun-2020 00:04:31 UTC] PHP Notice:  Undefined index: action in /home/warner23/public_html/WIShop/WICore/WIClass/WIAjax.php on line 12
-[17-Jun-2020 00:04:31 UTC] PHP Fatal error:  Uncaught Error: Class 'Payer' not found in /home/warner23/public_html/WIShop/WICore/WIClass/WICheckout.php:549
-Stack trace:
-#0 /home/warner23/public_html/WIShop/WICore/WIClass/WIAjax.php(185): WICheckout->PayPal()
-#1 {main}
-  thrown in /home/warner23/public_html/WIShop/WICore/WIClass/WICheckout.php on line 549

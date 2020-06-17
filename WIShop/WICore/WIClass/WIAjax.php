@@ -158,7 +158,7 @@ switch ($action) {
 
         case "addProduct":
         $cart = new WICart();
-        $cart->addProduct($_POST['pid']);
+        $cart->addProduct($_POST['pid'], $_POST['qty']);
         break;
 
         case "getCart":

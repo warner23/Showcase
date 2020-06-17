@@ -49,6 +49,12 @@ color: white;
 .menu{
       margin-left: 90px;
 }
+
+.menuz{
+width: 80%;
+    float: left;
+}
+
 .lang {
     margin-top: 28px;
 }

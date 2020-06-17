@@ -9,8 +9,8 @@ $(document).ready(function(){
             //$.cookie.set("product_id", "product_id");
 
              var date = new Date();
- var minutes = 30;
- date.setTime(date.getTime() + (minutes * 60 * 1000));
+            var minutes = 30;
+            date.setTime(date.getTime() + (minutes * 60 * 1000));
             $.cookie("product_id", product_id, {expires: date});
             
         });
@@ -91,13 +91,15 @@ $(document).ready(function(){
         $("body").delegate("#product","click",function(event){
         event.preventDefault();
         var pid  = $(this).attr('product');
+            qty  = $("#quantity").attr('value');
 
         $.ajax({
             url      : "WICore/WIClass/WIAjax.php",
             method   : "POST",
             data     : {
                 action : "addProduct",
-                pid : pid
+                pid : pid,
+                qty : qty
             },
             success  : function(data){
                 //alert(data);

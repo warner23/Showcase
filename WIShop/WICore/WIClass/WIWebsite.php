@@ -181,7 +181,7 @@ class WIWebsite
                <ul id="mainMenu" class="mainMenu default">';
     */
             echo '<nav class="navbar navbar-inverse">
-  <div class="container-fluid flx">
+  <div class="container-fluid flx menuz">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>

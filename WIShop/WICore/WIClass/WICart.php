@@ -13,7 +13,7 @@ class WICart
 	}
 
 
-	public function addProduct($pid)
+	public function addProduct($pid, $qty)
 	{
 
 		$userId = WISession::get('user_id');
@@ -28,7 +28,7 @@ class WICart
                      )
                   );
 
-		  $quant   = "1";
+		  
 
 		  $this->WIdb->insert('wi_cart', array(
             "p_id"     => $pid,
@@ -36,7 +36,7 @@ class WICart
             "user_id"  => $userId,
             "product_title" => $result[0]['product_title'],
             "product_image" => $result[0]['product_image'],
-            "quantity" => $quant,
+            "quantity" => $qty,
             "price" => $result[0]['product_price'],
             "total_amount" => $result[0]['product_price'] * $quant
         ));
