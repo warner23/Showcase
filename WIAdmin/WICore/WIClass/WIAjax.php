@@ -881,6 +881,14 @@ switch ($action) {
         $forum->CSF($_POST['id']);
         break;
 
+        //admin side shop settings
+        case "shop_settings":
+        onlyAdmin();
+        $shop = new WIShop();
+        $shop->shop_settings($_POST['shop_settings']);
+        break;
+
+
          //END END END DO NOT REMOVE
         default:
 

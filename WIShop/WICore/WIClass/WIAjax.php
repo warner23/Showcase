@@ -177,6 +177,15 @@ switch ($action) {
 		break;
 }
 
+$action = isset($_GET['action']) ? $_GET['action'] : null;
+switch($action){
+
+       case "checkout":
+       $check = new WICheckout();
+       $check->PayPal();
+       break;
+}
+
 function onlyAdmin() {
     $login = new WILogin();
     if ( ! $login->isLoggedIn() ) exit();

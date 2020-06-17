@@ -20,61 +20,51 @@ class WICart
 		if($userId !=0 || $userId!=null)
 		{
 
-		$query_ = $this->WIdb->prepare('SELECT * FROM `wi_cart` WHERE `p_id`=:pid AND `user_id`=:userId');
-		$query_->bindParam(':userId', $userId, PDO::PARAM_INT);
-		$query_->bindParam(':pid', $pid, PDO::PARAM_INT);
+		  $result = $this->WIdb->select(
+                    "SELECT * FROM `wi_products`
+                     WHERE `product_id` = :p_id",
+                     array(
+                       "p_id" => $pid
+                     )
+                  );
 
-		$query_->execute();
-		$result = $query_->fetchAll(PDO::FETCH_ASSOC);
-		//print_r($result);
-		//echo "r". $result;
-		if ( count ( $result ) > 0 ){
-			echo "Product is already added into your basket continue shopping....";
-		}else{
+		  $quant   = "1";
 
-			$query = $this->WIdb->prepare('SELECT * FROM wi_products WHERE product_id =:pid');
-		    $query->bindParam(':pid', $pid, PDO::PARAM_INT);
-		    $query->execute();
-		    $row = $query->fetchAll(PDO::FETCH_ASSOC);
-			$quant   = "1";
-			//print_r($row);
-			//echo $row[0]['product_title'];
-			$query1 = $this->WIdb->prepare('INSERT INTO  `wi_cart` (
-        `id` ,`p_id` ,`ip_addr` ,`user_id` ,`product_title` ,`product_image` ,`quantity` ,`price` ,`total_amount`)VALUES (NULL , :pid, :ip, :userId, :pname, :pimg, :quant, :pprice, :pprice)');
-			$query1->bindParam(':pid', $pid, PDO::PARAM_INT);
-			$query1->bindParam(':ip', $_SERVER['REMOTE_ADDR'], PDO::PARAM_STR);
-			$query1->bindParam(':userId', $userId, PDO::PARAM_INT);
-			$query1->bindParam(':pname', $row[0]['product_title'], PDO::PARAM_STR);
-			$query1->bindParam(':pimg', $row[0]['product_image'], PDO::PARAM_STR);
-			$query1->bindParam(':quant', $quant, PDO::PARAM_INT);
-			$query1->bindParam(':pprice', $row[0]['product_price'], PDO::PARAM_INT);
-			$query1->bindParam(':pprice', $row[0]['product_price'], PDO::PARAM_INT);
-			$query1->execute();
+		  $this->WIdb->insert('wi_cart', array(
+            "p_id"     => $pid,
+            "ip_addr"  => $_SERVER['REMOTE_ADDR'],
+            "user_id"  => $userId,
+            "product_title" => $result[0]['product_title'],
+            "product_image" => $result[0]['product_image'],
+            "quantity" => $quant,
+            "price" => $result[0]['product_price'],
+            "total_amount" => $result[0]['product_price'] * $quant
+        ));
 
-			echo '<div class="alert alert-success">
-			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			<b>Product is added..</b>
-			</div>';
+		  	echo '<div class="alert alert-success">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<b>Product is added..</b>
+					</div>';
+
 		}
-	}
-
 	}
 
 	public function getCart($userId)
 	{
-		//$userId = WISession::get('user_id');
-		//echo "user" . $userId;
-		$sql = "SELECT * FROM `wi_cart` WHERE user_id =:userId";
-		$query = $this->WIdb->prepare($sql);
-		$query->bindParam(':userId', $userId, PDO::PARAM_INT);
-		$query->execute();
-		//var_dump($query);
-		if (count($query) > 0){
+
+		$result = $this->WIdb->select(
+                    "SELECT * FROM `wi_cart`
+                     WHERE `user_id` = :user_id",
+                     array(
+                       "user_id" => $userId
+                     )
+                  );
+		if (count($result) > 0){
 			$no = 1;
-			while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
+			foreach ($result as $res) {
 			//var_dump($result);
-			$id  = $result['id'];
-			$pid = $result['p_id'];
+			$id  = $res['id'];
+			$pid = $res['p_id'];
 
 			//<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">' . $no .'</div>
 			//echo "id" . $id;
@@ -82,17 +72,16 @@ class WICart
 			
 				<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
 				<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
-				<img class="img-responsive" src="../../../WIAdmin/WIMedia/Img/shop/' . $result['product_image'] . '" style="width:60px;height:60px;">
+				<img class="img-responsive" src="../../../WIAdmin/WIMedia/Img/shop/' . $res['product_image'] . '" style="width:60px;height:60px;">
 				</div>
 				</div>
-				<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">' . $result['product_title'] . '</div>
-				<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">' . $result['price'] . '</div>
-				<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">' . $result['quantity'] . '</div>
+				<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">' . $res['product_title'] . '</div>
+				<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">' . $res['price'] . '</div>
+				<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">' . $res['quantity'] . '</div>
 				</div>';
 				$no = $no +1;
+		  }
 		}
-		}
-
 
 	}
 
@@ -100,16 +89,18 @@ class WICart
 	public function CheckCart()
 	{
 		$userId = WISession::get('user_id');
-		//echo "user" . $userId;
-		$sql = "SELECT * FROM `wi_cart` WHERE user_id =:userId";
-		$query = $this->WIdb->prepare($sql);
-		$query->bindParam(':userId', $userId, PDO::PARAM_INT);
-		$query->execute();
+
+		$result = $this->WIdb->select(
+                    "SELECT * FROM `wi_cart`
+                     WHERE `user_id` = :user_id",
+                     array(
+                       "user_id" => $userId
+                     )
+                  );
 		$count = 0;
 		$total = 0;
-		while($result = $query->fetchAll() ){
-         $len = count($result);
-			foreach ($result as $basket) {
+        $len = count($result);
+		foreach ($result as $basket) {
 				$subtotal = $basket['price'] * $basket['quantity'];
 				$total =+ $subtotal;
 				echo '<tr>
@@ -132,7 +123,7 @@ class WICart
 							<td data-th="Subtotal" class="text-center subtotal" id="total_' . $basket['id'] . '">' . $subtotal .'</td>
 							<td class="actions" data-th="">
 								<button class="btn btn-info btn-sm update"><i class="fa fa-refresh"></i></button>
-								<button class="btn btn-danger btn-sm delete"><i class="fa fa-trash-o"></i></button>								
+								<button class="btn btn-danger btn-sm delete"><i class="fa fa-trash-o"></i></button>							
 							</td>
 						</tr>
 						<script type="text/javascript">
@@ -188,9 +179,6 @@ class WICart
 						</tr>
 					</tfoot>
 				';
-			
-		}
-
 	}
 
 	public function CartCount($userId)

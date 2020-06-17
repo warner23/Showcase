@@ -27,6 +27,26 @@ class WISettings
         return  $result;
     }
 
+
+    public function Shop_Info($column) 
+    {
+        $user_id = 1;
+
+        $result = $this->WIC->selectColumn('SELECT * FROM `wi_shop_settings` WHERE `id` = :user_id', array('user_id' => $user_id), $column);
+        //echo $result;
+        return  $result;
+    }
+
+    public function Forum_Info($column) 
+    {
+
+        $user_id = 1;
+
+        $result = $this->WIC->selectColumn('SELECT * FROM `wi_forum_settings` WHERE `id` = :user_id', array('user_id' => $user_id), $column);
+        //echo $result;
+        return  $result;
+    }
+
     
 
    

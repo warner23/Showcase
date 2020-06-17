@@ -7,9 +7,9 @@ $(document).ready(function()
 
 
 
-var checkout ={};
+var WICheckout ={};
 
-checkout.stepOne = function(){
+WICheckout.stepOne = function(){
     $("#step_one").removeClass('show');
     $("#step_one").addClass('hide');
     $("#step_two").removeClass('hide');
@@ -24,7 +24,7 @@ checkout.stepOne = function(){
 }
 
 
-checkout.stepTwo = function(){
+WICheckout.stepTwo = function(){
     $("#step_two").removeClass('show');
     $("#step_two").addClass('hide');
     $("#step_three").removeClass('hide');
@@ -37,7 +37,7 @@ checkout.stepTwo = function(){
 
 }
 
-checkout.stepThree = function(){
+WICheckout.stepThree = function(){
     $("#step_three").removeClass('show');
     $("#step_three").addClass('hide');
     $("#step_four").removeClass('hide');
@@ -50,7 +50,7 @@ checkout.stepThree = function(){
 
 }
 
-checkout.stepFour = function(){
+WICheckout.stepFour = function(){
     $("#step_four").removeClass('show');
     $("#step_four").addClass('hide');
     $("#step_five").removeClass('hide');
@@ -62,3 +62,27 @@ checkout.stepFour = function(){
 
 
 }
+
+WICheckout.checkout = function(){
+
+
+        $.ajax({
+        url: "WICore/WIClass/WIAjax.php",
+        type: "GET",
+        data: {
+            action  : "checkout"
+
+        },
+        success: function (result) {
+           WICore.removeLoadingButton(btn);
+           if( result.status === 'success' )
+               window.location.reload();
+           else {
+               WICore.displayErrorMessage($("#login-username"));
+               WICore.displayErrorMessage($("#login-password"), result.message);
+           }
+
+        }
+    });
+}
+

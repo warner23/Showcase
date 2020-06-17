@@ -21,6 +21,7 @@ include_once 'WISite.php';
 include_once 'WIMaintenace.php';
 include_once 'WIShop.php';
 include_once 'WICart.php';
+include_once 'WICheckout.php';
 
 
 $WIdb = WIdb::getInstance();

@@ -323,7 +323,7 @@ class WICheckout
               echo '</ul></div>';
 		
 
-                echo '<a href="javascript:;" onclick="checkout.stepOne();" class="btn btn-as pull-right" type="button">
+                echo '<a href="javascript:;" onclick="WICheckout.stepOne();" class="btn btn-as pull-right" type="button">
                     '; echo WILang::get('next'); echo '
 
                     <i class="fa fa-arrow-right"></i>
@@ -351,8 +351,6 @@ class WICheckout
 				  <link rel="stylesheet" href="/resources/demos/style.css">
 				   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 				  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-				  <script src="https://www.paypal.com/sdk/js?client-id=AbKeDNhr_7I3bGOVcs0ceGOtaV16C7EdbTTc7d9SsavlN4ko3rAh3hw1UMfOJfgJoJtEAeTYq8PbuJpX&currency=GBP" data-sdk-integration-source="button-factory"></script>
 				  <script>
 				  $( function() {
 				    $( "#accordion" ).accordion({
@@ -365,34 +363,10 @@ class WICheckout
 				  <h3>Paypal</h3>
 				  <div style="height:200px;">
 
-<div id="paypal-button-container"></div>
-
-<script>
-  paypal.Buttons({
-      style: {
-          shape: `pill`,
-          color: `silver`,
-          layout: `horizontal`,
-          label: `pay`,
-          tagline: true
-      },
-      createOrder: function(data, actions) {
-          return actions.order.create({
-              purchase_units: [{
-                  amount: {
-                      value: ``
-                  }
-              }]
-          });
-      },
-      onApprove: function(data, actions) {
-          return actions.order.capture().then(function(details) {
-          	console.log(details);
-              alert(`Transaction completed by ` + details.payer.name.given_name + `!`);
-          });
-      }
-  }).render(`#paypal-button-container`);
-</script>
+<div id="paypal-button-container">
+<a href="javascript:void(0);" onclick="WICheckout.checkout();"><img id="paypal_payments" src="https://wicms.uk/WIAdmin/WIMedia/Img/shop/paypal.png">
+</a>
+</div>
 
 
 				 
@@ -486,7 +460,7 @@ class WICheckout
 				</div>
 
                  </div>
-                    <a href="javascript:void(0);" class="btn btn-as pull-right" onclick="checkout.stepTwo()" type="button" id="required">'; 
+                    <a href="javascript:void(0);" class="btn btn-as pull-right" onclick="WICheckout.stepTwo()" type="button" id="required">'; 
                         echo WILang::get('next') ; echo '
                         <i class="fa fa-arrow-right"></i>
                     </a>
@@ -538,6 +512,92 @@ class WICheckout
             //output result
             echo json_encode ($result);   
 	}
+
+    public function PayPal()
+    {
+        //require  dirname(dirname(dirname(__FILE__))) .'/paypal.php';
+        require  dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Common/PayPalModel.php';
+        require  dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Payer.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Item.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/ItemList.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Details.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Amount.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CartBase.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/TransactionBase.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Transaction.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/RedirectUrls.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Rest/IResource.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Common/PayPalResourceModel.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Payment.php';
+
+
+        $user_id = WISession::get('user_id');
+
+        $data = $this->WIdb->select("SELECT * FROM `wi_cart` WHERE `user_id`=:user_id", array(
+            "user_id" => $user_id
+            )
+        );
+
+        foreach ($data as $d ) {
+            $product = $d['product_title'];
+            $price   = $d['price'];
+            $quantity   = $d['quantity'];
+            $shipping = 2.00;
+
+        $total = $price + $shipping;
+
+        $payer = new Payer();
+        $payer->SetPaymentMethod('paypal');
+
+        $item = new Item();
+        $item->SetName($product)
+             ->SetCurrency('GBP')
+             ->SetQuantity($quantity)
+             ->SetPrice($price);
+
+        $itemList = new ItemList();
+        $itemList->SetItems($item);
+
+        $details = new Details();
+        $details->SetShipping($shipping)
+                ->SetSubtotal($price);
+
+        $amount = new Amount();
+        $amount->SetCurrency('GBP')
+               ->SetTotal($total)
+               ->SetDetails($details);
+
+        $transaction = new Transaction();
+        $transaction->SetAmount($amount)
+                    ->SetItemList($itemList)
+                    ->SetDescription('Pay for your items')
+                    ->SetInvoiceNumber(uniqid() );
+
+        $redirectUrls = new RedirectUrls();
+        $redirectUrls->SetReturnUrl(paypal_callback . 'pay.php?success=true')
+                    ->SetCancelUrl(paypal_callback . 'pay.php?success=true');
+
+        $payment = new Payment();
+        $payment->SetIntent('sale')
+                ->SetPayer($payer)
+                ->SetRedirectUrl($redirectUrls)
+                ->SetTransactions($transaction);
+
+        try{
+            $payment->create($paypal);
+        }catch(Exception $e){
+            die($e);
+        }
+        
+        }
+
+        
+
+        $approveUrl->payment->getApprovalLink();
+
+        hedader("Location:{$redirectUrls}");
+
+    }
 
 }
 

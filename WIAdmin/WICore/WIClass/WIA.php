@@ -14,8 +14,8 @@ include_once 'WIModules.php';
 include_once 'WICalendar.php';
 include_once 'WIEditor.php';
 include_once 'WIBlog.php';
-
 include_once 'WIForum.php';
+include_once 'WIShop.php';
 /*
 spl_autoload_register(function($class)
 {
@@ -38,4 +38,5 @@ $mod          = new WIModules();
 $editor       = new WIEditor();
 $blog         = new WIBlog();
 $forum        = new WIForum();
+$shop        = new WIShop();
 ?>

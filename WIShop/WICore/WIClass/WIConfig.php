@@ -131,3 +131,18 @@ define('DEFAULT_LANGUAGE', $default_lang);
 
 // VERSION 
 define('WICMS_VERSION', $version);
+
+//SHOP
+define('shop_name', $shop_name);
+
+define('business_email', $business_email);
+
+define('paypal_id', $paypal_id);
+
+define('paypal_secret', $paypal_secret);
+
+define('paypal_callback', $paypal_callback);
+
+define('cancel_url', $cancel_url);
+
+define('notify_url', $notify_url);

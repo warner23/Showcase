@@ -1,91 +1,92 @@
+   <form  class="form-horizontal website">
+      <fieldset>
+        <div id="legend">
+          <legend class="center">Shop Settings</legend>
+        </div>  
 
- <form  class="form-horizontal database-form" id="setup">
-                      <fieldset>
-                        <div id="legend">
-                          <legend class="">Add Language</legend>
-                        </div>
+        <div class="form-group">
+          <!-- website name -->
+          <div class="col-lg-4 col-xs-4 col-sm-s col-md-4">
+          <label class="control-label"  for="shop_name">Shop Name:</label>
+        </div>
+          <div class="controls col-lg-8">
+            <input type="text" id="shop_name"  maxlength="88" name="shop_name" placeholder="Shop Name" class="input-xlarge form-control" value="<?php echo $shop->Shop_Info('shop_name')?>"> <br />
+          </div>
+        </div>
 
-                        <div class="col-lg-12">
-                        
-       
-                        
-                        </div>
-                       
-                           <?php $web->viewLang(); ?>
+        <div class="form-group">
+          <!-- website domain-->
+          <div class="col-lg-4 col-xs-4 col-sm-s col-md-4">
+          <label class="control-label" for="business_email">Business Email:</label>
+        </div>
+          <div class="controls col-lg-8">
+            <input type="email" id="business_email" maxlength="100" name="business_email" placeholder="Business Email" class="input-xlarge form-control" value="<?php echo $shop->Shop_Info('business_email')?>">
+          </div>
+        </div>
 
-                              <div class="form-group">
-                        <!-- Button -->
-                        <div class="controls col-lg-offset-4 col-lg-8">
-                           <button id="add_lang_btn" onclick="WILang.AddLangModal()" class="btn btn-success" >Add</button> 
-                        </div>
-                      </div>
-                      <div class="results" id="results"></div>
-                    </fieldset>
-                        <br /><br />
-                  </form>
+        <div class="form-group">
+          <!-- website url-->
+          <div class="col-lg-4 col-xs-4 col-sm-s col-md-4">
+          <label class="control-label" for="paypal_id">Paypal ID:</label>
+        </div>
+          <div class="controls col-lg-8">
+            <input type="text" id="paypal_id" maxlength="100" name="paypal_id" placeholder="Paypal ID" class="input-xlarge form-control" value="<?php echo $shop->Shop_Info('paypal_id')?>">
+          </div>
+        </div>
 
-             <div class="modal off" id="modal-lang-add">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" onclick="WILang.Closer()" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title" id="modal-username">
-                    <?php echo WILang::get("add_lang"); ?>
-                  </h4>
-                </div>
+                <div class="form-group">
+          <!-- website url-->
+          <div class="col-lg-4 col-xs-4 col-sm-s col-md-4">
+          <label class="control-label" for="paypal_secret">Paypal Secret:</label>
+        </div>
+          <div class="controls col-lg-8">
+            <input type="text" id="paypal_secret" maxlength="100" name="paypal_secret" placeholder="Paypal Secret" class="input-xlarge form-control" value="<?php echo $shop->Shop_Info('paypal_secret')?>">
+          </div>
+        </div>
 
-                <div class="modal-body" id="details-body">
-                    
-                </div>
-                <div align="center" class="ajax-loading"><img src="WIMedia/Img/ajax_loader.gif" /></div>
-                <div class="modal-footer">
-                    <a href="javascript:void(0);" onclick="WILang.Closer()" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
-                      <?php echo WILang::get("cancel"); ?>
-                    </a>
-                    <a href="javascript:void(0);" id="btn-add-user" class="btn btn-primary">
-                      <?php echo WILang::get("add"); ?>
-                    </a>
-                </div>
-              </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-          </div><!-- /.modal -->
+                <div class="form-group">
+          <!-- website url-->
+          <div class="col-lg-4 col-xs-4 col-sm-s col-md-4">
+          <label class="control-label" for="paypal_callback">Paypal Callback Url:</label>
+        </div>
+          <div class="controls col-lg-8">
+            <input type="text" id="paypal_callback" maxlength="100" name="paypal_callback" placeholder="Paypal Callback" class="input-xlarge form-control" value="<?php echo $shop->Shop_Info('paypal_callback')?>">
+          </div>
+        </div>
 
-            <div class="modal off" id="modal-lang-add">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" onclick="WILang.Close()" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title" id="modal-username">
-                    <?php echo WILang::get("add_lang"); ?>
-                  </h4>
-                </div>
+                <div class="form-group">
+          <!-- website url-->
+          <div class="col-lg-4 col-xs-4 col-sm-s col-md-4">
+          <label class="control-label" for="cancel_url">Paypal Cancel Url:</label>
+        </div>
+          <div class="controls col-lg-8">
+            <input type="text" id="cancel_url" maxlength="100" name="cancel_url" placeholder="Paypal Cancel Url" class="input-xlarge form-control" value="<?php echo $shop->Shop_Info('cancel_url')?>">
+          </div>
+        </div>
 
-                <div class="modal-body" id="details-body">
-                     <form class="form-horizontal" id="add_lang">
+                <div class="form-group">
+          <!-- website url-->
+          <div class="col-lg-4 col-xs-4 col-sm-s col-md-4">
+          <label class="control-label" for="notify_url">Paypal Notify Url:</label>
+        </div>
+          <div class="controls col-lg-8">
+            <input type="text" id="notify_url" maxlength="100" name="notify_url" placeholder="Paypal Notify Url" class="input-xlarge form-control" value="<?php echo $shop->Shop_Info('notify_url')?>">
+          </div>
+        </div>
 
-                    
-                      <div class="control-group form-group">
-                        <label class="control-label col-lg-3" for="lang">
-                          <?php echo WILang::get("add_lang"); ?>
-                        </label>
-                        <div class="controls col-lg-9">
-                          <input id="lang" name="lang" type="text" class="input-xlarge form-control" >
-                        </div>
-                      </div>
 
-                     
-                  </form>
-                </div>
-                <div align="center" class="ajax-loading"><img src="WIMedia/Img/ajax_loader.gif" /></div>
-                <div class="modal-footer">
-                    <a href="javascript:void(0);" onclick="WILang.Close()" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
-                      <?php echo WILang::get("cancel"); ?>
-                    </a>
-                    <a href="javascript:void(0);" id="btn-add-language" onclick="WILang.AddLang();"  class="btn btn-primary">
-                      <?php echo WILang::get("add"); ?>
-                    </a>
-                </div>
-              </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-          </div><!-- /.modal -->
-      
+        <br />
+        
+        
+
+        <div class="form-group">
+          <!-- Button -->
+          <div class="controls col-lg-offset-10 col-lg-2">
+             <button id="shop_settings" class="btn btn-success">Save</button> 
+          </div>
+        </div>
+
+        <div class="results" id="sresults"></div>
+      </fieldset>
+    </form> 
+    
