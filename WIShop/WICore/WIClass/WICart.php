@@ -29,7 +29,6 @@ class WICart
                   );
 
 		  
-
 		  $this->WIdb->insert('wi_cart', array(
             "p_id"     => $pid,
             "ip_addr"  => $_SERVER['REMOTE_ADDR'],
@@ -38,7 +37,7 @@ class WICart
             "product_image" => $result[0]['product_image'],
             "quantity" => $qty,
             "price" => $result[0]['product_price'],
-            "total_amount" => $result[0]['product_price'] * $quant
+            "total_amount" => $result[0]['product_price'] * $qty
         ));
 
 		  	echo '<div class="alert alert-success">

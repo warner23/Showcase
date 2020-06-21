@@ -7,8 +7,6 @@
 
 .profile_picture {
     width: 9%;
-    /* height: 90px; */
-    margin-left: 10px;
     margin-top: -104px;
     border-radius: 100%;
 }
@@ -32,7 +30,11 @@
 }
 
 
-
+.ui-widget.ui-widget-content {
+    border: 1px solid #c5c5c5;
+    margin-left: 0%;
+    width: 100%;
+}
 
 
 .inner_profile
@@ -214,8 +216,9 @@ aside
 
 .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
     float: left;
-    padding: .3em .4em;
+    padding: .5em 1em;
     text-decoration: none;
+    width: 100%;
 }
 
 .ui-tabs .ui-tabs-nav li {
@@ -227,7 +230,7 @@ aside
     border-bottom-width: 0;
     padding: 0;
     white-space: nowrap;
-    width: 48%;
+    width: 19.5%;
 }
 
 .tab-content
@@ -240,9 +243,53 @@ aside
   width: 75% !important;
   margin-left: 232px !important;
 }
+
 .interactionLinksDiv
 {
 width: 100%;
+}
+
+#userTabs{
+      margin: 51px 2px 0px 322px;
+}
+
+.info{
+    width: 65%;
+    float: left;
+}
+
+.editinfo{
+      width: 35%;
+    float: right;
+}
+
+#ui-datepicker-div{
+      width: 28%;
+}
+
+.ui-widget.ui-widget-content {
+    border: 1px solid #c5c5c5;
+    margin-left: 0%;
+    width: 100%;
+}
+
+
+.ui-tabs .ui-tabs-nav li {
+    list-style: none;
+    float: left;
+    position: relative;
+    top: 0;
+    margin: 1px .2em 0 0;
+    border-bottom-width: 0;
+    padding: 0;
+    white-space: nowrap;
+    width: 19.5%;
+}
+
+.ui-helper-clearfix:before, .ui-helper-clearfix:after {
+    content: "";
+    display: inline-block !important;
+    border-collapse: collapse;
 }
 
 .interactionLinksDiv a {
@@ -258,14 +305,14 @@ width: 100%;
 	border:#999 1px solid;
   width: 100%;
   height: auto;
-	 /* display: none; */
+ display: none; 
 }
 
 .interactContainers1 {
 	padding:8px;
 	background-color:#BDF;
 	border:#999 1px solid;
-	 /* display: none; */
+ display: none;
 }
 
 .interactContainers2 {
@@ -513,11 +560,7 @@ padding: 0px;
     padding: 1px;
 }
 
-.ui-widget.ui-widget-content {
-    border: 1px solid #c5c5c5;
-    margin-left: 2%;
-        width: 95%;
-}
+
 /* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
 
 @media only screen and (min-width: 425px) {
@@ -724,8 +767,9 @@ aside
 
 .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
     float: left;
-    padding: .3em .4em;
+    padding: .5em 1em;
     text-decoration: none;
+    width: 100%;
 }
 
 .ui-tabs .ui-tabs-nav li {
@@ -737,7 +781,7 @@ aside
     border-bottom-width: 0;
     padding: 0;
     white-space: nowrap;
-    width: 48%;
+    width: 19.5%;
 }
 
 .tab-content
@@ -1234,8 +1278,9 @@ aside
 
 .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
     float: left;
-    padding: .3em .4em;
+    padding: .5em 1em;
     text-decoration: none;
+    width: 100%;
 }
 
 .ui-tabs .ui-tabs-nav li {
@@ -1247,7 +1292,7 @@ aside
     border-bottom-width: 0;
     padding: 0;
     white-space: nowrap;
-    width: 48%;
+    width: 19.5%;
 }
 
 .tab-content
@@ -1738,8 +1783,9 @@ aside
 
 .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
     float: left;
-    padding: .3em .4em;
+    padding: .5em 1em;
     text-decoration: none;
+    width: 100%;
 }
 
 .ui-tabs .ui-tabs-nav li {
@@ -1751,7 +1797,7 @@ aside
     border-bottom-width: 0;
     padding: 0;
     white-space: nowrap;
-    width: 48%;
+    width: 19.5%;
 }
 
 .tab-content
@@ -2243,8 +2289,9 @@ aside
 
 .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
     float: left;
-    padding: .3em .4em;
+    padding: .5em 1em;
     text-decoration: none;
+    width: 100%;
 }
 
 .ui-tabs .ui-tabs-nav li {
@@ -2256,7 +2303,7 @@ aside
     border-bottom-width: 0;
     padding: 0;
     white-space: nowrap;
-    width: 48%;
+    width: 19.5%;
 }
 
 .tab-content
@@ -2748,8 +2795,9 @@ aside
 
 .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
     float: left;
-    padding: .3em .4em;
+    padding: .5em 1em;
     text-decoration: none;
+    width: 100%;
 }
 
 .ui-tabs .ui-tabs-nav li {
@@ -2761,7 +2809,7 @@ aside
     border-bottom-width: 0;
     padding: 0;
     white-space: nowrap;
-    width: 48%;
+    width: 19.5%;
 }
 
 .tab-content
@@ -3251,8 +3299,9 @@ aside
 
 .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
     float: left;
-    padding: .3em .4em;
+    padding: .5em 1em;
     text-decoration: none;
+    width: 100%;
 }
 
 .ui-tabs .ui-tabs-nav li {
@@ -3264,7 +3313,7 @@ aside
     border-bottom-width: 0;
     padding: 0;
     white-space: nowrap;
-    width: 48%;
+    width: 19.5%;
 }
 
 .tab-content

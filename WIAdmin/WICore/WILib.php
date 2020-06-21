@@ -1,7 +1,10 @@
 <?php
 require_once "WIClass/WILib.php";
 require_once "WIClass/WISettings.php";
+//DATABASE CONFIGURATION
+
 require_once "db.php";
+
 
 $WIC = WILib::getInstance();
 $config =  new WISettings();
@@ -16,6 +19,7 @@ $dbtype          = $config->Website_Info("db_type");
 $webName               = $config->Website_Info("site_name");
 $domain                = $config->Website_Info("site_domain");
 $script                = $config->Website_Info("site_url");
+$CONTACT_EMAIL         = $config->Website_Info("contact_email");
 
 $session               = $config->Website_Info("secure_session");
 $http                  = $config->Website_Info("http_only");
@@ -47,6 +51,7 @@ $google_id             = $config->Website_Info("google_id");
 $google_secret         = $config->Website_Info("google_secret");
 $google_map_api        = $config->Website_Info("google_map_api");
 $google_charts_api_key = $config->Website_Info("google_charts_api_key");
+
 $fb                    = $config->Website_Info("facebook_enabled");
 $fb_id                 = $config->Website_Info("facebook_id");
 $fb_secret             = $config->Website_Info("facebook_secret");
@@ -58,12 +63,3 @@ $multi_lang            = $config->Website_Info("multi_lang");
 $version               = $config->Website_Info("wicms_version");
 $bootstrap_version     = $config->Website_Info("bootstrap_version");
 $favicon               = $config->Website_Info("favicon");
-
-//shop config
-$shop_name               = $config->Shop_Info("shop_name");
-$business_email          = $config->Shop_Info("business_email");
-$paypal_id               = $config->Shop_Info("paypal_id");
-$paypal_secret           = $config->Shop_Info("paypal_secret");
-$paypal_callback         = $config->Shop_Info("paypal_callback");
-$cancel_url               = $config->Shop_Info("cancel_url");
-$notify_url               = $config->Shop_Info("notify_url");

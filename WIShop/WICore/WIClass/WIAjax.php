@@ -171,6 +171,11 @@ switch ($action) {
         $cart->CartCount($_POST['userId']);
         break;
 
+        case "process":
+        $check = new WICheckout();
+        $check->Process();
+        break;
+
 	
 	default:
 		
@@ -183,6 +188,11 @@ switch($action){
        case "checkout":
        $check = new WICheckout();
        $check->PayPal();
+       break;
+
+       case "cart":
+       $check = new WICheckout();
+       $check->cart();
        break;
 }
 

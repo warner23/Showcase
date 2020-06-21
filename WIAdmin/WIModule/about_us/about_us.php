@@ -272,9 +272,9 @@ echo '<div class="col-lg-12 col-md-12 col-sm-12">
 
   <div class="col-lg-12 col-md-12 col-sm-12 text_font18"><p>  
 ';$this->mod->module($module, 'text6'); echo '
-</p></div>	
-					
-  </div>					
+</p></div>';
+			$this->Web->slp_types();		
+ echo '</div>					
   </div>
   </div>';
 

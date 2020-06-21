@@ -30,7 +30,7 @@ $cart    = new WICart();
 $check    = new WICheckout();
 $mod  = new WIModules();
 $maint  = new WIMaintenace();
-
+$paypal = new WIPaypalExpress();
 
 
 

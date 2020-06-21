@@ -234,12 +234,12 @@ echo '<div class="container-fluid text-center">
       $this->mod->getMod($leftSideBar);
       echo '<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 index">';
     }else{
-      echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 index">';
+      echo '<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 index">';
     }
 
     }
 
-		echo '<div class="container-fluid">
+		echo '<div class="container">
 <div class="row">
 <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
 	<div id="get_cat"></div>

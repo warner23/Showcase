@@ -133,16 +133,56 @@ define('DEFAULT_LANGUAGE', $default_lang);
 define('WICMS_VERSION', $version);
 
 //SHOP
-define('shop_name', $shop_name);
+define('SHOP_NAME', $shop_name);
 
-define('business_email', $business_email);
+define('BUSINESS_EMAIL', $business_email);
 
-define('paypal_id', $paypal_id);
+define('PAYPAL_CALLBACK', $paypal_callback);
 
-define('paypal_secret', $paypal_secret);
+define('PAYPAL_CANCEL_URL', $cancel_url);
 
-define('paypal_callback', $paypal_callback);
+define('PAYPAL_NOTIFY_URL', $notify_url);
 
-define('cancel_url', $cancel_url);
+define("BASE_URL", "https://wicms.uk/WIShop/");
 
-define('notify_url', $notify_url);
+define('PAYPAL_PRO', 0);
+
+define('CURRENCY', 'GBP');
+
+define('CURRENT_URL', 'https://wicms.uk/WIShop/checkout.php');
+
+define('PAYPAL_ENVIRONMENT', 'sandbox');
+
+if(PAYPAL_PRO){
+	define("PAYPAL_CLIENT_ID", $paypal_id);
+	define("PAYPAL_SECRET", $paypal_secret);
+	define("PAYPAL_BASE_URL", "https://api.paypal.com/v1/");
+}
+else{
+	define("PAYPAL_CLIENT_ID", $paypal_id);
+	define("PAYPAL_SECRET", $paypal_secret);
+	define("PAYPAL_BASE_URL", "https://api.sandbox.paypal.com/v1/");
+}
+
+
+define("URL", array(
+
+    "current" => CURRENT_URL,
+
+    "services" => array(
+        "orderCreate" => BASE_URL.'WICore/WIVendor/paypal/api/createOrder.php',
+        "orderGet" => BASE_URL.'WICore/WIVendor/paypal/api/getOrderDetails.php',
+		"orderPatch" => BASE_URL.'WICore/WIVendor/paypal/api/patchOrder.php',
+		"orderCapture" => BASE_URL.'WICore/WIVendor/paypal/api/captureOrder.php'
+    ),
+
+	"redirectUrls" => array(
+        "returnUrl" => BASE_URL.'success.php',
+		"cancelUrl" => BASE_URL.'cancel.php',
+    )
+));
+
+define("PAYPAL_ENDPOINTS", array(
+	"sandbox" => "https://api.sandbox.paypal.com",
+	"production" => "https://api.paypal.com"
+));

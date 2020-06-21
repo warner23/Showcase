@@ -244,8 +244,8 @@ echo '<div class="container-fluid text-center">
 								<i class="fa fa-laptop"></i>
 							</div>
 							<div class="serv_detail">
-								<h3>' . WILang::get("community") . '</h3>
-								<p>' . WILang::get("learn") . '
+								<h3>' . WILang::get("stuttering") . '</h3>
+								<p>' . WILang::get("stu_desc") . '
 </p>
 							</div>
 						</div>
@@ -257,8 +257,8 @@ echo '<div class="container-fluid text-center">
 								<i class="fa fa-trophy"></i>
 							</div>
 							<div class="serv_detail">
-								<h3>' . WILang::get("software") . '</h3>
-								<p>' .WILang::get("software") . '
+								<h3>' . WILang::get("lisp") . '</h3>
+								<p>' .WILang::get("lisp_Desc") . '
 </p>
 							</div>
 						</div>
@@ -270,12 +270,18 @@ echo '<div class="container-fluid text-center">
 								<i class="fa fa-cogs"></i>
 							</div>
 							<div class="serv_detail">
-								<h3>' . WILang::get("it") . '</h3>
-								<p>' . WILang::get("it_title")  . '
+								<h3>' . WILang::get("sppech") . '</h3>
+								<p>' . WILang::get("sppech_desc")  . '
 </p>
 							</div>
 						</div>
 					</div>
+
+					<div class="col-lg-12 col-md-12 col-sm-12 text-left"> 
+							<div class="intro_box">
+							<a href="flipcard.php" class="btn">Flashcards</a>
+							</div>
+						</div>
 					</div>';
 
 		if(isset($page)){			

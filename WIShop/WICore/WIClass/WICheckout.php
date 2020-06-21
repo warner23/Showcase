@@ -13,6 +13,7 @@ class WICheckout
 	    $this->login = new WILogin();
         $this->site = new WISite();
         $this->user   = new WIUser(WISession::get('user_id'));
+        $this->Paypal = new WIPaypalExpress();
 	}
 
 	public function checkout()
@@ -290,13 +291,19 @@ class WICheckout
 				}
 
 				echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><ul>';
+                $count = 0;
+        $total = 0;
+        $len = count($cart);
 				foreach($cart as $c){
+                     $count++;
+                    $subtotal = $c['price'] * $c['quantity'];
+                $total = $total+ $subtotal;
               	echo '<li>
               	<div class="row">
 				<div class="col-sm-2 hidden-xs">
 				<img src="../../../WIAdmin/WIMedia/Img/shop/' . $c['product_image'] . '" alt="..." class="img-responsive"/></div>
 				<div class="col-sm-10">
-				<h4 class="nomargin">' . $c['product_title'] . '</h4>
+				<h4 class="nomargin title">' . $c['product_title'] . '</h4>
 				<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
 				</div>
 				<div class="addressing">';
@@ -315,12 +322,129 @@ class WICheckout
 					echo '<button class="btn">Add address</button>';
 				}
 				echo '</div>
+
+                <div class="pricing" id="pricing">';
+                    echo 'Item Price : £
+                    <span class="individual_price">
+                    <input type="text" class="item_price" value="' .$c['price'] . '" readonly>
+                    </span>
+                    Qty
+                <span class="qty">
+                    <input type="text" class="item_qty" value="' .$c['quantity'] . '" readonly>
+                    </span>
+                Total Price : £
+                <span class="total_price">
+                <input type="text" class="tot" id="total" value="' .$c['total_amount'] . '" readonly>
+                </span>';
+                
+                echo '</div>
 				</div>
 
               	</li>';
+
+                if($count == $len){
+                    $total;
+                }
+                       
               }
 
-              echo '</ul></div>';
+              echo '</ul>
+              
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                 <!-- Ensures optimal rendering on mobile devices. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+  <!-- Optimal Internet Explorer compatibility -->
+
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=' .PAYPAL_CLIENT_ID . '">
+  </script>
+
+
+              <strong>Total: £</strong>
+            <span id="total">' .$total .'</span>
+              <div id="paypalCheckoutContainer"></div>
+              
+
+            <!-- PayPal In-Context Checkout script -->
+            <script type="text/javascript">';
+
+              echo "
+
+
+    paypal.Buttons({
+
+        // Set your environment
+        env: '". PAYPAL_ENVIRONMENT ."',
+
+        // Set style of buttons
+        style: {
+            layout: 'horizontal',   // horizontal | vertical
+            size:   'responsive',   // medium | large | responsive
+            shape:  'pill',         // pill | rect
+            color:  'gold',         // gold | blue | silver | black,
+            fundingicons: false,    // true | false,
+            tagline: false          // true | false,
+        },
+
+        // Wait for the PayPal button to be clicked
+        createOrder: function() {
+
+            let currencySelect = '".  CURRENCY ."'
+            let formData = new FormData();
+
+            $( '.total_price' ).each(function() {
+              formData.append('item_amt', $('.item_price').attr('value'))
+            });
+
+            $( '.total_price' ).each(function() {
+              formData.append('item_title', $('.title').text())
+            });
+
+            $( '.qty' ).each(function() {
+              formData.append('item_qty', $('.item_qty').attr('value'))
+            });
+
+            formData.append('total_amt', $('#total').value);
+            formData.append('return_url',  '". PAYPAL_CALLBACK ."?commit=false');
+            formData.append('cancel_url', '". PAYPAL_CANCEL_URL."');
+
+            return fetch(
+                '".URL['services']['orderCreate']."',
+                {
+                    method: 'POST',
+                    headers: {
+                    'content-type': 'application/json',
+                    'X-CSRFToken': $('[name=csrfmiddlewaretoken]').val()
+                },
+                    body: formData
+                }
+            ).then(function(response) {
+                return response.json();
+            }).then(function(resJson) {
+                console.log('Order ID: '+ resJson.data.id);
+                return resJson.data.id;
+            });
+        },
+
+        // Wait for the payment to be authorized by the customer
+        onApprove: function(data, actions) {
+            return fetch(
+                '". URL['services']['orderGet'] ."',
+                {
+                    method: 'GET'
+                }
+            ).then(function(res) {
+                return res.json();
+            }).then(function(res) {
+                window.location.href = 'success.php';
+            });
+        }
+
+    }).render('#paypalCheckoutContainer');
+
+</script>";
+              //include_once 'WIInc/payment.php';
+              echo '</div>';
 		
 
                 echo '<a href="javascript:;" onclick="WICheckout.stepOne();" class="btn btn-as pull-right" type="button">
@@ -332,8 +456,9 @@ class WICheckout
             </div></div>';
 	}
 
-	public function payment()
+	public function payment($cart)
 	{
+
 		echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" > 
 
             <div class="alert alert-danger hide" id="snap" >
@@ -345,117 +470,11 @@ class WICheckout
                 <hr>
                 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
-				  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
-                	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-				  <link rel="stylesheet" href="/resources/demos/style.css">
-				   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-				  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-				  <script>
-				  $( function() {
-				    $( "#accordion" ).accordion({
-				      collapsible: true
-				    });
-				  } );
-				  </script>
-
-				<div id="accordion">
-				  <h3>Paypal</h3>
-				  <div style="height:200px;">
-
-<div id="paypal-button-container">
-<a href="WICore/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/index.php"><img id="paypal_payments" src="https://wicms.uk/WIAdmin/WIMedia/Img/shop/paypal.png">
-</a>
-</div>
-
-
-				 
-				  </div>
-				  <h3>Card</h3>
-				  <div>
-				 <!--CREDIT CART PAYMENT-->
-                    <div class="panel panel-info">
-                        <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Secure Payment</div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Card Type:</strong></div>
-                                <div class="col-md-12">
-                                    <select id="CreditCardType" name="CreditCardType" class="form-control">
-                                        <option value="5">Visa</option>
-                                        <option value="6">MasterCard</option>
-                                        <option value="7">American Express</option>
-                                        <option value="8">Discover</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Credit Card Number:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="car_number" value="" /></div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Card CVV:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="car_code" value="" /></div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <strong>Expiration Date</strong>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="">
-                                        <option value="">Month</option>
-                                        <option value="01">01</option>
-                                        <option value="02">02</option>
-                                        <option value="03">03</option>
-                                        <option value="04">04</option>
-                                        <option value="05">05</option>
-                                        <option value="06">06</option>
-                                        <option value="07">07</option>
-                                        <option value="08">08</option>
-                                        <option value="09">09</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                </select>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="">
-                                        <option value="">Year</option>
-                                        <option value="2015">2015</option>
-                                        <option value="2016">2016</option>
-                                        <option value="2017">2017</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2019">2019</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2025">2025</option>
-                                </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <span>Pay secure using your credit card.</span>
-                                </div>
-                                <div class="col-md-12">
-                                    <ul class="cards">
-                                        <li class="visa hand">Visa</li>
-                                        <li class="mastercard hand">MasterCard</li>
-                                        <li class="amex hand">Amex</li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <button type="submit" class="btn btn-primary btn-submit-fix">Place Order</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--CREDIT CART PAYMENT END-->
-				  </div>
+                
+                ';
+            //include_once 'WIInc/payment.php';
+			
+				  echo '</div>
 
 				</div>
 
@@ -515,213 +534,309 @@ class WICheckout
 
     public function PayPal()
     {
-        //require  dirname(dirname(dirname(__FILE__))) .'/paypal.php';
-        require  dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Common/PayPalModel.php';
-        require  dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Payer.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Item.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/ItemList.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Details.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Amount.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CartBase.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/TransactionBase.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Transaction.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/RedirectUrls.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Rest/IResource.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Common/PayPalResourceModel.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Payment.php';
-
-
-        
-
-        $user_id = WISession::get('user_id');
-
-        $data = $this->WIdb->select("SELECT * FROM `wi_cart` WHERE `user_id`=:user_id", array(
-            "user_id" => $user_id
-            )
-        );
-        
-
-        foreach ($data as $d ) {
-            $product = $d['product_title'];
-            $price   = $d['price'];
-            $quantity   = $d['quantity'];
-            $shipping = 2.00;
-
-        $total = $price + $shipping;
-
-        $payer = new Payer();
-        $payer->SetPaymentMethod('paypal');
-
-        $item = new Item();
-        $item->SetName($product)
-             ->SetCurrency('GBP')
-             ->SetQuantity($quantity)
-             ->SetPrice($price);
-
-        $itemList = new ItemList();
-        $itemList->SetItems($item);
-
-        $details = new Details();
-        $details->SetShipping($shipping)
-                ->SetSubtotal($price);
-
-        $amount = new Amount();
-        $amount->SetCurrency('GBP')
-               ->SetTotal($total)
-               ->SetDetails($details);
-
-        $transaction = new Transaction();
-        $transaction->SetAmount($amount)
-                    ->SetItemList($itemList)
-                    ->SetDescription('Pay for your items')
-                    ->SetInvoiceNumber(uniqid() );
-
-        $redirectUrls = new RedirectUrls();
-        $redirectUrls->SetReturnUrl(paypal_callback . 'pay.php?success=true')
-                    ->SetCancelUrl(paypal_callback . 'pay.php?success=true');
-
-        $payment = new Payment();
-        $payment->SetIntent('sale')
-                ->SetPayer($payer)
-                ->SetRedirectUrl($redirectUrls)
-                ->SetTransactions($transaction);
-
-        try{
-            $payment->create($paypal);
-        }catch(Exception $e){
-            die($e);
-        }
-
-        }
-
-        
-
-        $approveUrl->payment->getApprovalLink();
-
-        hedader("Location:{$redirectUrls}");
 
     }
 
-
-    public function test()
+    public function Process()
     {
-        // # Create Payment using PayPal as payment method
-// This sample code demonstrates how you can process a 
-// PayPal Account based Payment.
-// API used: /v1/payments/payment
 
-require __DIR__ . '/../bootstrap.php';
-use PayPal\Api\Amount;
-use PayPal\Api\Details;
-use PayPal\Api\Item;
-use PayPal\Api\ItemList;
-use PayPal\Api\Payer;
-use PayPal\Api\Payment;
-use PayPal\Api\RedirectUrls;
-use PayPal\Api\Transaction;
+    if(isset($_GET["token"]) && isset($_GET["PayerID"]))
+    {
+    //we will be using these two variables to execute the "DoExpressCheckoutPayment"
+    //Note: we haven't received any payment yet.
+    
+    $token = $_GET["token"];
+    $payer_id = $_GET["PayerID"];
+    
+    //get session variables
+    $paypal_product = $_SESSION["paypal_products"];
+    $paypal_data = '';
+    $ItemTotalPrice = 0;
 
-// ### Payer
-// A resource representing a Payer that funds a payment
-// For paypal account payments, set payment method
-// to 'paypal'.
-$payer = new Payer();
-$payer->setPaymentMethod("paypal");
+    foreach($paypal_product['items'] as $key=>$p_item)
+    {       
+        $paypal_data .= '&L_PAYMENTREQUEST_0_QTY'.$key.'='. urlencode($p_item['itm_qty']);
+        $paypal_data .= '&L_PAYMENTREQUEST_0_AMT'.$key.'='.urlencode($p_item['itm_price']);
+        $paypal_data .= '&L_PAYMENTREQUEST_0_NAME'.$key.'='.urlencode($p_item['itm_name']);
+        $paypal_data .= '&L_PAYMENTREQUEST_0_NUMBER'.$key.'='.urlencode($p_item['itm_code']);
+        
+        // item price X quantity
+        $subtotal = ($p_item['itm_price']*$p_item['itm_qty']);
+        
+        //total price
+        $ItemTotalPrice = ($ItemTotalPrice + $subtotal);
+    }
 
-// ### Itemized information
-// (Optional) Lets you specify item wise
-// information
-$item1 = new Item();
-$item1->setName('Ground Coffee 40 oz')
-    ->setCurrency('USD')
-    ->setQuantity(1)
-    ->setSku("123123") // Similar to `item_number` in Classic API
-    ->setPrice(7.5);
-$item2 = new Item();
-$item2->setName('Granola bars')
-    ->setCurrency('USD')
-    ->setQuantity(5)
-    ->setSku("321321") // Similar to `item_number` in Classic API
-    ->setPrice(2);
+    $padata =   '&TOKEN='.urlencode($token).
+                '&PAYERID='.urlencode($payer_id).
+                '&PAYMENTREQUEST_0_PAYMENTACTION='.urlencode("SALE").
+                $paypal_data.
+                '&PAYMENTREQUEST_0_ITEMAMT='.urlencode($ItemTotalPrice).
+                '&PAYMENTREQUEST_0_TAXAMT='.urlencode($paypal_product['assets']['tax_total']).
+                '&PAYMENTREQUEST_0_SHIPPINGAMT='.urlencode($paypal_product['assets']['shippin_cost']).
+                '&PAYMENTREQUEST_0_HANDLINGAMT='.urlencode($paypal_product['assets']['handaling_cost']).
+                '&PAYMENTREQUEST_0_SHIPDISCAMT='.urlencode($paypal_product['assets']['shippin_discount']).
+                '&PAYMENTREQUEST_0_INSURANCEAMT='.urlencode($paypal_product['assets']['insurance_cost']).
+                '&PAYMENTREQUEST_0_AMT='.urlencode($paypal_product['assets']['grand_total']).
+                '&PAYMENTREQUEST_0_CURRENCYCODE='.urlencode($PayPalCurrencyCode);
 
-$itemList = new ItemList();
-$itemList->setItems(array($item1, $item2));
+    //We need to execute the "DoExpressCheckoutPayment" at this point to Receive payment from user.
+    $paypal= new MyPayPal();
+    $httpParsedResponseAr = $paypal->PPHttpPost('DoExpressCheckoutPayment', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
+    
+    //Check if everything went ok..
+    if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"])) 
+    {
 
-// ### Additional payment details
-// Use this optional field to set additional
-// payment information such as tax, shipping
-// charges etc.
-$details = new Details();
-$details->setShipping(1.2)
-    ->setTax(1.3)
-    ->setSubtotal(17.50);
+            echo '<h2>Success</h2>';
+            echo 'Your Transaction ID : '.urldecode($httpParsedResponseAr["PAYMENTINFO_0_TRANSACTIONID"]);
+            
+                /*
+                //Sometimes Payment are kept pending even when transaction is complete. 
+                //hence we need to notify user about it and ask him manually approve the transiction
+                */
+                
+                if('Completed' == $httpParsedResponseAr["PAYMENTINFO_0_PAYMENTSTATUS"])
+                {
+                    echo '<div style="color:green">Payment Received! Your product will be sent to you very soon!</div>';
+                }
+                elseif('Pending' == $httpParsedResponseAr["PAYMENTINFO_0_PAYMENTSTATUS"])
+                {
+                    echo '<div style="color:red">Transaction Complete, but payment is still pending! '.
+                    'You need to manually authorize this payment in your <a target="_new" href="http://www.paypal.com">Paypal Account</a></div>';
+                }
 
-// ### Amount
-// Lets you specify a payment amount.
-// You can also specify additional details
-// such as shipping, tax.
-$amount = new Amount();
-$amount->setCurrency("USD")
-    ->setTotal(20)
-    ->setDetails($details);
+                // we can retrive transection details using either GetTransactionDetails or GetExpressCheckoutDetails
+                // GetTransactionDetails requires a Transaction ID, and GetExpressCheckoutDetails requires Token returned by SetExpressCheckOut
+                $padata =   '&TOKEN='.urlencode($token);
+                $paypal= new MyPayPal();
+                $httpParsedResponseAr = $paypal->PPHttpPost('GetExpressCheckoutDetails', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
 
-// ### Transaction
-// A transaction defines the contract of a
-// payment - what is the payment for and who
-// is fulfilling it. 
-$transaction = new Transaction();
-$transaction->setAmount($amount)
-    ->setItemList($itemList)
-    ->setDescription("Payment description")
-    ->setInvoiceNumber(uniqid());
+                if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"])) 
+                {
+                    
+                    echo '<br /><b>Stuff to store in database :</b><br />';
+                    
+                    echo '<pre>';
+                    /*
+                    #### SAVE BUYER INFORMATION IN DATABASE ###
+                    //see (http://www.sanwebe.com/2013/03/basic-php-mysqli-usage) for mysqli usage
+                    //use urldecode() to decode url encoded strings.
+                    
+                    $buyerName = urldecode($httpParsedResponseAr["FIRSTNAME"]).' '.urldecode($httpParsedResponseAr["LASTNAME"]);
+                    $buyerEmail = urldecode($httpParsedResponseAr["EMAIL"]);
+                    
+                    //Open a new connection to the MySQL server
+                    $mysqli = new mysqli('host','username','password','database_name');
+                    
+                    //Output any connection error
+                    if ($mysqli->connect_error) {
+                        die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
+                    }       
+                    
+                    $insert_row = $mysqli->query("INSERT INTO BuyerTable 
+                    (BuyerName,BuyerEmail,TransactionID,ItemName,ItemNumber, ItemAmount,ItemQTY)
+                    VALUES ('$buyerName','$buyerEmail','$transactionID','$ItemName',$ItemNumber, $ItemTotalPrice,$ItemQTY)");
+                    
+                    if($insert_row){
+                        print 'Success! ID of last inserted record is : ' .$mysqli->insert_id .'<br />'; 
+                    }else{
+                        die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+                    }
+                    
+                    */
+                    
+                    echo '<pre>';
+                    print_r($httpParsedResponseAr);
+                    echo '</pre>';
+                } else  {
+                    echo '<div style="color:red"><b>GetTransactionDetails failed:</b>'.urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]).'</div>';
+                    echo '<pre>';
+                    print_r($httpParsedResponseAr);
+                    echo '</pre>';
 
-// ### Redirect urls
-// Set the urls that the buyer must be redirected to after 
-// payment approval/ cancellation.
-$baseUrl = getBaseUrl();
-$redirectUrls = new RedirectUrls();
-$redirectUrls->setReturnUrl("$baseUrl/ExecutePayment.php?success=true")
-    ->setCancelUrl("$baseUrl/ExecutePayment.php?success=false");
+                }
+    
+    }else{
+            echo '<div style="color:red"><b>Error : </b>'.urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]).'</div>';
+            echo '<pre>';
+            print_r($httpParsedResponseAr);
+            echo '</pre>';
+    }
+}else{
 
-// ### Payment
-// A Payment Resource; create one using
-// the above types and intent set to 'sale'
-$payment = new Payment();
-$payment->setIntent("sale")
-    ->setPayer($payer)
-    ->setRedirectUrls($redirectUrls)
-    ->setTransactions(array($transaction));
+    // if isset is not set
 
 
-// For Sample Purposes Only.
-$request = clone $payment;
+            //paypal settings
+$PayPalMode             = 'sandbox'; // sandbox or live
+$PayPalApiUsername      = 'sb-pxfjg2310161_api1.business.example.com'; //PayPal API Username
+$PayPalApiPassword      = 'UQPKHCFNTU56657R'; //Paypal API password
+$PayPalApiSignature     = 'A.pHE6kQt3KL-ifbh197SAudny1AAoIax5yjgbEvJ7Dg6oUI1J6dPdmH'; //Paypal API Signature
+$PayPalCurrencyCode     = 'GBP'; //Paypal Currency Code
+$PayPalReturnURL        = SCRIPT_URL. '/WIShow/checkout.php'; //Point to paypal-express-checkout page
+$PayPalCancelURL        = SCRIPT_URL.'/WIShow/checkout.php'; //Cancel URL if user clicks cancel
 
-// ### Create Payment
-// Create a payment by calling the 'create' method
-// passing it a valid apiContext.
-// (See bootstrap.php for more on `ApiContext`)
-// The return object contains the state and the
-// url to which the buyer must be redirected to
-// for payment approval
-try {
-    $payment->create($apiContext);
-} catch (Exception $ex) {
-    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
-    ResultPrinter::printError("Created Payment Using PayPal. Please visit the URL to Approve.", "Payment", null, $request, $ex);
-    exit(1);
+//Additional taxes and fees                                         
+$HandalingCost      = 0.00;  //Handling cost for the order.
+$InsuranceCost      = 0.00;  //shipping insurance cost for the order.
+$shipping_cost      = 1.50; //shipping cost
+$ShippinDiscount    = 0.00; //Shipping discount for this order. Specify this as negative number (eg -1.00)
+$taxes              = array( //List your Taxes percent here.
+                            'VAT' => 12, 
+                            'Service Tax' => 5
+                            );
+       
+       $user_id = WISession::get('user_id');
+       $result = $this->WIdb->select(
+                    "SELECT * FROM `wi_cart` WHERE user_id =:u",
+                     array(
+                       "u" => $user_id
+                     )
+                  );
+
+        $paypalmode = ($PayPalMode=='sandbox') ? '.sandbox' : '';
+        $paypal_data = "";
+        $ItemTotalPrice = 0;
+        $i = 0;
+
+        foreach($result as $res){
+             $paypal_data .= '&L_PAYMENTREQUEST_0_NAME'.$i.'='.urlencode($res['product_title']);
+        $paypal_data .= '&L_PAYMENTREQUEST_0_AMT'.$i.'='.urlencode($res['price']);        
+        $paypal_data .= '&L_PAYMENTREQUEST_0_QTY'.$i.'='. urlencode($res["quantity"]);
+        
+        // item price X quantity
+        $subtotal = ($res['price'] *$res["quantity"]);
+        
+        //total price
+        $ItemTotalPrice = $ItemTotalPrice + $subtotal;
+        
+        //create items for session
+        $paypal_product['items'][] = array('itm_name'=>$res['product_title'],
+                                            'itm_price'=>$res['price'],
+                                            'itm_qty'=>$res["quantity"]
+                                            );
+        $i++;
+        }
+
+        $total_tax = 0;
+        foreach($taxes as $key => $value){ //list and calculate all taxes in array
+            $tax_amount     = round($ItemTotalPrice * ($value / 100));
+            $tax_item[$key] = $tax_amount;
+            $total_tax = $total_tax + $tax_amount; //total tax amount
+    }
+
+    $GrandTotal = ($ItemTotalPrice + $total_tax + $HandalingCost + $InsuranceCost + $shipping_cost + $ShippinDiscount);
+    
+                                
+    $paypal_product['assets'] = array('tax_total'=>$total_tax, 
+                                'handaling_cost'=>$HandalingCost, 
+                                'insurance_cost'=>$InsuranceCost,
+                                'shippin_discount'=>$ShippinDiscount,
+                                'shippin_cost'=>$shipping_cost,
+                                'grand_total'=>$GrandTotal);
+    
+    //create session array for later use
+    $_SESSION["paypal_products"] = $paypal_product;
+    
+    //Parameters for SetExpressCheckout, which will be sent to PayPal
+    $padata =   '&METHOD=SetExpressCheckout'.
+                '&RETURNURL='.urlencode($PayPalReturnURL ).
+                '&CANCELURL='.urlencode($PayPalCancelURL).
+                '&PAYMENTREQUEST_0_PAYMENTACTION='.urlencode("SALE").
+                $paypal_data.               
+                '&NOSHIPPING=0'. //set 1 to hide buyer's shipping address, in-case products that does not require shipping
+                '&PAYMENTREQUEST_0_ITEMAMT='.urlencode($ItemTotalPrice).
+                '&PAYMENTREQUEST_0_TAXAMT='.urlencode($total_tax).
+                '&PAYMENTREQUEST_0_SHIPPINGAMT='.urlencode($shipping_cost).
+                '&PAYMENTREQUEST_0_HANDLINGAMT='.urlencode($HandalingCost).
+                '&PAYMENTREQUEST_0_SHIPDISCAMT='.urlencode($ShippinDiscount).
+                '&PAYMENTREQUEST_0_INSURANCEAMT='.urlencode($InsuranceCost).
+                '&PAYMENTREQUEST_0_AMT='.urlencode($GrandTotal).
+                '&PAYMENTREQUEST_0_CURRENCYCODE='.urlencode($PayPalCurrencyCode).
+                '&LOCALECODE=GB'. //PayPal pages to match the language on your website.
+                '&LOGOIMG=http://wicms.uk/WIAdmin/WIMedia/Img/jeader/wi_cms_logo.jpg'. //site logo
+                '&CARTBORDERCOLOR=FFFFFF'. //border color of cart
+                '&ALLOWNOTE=1';
+
+        
+        //We need to execute the "SetExpressCheckOut" method to obtain paypal token
+        $httpParsedResponseAr = $this->Paypal->PPHttpPost('SetExpressCheckout', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
+        
+        //Respond according to message we receive from Paypal
+        if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"]))
+        {
+                unset($_SESSION["cart_products"]); //session no longer needed
+                //Redirect user to PayPal store with Token received.
+                $paypalurl ='https://www'.$paypalmode.'.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token='.$httpParsedResponseAr["TOKEN"].'';
+                header('Location: '.$paypalurl);
+        }
+        else
+        {
+            //Show error message
+            echo '<div style="color:red"><b>Error : </b>'.urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]).'</div>';
+            echo '<pre>';
+            print_r($httpParsedResponseAr);
+            echo '</pre>';
+        }
+
+
 }
 
-// ### Get redirect url
-// The API response provides the url that you must redirect
-// the buyer to. Retrieve the url from the $payment->getApprovalLink()
-// method
-$approvalUrl = $payment->getApprovalLink();
 
-// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- ResultPrinter::printResult("Created Payment Using PayPal. Please visit the URL to Approve.", "Payment", "<a href='$approvalUrl' >$approvalUrl</a>", $request, $payment);
-
-return $payment;
     }
 
+    public function cart()
+    {
+        $user_id = WISession::get('user_id');
+        
+        $result = $this->WIdb->select(
+                    "SELECT * FROM `wi_cart`
+                     WHERE `user_id` = :u",
+                     array(
+                       "u" => $user_id
+                     )
+                  );
+
+        echo "item_list: {
+                items: [
+                    {";
+        $count=0;
+        $len = count($result);                         
+        foreach ($result as $res) {
+            $count++;
+
+            if($count == $len){
+                        echo "name: '".$res['product_title'] ."',
+              image: '".$res['product_image'] ."',
+              quantity: '".$res['quantity'] ."',
+              price: '".$res['price'] ."',
+              tax: '0.01',
+              currency: 'GBP'
+            }";
+            }else{
+                        echo "name: '".$res['product_title'] ."',
+              image: '".$res['product_image'] ."',
+              quantity: '".$res['quantity'] ."',
+              price: '".$res['price'] ."',
+              tax: '0.01',
+              currency: 'GBP'
+            },";
+            }
+
+        }
+
+        echo "}]
+
+         },
+         amount: { total: '40', 
+                               currency: 'GBP'
+                               },";
+
+    }
+
+
+   
 }
 
 ?>

@@ -75,9 +75,9 @@ WICheckout.checkout = function(){
         },
         success: function (result) {
            WICore.removeLoadingButton(btn);
-           if( result.status === 'success' )
+           if( result.status === 'success' ){
                window.location.reload();
-           else {
+           }else {
                WICore.displayErrorMessage($("#login-username"));
                WICore.displayErrorMessage($("#login-password"), result.message);
            }
@@ -86,3 +86,45 @@ WICheckout.checkout = function(){
     });
 }
 
+
+WICheckout.process = function(){
+
+  var btn = $("#paypal-button");
+        $.ajax({
+        url: "WICore/WIClass/WIAjax.php",
+        type: "POST",
+        data: {
+            action  : "process"
+        },
+        success: function (result) {
+           if( result.status === 'success' ){
+               //window.location.reload();
+           }else {
+               WICore.displayErrorMessage($("#login-username"));
+               WICore.displayErrorMessage($("#login-password"), result.message);
+           }
+
+        }
+    });
+}
+
+
+WICheckout.GetCart = function(){
+
+          $.ajax({
+        url: "WICore/WIClass/WIAjax.php",
+        type: "GET",
+        data: {
+            action  : "cart"
+        },
+        success: function (result) {
+           if( result.status === 'success' ){
+               //window.location.reload();
+           }else {
+               WICore.displayErrorMessage($("#login-username"));
+               WICore.displayErrorMessage($("#login-password"), result.message);
+           }
+
+        }
+    });
+}
