@@ -23,12 +23,14 @@ include_once 'WIShop.php';
 include_once 'WICart.php';
 include_once 'WICheckout.php';
 include_once 'WIPaypalExpress.php';
+include_once 'WICsrf.php';
 
 
 $WIdb = WIdb::getInstance();
 
 
 WISession::startSession();
+
 
 $login    = new WILogin();
 $register = new WIRegister();

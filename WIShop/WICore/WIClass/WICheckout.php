@@ -376,6 +376,7 @@ class WICheckout
         // Set your environment
         env: '". PAYPAL_ENVIRONMENT ."',
 
+
         // Set style of buttons
         style: {
             layout: 'horizontal',   // horizontal | vertical
@@ -414,15 +415,21 @@ class WICheckout
                     method: 'POST',
                     headers: {
                     'content-type': 'application/json',
-                    'X-CSRFToken': $('[name=csrfmiddlewaretoken]').val()
+                    'X-CSRFToken': '" .WICsrf::getToken() . "'
                 },
                     body: formData
                 }
             ).then(function(response) {
+                console.log(response);
                 return response.json();
             }).then(function(resJson) {
-                console.log('Order ID: '+ resJson.data.id);
-                return resJson.data.id;
+                console.log(resJson);
+                 let token;
+            token = resJson.paypal_response.links[1].href.match(/EC-\w+/)[0];
+            console.log(token);
+            return token;
+                //console.log('Order ID: '+ resJson.data.id);
+                //return resJson.data.id;
             });
         },
 

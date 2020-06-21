@@ -186,3 +186,21 @@ define("PAYPAL_ENDPOINTS", array(
 	"sandbox" => "https://api.sandbox.paypal.com",
 	"production" => "https://api.paypal.com"
 ));
+
+// PayPal REST API version
+define("PAYPAL_REST_VERSION", "v2");
+
+// ButtonSource Tracker Code
+define("SBN_CODE", "PP-DemoPortal-EC-Psdk-ORDv2-php");
+
+
+define("PAYPAL_CREDENTIALS", array(
+	"sandbox" => [
+		"client_id" => $paypal_id,
+		"client_secret" => $paypal_secret
+	],
+	"production" => [
+		"client_id" => "",
+		"client_secret" => ""
+	]
+));

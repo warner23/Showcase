@@ -8,6 +8,7 @@ require 'WIClass/WI.php';
 
 $token = $register->socialToken();
 WISession::set('WI_social_token', $token);
+WICsrf::generateToken();
 $register->botProtection();
 
 

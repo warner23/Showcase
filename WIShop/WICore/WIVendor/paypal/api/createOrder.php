@@ -1,5 +1,5 @@
 <?php 
-//include_once '../../../WIClass/WI.php';
+include_once '../../../WIClass/WI.php';
 include_once('Helpers/PayPalHelper.php');
 
 $paypalHelper = new PayPalHelper;
@@ -18,6 +18,7 @@ $orderData = '{
             "description" : "Camera Shop",
             "invoice_id" : "INV-' . SHOP_NAME . '-'.$randNo.'",
             "custom_id" : "CUST-' . SHOP_NAME . '",
+            "id"
             "amount" : {
                 "currency_code" : "'.$_POST['currency'].'",
                 "value" : "'.$_POST['total_amt'].'",
