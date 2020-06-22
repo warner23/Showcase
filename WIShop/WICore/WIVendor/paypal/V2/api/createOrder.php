@@ -7,7 +7,7 @@ $randNo= (string)rand(10000,20000);
 
 //var_dump($_POST);
 $orderData = '{
-    "intent" : "CAPTURE",
+    "intent" : "SALE",
     "application_context" : {
         "return_url" : "",
         "cancel_url" : ""
@@ -20,11 +20,11 @@ $orderData = '{
             "custom_id" : "CUST-' . SHOP_NAME . '",
             "id"
             "amount" : {
-                "currency_code" : "'.$_POST['currency'].'",
+                "currency_code" : "'.CURRENCY.'",
                 "value" : "'.$_POST['total_amt'].'",
                 "breakdown" : {
                     "item_total" : {
-                        "currency_code" : "'.$_POST['currency'].'",
+                        "currency_code" : "'.CURRENCY.'",
                         "value" : "'.$_POST['item_amt'].'"
                     }*
 
@@ -35,7 +35,7 @@ $orderData = '{
                 "description" : "Black Camera - Digital SLR",
                 "sku" : "sku01",
                 "unit_amount" : {
-                    "currency_code" : "'.$_POST['currency'].'",
+                    "currency_code" : "'.CURRENCY.'",
                     "value" : "'.$_POST['item_amt'].'"
                 },
                 "quantity" : "1",

@@ -14,6 +14,7 @@ class WICheckout
         $this->site = new WISite();
         $this->user   = new WIUser(WISession::get('user_id'));
         $this->Paypal = new WIPaypalExpress();
+        $this->PayPalHP = new PayPalHelper;
 	}
 
 	public function checkout()
@@ -362,6 +363,9 @@ class WICheckout
 
               <strong>Total: £</strong>
             <span id="total">' .$total .'</span>
+
+ <div id="paypal" onclick="WICheckout.process()" style="height:60px;"></div>
+
               <div id="paypalCheckoutContainer"></div>
               
 
@@ -390,7 +394,7 @@ class WICheckout
         // Wait for the PayPal button to be clicked
         createOrder: function() {
 
-            let currencySelect = '".  CURRENCY ."'
+            let currency = '".  CURRENCY ."'
             let formData = new FormData();
 
             $( '.total_price' ).each(function() {
@@ -415,7 +419,7 @@ class WICheckout
                     method: 'POST',
                     headers: {
                     'content-type': 'application/json',
-                    'X-CSRFToken': '" .WICsrf::getToken() . "'
+                    'access_token': '" . PAYPAL_ACCESS_TOKEN."'
                 },
                     body: formData
                 }
@@ -424,12 +428,9 @@ class WICheckout
                 return response.json();
             }).then(function(resJson) {
                 console.log(resJson);
-                 let token;
-            token = resJson.paypal_response.links[1].href.match(/EC-\w+/)[0];
-            console.log(token);
-            return token;
-                //console.log('Order ID: '+ resJson.data.id);
-                //return resJson.data.id;
+                
+            console.log('Order ID: '+ resJson.data.id);
+            return resJson.data.id;
             });
         },
 
@@ -539,10 +540,199 @@ class WICheckout
             echo json_encode ($result);   
 	}
 
-    public function PayPal()
+public function PayPal()
     {
+        $version = "V2";
+
+        if($version == "V1"){
+
+            //require  dirname(dirname(dirname(__FILE__))) .'/paypal.php';
+        include_once  dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Common/PayPalModel.php';
+        include_once  dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/Payer.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/Item.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/ItemList.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/Details.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/Amount.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/CartBase.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/TransactionBase.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/Transaction.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/RedirectUrls.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Rest/IResource.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Common/PayPalResourceModel.php';
+        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/Payment.php';
+        include_once  dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Rest/ApiContext.php';
+        include_once  dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Auth/OAuthTokenCredential.php';
+
+
+        $paypal = new \Rest\ApiContext(new \PayPal\Auth\OAuthTokenCredential(PAYPAL_CLIENT_ID ,PAYPAL_SECRET));
+
+        $user_id = WISession::get('user_id');
+
+        $data = $this->WIdb->select("SELECT * FROM `wi_cart` WHERE `user_id`=:user_id", array(
+            "user_id" => $user_id
+            )
+        );
+        
+
+        foreach ($data as $d ) {
+            $product = $d['product_title'];
+            $price   = $d['price'];
+            $quantity   = $d['quantity'];
+            $shipping = 2.00;
+
+        $total = $price + $shipping;
+
+        $payer = new Payer();
+        $payer->SetPaymentMethod('paypal');
+
+        $item = new Item();
+        $item->SetName($product)
+             ->SetCurrency('GBP')
+             ->SetQuantity($quantity)
+             ->SetPrice($price);
+
+        $itemList = new ItemList();
+        $itemList->SetItems($item);
+
+        $details = new Details();
+        $details->SetShipping($shipping)
+                ->SetSubtotal($price);
+
+        $amount = new Amount();
+        $amount->SetCurrency('GBP')
+               ->SetTotal($total)
+               ->SetDetails($details);
+
+        $transaction = new Transaction();
+        $transaction->SetAmount($amount)
+                    ->SetItemList($itemList)
+                    ->SetDescription('Pay for your items')
+                    ->SetInvoiceNumber(uniqid() );
+
+        $redirectUrls = new RedirectUrls();
+        $redirectUrls->SetReturnUrl(paypal_callback . 'pay.php?success=true')
+                    ->SetCancelUrl(paypal_callback . 'pay.php?success=true');
+
+        $payment = new Payment();
+        $payment->SetIntent('sale')
+                ->SetPayer($payer)
+                ->SetRedirectUrl($redirectUrls)
+                ->SetTransactions($transaction);
+
+        try{
+            $payment->create($paypal);
+        }catch(Exception $e){
+            die($e);
+        }
+
+        }
+
+        
+
+        $approveUrl->payment->getApprovalLink();
+
+        hedader("Location:{$redirectUrls}");
+
+        }elseif ($version == "V2") {
+            
+            //self::getAccessToken(PAYPAL_CLIENT_ID, PAYPAL_SECRET);
+        $user_id = $this->user->id();
+
+        $cart = $this->WIdb->select(
+                    "SELECT * FROM `wi_cart` WHERE user_id =:u",
+                     array(
+                       "u" => $user_id
+                     )
+                  );
+
+        $address = $this->WIdb->select(
+                    "SELECT * FROM `wi_cust_address` WHERE user_id =:u",
+                     array(
+                       "u" => $user_id
+                     )
+                  );
+
+$randNo= (string)rand(10000,20000);
+$orderData = '{
+    "intent" : "CAPTURE",
+    "application_context" : {
+        "return_url" : "",
+        "cancel_url" : ""
+    },
+    "purchase_units" : [ 
+        {
+            "reference_id" : "PU1",
+            "description" : "Camera Shop",
+            "invoice_id" : "INV-CameraShop-'.$randNo.'",
+            "custom_id" : "CUST-CameraShop",
+            "amount" : {
+                "currency_code" : "'.$_POST['currency'].'",
+                "value" : "'.$_POST['total_amt'].'",
+                "breakdown" : {
+                    "item_total" : {
+                        "currency_code" : "'.$_POST['currency'].'",
+                        "value" : "'.$_POST['item_amt'].'"
+                    },
+                    "shipping" : {
+                        "currency_code" : "'.$_POST['currency'].'",
+                        "value" : "'.$_POST['shipping_amt'].'"
+                    },
+                    "tax_total" : {
+                        "currency_code" : "'.$_POST['currency'].'",
+                        "value" : "'.$_POST['tax_amt'].'"
+                    },
+                    "handling" : {
+                        "currency_code" : "'.$_POST['currency'].'",
+                        "value" : "'.$_POST['handling_fee'].'"
+                    },
+                    "shipping_discount" : {
+                        "currency_code" : "'.$_POST['currency'].'",
+                        "value" : "'.$_POST['shipping_discount'].'"
+                    },
+                    "insurance" : {
+                        "currency_code" : "'.$_POST['currency'].'",
+                        "value" : "'.$_POST['insurance_fee'].'"
+                    }
+                }
+            },
+            "items" : [{
+                "name" : "DSLR Camera",
+                "description" : "Black Camera - Digital SLR",
+                "sku" : "sku01",
+                "unit_amount" : {
+                    "currency_code" : "'.$_POST['currency'].'",
+                    "value" : "'.$_POST['item_amt'].'"
+                },
+                "quantity" : "1",
+                "category" : "PHYSICAL_GOODS"
+            }]
+        }
+    ]
+}';
+
+    if(array_key_exists('shipping_country_code', $_POST)) {
+
+        $orderDataArr = json_decode($orderData, true);
+        $orderDataArr['application_context']['shipping_preference'] = "SET_PROVIDED_ADDRESS";
+        $orderDataArr['application_context']['user_action'] = "PAY_NOW";
+        
+        $orderDataArr['purchase_units'][0]['shipping']['address']['address_line_1']= $_POST['shipping_line1'];
+        $orderDataArr['purchase_units'][0]['shipping']['address']['address_line_2']= $_POST['shipping_line2'];
+        $orderDataArr['purchase_units'][0]['shipping']['address']['admin_area_2']= $_POST['shipping_city'];
+        $orderDataArr['purchase_units'][0]['shipping']['address']['admin_area_1']= $_POST['shipping_state'];
+        $orderDataArr['purchase_units'][0]['shipping']['address']['postal_code']= $_POST['shipping_postal_code'];
+        $orderDataArr['purchase_units'][0]['shipping']['address']['country_code']= $_POST['shipping_country_code'];
+
+        $orderData = json_encode($orderDataArr);
+    }
+
+header('Content-Type: application/json');
+echo json_encode($this->PayPalHP->orderCreate($orderData));
+        
 
     }
+}
+
 
     public function Process()
     {
@@ -840,6 +1030,31 @@ $taxes              = array( //List your Taxes percent here.
                                currency: 'GBP'
                                },";
 
+    }
+
+    public function getAccessToken($clientId, $secret)
+    {
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, "https://api.sandbox.paypal.com/v1/oauth2/token");
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSLVERSION , 6); //NEW ADDITION
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+        curl_setopt($ch, CURLOPT_USERPWD, $clientId.":".$secret);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "grant_type=client_credentials");
+
+$result = curl_exec($ch);
+
+if(empty($result))die("Error: No response.");
+else
+{
+    $json = json_decode($result);
+    print_r($json->access_token);
+}
+
+curl_close($ch); //THIS CODE IS NOW WORKING!
     }
 
 

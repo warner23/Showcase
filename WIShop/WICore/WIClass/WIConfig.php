@@ -15,7 +15,7 @@ define('WEBSITE_NAME', $webName);
 
 define('WEBSITE_DOMAIN', $domain);
 
-
+define('CONTACT_EMAIL', $contact_email);
 //it can be the same as domain (if script is placed on website's root folder) 
 //or it can cotain path that include subfolders, if script is located in some subfolder and not in root folder
 define('SCRIPT_URL', $script);
@@ -165,15 +165,19 @@ else{
 }
 
 
+define("PAYPAL_ACCESS_TOKEN", "A21AAGGnlDrmEJhYh3z4DxtsQm2BV_DdyYrZJp7y6EbRlujb7RcC-0_2q2pcmsvqjWFmKYCDQNN07jDj2fWqi2B5x6keNO1bw");
+
+define("API_VERSION", "V2");
+
 define("URL", array(
 
     "current" => CURRENT_URL,
 
     "services" => array(
-        "orderCreate" => BASE_URL.'WICore/WIVendor/paypal/api/createOrder.php',
-        "orderGet" => BASE_URL.'WICore/WIVendor/paypal/api/getOrderDetails.php',
-		"orderPatch" => BASE_URL.'WICore/WIVendor/paypal/api/patchOrder.php',
-		"orderCapture" => BASE_URL.'WICore/WIVendor/paypal/api/captureOrder.php'
+        "orderCreate" => BASE_URL.'WICore/WIVendor/paypal/' . API_VERSION.'/api/createOrder.php',
+        "orderGet" => BASE_URL.'WICore/WIVendor/paypal/' . API_VERSION.'/api/getOrderDetails.php',
+		"orderPatch" => BASE_URL.'WICore/WIVendor/paypal/' . API_VERSION.'/api/patchOrder.php',
+		"orderCapture" => BASE_URL.'WICore/WIVendor/paypal/' . API_VERSION.'/api/captureOrder.php'
     ),
 
 	"redirectUrls" => array(

@@ -32,7 +32,7 @@
                   <dl class="dl-horizontal">
                     <dt title="<?php echo WILang::get('Category'); ?>"><?php echo WILang::get('Category'); ?></dt>
 
-                     <?php $categories = $WIdb->select("SELECT * FROM `wI_Categories`"); ?>
+                     <?php $categories = $WIdb->select("SELECT * FROM `wi_Categories`"); ?>
                     <?php if(count($categories) > 0): ?>
                       <p><?php echo WILang::get('Change_cat'); ?>:</p>
                       <select id="modal-Category" class="form-control" style="width: 100%;">

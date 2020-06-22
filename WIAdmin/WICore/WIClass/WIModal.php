@@ -226,6 +226,14 @@ class WIModal
         </div>';
   }
 
+    public function changeProductPic()
+  {
+    echo '<div class="well">
+          <button onclick="WIMedia.ProductMedia()">Upload from WIMedia Library</button>
+          <button onclick="WIMedia.ProductUpload()">upload from computer</button>
+        </div>';
+  }
+
     public function pagemedia()
   {
     echo '<div class="well">
@@ -255,6 +263,14 @@ class WIModal
     echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
          <p><h1>'; echo WILang::get('Media_Lib'); echo '</h1></p>';
           $this->Img->PagePics();
+          echo '</div>';
+  }
+
+    public function ProductPics()
+  {
+    echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <p><h1>'; echo WILang::get('Media_Lib'); echo '</h1></p>';
+          $this->Img->ProductPics();
           echo '</div>';
   }
 
@@ -292,6 +308,13 @@ class WIModal
    echo '<div class="col-lg-3 col-md-3 col-sm-2">';
           $this->site->MediaPageDisplay();                  
     echo '</div><div align="center" class="ajax-loading"><img src="ajax_loader.gif" /></div>';
+  }
+
+    public function UploadProductPics()
+  {
+    echo '<div class="col-lg-3 col-md-3 col-sm-2">';
+          $this->site->ProductDisplay(); 
+          echo '</div>';
   }
 
       public function assign()

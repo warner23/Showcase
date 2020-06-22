@@ -950,6 +950,19 @@ table.text-center th {
 .perm{
   margin-left: 35%;
 }
+
+.category{
+   width: 50%;
+    float: left;
+}
+
+.editcategory{
+      width: 25%;
+    float: left;
+}
+
+
+
 /*
     Components: navbar, logo and content header
 -------------------------------------------------

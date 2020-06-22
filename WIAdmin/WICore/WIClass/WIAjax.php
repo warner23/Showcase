@@ -888,6 +888,17 @@ switch ($action) {
         $shop->shop_settings($_POST['shop_settings']);
         break;
 
+        case "getProdCat":
+        $shop = new WIShop();
+        $shop->EditCat();
+        break;
+        
+        case "getProdBrand":
+        $shop = new WIShop();
+        $shop->EditBrand();
+        break;
+
+
 
          //END END END DO NOT REMOVE
         default:

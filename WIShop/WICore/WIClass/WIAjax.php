@@ -173,7 +173,7 @@ switch ($action) {
 
         case "process":
         $check = new WICheckout();
-        $check->Process();
+        $check->PayPal();
         break;
 
 	

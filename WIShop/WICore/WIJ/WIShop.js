@@ -3,6 +3,7 @@ $(document).ready(function(){
     WIShop.brand();
     WIShop.products();
 
+
     $("body").delegate(".attr,.attr2", "click", function(event){
             var clase = $(this).attr("class");
 

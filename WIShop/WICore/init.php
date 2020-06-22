@@ -17,9 +17,6 @@ spl_autoload_register(function($class)
 	require_once 'WIClass/' . $class . '.php';
 });
 
-
-
-
 $user         = new WIUser(WISession::get("user_id"));
 $userInfo     = $user->getInfo();
 $userDetails  = $user->getDetails();

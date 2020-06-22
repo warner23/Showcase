@@ -5,6 +5,9 @@
 $(document).ready(function(event)
 {
 
+  WIShop.cat();
+    WIShop.brand();
+
     $("#shop_settings").click(function(event)
     {
        event.preventDefault();
@@ -116,6 +119,36 @@ WIShop.hide = function(){
 
    //display modal
    modal.css("display", "none");
+}
+
+
+
+WIShop.cat = function(){
+    $.ajax({
+            url      : "WICore/WIClass/WIAjax.php",
+            method   : "POST",
+            data     : {
+                action :"getProdCat",
+                category : 1
+            },
+            success  : function(data){
+                $("#getCats").html(data);
+            }
+        });
+}
+
+WIShop.brand = function(){
+    $.ajax({
+            url      : "WICore/WIClass/WIAjax.php",
+            method   : "POST",
+            data     : {
+                action : "getProdBrand",
+                brand : 1
+            },
+            success  : function(data){
+                $("#get_brand").html(data);
+            }
+        });
 }
 
 WIShop.sendData = function(shop_settings){

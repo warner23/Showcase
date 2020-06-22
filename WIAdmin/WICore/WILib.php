@@ -19,7 +19,7 @@ $dbtype          = $config->Website_Info("db_type");
 $webName               = $config->Website_Info("site_name");
 $domain                = $config->Website_Info("site_domain");
 $script                = $config->Website_Info("site_url");
-$CONTACT_EMAIL         = $config->Website_Info("contact_email");
+$contact_email         = $config->Website_Info("contact_email");
 
 $session               = $config->Website_Info("secure_session");
 $http                  = $config->Website_Info("http_only");

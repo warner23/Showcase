@@ -12,3 +12,8 @@
       </fieldset>
 
   </form>
+  <?php
+$modal->moduleModal('add-categories', 'Add Categories', 'WIProduct', 'addcategories','Save'); 
+$modal->moduleModal('edit-categories', 'edit Categories', 'WIProduct', 'editcategories','Save'); 
+$modal->moduleModal('delete-categories', 'Delete Categories', 'WIProduct', 'deletecategories','Save'); 
+?>

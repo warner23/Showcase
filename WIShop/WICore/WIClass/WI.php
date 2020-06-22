@@ -24,6 +24,10 @@ include_once 'WICart.php';
 include_once 'WICheckout.php';
 include_once 'WIPaypalExpress.php';
 include_once 'WICsrf.php';
+include_once 'WICreateOrder.php';
+include_once 'WIOrdersCreateRequest.php';
+include_once 'WIPaypalHelper.php';
+include_once 'WIHttpHelper.php';
 
 
 $WIdb = WIdb::getInstance();

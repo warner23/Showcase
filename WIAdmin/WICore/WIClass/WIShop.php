@@ -18,31 +18,88 @@ class WIShop
 
     public function Cat()
     {
-    //echo "recieved";
-    $query = $this->WIdb->prepare('SELECT * FROM `wi_categories`');
-    $query->execute();
-    //var_dump($query);
-    echo '<div class="nav nav-pills nav-stacked">
-    <li class="active"><a href="#"><h4>Categories</h4></li>';
-    while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
-        echo '<li><a href="#" class="category" cid="' . $result['cat_id']. '">' . $result['title'] . '</li>';
+
+         echo '<div class="nav nav-pills nav-stacked">
+           <li class="active">
+           <a href="javascript:void(0);">
+           <h4>Categories</h4></a>
+           </li>';
+
+         $result = $this->WIdb->select('SELECT * FROM `wi_categories`');
+
+         foreach($result as $res){
+        echo '<li>
+        <a href="javascript:void(0);" class="category" cid="' . $res['cat_id']. '">' . $res['title'] . '</a>
+
+
+        </li>';
+         }
+    
+       echo '</div>';
     }
-    echo '</div>';
 
+    public function EditCat()
+    {
 
+         echo '<div class="nav nav-pills nav-stacked">
+           <li class="active">
+           <a href="javascript:void(0);">
+           <h4>Categories</h4></a>
+           </li>';
 
-}
+         $result = $this->WIdb->select('SELECT * FROM `wi_categories`');
 
+         foreach($result as $res){
+        echo '<li>
+        <a href="javascript:void(0);" class="category" cid="' . $res['cat_id']. '">' . $res['title'] . '
+        </a>
+        <a href="javascript:void(0); class="editcategory" onclick="WIProduct.editProductCode(`' . $result['id'].'`)">
+                      <i class="fa fa-edit"></i>
+        </a>
+
+        <a href="javascript:void(0);" class="editcategory" onclick="WIProduct.ProductDelete(' . $result['id'].')">
+        <i class="fa fa-trash"></i>
+         </a>
+
+        </li>';
+         }
+    
+       echo '</div>';
+    }
 
     public function Brand()
     {
-    
-    $query = $this->WIdb->prepare('SELECT * FROM wi_brands');
-        $query->execute();
         echo '<div class="nav nav-pills nav-stacked">
-    <li class="active"><a href="#"><h4>Brands</h4></li>';
-        while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
-            echo '<li><a href="#" class="brand" bid="' . $result['brand_id'] . '">' . $result['title'] . '</li>';
+    <li class="active">
+    <a href="javascript:void(0);">
+    <h4>Brands</h4>
+    </li>';
+
+        $result = $this->WIdb->select('SELECT * FROM wi_brands');
+
+         foreach($result as $res){
+            echo '<li>
+            <a href="javascript:void(0);" class="brand" bid="' . $res['brand_id'] . '">' . $res['title'] . '
+            </li>';
+        }
+        echo '</div>';
+
+    }
+
+    public function EditBrand()
+    {
+        echo '<div class="nav nav-pills nav-stacked">
+    <li class="active">
+    <a href="javascript:void(0);">
+    <h4>Brands</h4></a>
+    </li>';
+
+        $result = $this->WIdb->select('SELECT * FROM wi_brands');
+
+         foreach($result as $res){
+            echo '<li>
+            <a href="javascript:void(0);" class="brand" bid="' . $res['brand_id'] . '">' . $res['title'] . '</a>
+            </li>';
         }
         echo '</div>';
 
