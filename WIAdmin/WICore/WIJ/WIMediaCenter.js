@@ -81,8 +81,9 @@ function sendFileToProductServer(formData,status)
             $("#pstatus").append("File upload Done<br>").fadeOut(7000);
             $("#productdragandrophandler").remove()
             $("#modal-product-upload-details").removeClass("show").addClass("hide"); 
-            preview = ('<img src="'+info.name+'" class="img-responsive cp" id="headerPic" value="'+info.id+'">');
-            $("#preview").append(preview);        
+            preview = ('<img src="'+info.name+'" class="img-responsive cp product" id="ProductPic" value="'+info.id+'">');
+            $("#product_pic").empty(); 
+            $("#product_pic").append(preview);        
         }
     }); 
  

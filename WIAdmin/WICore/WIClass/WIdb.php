@@ -146,6 +146,23 @@ class WIdb extends PDO
     
     }
 
+     public function Arrayinsert($table, $data)
+    {
+        ksort($data);
+
+        $fieldNames = implode('`, `', array_keys($data));
+        var_dump($fieldNames);
+        $fieldValues = ':' . implode(', :', array_keys($data));
+        var_dump($fieldValues);
+        $sth = $this->prepare("INSERT INTO $table (`$fieldNames`) VALUES ($fieldValues)");
+
+        foreach ($data as $key => &$value) {
+            $sth->bindParam(":$key", $value, PDO::PARAM_STR);
+        }
+
+        $sth->execute();
+    
+    }
     
 
 

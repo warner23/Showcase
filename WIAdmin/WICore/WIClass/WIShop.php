@@ -53,11 +53,11 @@ class WIShop
         echo '<li>
         <a href="javascript:void(0);" class="category" cid="' . $res['cat_id']. '">' . $res['title'] . '
         </a>
-        <a href="javascript:void(0); class="editcategory" onclick="WIProduct.editProductCode(`' . $result['id'].'`)">
+        <a href="javascript:void(0); class="editcategory" onclick="WIProduct.editProductCode(`' . $result['cat_id'].'`)">
                       <i class="fa fa-edit"></i>
         </a>
 
-        <a href="javascript:void(0);" class="editcategory" onclick="WIProduct.ProductDelete(' . $result['id'].')">
+        <a href="javascript:void(0);" class="editcategory" onclick="WIProduct.ProductDelete(' . $result['cat_id'].')">
         <i class="fa fa-trash"></i>
          </a>
 

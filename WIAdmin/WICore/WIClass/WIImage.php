@@ -473,7 +473,7 @@ public function faviconPics()
                             echo '<div class="col-md-4">
         <div class="panel panel-info">
         <div class="panel-heading">' . $value . '</div>
-        <div class="panel-body"><img src="/WIMedia/Img/shop/products/' . $value .'" class="img-responsive" id="' . $value .'" style="width:50px; height:50px;"></div>
+        <div class="panel-body"><img src="WIMedia/Img/shop/products/' . $value .'" class="img-responsive product" id="' . $value .'" style="width:50px; height:50px;"></div>
         <div class="panel-footer"></div>
         </div></div>';
         }

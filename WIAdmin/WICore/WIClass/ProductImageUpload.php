@@ -17,10 +17,10 @@ $acceptList = array_merge($whitelist, $blacklist);
 if (isset($_FILES)) {
 	if (isset($_FILES['file'])) {
 		$tmp_name = $_FILES['file']['tmp_name'];
-		$imgs     = "../../WIMedia/Img/products/" . basename($_FILES['file']['name']);
-		$vids     = "../../WIMedia/Vid/products/" . basename($_FILES['file']['name']);
+		$imgs     = "../../WIMedia/Img/shop/products/" . basename($_FILES['file']['name']);
+		$vids     = "../../WIMedia/Vid/shop/products/" . basename($_FILES['file']['name']);
 		$error    = $_FILES['file']['error'];
-		$imgups     = "WIMedia/Img/products/" . basename($_FILES['file']['name']);
+		$imgups     = "WIMedia/Img/shop/products/" . basename($_FILES['file']['name']);
 		$imgThumb     = basename($_FILES['file']['name']);
 		
 		if ($error === UPLOAD_ERR_OK) {

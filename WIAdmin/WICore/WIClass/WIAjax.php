@@ -898,6 +898,11 @@ switch ($action) {
         $shop->EditBrand();
         break;
 
+        case "new_product":
+        $products = new WIProduct();
+        $products->AddNewProduct($_POST['product']);
+        break;
+
 
 
          //END END END DO NOT REMOVE

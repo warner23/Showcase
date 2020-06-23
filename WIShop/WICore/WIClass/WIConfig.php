@@ -133,15 +133,15 @@ define('DEFAULT_LANGUAGE', $default_lang);
 define('WICMS_VERSION', $version);
 
 //SHOP
-define('SHOP_NAME', $shop_name);
+define('SHOP_NAME',"WICMS SHOP");
 
-define('BUSINESS_EMAIL', $business_email);
+define('BUSINESS_EMAIL', "warner@wicms.uk");
 
-define('PAYPAL_CALLBACK', $paypal_callback);
+define('PAYPAL_CALLBACK', "https://wicms.uk/WIShop/success");
 
-define('PAYPAL_CANCEL_URL', $cancel_url);
+define('PAYPAL_CANCEL_URL', "https://wicms.uk/WIShop/cancel");
 
-define('PAYPAL_NOTIFY_URL', $notify_url);
+define('PAYPAL_NOTIFY_URL', "https://wicms.uk/WIShop/notify");
 
 define("BASE_URL", "https://wicms.uk/WIShop/");
 
@@ -154,7 +154,7 @@ define('CURRENT_URL', 'https://wicms.uk/WIShop/checkout.php');
 define('PAYPAL_ENVIRONMENT', 'sandbox');
 
 if(PAYPAL_PRO){
-	define("PAYPAL_CLIENT_ID", $paypal_id);
+	define("PAYPAL_CLIENT_ID", $paypal_id ;
 	define("PAYPAL_SECRET", $paypal_secret);
 	define("PAYPAL_BASE_URL", "https://api.paypal.com/v1/");
 }

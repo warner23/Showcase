@@ -6,6 +6,8 @@ $(document).ready(function(){
 
     if($(this).hasClass('favicon')){
       WIMedia.changefavicon(id);
+    }else if($(this).hasClass('product')){
+      WIMedia.changeProduct(id);
     }else{
          // alert(id);
     WIMedia.change(id);
@@ -124,6 +126,16 @@ WIMedia.langmedia = function(){
     $("#modal-lang-media-details").removeClass("hide").addClass("show");
 }
 
+WIMedia.ProductMedia = function(){
+   $("#modal-product-media-details").removeClass("hide").addClass("show");
+    $("#modal-product-edit-details").removeClass("hide").addClass("hide");
+}
+
+WIMedia.ProductUpload = function(){
+   $("#modal-product-upload-details").removeClass("hide").addClass("show");
+    $("#modal-product-edit-details").removeClass("hide").addClass("hide");
+}
+
 WIMedia.Langupload = function(){
    $("#modal-lang-selection-details").removeClass("show").addClass("hide");
     $("#modal-lang-upload-details").removeClass("hide").addClass("show");
@@ -167,6 +179,8 @@ WIMedia.changefaviconPic = function(){
 
          $("#modal-favicon-edit-details").removeClass("hide").addClass("show");
   }
+
+
 
   WIMedia.closeEdit = function(){
 
@@ -212,6 +226,14 @@ WIMedia.changefaviconPic = function(){
     $("#modal-favicon-media-details").removeClass("show").addClass("hide");
     $("#modal-favicon-edit-details").removeClass("show").addClass("hide");
     $(".cp").attr("src", "WIMedia/Img/favicon/"+img);
+    $(".cp").attr("value", img);
+  }
+
+    WIMedia.changeProduct = function(img){
+
+    $("#modal-product-media-details").removeClass("show").addClass("hide");
+    $("#modal-product-edit-details").removeClass("show").addClass("hide");
+    $(".cp").attr("src", "WIMedia/Img/shop/products/"+img);
     $(".cp").attr("value", img);
   }
 

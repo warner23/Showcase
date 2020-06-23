@@ -78,6 +78,16 @@ class WIModal
     echo '<div class="delete_id" id=""><p>Are you sure you want to delete</p></div> ';
   }
 
+  public function deletecategories()
+  {
+    echo '<div class="delete_id" id=""><p>Are you sure you want to delete</p></div> ';
+  }
+
+  public function deletebrand()
+  {
+    echo '<div class="delete_id" id=""><p>Are you sure you want to delete</p></div> ';
+  }
+
 	public function header($action, $ele_id, $title)
 	{
 		echo '<h5 class="modal-title" id="WIModalLabel">' .$title .'</h5>
@@ -541,6 +551,66 @@ class WIModal
                       echo '</select>
                       <input id="addpage" name="addpage" type="hidden" class="input-xlarge form-control" >
                       </div>
+                      </div>
+                  </form>';
+  }
+
+      public function addcategories()
+  {
+    echo '<form class="form-horizontal" id="add-cat-modal">
+                      <div class="form-group">
+                        <label class="control-label col-lg-3" for="css">';
+                           echo WILang::get('add_shop_Cat'); 
+                        echo '</label>
+                        <div class="col-lg-9">
+                          <input id="cat_shop_cat" name="cat" type="text" class="input-xlarge form-control" >
+                        </div>
+                       
+                      </div>
+                  </form>';
+  }
+
+        public function editcategories()
+  {
+    echo '<form class="form-horizontal" id="edit-cat-modal">
+                      <div class="form-group">
+                        <label class="control-label col-lg-3" for="css">';
+                           echo WILang::get('edit_shop_Cat'); 
+                        echo '</label>
+                        <div class="col-lg-9">
+                          <input id="edit_cat_shop_cat" name="editcat" type="text" class="input-xlarge form-control" >
+                        </div>
+                       
+                      </div>
+                  </form>';
+  }
+
+      public function addbrand()
+  {
+    echo '<form class="form-horizontal" id="add-brand-modal">
+                      <div class="form-group">
+                        <label class="control-label col-lg-3" for="css">';
+                           echo WILang::get('add_shop_Brand'); 
+                        echo '</label>
+                        <div class="col-lg-9">
+                          <input id="add_shop_brand" name="cat" type="text" class="input-xlarge form-control" >
+                        </div>
+                       
+                      </div>
+                  </form>';
+  }
+
+        public function editbrand()
+  {
+    echo '<form class="form-horizontal" id="edit-cat-modal">
+                      <div class="form-group">
+                        <label class="control-label col-lg-3" for="css">';
+                           echo WILang::get('edit_shop_brand'); 
+                        echo '</label>
+                        <div class="col-lg-9">
+                          <input id="edit_shop_brand" name="edit_shop_brand" type="text" class="input-xlarge form-control" >
+                        </div>
+                       
                       </div>
                   </form>';
   }
