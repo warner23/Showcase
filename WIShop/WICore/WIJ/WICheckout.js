@@ -128,3 +128,102 @@ WICheckout.GetCart = function(){
         }
     });
 }
+
+
+WICheckout.success = function(res){
+
+    if (res.ack) {
+        if(WICheckout.getUrlParams('commit') === 'true') {
+             WICheckout.showPaymentExecute(res.data);
+        } else {
+             WICheckout.showPaymentGet(res.data);
+        }
+    } else {
+        alert('Something went wrong');
+    } 
+
+}
+
+WICheckout.showPaymentExecute = function(response){
+
+            $.ajax({
+        url: "WICore/WIClass/WIAjax.php",
+        type: "POST",
+        data: {
+            action  : "showPaymentExecute",
+            response     : response
+        },
+        success: function (response) {
+         var res = JSON.parse(response);
+
+         if(res.status == "APPROVED"){
+
+            WICheckout.stepTwo();
+            $("#confirmation_t").html(res.receipt);
+         }else{
+
+         }
+
+        }
+    });
+}
+
+WICheckout.showPaymentGet = function(response){
+  
+       $.ajax({
+        url: "WICore/WIClass/WIAjax.php",
+        type: "POST",
+        data: {
+            action  : "showPaymentGet",
+            response     : response
+        },
+        success: function (response) {
+          var res = JSON.parse(response);
+
+         if(res.status == "APPROVED"){
+
+            WICheckout.stepTwo();
+            $("#confirmation_t").html(res.receipt);
+         }else{
+
+         }
+        }
+    });
+}
+
+WICheckout.showDom = function(id) {
+    let arr;
+    if (!Array.isArray(id)) {
+        arr = [id];
+    } else {
+        arr = id;
+    }
+    arr.forEach(function (domId) {
+        document.getElementById(domId).style.display = 'block';
+    });
+}
+
+WICheckout.hideDom = function(id) {
+    let arr;
+    if (!Array.isArray(id)) {
+        arr = [id];
+    } else {
+        arr = id;
+    }
+    arr.forEach(function (domId) {
+        document.getElementById(domId).style.display = 'none';
+    });
+}
+
+WICheckout.getUrlParams = function(prop) {
+    let params = {},
+        search = decodeURIComponent( window.location.href.slice( window.location.href.indexOf( '?' ) + 1 ) ),
+        definitions = search.split( '&' );
+
+    definitions.forEach( function(val) {
+        let parts = val.split( '=', 2 );
+        params[ parts[ 0 ] ] = parts[ 1 ];
+    } );
+
+    return ( prop && prop in params ) ? params[ prop ] : params;
+}

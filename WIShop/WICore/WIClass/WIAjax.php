@@ -176,6 +176,15 @@ switch ($action) {
         $check->PayPal();
         break;
 
+        case "showPaymentExecute":
+        $check = new WICheckout();
+        $check->showPaymentExecute($_POST['response']);
+        break;
+
+        case "showPaymentGet":
+        $check = new WICheckout();
+        $check->showPaymentGet($_POST['response']);
+        break;
 	
 	default:
 		

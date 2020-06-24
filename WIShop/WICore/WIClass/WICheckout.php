@@ -350,20 +350,50 @@ class WICheckout
 
               echo '</ul>
               
-                <meta name="viewport" content="width=device-width, initial-scale=1">
+               
+
+
+              <strong>Total: £</strong>
+            <span id="total">' .$total .'</span>
+                </div>';
+		
+
+                echo '<a href="javascript:;" onclick="WICheckout.stepOne();" class="btn btn-as pull-right" type="button">
+                    '; echo WILang::get('next'); echo '
+
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+                <div class="clearfix"></div>
+            </div>';
+	}
+
+	public function payment($cart)
+	{
+
+		echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" > 
+
+            <div class="alert alert-danger hide" id="snap" >
+                    <strong>'; echo WILang::get('next'); echo '</strong> 
+                </div>
+
+                
+                    <h3>'; echo WILang::get('payment'); echo '</h3>
+                <hr>
+                
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                
+                // payment api code for PayPal
+                // DO NOT  ALTER !!!
+
+
+                 <meta name="viewport" content="width=device-width, initial-scale=1">
                  <!-- Ensures optimal rendering on mobile devices. -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
   <!-- Optimal Internet Explorer compatibility -->
 
   <script
-    src="https://www.paypal.com/sdk/js?client-id=' .PAYPAL_CLIENT_ID . '">
+    src="https://www.paypal.com/sdk/js?client-id=' .PAYPAL_CLIENT_ID . '&currency=' . CURRENCY . '">
   </script>
-
-
-              <strong>Total: £</strong>
-            <span id="total">' .$total .'</span>
-
- <div id="paypal" onclick="WICheckout.process()" style="height:60px;"></div>
 
               <div id="paypalCheckoutContainer"></div>
               
@@ -443,29 +473,29 @@ class WICheckout
             ).then(function(res) {
                 return res.json();
             }).then(function(res) {
-                window.location.href = 'success.php';
+                //window.location.href = 'success.php';
+                WICheckout.success(res);
             });
         }
 
     }).render('#paypalCheckoutContainer');
 
 </script>";
-              //include_once 'WIInc/payment.php';
-              echo '</div>';
-		
 
-                echo '<a href="javascript:;" onclick="WICheckout.stepOne();" class="btn btn-as pull-right" type="button">
-                    '; echo WILang::get('next'); echo '
+            echo '</div>
+<a href="javascript:void(0);" class="btn btn-as pull-right" onclick="WICheckout.stepTwo()" type="button" id="required">'; 
+                        echo WILang::get('next') ; echo '
+                        <i class="fa fa-arrow-right"></i>
+                    </a>
+                    <div class="clearfix"></div>
 
-                    <i class="fa fa-arrow-right"></i>
-                </a>
-                <div class="clearfix"></div>
-            </div></div>';
+                 </div>
+                    
+                ';
 	}
 
-	public function payment($cart)
+	public function confirmation()
 	{
-
 		echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" > 
 
             <div class="alert alert-danger hide" id="snap" >
@@ -473,41 +503,15 @@ class WICheckout
                 </div>
 
                 
-                    <h3>'; echo WILang::get('payment'); echo '</h3>
+                    <h3>'; echo WILang::get('confirmation'); echo '</h3>
                 <hr>
                 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                
-                ';
-            //include_once 'WIInc/payment.php';
-			
-				  echo '</div>
-
-				</div>
-
-                 </div>
-                    <a href="javascript:void(0);" class="btn btn-as pull-right" onclick="WICheckout.stepTwo()" type="button" id="required">'; 
-                        echo WILang::get('next') ; echo '
-                        <i class="fa fa-arrow-right"></i>
-                    </a>
-                    <div class="clearfix"></div>
+                <div id="confirmation_t">
                 </div>
-            </div>';
-	}
+                </div>
 
-	public function confirmation()
-	{
-		echo '<button class="btn btn-as pull-right" onclick="WIClient.stepThree();" type="button">
-                    <span class="show" id="next">
-                        '; echo WILang::get('next'); echo '
-                        
-                        <i class="fa fa-arrow-right" ></i>
-                    </span>
-                    <span class="hide" id="spin">
-                        <i class="fa fa-circle-o-notch fa-spin"></i>
-                       '; echo WILang::get('connecting'); echo '
-                    </span>
-                </button>
+       
                 <div class="clearfix"></div>
             ';
 	}
@@ -1044,18 +1048,333 @@ $taxes              = array( //List your Taxes percent here.
         curl_setopt($ch, CURLOPT_USERPWD, $clientId.":".$secret);
         curl_setopt($ch, CURLOPT_POSTFIELDS, "grant_type=client_credentials");
 
-$result = curl_exec($ch);
+        $result = curl_exec($ch);
 
-if(empty($result))die("Error: No response.");
-else
-{
-    $json = json_decode($result);
-    print_r($json->access_token);
-}
+        if(empty($result))die("Error: No response.");
+        else
+        {
+            $json = json_decode($result);
+            print_r($json->access_token);
+        }
 
-curl_close($ch); //THIS CODE IS NOW WORKING!
+        curl_close($ch); //THIS CODE IS NOW WORKING!
     }
 
+
+    public function showPaymentExecute($res)
+    {
+
+                $intent = $res['intent'];
+        $status = $res['status'];
+        $user_id = $this->user->id();
+        $receipt_id = $res['id'];
+        $payerInfo = $res['payer'];
+        $ref_id    = $res['purchase_units'][0]['reference_id'];
+        $shipping = $res['purchase_units'][0]['shipping'];
+
+        $cost = $res['purchase_units'][0]['amount']['value'];
+        $shipping_cost = $res['purchase_units'][0]['amount']['breakdown']['shipping']['value'];
+        $tax = $res['purchase_units'][0]['amount']['breakdown']['tax_total']['value'];
+        $total = $res['purchase_units'][0]['amount']['value'];
+
+        $this->WIdb->insert('wi_order',
+        array(
+        "userId" => $user_id,
+        "sessionId" => $ref_id,
+        "status" => $status,
+        "subTotal" => $cost,
+        "tax" => $tax,
+        "shipping" => $shipping_cost,
+        "total" => $total,
+        "grandTotal" => $total,
+        "email" => $payerInfo['email'],
+        "firstName" => $$payerInfo['name']['given_name'],
+        "lastName" => $$payerInfo['name']['sirname'],
+        "line1" => $shipping['address']['address_line_1'],
+        "line2" => $shipping['address']['viewAddressLine2'],
+        "city" => $shipping['address']['admin_area_2'],
+        "province" => $shipping['address']['admin_area_1']
+        )
+        );
+
+        $this->WIdb->insert('wi_transaction',
+        array(
+        "userId" => $user_id,
+        "orderId" => $receipt_id,
+        "code"    => $ref_id,
+        "status"  => $status,
+        "mode"    => $intent
+        )
+        );
+
+       // var_dump($res);
+        echo '<div class="row-fluid">
+    <!-- Middle Section -->
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div id="loadingAlert"
+             class="card"
+             style="display: none;">
+            <div class="card-body">
+                <div class="alert alert-info block"
+                     role="alert">
+                    Loading....
+                </div>
+            </div>
+        </div>
+        <form id="orderConfirm"
+              class="form-horizontal"
+              style="display: none;">
+            <h3>Your payment is authorized.</h3>
+            <h4>Confirm the order to execute</h4>
+            <hr>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Shipping Information</label>
+                <div class="col-sm-7">
+                    <p id="confirmRecipient"></p>
+                    <p id="confirmAddressLine1"></p>
+                    <p id="confirmAddressLine2"></p>
+                    <p>
+                        <span id="confirmCity"></span>,
+                        <span id="confirmState"></span> - <span id="confirmZip"></span>
+                    </p>
+                    <p id="confirmCountry"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="shippingMethod" class="col-sm-5 control-label">Shipping Type</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="shippingMethod" id="shippingMethod">
+                        <optgroup label="United Parcel Service" style="font-style:normal;">
+                            <option value="8.00">
+                                Worldwide Expedited - $8.00</option>
+                            <option value="4.00">
+                                Worldwide Express Saver - $4.00</option>
+                        </optgroup>
+                        <optgroup label="Flat Rate" style="font-style:normal;">
+                            <option value="2.00" selected>
+                                Fixed - $2.00</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <div class="col-sm-offset-5 col-sm-7">
+                    <label class="btn btn-primary" id="confirmButton">Complete Payment</label>
+                </div>
+            </div>
+        </form>
+        <form id="orderView"
+              class="form-horizontal"
+              style="display: block;">
+            <h3>Your payment is complete</h3>
+            <h4>
+                <span id="viewFirstName">' .$payerInfo['name']['given_name'] . '</span>
+                <span id="viewLastName">' .$payerInfo['name']['surname'] . '</span>,
+                Thank you for your Order
+            </h4>
+            <hr>
+            <div class="form-group">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Shipping Details</label>
+                    <div class="col-sm-7">
+                        <p id="viewRecipientName">' .$shipping['name']['full_name'] . '</p>
+                        <p id="viewAddressLine1">' .$shipping['address']['address_line_1'] . '</p>
+                        <p id="viewAddressLine2">' .$shipping['address']['viewAddressLine2'] . '</p>
+                        <p>
+                            <span id="viewCity">' .$shipping['address']['admin_area_2'] . '</span>,
+                            <span id="viewState">' .$shipping['address']['admin_area_1'] . '</span> - <span id="viewPostalCode">' .$shipping['address']['postal_code'] . '</span>
+                        </p>
+                        <p id="confirmCountry"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Transaction Details</label>
+                    <div class="col-sm-7">';
+                    
+        if($res['purchase_units'][0]['payments'] && $res['purchase_units'][0]['payments']['captures']) {
+
+            $final_amount = $res['purchase_units'][0]['payments']['captures'][0]['amount']['value'];
+            $view_currentcy = $res['purchase_units'][0]['payments']['captures'][0]['amount']['currency_code'];
+        }else {
+            $final_amount = $res['purchase_units'][0]['amount']['value'];
+            $view_currentcy = $res['purchase_units'][0]['amount']['currency_code'];
+        }
+                        echo '<p>Transaction ID: <span id="viewTransactionID">' . $receipt_id . '</span></p>
+                        <p>Payment Total Amount: <span id="viewFinalAmount"> 
+                        ' . $final_amount . '
+                        </span> </p>
+                        <p>Currency Code: <span id="viewCurrency">
+                        ' . $view_currentcy . '
+                        </span></p>
+                        <p>Payment Status: <span id="viewPaymentState">
+                        result.status
+                        ' . $res['status'] . '
+                        </span></p>
+                        <p id="transactionType">Payment Type: <span id="viewTransactionType"></span> </p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h3> Click <a href="index.php">here </a> to return to Home Shopping Page</h3>
+        </form>
+    </div>
+</div>
+';
+       
+    }
+
+
+    public function showPaymentGet($res)
+    {
+         $intent = $res['intent'];
+        $status = $res['status'];
+        $user_id = $this->user->id();
+        $receipt_id = $res['id'];
+        $payerInfo = $res['payer'];
+        $ref_id    = $res['purchase_units'][0]['reference_id'];
+        $shipping = $res['purchase_units'][0]['shipping'];
+
+        $cost = $res['purchase_units'][0]['amount']['value'];
+        $shipping_cost = $res['purchase_units'][0]['amount']['breakdown']['shipping']['value'];
+        $tax = $res['purchase_units'][0]['amount']['breakdown']['tax_total']['value'];
+        $total = $res['purchase_units'][0]['amount']['value'];
+
+        $this->WIdb->insert('wi_order',
+        array(
+        "userId" => $user_id,
+        "sessionId" => $ref_id,
+        "status" => $status,
+        "subTotal" => $cost,
+        "tax" => $tax,
+        "shipping" => $shipping_cost,
+        "total" => $total,
+        "grandTotal" => $total,
+        "email" => $payerInfo['email'],
+        "firstName" => $$payerInfo['name']['given_name'],
+        "lastName" => $$payerInfo['name']['sirname'],
+        "line1" => $shipping['address']['address_line_1'],
+        "line2" => $shipping['address']['viewAddressLine2'],
+        "city" => $shipping['address']['admin_area_2'],
+        "province" => $shipping['address']['admin_area_1']
+        )
+        );
+
+        $this->WIdb->insert('wi_transaction',
+        array(
+        "userId" => $user_id,
+        "orderId" => $receipt_id,
+        "code"    => $ref_id,
+        "status"  => $status,
+        "mode"    => $intent
+        )
+        );
+        $receipt = '<div class="row-fluid">
+    <!-- Middle Section -->
+    <div class="col-sm-offset-3 col-md-4">
+        <div id="loadingAlert"
+             class="card"
+             style="display: none;">
+            <div class="card-body">
+                <div class="alert alert-info block"
+                     role="alert">
+                    Loading....
+                </div>
+            </div>
+        </div>
+        <form id="orderConfirm"
+              class="form-horizontal"
+              style="display: none;">
+            <h3>Your payment is authorized.</h3>
+            <h4>Confirm the order to execute</h4>
+            <hr>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Shipping Information</label>
+                <div class="col-sm-7">
+                    <p id="confirmRecipient">' . $shipping['name']['full_name'] . '</p>
+                    <p id="confirmAddressLine1">' . $shipping['address']['address_line_1'] . '</p>
+                    <p id="confirmAddressLine2">' . $shipping['address']['admin_area_2'] . '</p>
+                    <p>
+                        <span id="confirmCity"></span>,
+                        <span id="confirmState"></span> - <span id="confirmZip"></span>
+                    </p>
+                    <p id="confirmCountry"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="shippingMethod" class="col-sm-5 control-label">Shipping Type</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="shippingMethod" id="shippingMethod">
+                        <optgroup label="United Parcel Service" style="font-style:normal;">
+                            <option value="8.00">
+                                Worldwide Expedited - $8.00</option>
+                            <option value="4.00">
+                                Worldwide Express Saver - $4.00</option>
+                        </optgroup>
+                        <optgroup label="Flat Rate" style="font-style:normal;">
+                            <option value="2.00" selected>
+                                Fixed - $2.00</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <div class="col-sm-offset-5 col-sm-7">
+                    <label class="btn btn-primary" id="confirmButton">Complete Payment</label>
+                </div>
+            </div>
+        </form>
+        <form id="orderView"
+              class="form-horizontal"
+              style="display: none;">
+            <h3>Your payment is complete</h3>
+            <h4>
+                <span id="viewFirstName"></span>
+                <span id="viewLastName"></span>,
+                Thank you for your Order
+            </h4>
+            <hr>
+            <div class="form-group">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Shipping Details</label>
+                    <div class="col-sm-7">
+                        <p id="viewRecipientName"></p>
+                        <p id="viewAddressLine1"></p>
+                        <p id="viewAddressLine2"></p>
+                        <p>
+                            <span id="viewCity"></span>,
+                            <span id="viewState"></span> - <span id="viewPostalCode"></span>
+                        </p>
+                        <p id="confirmCountry"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Transaction Details</label>
+                    <div class="col-sm-7">
+                        <p>Transaction ID: <span id="viewTransactionID"></span></p>
+                        <p>Payment Total Amount: <span id="viewFinalAmount"></span> </p>
+                        <p>Currency Code: <span id="viewCurrency"></span></p>
+                        <p>Payment Status: <span id="viewPaymentState"></span></p>
+                        <p id="transactionType">Payment Type: <span id="viewTransactionType"></span> </p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h3> Click <a href="index.php">here </a> to return to Home Shopping Page</h3>
+        </form>
+    </div>
+</div>
+';
+    $msg = "You have successfully Paid for your items, thank you for your Payment.";
+    $result = array(
+        "status" => $status,
+        "msg"    => $msg,
+        "receipt"  => $receipt
+    );
+
+    echo json_encode($result);
+    }
 
    
 }

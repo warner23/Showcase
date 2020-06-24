@@ -1,6 +1,7 @@
 <?php
 
-include_once('Config/Config.php');
+//include_once('Config/Config.php');
+include_once  dirname(dirname(dirname(dirname(dirname(__FILE__))))) .'/init.php';
 include_once('Helpers/PayPalHelper.php');
 
 $paypalHelper = new PayPalHelper;
