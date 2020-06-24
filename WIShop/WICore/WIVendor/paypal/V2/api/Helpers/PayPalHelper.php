@@ -64,7 +64,8 @@ class PayPalHelper {
 		$this->_http->setAuthentication(PAYPAL_CREDENTIALS[PAYPAL_ENVIRONMENT]['client_id'] . ":" . PAYPAL_CREDENTIALS[PAYPAL_ENVIRONMENT]['client_secret']);
 		$this->_http->setBody("grant_type=client_credentials");
 		$returnData = $this->_http->sendRequest();
-		$this->_token = $returnData['access_token'];	
+		 $this->_token = $returnData['access_token'];
+		 return $this->_token;	
 	}
 	
 	/**
@@ -166,7 +167,8 @@ class PayPalHelper {
 	*/
 	public function orderCreate($postData) {
 		if($this->_token === null) {
-			$this->_getToken();
+			$token = $this->_getToken();
+
 		}
 		$returnData = $this->_createOrder($postData);
 		$_SESSION['order_id'] = $returnData['id'];

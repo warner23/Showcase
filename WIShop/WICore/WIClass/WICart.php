@@ -10,19 +10,20 @@ class WICart
 	function __construct()
 	{
 		$this->WIdb = WIdb::getInstance();
+		$this->User = new WIUser(WISession::get('user_id'));
 	}
 
 
 	public function addProduct($pid, $qty)
 	{
 
-		$userId = WISession::get('user_id');
+		$userId = $this->User->id();
 		if($userId !=0 || $userId!=null)
 		{
 
 		  $result = $this->WIdb->select(
-                    "SELECT * FROM `wi_products`
-                     WHERE `product_id` = :p_id",
+                    "SELECT * FROM `wi_product`
+                     WHERE `id` = :p_id",
                      array(
                        "p_id" => $pid
                      )
@@ -32,16 +33,16 @@ class WICart
 		  $this->WIdb->insert('wi_cart', array(
             "p_id"     => $pid,
             "ip_addr"  => $_SERVER['REMOTE_ADDR'],
-            "user_id"  => $userId,
-            "product_title" => $result[0]['product_title'],
-            "product_image" => $result[0]['product_image'],
+            "userId"  => $userId,
+            "title" => $result[0]['title'],
+            "photo" => $result[0]['photo'],
             "quantity" => $qty,
-            "price" => $result[0]['product_price'],
-            "total_amount" => $result[0]['product_price'] * $qty
+            "price" => $result[0]['price'],
+            "total_amount" => $result[0]['price'] * $qty
         ));
 
 		  	echo '<div class="alert alert-success">
-					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<a href="javascript:void(0);" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 					<b>Product is added..</b>
 					</div>';
 
@@ -53,7 +54,7 @@ class WICart
 
 		$result = $this->WIdb->select(
                     "SELECT * FROM `wi_cart`
-                     WHERE `user_id` = :user_id",
+                     WHERE `userId` = :user_id",
                      array(
                        "user_id" => $userId
                      )
@@ -71,7 +72,7 @@ class WICart
 			
 				<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
 				<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
-				<img class="img-responsive" src="../../../WIAdmin/WIMedia/Img/shop/' . $res['product_image'] . '" style="width:60px;height:60px;">
+				<img class="img-responsive" src="../../../WIAdmin/WIMedia/Img/shop/products/' . $res['photo'] . '" style="width:60px;height:60px;">
 				</div>
 				</div>
 				<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">' . $res['product_title'] . '</div>
@@ -87,11 +88,11 @@ class WICart
 
 	public function CheckCart()
 	{
-		$userId = WISession::get('user_id');
+		$userId = $this->User->id();
 
 		$result = $this->WIdb->select(
                     "SELECT * FROM `wi_cart`
-                     WHERE `user_id` = :user_id",
+                     WHERE `userId` = :user_id",
                      array(
                        "user_id" => $userId
                      )
@@ -105,9 +106,9 @@ class WICart
 				echo '<tr>
 							<td data-th="Product">
 								<div class="row">
-									<div class="col-sm-2 hidden-xs"><img src="../../../WIAdmin/WIMedia/Img/shop/' . $basket['product_image'] . '" alt="..." cwqlass="img-responsive"/></div>
+									<div class="col-sm-2 hidden-xs"><img src="../../../WIAdmin/WIMedia/Img/shop/products/' . $basket['photo'] . '" alt="..." cwqlass="img-responsive"/></div>
 									<div class="col-sm-10">
-										<h4 class="nomargin">' . $basket['product_title'] . '</h4>
+										<h4 class="nomargin">' . $basket['title'] . '</h4>
 										<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
 									</div>
 								</div>
@@ -121,8 +122,12 @@ class WICart
 							</td>
 							<td data-th="Subtotal" class="text-center subtotal" id="total_' . $basket['id'] . '">' . $subtotal .'</td>
 							<td class="actions" data-th="">
-								<button class="btn btn-info btn-sm update"><i class="fa fa-refresh"></i></button>
-								<button class="btn btn-danger btn-sm delete"><i class="fa fa-trash-o"></i></button>							
+								<button class="btn btn-info btn-sm update"  onclick="WICart.refresh();">
+								<i class="fa fa-refresh"></i>
+								</button>
+								<button class="btn btn-danger btn-sm delete" onclick="WICart.delete(`' . $basket['id'] . '`);">
+								<i class="fa fa-trash-o"></i>
+								</button>							
 							</td>
 						</tr>
 						<script type="text/javascript">
@@ -182,15 +187,111 @@ class WICart
 
 	public function CartCount($userId)
 	{
-		//$userId = WISession::get('user_id');
-		//echo "usert" . $userId;
+		
 		$result = $this->WIdb->select(
-                    "SELECT * FROM `wi_cart` WHERE user_id=:userId", array(
+                    "SELECT * FROM `wi_cart` WHERE userId=:userId", array(
                     	"userId"  => $userId
                     	));
 		//var_dump($result);
 		return count($result);
 
+	}
+
+	public function checkoutCart()
+	{
+		$userId = $this->User->id();
+
+		$result = $this->WIdb->select(
+                    "SELECT * FROM `wi_cart`
+                     WHERE `userId` = :user_id",
+                     array(
+                       "user_id" => $userId
+                     )
+                  );
+		return $result;
+	}
+
+	public function CreateOrder()
+	{
+
+		$result = self::checkoutCart();
+
+		$orders = "";
+		$count= 0;
+		$len = count($result);
+		foreach ($result as $res) {
+			$count++;
+
+			if($count == $len){
+				$orders .= '{
+                "name" : "' . $res['title'] . '",
+                "description" : "",
+                "sku" : "sku'.$res['id'] .'",
+                "quantity" : "' . $res['quantity'] . '",
+                "unit_amount" : {
+                    "currency_code" : "'.CURRENCY.'",
+                    "value" : "' . number_format($res['total_amount'],  2, '.', '') . '"
+                }
+            }';
+			}else{
+				 $orders .='{
+                "name" : "' . $res['title'] . '",
+                "description" : "",
+                "sku" : "sku'.$res['id'] .'",
+                "quantity" : "' . $res['quantity'] . '",
+                "unit_amount" : {
+                    "currency_code" : "'.CURRENCY.'",
+                    "value" : "' . number_format($res['total_amount'], 2, '.', '') . '"
+                }
+            },';
+			}
+
+		}
+		return $orders;
+		
+	}
+
+	public function OrderAddress()
+	{
+		$userId = $this->User->id();
+
+		$result = $this->WIdb->select(
+                    "SELECT * FROM `wi_cust_address`
+                     WHERE `user_id` = :user_id",
+                     array(
+                       "user_id" => $userId
+                     )
+                  );
+		return $result;
+	}
+
+
+	public function TotalCost()
+	{
+		$userId = $this->User->id();
+
+		$result = $this->WIdb->select(
+                    "SELECT * FROM `wi_cart`
+                     WHERE `userId` = :user_id",
+                     array(
+                       "user_id" => $userId
+                     )
+                  );
+		$count = 0;
+		$total = 0;
+        $len = count($result);
+		foreach ($result as $basket) {
+				$subtotal = $basket['price'] * $basket['quantity'];
+				$total = $total + $subtotal;
+
+				   if($count == $len){
+					$total = $total + $subtotal;
+				}
+						$count++;
+			}
+
+		return number_format($total,  2, '.', '');
+;
 	}
 
 }

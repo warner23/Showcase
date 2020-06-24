@@ -22,6 +22,14 @@ class WIProduct
 
         //$this->WIdb->AutoInsert('wi_product', $products)
         $this->WIdb->insert('wi_product', $prod); 
+
+        $msg = "You have successfully added a new Product.";
+        $result = array(
+            "status" => "success",
+            "msg"  => $msg
+        );
+
+        echo json_encode($result);
         
     }
 

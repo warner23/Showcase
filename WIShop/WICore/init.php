@@ -20,15 +20,14 @@ spl_autoload_register(function($class)
 $user         = new WIUser(WISession::get("user_id"));
 $userInfo     = $user->getInfo();
 $userDetails  = $user->getDetails();
-//$help   = new WIHelplines();
 $Info   = new WIUserInfo();
 $web   = new WIWebsite();
+$product   = new WIProduct();
 $shop   = new WIShop();
 $cart    = new WICart();
 $check    = new WICheckout();
 $mod  = new WIModules();
 $maint  = new WIMaintenace();
-$paypal = new WIPaypalExpress();
 
 
 

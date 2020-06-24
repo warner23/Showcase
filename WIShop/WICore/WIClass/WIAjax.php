@@ -132,13 +132,13 @@ switch ($action) {
         break;
 
         case "getProduct":
-        $shop = new WIShop();
-        $shop->Product($_POST['get_product']);
+        $product = new WIProduct();
+        $product->Product($_POST['get_product']);
         break;
 
         case "productInfo":
-        $shop = new WIShop();
-        $shop->productInfo($_POST['id']);
+        $product = new WIProduct();
+        $product->productInfo($_POST['id']);
         break;
 
         case "selected_cat":

@@ -1,65 +1,84 @@
 <?php 
-include_once '../../../WIClass/WI.php';
+include_once  dirname(dirname(dirname(dirname(dirname(__FILE__))))) .'/init.php';
 include_once('Helpers/PayPalHelper.php');
 
 $paypalHelper = new PayPalHelper;
+
 $randNo= (string)rand(10000,20000);
 
-//var_dump($_POST);
+//var_dump($cart);
+$order = $cart->checkoutCart();
+//$itemOrder = $cart->CreateOrder();
+$orderAddress = $cart->OrderAddress();
+
+$total_amount = $cart->TotalCost();
+
+
 $orderData = '{
-    "intent" : "SALE",
+    "intent" : "CAPTURE",
     "application_context" : {
-        "return_url" : "",
-        "cancel_url" : ""
+        "return_url" : "' . PAYPAL_CALLBACK. '",
+        "cancel_url" : "' . PAYPAL_CANCEL_URL. '"
     },
     "purchase_units" : [ 
         {
-            "reference_id" : "PU1",
-            "description" : "Camera Shop",
+            "reference_id" : "'.$randNo.'",
+            "description" : "WICMS Shop",
             "invoice_id" : "INV-' . SHOP_NAME . '-'.$randNo.'",
             "custom_id" : "CUST-' . SHOP_NAME . '",
-            "id"
             "amount" : {
                 "currency_code" : "'.CURRENCY.'",
-                "value" : "'.$_POST['total_amt'].'",
+                "value" : "' . $total_amount . '",
                 "breakdown" : {
                     "item_total" : {
                         "currency_code" : "'.CURRENCY.'",
-                        "value" : "'.$_POST['item_amt'].'"
-                    }*
+                        "value" : "'.$total_amount.'"
+                    },
+                    "shipping" : {
+                        "currency_code" : "'.CURRENCY.'",
+                        "value" : "0.00"
+                    },
+                    "tax_total" : {
+                        "currency_code" : "'.CURRENCY.'",
+                        "value" : "0.00"
+                    },
+                    "handling" : {
+                        "currency_code" : "'.CURRENCY.'",
+                        "value" : "0.00"
+                    },
+                    "shipping_discount" : {
+                        "currency_code" : "'.CURRENCY.'",
+                        "value" : "0.00"
+                    },
+                    "insurance" : {
+                        "currency_code" : "'.CURRENCY.'",
+                        "value" : "0.00"
+                    }
 
                 }
             },
-            "items" : [{
-                "name" : "DSLR Camera",
-                "description" : "Black Camera - Digital SLR",
-                "sku" : "sku01",
-                "unit_amount" : {
-                    "currency_code" : "'.CURRENCY.'",
-                    "value" : "'.$_POST['item_amt'].'"
-                },
-                "quantity" : "1",
-                "category" : "PHYSICAL_GOODS"
-            }]
+            "item_list": {
+            "items" : [
+            '.$cart->CreateOrder() .'
+                ]
+            }
         }
     ]
 }';
 
-if(array_key_exists('shipping_country_code', $_POST)) {
 
     $orderDataArr = json_decode($orderData, true);
 	$orderDataArr['application_context']['shipping_preference'] = "SET_PROVIDED_ADDRESS";
 	$orderDataArr['application_context']['user_action'] = "PAY_NOW";
 	
-    $orderDataArr['purchase_units'][0]['shipping']['address']['address_line_1']= $_POST['shipping_line1'];
-    $orderDataArr['purchase_units'][0]['shipping']['address']['address_line_2']= $_POST['shipping_line2'];
-    $orderDataArr['purchase_units'][0]['shipping']['address']['admin_area_2']= $_POST['shipping_city'];
-    $orderDataArr['purchase_units'][0]['shipping']['address']['admin_area_1']= $_POST['shipping_state'];
-    $orderDataArr['purchase_units'][0]['shipping']['address']['postal_code']= $_POST['shipping_postal_code'];
-    $orderDataArr['purchase_units'][0]['shipping']['address']['country_code']= $_POST['shipping_country_code'];
+    $orderDataArr['purchase_units'][0]['shipping']['address']['address_line_1']= $orderAddress[0]['address'];
+    $orderDataArr['purchase_units'][0]['shipping']['address']['admin_area_2']= $orderAddress[0]['city'];
+
+    $orderDataArr['purchase_units'][0]['shipping']['address']['postal_code']= $orderAddress[0]['postcode'];
+    $orderDataArr['purchase_units'][0]['shipping']['address']['country_code']= $orderAddress[0]['country'];
 
     $orderData = json_encode($orderDataArr);
-}
+
 
 header('Content-Type: application/json');
 echo json_encode($paypalHelper->orderCreate($orderData));

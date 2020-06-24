@@ -2,6 +2,8 @@
 
 include_once dirname(dirname(dirname(dirname(__FILE__)))) . '/WIAdmin/WICore/WILib.php';
 
+include_once dirname(dirname(dirname(dirname(__FILE__)))) . '/WIAdmin/WICore/WIShopLib.php';
+
 date_default_timezone_set('UTC');
 
 //Bootstrap
@@ -154,14 +156,14 @@ define('CURRENT_URL', 'https://wicms.uk/WIShop/checkout.php');
 define('PAYPAL_ENVIRONMENT', 'sandbox');
 
 if(PAYPAL_PRO){
-	define("PAYPAL_CLIENT_ID", $paypal_id ;
+	define("PAYPAL_CLIENT_ID", $paypal_id) ;
 	define("PAYPAL_SECRET", $paypal_secret);
-	define("PAYPAL_BASE_URL", "https://api.paypal.com/v1/");
+	define("PAYPAL_BASE_URL", "https://api.paypal.com/v2/");
 }
 else{
 	define("PAYPAL_CLIENT_ID", $paypal_id);
 	define("PAYPAL_SECRET", $paypal_secret);
-	define("PAYPAL_BASE_URL", "https://api.sandbox.paypal.com/v1/");
+	define("PAYPAL_BASE_URL", "https://api.sandbox.paypal.com/v2/");
 }
 
 
@@ -195,7 +197,7 @@ define("PAYPAL_ENDPOINTS", array(
 define("PAYPAL_REST_VERSION", "v2");
 
 // ButtonSource Tracker Code
-define("SBN_CODE", "PP-DemoPortal-EC-Psdk-ORDv2-php");
+define("SBN_CODE", "sb-ubere2307035@personal.example.com");
 
 
 define("PAYPAL_CREDENTIALS", array(

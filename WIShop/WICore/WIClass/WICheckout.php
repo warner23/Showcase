@@ -13,8 +13,7 @@ class WICheckout
 	    $this->login = new WILogin();
         $this->site = new WISite();
         $this->user   = new WIUser(WISession::get('user_id'));
-        $this->Paypal = new WIPaypalExpress();
-        $this->PayPalHP = new PayPalHelper;
+        //$this->Paypal = new WIPaypalExpress();
 	}
 
 	public function checkout()
@@ -23,7 +22,7 @@ class WICheckout
 		$user_id = $this->user->id();
 
 		$result = $this->WIdb->select(
-                    "SELECT * FROM `wi_cart` WHERE user_id =:u",
+                    "SELECT * FROM `wi_cart` WHERE userId =:u",
                      array(
                        "u" => $user_id
                      )
@@ -302,9 +301,9 @@ class WICheckout
               	echo '<li>
               	<div class="row">
 				<div class="col-sm-2 hidden-xs">
-				<img src="../../../WIAdmin/WIMedia/Img/shop/' . $c['product_image'] . '" alt="..." class="img-responsive"/></div>
+				<img src="../../../WIAdmin/WIMedia/Img/shop/products/' . $c['photo'] . '" alt="..." class="img-responsive"/></div>
 				<div class="col-sm-10">
-				<h4 class="nomargin title">' . $c['product_title'] . '</h4>
+				<h4 class="nomargin title">' . $c['title'] . '</h4>
 				<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
 				</div>
 				<div class="addressing">';

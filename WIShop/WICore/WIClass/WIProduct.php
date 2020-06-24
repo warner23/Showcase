@@ -2,235 +2,184 @@
 
 
 
-class WICreateOrder
+class WIProduct
 {
-/**
-     * Setting up the JSON request body for creating the Order with complete request body. The Intent in the
-     * request body should be set as "AUTHORIZE" for authorize intent flow.
-     * 
-     */
+
 
     function __construct(){
+       $this->WIdb = WIdb::getInstance();
+       $this->Page = new WIPagination();
+    }
+
+    public function Product()
+    {
+         if(isset($_POST["page"])){
+        $page_number = filter_var($_POST["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
+        if(!is_numeric($page_number)){die('Invalid page number!');} //incase of invalid page number
+    }else{
+        $page_number = 1; //if there's no page number, set it to 1
+    }
+
+        $item_per_page = 15;
+        $result = $this->WIdb->select(
+                    "SELECT * FROM `wi_product`");
+        $rows = count($result);
+
+
+        //break records into pages
+        $total_pages = ceil($rows/$item_per_page);
         
-    }
-    private static function buildRequestBody()
-    {
-        return array(
-            'intent' => 'AUTHORIZE',
-            'application_context' =>
-                array(
-                    'return_url' => 'https://example.com/return',
-                    'cancel_url' => 'https://example.com/cancel',
-                    'brand_name' => 'EXAMPLE INC',
-                    'locale' => 'en-US',
-                    'landing_page' => 'BILLING',
-                    'shipping_preference' => 'SET_PROVIDED_ADDRESS',
-                    'user_action' => 'PAY_NOW',
-                ),
-            'purchase_units' =>
-                array(
-                    0 =>
-                        array(
-                            'reference_id' => 'PUHF',
-                            'description' => 'Sporting Goods',
-                            'custom_id' => 'CUST-HighFashions',
-                            'soft_descriptor' => 'HighFashions',
-                            'amount' =>
-                                array(
-                                    'currency_code' => 'USD',
-                                    'value' => '220.00',
-                                    'breakdown' =>
-                                        array(
-                                            'item_total' =>
-                                                array(
-                                                    'currency_code' => 'USD',
-                                                    'value' => '180.00',
-                                                ),
-                                            'shipping' =>
-                                                array(
-                                                    'currency_code' => 'USD',
-                                                    'value' => '20.00',
-                                                ),
-                                            'handling' =>
-                                                array(
-                                                    'currency_code' => 'USD',
-                                                    'value' => '10.00',
-                                                ),
-                                            'tax_total' =>
-                                                array(
-                                                    'currency_code' => 'USD',
-                                                    'value' => '20.00',
-                                                ),
-                                            'shipping_discount' =>
-                                                array(
-                                                    'currency_code' => 'USD',
-                                                    'value' => '10.00',
-                                                ),
-                                        ),
-                                ),
-                            'items' =>
-                                array(
-                                    0 =>
-                                        array(
-                                            'name' => 'T-Shirt',
-                                            'description' => 'Green XL',
-                                            'sku' => 'sku01',
-                                            'unit_amount' =>
-                                                array(
-                                                    'currency_code' => 'USD',
-                                                    'value' => '90.00',
-                                                ),
-                                            'tax' =>
-                                                array(
-                                                    'currency_code' => 'USD',
-                                                    'value' => '10.00',
-                                                ),
-                                            'quantity' => '1',
-                                            'category' => 'PHYSICAL_GOODS',
-                                        ),
-                                    1 =>
-                                        array(
-                                            'name' => 'Shoes',
-                                            'description' => 'Running, Size 10.5',
-                                            'sku' => 'sku02',
-                                            'unit_amount' =>
-                                                array(
-                                                    'currency_code' => 'USD',
-                                                    'value' => '45.00',
-                                                ),
-                                            'tax' =>
-                                                array(
-                                                    'currency_code' => 'USD',
-                                                    'value' => '5.00',
-                                                ),
-                                            'quantity' => '2',
-                                            'category' => 'PHYSICAL_GOODS',
-                                        ),
-                                ),
-                            'shipping' =>
-                                array(
-                                    'method' => 'United States Postal Service',
-                                    'name' =>
-                                        array(
-                                            'full_name' => 'John Doe',
-                                        ),
-                                    'address' =>
-                                        array(
-                                            'address_line_1' => '123 Townsend St',
-                                            'address_line_2' => 'Floor 6',
-                                            'admin_area_2' => 'San Francisco',
-                                            'admin_area_1' => 'CA',
-                                            'postal_code' => '94107',
-                                            'country_code' => 'US',
-                                        ),
-                                ),
-                        ),
-                ),
-        );
-    }
+        //get starting position to fetch the records
+        $page_position = (($page_number-1) * $item_per_page);
 
-    /**
-     * Setting up the JSON request body for creating the Order with minimum request body. The Intent in the
-     * request body should be set as "AUTHORIZE" for authorize intent flow.
-     * 
-     */
-    private static function buildMinimumRequestBody()
-    {
-        return array(
-            'intent' => 'AUTHORIZE',
-            'application_context' =>
-                array(
-                    'return_url' => 'https://example.com/return',
-                    'cancel_url' => 'https://example.com/cancel'
-                ),
-            'purchase_units' =>
-                array(
-                    0 =>
-                        array(
-                            'amount' =>
-                                array(
-                                    'currency_code' => 'USD',
-                                    'value' => '220.00'
-                                )
-                        )
-                )
-        );
-    }
+        $sql = "SELECT * FROM `wi_product` ORDER BY RAND() ASC LIMIT :page, :item_per_page";
+        $query = $this->WIdb->prepare($sql);
+        $query->bindParam(':page', $page_position, PDO::PARAM_INT);
+        $query->bindParam(':item_per_page', $item_per_page, PDO::PARAM_INT);
+        $query->execute();
 
-    /**
-     * This is the sample function which can be used to create an order. It uses the
-     * JSON body returned by buildRequestBody() to create an new Order.
-     */
-    public static function createOrder($debug=false)
-    {
-        $request = new OrdersCreateRequest();
-        $request->headers["prefer"] = "return=representation";
-        $request->body = CreateOrder::buildRequestBody();
-
-        $client = PayPalClient::client();
-        $response = $client->execute($request);
-        if ($debug)
-        {
-            print "Status Code: {$response->statusCode}\n";
-            print "Status: {$response->result->status}\n";
-            print "Order ID: {$response->result->id}\n";
-            print "Intent: {$response->result->intent}\n";
-            print "Links:\n";
-            foreach($response->result->links as $link)
-            {
-                print "\t{$link->rel}: {$link->href}\tCall Type: {$link->method}\n";
-            }
-
-            print "Gross Amount: {$response->result->purchase_units[0]->amount->currency_code} {$response->result->purchase_units[0]->amount->value}\n";
-
-            // To toggle printing the whole response body comment/uncomment below line
-             echo json_encode($response->result, JSON_PRETTY_PRINT), "\n";
+        while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
+            echo '  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+        <a class="product_link" href="product.php" id="' . $result['id'] . '">
+        <div class="panel panel-info" id="' . WISession::get('user_id') . '">
+        <div class="panel-heading">' . $result['title'] . '</div>
+        <div class="panel-body">
+            <img src="../WIAdmin/WIMedia/Img/shop/products/' . $result['photo'] . '" style="width:100%;height:100%;"/>
+        </div>
+        <div class="panel-footer">£' . $result['price'] . '
+        </div>
+        </div></a>
+    </div>';
         }
 
+        $Pagin = $this->Page->Pagination($item_per_page, $page_number, $rows, $total_pages);
+    //print_r($Pagination);
 
-        return $response;
+
+         echo '<div align="center">';
+    /* We call the pagination function here to generate Pagination link for us. 
+    As you can see I have passed several parameters to the function. */
+    echo $Pagin;
+    echo '</div>';
     }
 
-    /**
-     * This is the sample function which can be used to create an order. It uses the
-     * JSON body returned by buildMinimumRequestBody() to create an new Order.
-     */
-    public static function createOrderWithMinimumBody($debug=false)
+
+    public function productInfo($id)
     {
-        $request = new OrdersCreateRequest();
-        $request->headers["prefer"] = "return=representation";
-        $request->body = CreateOrder::buildMinimumRequestBody();
 
-        $client = PayPalClient::client();
-        $response = $client->execute($request);
-        if ($debug)
-        {
-            print "Order With Minimum Body\n";
-            print "Status Code: {$response->statusCode}\n";
-            print "Status: {$response->result->status}\n";
-            print "Order ID: {$response->result->id}\n";
-            print "Intent: {$response->result->intent}\n";
-            print "Links:\n";
-            foreach($response->result->links as $link)
-            {
-                print "\t{$link->rel}: {$link->href}\tCall Type: {$link->method}\n";
-            }
+        $result = $this->WIdb->select("SELECT * FROM wi_product WHERE `id`=:id",
+            array(
+            "id" => $id
+             )
+        );
 
-            print "Gross Amount: {$response->result->purchase_units[0]->amount->currency_code} {$response->result->purchase_units[0]->amount->value}\n";
+        echo '<div id="product_msg"></div>
+        <style>
+        ul > li{margin-right:25px;font-weight:lighter;cursor:pointer}
+        li.active{border-bottom:3px solid silver;}
 
-            // To toggle printing the whole response body comment/uncomment below line
-            echo json_encode($response->result, JSON_PRETTY_PRINT), "\n";
+        .item-photo{display:flex;justify-content:center;align-items:center;border-right:1px solid #f6f6f6;}
+        .menu-items{list-style-type:none;font-size:11px;display:inline-flex;margin-bottom:0;margin-top:20px}
+        .btn-success{width:100%;border-radius:0;}
+        .section{width:100%;margin-left:-15px;padding:2px;padding-left:15px;padding-right:15px;background:#f8f9f9}
+        .title-price{margin-top:30px;margin-bottom:0;color:black}
+        .title-attr{margin-top:0;margin-bottom:0;color:black;}
+        .btn-minus{cursor:pointer;font-size:7px;display:flex;align-items:center;padding:5px;padding-left:10px;padding-right:10px;border:1px solid gray;border-radius:2px;border-right:0;}
+        .btn-plus{cursor:pointer;font-size:7px;display:flex;align-items:center;padding:5px;padding-left:10px;padding-right:10px;border:1px solid gray;border-radius:2px;border-left:0;}
+        div.section > div {width:100%;display:inline-flex;}
+        div.section > div > input {margin:0;padding-left:5px;font-size:10px;padding-right:5px;max-width:18%;text-align:center;}
+        .attr,.attr2{cursor:pointer;margin-right:5px;height:20px;font-size:10px;padding:2px;border:1px solid gray;border-radius:2px;}
+        .attr.active,.attr2.active{ border:1px solid orange;}
+        </style>';
+
+        foreach($result as $res){
+            echo '<div class="col-xs-4 item-photo">
+                    <img style="max-width:100%;" src="../../WIAdmin/WIMedia/Img/shop/products/' . $res['photo']. '" />
+                </div>
+                <div class="col-xs-5" style="border:0px solid gray">
+                    <!-- Datos del vendedor y titulo del producto -->
+                    <h3>'  . $res['title'] . '</h3>    
+                    <h5 style="color:#337ab7">
+                     <a href="#">Samsung</a> · <small style="color:#337ab7"></small></h5>
+        
+                    <!-- Precios -->
+                    <h6 class="title-price"><small>PRECIO OFERTA</small></h6>
+                    <h3 style="margin-top:0px;">£  '  . $res['price'] . '</h3>
+        
+                    <!-- Detalles especificos del producto -->
+                    <div class="section">
+                        <h6 class="title-attr" style="margin-top:15px;" ><small>COLOR</small></h6>                    
+                        <div>
+                            <div class="attr" style="width:25px;background:#5a5a5a;"></div>
+                            <div class="attr" style="width:25px;background:white;"></div>
+                        </div>
+                    </div>
+                    <div class="section" style="padding-bottom:5px;">
+                        <h6 class="title-attr"><small></small></h6>                    
+                        <div>
+                            <div class="attr2">16 GB</div>
+                            <div class="attr2">32 GB</div>
+                        </div>
+                    </div>   
+                    <div class="section" style="padding-bottom:20px;">
+                        <h6 class="title-attr"><small></small></h6>                    
+                        <div>
+                            <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
+                            <input id="quantity" value="1" />
+                            <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
+                        </div>
+                    </div>                
+        
+                    <!-- Botones de compra -->
+                    <div class="section" style="padding-bottom:20px;">
+                        <button class="btn btn-success" id="product" product="'  . $res['id'] . '">
+                        <span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart</button>
+                        <h6>
+                        <a href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Add to Wishlists</a></h6>
+                    </div>                                        
+                </div> 
+
+                <script type="text/javascript">
+
+                   $(document).ready(function(){
+            //-- Click on detail
+            $("ul.menu-items > li").on("click",function(){
+                $("ul.menu-items > li").removeClass("active");
+                $(this).addClass("active");
+            })
+
+            $(".attr,.attr2").on("click",function(){
+                var clase = $(this).attr("class");
+
+                $("." + clase).removeClass("active");
+                $(this).addClass("active");
+            })
+
+            //-- Click on QUANTITY
+            $(".btn-minus").on("click",function(){
+                var now = $("#quantity").val();
+
+               if ($.isNumeric(now)){
+                    if (parseInt(now) -1 > 0){ now--;}
+                    $("#quantity").attr("value",now);
+                }else{
+                    $("#quantity").attr("value","1");
+                }
+            })            
+            $(".btn-plus").on("click",function(){
+            var now = $("#quantity").val();
+
+            console.log(now);
+                if ($.isNumeric(now)){
+                    console.log(parseInt(now)+1);
+                    $("#quantity").attr("value",parseInt(now)+1);
+                }else{
+                    $("#quantity").attr("value","1");
+                }
+            })                        
+        }) 
+                </script>';
         }
 
-
-        return $response;
     }
-
-
-}
-
-if (!count(debug_backtrace()))
-{
-    CreateOrder::createOrder(true);
-    CreateOrder::createOrderWithMinimumBody(true);
 }
