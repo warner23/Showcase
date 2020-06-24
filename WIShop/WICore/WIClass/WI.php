@@ -20,13 +20,11 @@ include_once 'WIPagination.php';
 include_once 'WISite.php';
 include_once 'WIMaintenace.php';
 include_once 'WIProduct.php';
+include_once 'WIProductReview.php';
 include_once 'WIShop.php';
 include_once 'WICart.php';
 include_once 'WICheckout.php';
 include_once 'WICsrf.php';
-//include_once 'WICreateOrder.php';
-//include_once 'WIOrdersCreateRequest.php';
-//include_once 'WIHttpHelper.php';
 
 
 $WIdb = WIdb::getInstance();

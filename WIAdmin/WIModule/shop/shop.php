@@ -221,6 +221,26 @@ echo '<div class="container-fluid text-center">
 		display: none;
 	}
 
+	.panel-info .panel-heading {
+    color: #0a0a0a;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+
+a {
+    color: #0e0e0e;
+    text-decoration: none;
+}
+
+.panel-info {
+    border-color: #a7a8a9;
+}
+
+.panel-body {
+    padding: 0px;
+}
+
 </style>
 <div class="container-fluid text-center">    
   <div class="row">
@@ -241,13 +261,13 @@ echo '<div class="container-fluid text-center">
 
 		echo '<div class="container">
 <div class="row">
-<div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+<div class="col-md-2 col-xs-2 col-lg-2 col-sm-2">
 	<div id="get_cat"></div>
 	<div id="get_brand"></div>
 	
 
 </div>
-<div class="col-md-8 col-xs-8 col-xs-8 col-lg-8 col-sm-8">
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
 	<div class="panel panel-info">
 	<div id="product_msg"></div>
 	<div class="panel-heading">Products</div>
@@ -258,8 +278,7 @@ echo '<div class="container-fluid text-center">
 	<div class="panel-footer"></div>
 	</div>
 </div>
-<div class="col-md-1 col-xs-1 col-xs-1 col-lg-1 col-sm-1"></div>
-</div>
+
 </div>
 
 <script type="text/javascript" src="WICore/WIJ/WIShop.js"></script>

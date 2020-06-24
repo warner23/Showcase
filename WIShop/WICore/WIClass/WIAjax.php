@@ -136,9 +136,24 @@ switch ($action) {
         $product->Product($_POST['get_product']);
         break;
 
-        case "productInfo":
+        case "getProductOverView":
         $product = new WIProduct();
-        $product->productInfo($_POST['id']);
+        $product->getProductOverView($_POST['product_id']);
+        break;
+
+        case "getProductInfor":
+        $product = new WIProduct();
+        $product->getProductInfor($_POST['product_id']);
+        break;
+
+        case "getProductReviews":
+        $product = new WIProduct();
+        $product->getProductReviews($_POST['product_id']);
+        break;
+
+        case "OpenReview":
+        $review = new WIProductReview();
+        $review->OpenReview($_POST['id']);
         break;
 
         case "selected_cat":

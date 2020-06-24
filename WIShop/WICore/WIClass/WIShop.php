@@ -37,9 +37,9 @@ class WIShop
 
     $result = $this->WIdb->select('SELECT * FROM wi_brands'); 
         echo '<div class="nav nav-pills nav-stacked">
-              <li class="active"><a href="javascript:void(0);"><h4>Brands</h4></li>';
+              <li class="active"><a href="javascript:void(0);"><h4>Brands</h4></a></li>';
     foreach($result as $res){
-        echo '><li><a href="javascript:void(0);" class="brand" bid="' . $res['brand_id'] . '">' . $res['title'] . '</li>';
+        echo '<li><a href="javascript:void(0);" class="brand" bid="' . $res['brand_id'] . '">' . $res['title'] . '</a></li>';
     }
 
         echo '</div>';
@@ -65,7 +65,7 @@ class WIShop
         <div class="panel panel-info">
         <div class="panel-heading">' . $res['title'] . '</div>
         <div class="panel-body">
-            <img src="../WIAdmin/WIMedia/Img/shop/' . $res['photo'] . '" style="width:100%;height:100%;"/>
+            <img src="../WIAdmin/WIMedia/Img/shop/products/' . $res['photo'] . '" style="width:100%;height:100%;"/>
             
         </div>
         <div class="panel-footer">£' . $res['price'] . '
@@ -90,7 +90,7 @@ class WIShop
         <div class="panel panel-info">
         <div class="panel-heading">' . $res['title'] . '</div>
         <div class="panel-body">
-            <img src="../WIAdmin/WIMedia/Img/shop/' . $res['photo'] . '" style="width:100%;height:100%;"/>
+            <img src="../WIAdmin/WIMedia/Img/shop/products/' . $res['photo'] . '" style="width:100%;height:100%;"/>
             
         </div>
         <div class="panel-footer">£' . $res['price'] . '
@@ -112,7 +112,7 @@ class WIShop
         <div class="panel panel-info">
         <div class="panel-heading">' . $res['title'] . '</div>
         <div class="panel-body">
-            <img src="../WIAdmin/WIMedia/Img/shop/' . $res['photo'] . '" style="width:100%;height:100%;"/>
+            <img src="../WIAdmin/WIMedia/Img/shop/products/' . $res['photo'] . '" style="width:100%;height:100%;"/>
             
         </div>
        <div class="panel-footer">£' . $res['price'] . '

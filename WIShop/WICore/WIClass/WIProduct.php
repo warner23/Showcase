@@ -44,7 +44,7 @@ class WIProduct
         <div class="panel panel-info" id="' . WISession::get('user_id') . '">
         <div class="panel-heading">' . $result['title'] . '</div>
         <div class="panel-body">
-            <img src="../WIAdmin/WIMedia/Img/shop/products/' . $result['photo'] . '" style="width:100%;height:100%;"/>
+            <img src="../WIAdmin/WIMedia/Img/shop/products/' . $result['photo'] . '" class="img-responsive img img-fluid/>
         </div>
         <div class="panel-footer">£' . $result['price'] . '
         </div>
@@ -64,7 +64,7 @@ class WIProduct
     }
 
 
-    public function productInfo($id)
+    public function getProductInfor($id)
     {
 
         $result = $this->WIdb->select("SELECT * FROM wi_product WHERE `id`=:id",
@@ -100,7 +100,7 @@ class WIProduct
                     <!-- Datos del vendedor y titulo del producto -->
                     <h3>'  . $res['title'] . '</h3>    
                     <h5 style="color:#337ab7">
-                     <a href="#">Samsung</a> · <small style="color:#337ab7"></small></h5>
+                     <a href="#">'  . $res['brand_id'] . '</a> · <small style="color:#337ab7"></small></h5>
         
                     <!-- Precios -->
                     <h6 class="title-price"><small>PRECIO OFERTA</small></h6>
@@ -179,6 +179,48 @@ class WIProduct
             })                        
         }) 
                 </script>';
+        }
+
+    }
+
+    public function brandSelector($id)
+    {
+        $brand = $this->WIdb->select("SELECT * FROM wi_brands WHERE `brand_id`=:id",
+            array(
+            "id" => $id
+             )
+        );
+
+        return $brand['title'];
+    }
+
+
+    public function getProductOverView($id)
+    {
+        $result = $this->WIdb->select("SELECT * FROM wi_product WHERE `id`=:id",
+            array(
+            "id" => $id
+             )
+        );
+        //var_dump($result);
+        $summary = $result[0]['summary'];
+        echo  $summary;
+    }
+
+
+    public function getProductReviews($id)
+    {
+        
+        $result = $this->WIdb->select("SELECT * FROM wi_product_review WHERE `productId`=:id",
+            array(
+            "id" => $id
+             )
+        );
+
+        if(count($result < 1)){
+            echo 'there are currently no reviews to show, be the first to leave a review <a href="javascript:void(0)" onclick="WIProducts.OpenReview(`'.$id.'`);" class="btn">Leave a review</a>.';
+        }else{
+            echo "there are reviews to show.";
         }
 
     }
