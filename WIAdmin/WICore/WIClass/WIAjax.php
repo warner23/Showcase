@@ -898,6 +898,26 @@ switch ($action) {
         $shop->EditBrand();
         break;
 
+        case "prependNewItem":
+        $shop = new WIShop();
+        $shop->prependNewItem($_POST['newItem']);
+        break;
+
+        case "appendNewItem":
+        $shop = new WIShop();
+        $shop->appendNewItem($_POST['newItem']);
+        break;
+
+        case "prependbrandNewItem":
+        $shop = new WIShop();
+        $shop->prependbrandNewItem($_POST['newItem']);
+        break;
+
+        case "appendbrandNewItem":
+        $shop = new WIShop();
+        $shop->appendbrandNewItem($_POST['newItem']);
+        break;
+
         case "new_product":
         $products = new WIProduct();
         $products->AddNewProduct($_POST['product']);
@@ -1013,6 +1033,11 @@ switch($action){
         case "mapData":
         $dash = new WIDashboard();
         $dash->Map_visitors();
+        break;
+
+        case "editProducts":
+        $product = new WIProduct();
+        $product->EditProduct();
         break;
         
         default:

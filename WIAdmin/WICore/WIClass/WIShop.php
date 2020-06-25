@@ -40,31 +40,34 @@ class WIShop
 
     public function EditCat()
     {
+        echo '
+        <style>
+        ul, ol{ display:inline-block; vertical-align:top; margin:5%; padding:0; }
+li{
+  max-width:170px; margin-bottom:8px;
+  a{ margin-left:5px; cursor:pointer;
+    &:hover{ text-decoration:none; }
+    &::before{
+      color:red;
+      content:"\00D7";
+    }
+  }
+}
 
-         echo '<div class="nav nav-pills nav-stacked">
-           <li class="active">
-           <a href="javascript:void(0);">
-           <h4>Categories</h4></a>
-           </li>';
+.repoLink{ position:absolute; top:10px; right:10px; font-weight:700; }
+        </style>';
+         echo '<section>
+            <h4>Categories</h4>
+             <ol id="catList">';
 
          $result = $this->WIdb->select('SELECT * FROM `wi_categories`');
 
          foreach($result as $res){
-        echo '<li>
-        <a href="javascript:void(0);" class="category" cid="' . $res['cat_id']. '">' . $res['title'] . '
-        </a>
-        <a href="javascript:void(0); class="editcategory" onclick="WIProduct.editProductCode(`' . $result['cat_id'].'`)">
-                      <i class="fa fa-edit"></i>
-        </a>
-
-        <a href="javascript:void(0);" class="editcategory" onclick="WIProduct.ProductDelete(' . $result['cat_id'].')">
-        <i class="fa fa-trash"></i>
-         </a>
-
-        </li>';
+        echo '<li><span contenteditable>' . $res['title'] . '</span></li>';
          }
     
-       echo '</div>';
+       echo '</ol>
+        </section>';
     }
 
     public function Brand()
@@ -88,20 +91,34 @@ class WIShop
 
     public function EditBrand()
     {
-        echo '<div class="nav nav-pills nav-stacked">
-    <li class="active">
-    <a href="javascript:void(0);">
-    <h4>Brands</h4></a>
-    </li>';
+         echo '
+        <style>
+        ul, ol{ display:inline-block; vertical-align:top; margin:5%; padding:0; }
+li{
+  max-width:170px; margin-bottom:8px;
+  a{ margin-left:5px; cursor:pointer;
+    &:hover{ text-decoration:none; }
+    &::before{
+      color:red;
+      content:"\00D7";
+    }
+  }
+}
+
+.repoLink{ position:absolute; top:10px; right:10px; font-weight:700; }
+        </style>';
+         echo '<section>
+            <h4>Categories</h4>
+             <ol id="brandList">';
 
         $result = $this->WIdb->select('SELECT * FROM wi_brands');
 
          foreach($result as $res){
-            echo '<li>
-            <a href="javascript:void(0);" class="brand" bid="' . $res['brand_id'] . '">' . $res['title'] . '</a>
-            </li>';
-        }
-        echo '</div>';
+          echo '<li><span contenteditable>' . $res['title'] . '</span></li>';
+         }
+    
+       echo '</ol>
+        </section>';
 
     }
     
@@ -340,10 +357,67 @@ class WIShop
             echo json_encode ($result);  
         }
 
+    }
+
+    public function prependNewItem($newItem)
+    {
+        $this->WIdb->insert('wi_categories', array(
+            "title" => $newItem
+        ));
+
+        $msg = "You have successful added a new category" .$newItem;
+        $result = array(
+         "status" => "successful",
+         "msg"    => $msg 
+        ); 
+
+        echo json_encode($result);
+    }
+
+        public function appendNewItem($newItem)
+    {
+        $this->WIdb->insert('wi_categories', array(
+            "title" => $newItem
+        ));
+
+        $msg = "You have successful added a new category" .$newItem;
+        $result = array(
+         "status" => "successful",
+         "msg"    => $msg 
+        ); 
+
+        echo json_encode($result);
+    }
 
 
+    public function prependbrandNewItem($newItem)
+    {
+        $this->WIdb->insert('wi_brands', array(
+            "title" => $newItem
+        ));
 
+        $msg = "You have successful added a new Brand" .$newItem;
+        $result = array(
+         "status" => "successful",
+         "msg"    => $msg 
+        ); 
 
+        echo json_encode($result);
+    }
+
+        public function appendbrandNewItem($newItem)
+    {
+        $this->WIdb->insert('wi_brands', array(
+            "title" => $newItem
+        ));
+
+        $msg = "You have successful added a new Brand" .$newItem;
+        $result = array(
+         "status" => "successful",
+         "msg"    => $msg 
+        ); 
+
+        echo json_encode($result);
     }
 
 

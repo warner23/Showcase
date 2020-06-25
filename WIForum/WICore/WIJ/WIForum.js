@@ -165,11 +165,6 @@ WIForum.CreatePost = function(cat_id, section_id){
             },
             success: function (result) {
             $(result).insertAfter('ul#postviewer>li:last');
-            var myTextArea = $('editor-area');
-            //var myTextArea = document.getElementById('editor-area'),
-            myButton = $('#toolbar a'),
-            //document.getElementById('toolbar').getElementsByTagName('a'),
-            myEditor = new WIEditor(myTextArea);
             WIWYSIWYG.palettes();
             }
     });

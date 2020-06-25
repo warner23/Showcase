@@ -1,7 +1,7 @@
   <form class="form-horizontal" id="product">
                       <fieldset>
                       <div id="legend">
-                        <legend class="">Add Product</legend>
+                        <legend class="">Product</legend>
                       </div>  
                       <div id="pstatus"></div>
 
@@ -116,10 +116,6 @@ margin-right:5px;
     cursor:pointer;
     vertical-align:top
     }
-
-    .ui-widget input {
-    width: 100% !important;
-}
 </style>
                           <div>
                             <div id="product_pic">

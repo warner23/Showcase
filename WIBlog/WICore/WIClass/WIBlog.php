@@ -175,7 +175,7 @@ class WIBlog
                                    <p>                                      
                                    ' . $post['post'] . '                               
                                    </p>                                    
-                                   <a href="' . $post['href'] . '" class="read-more">' . $post['button_name'] . '</a>                             
+                                   <textarea class="form-control" name="comment" rows="3"></textarea>                            
                                    </div>                         
                                    </article><!-- .blog-post end --> </div>';
 				}
@@ -227,7 +227,7 @@ class WIBlog
     <p>                                     
     ' . $post['post'] . '                                 
     </p>                                    
-    <a href="blog_post.html" class="read-more">Read more</a>                              
+    <textarea class="form-control" name="comment" rows="3"></textarea>                             
     </div>                        
     </article>
       <!-- .blog-post end -->';
@@ -747,7 +747,7 @@ function showSlides(n) {
         </div>                                   
          <p>                                      
          ' . $media['post'] . '</p>                                    
-         <a href="blog_post.html" class="read-more">Read more</a>                             
+         <textarea class="form-control" name="comment" rows="3"></textarea>                         
          </div>                         
          </article><!-- .blog-post end -->  ';
 		}

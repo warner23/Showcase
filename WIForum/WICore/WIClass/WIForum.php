@@ -7,7 +7,6 @@
 *             
 *             
 */
-
 	class WIForum
 {
 	public function __construct()

@@ -21,7 +21,7 @@ class WIComment
      * @param ASDatabase $db
      * @param ASUser $users
      */
-    public function __construct()
+    public function __construct(ASDatabase $db, ASUser $users)
     {
        $this->WIdb = WIdb::getInstance();
       $this->users = new WIUser(WISession::get('user_id'));

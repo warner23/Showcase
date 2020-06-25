@@ -244,4 +244,6 @@ $('#open-review-box').click(function(){
         "msg"   => " You have successfully reviewed this product."
         );
     }
+
+    
 }

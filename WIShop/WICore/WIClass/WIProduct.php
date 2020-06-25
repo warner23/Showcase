@@ -9,6 +9,7 @@ class WIProduct
     function __construct(){
        $this->WIdb = WIdb::getInstance();
        $this->Page = new WIPagination();
+       $this->User = new WIUser(WISession::get('user_id'));
     }
 
     public function Product()
@@ -295,19 +296,167 @@ class WIProduct
                     overflow: hidden;
                 }
 
+                .rating-container .clear-rating {
+                color: #aaa;
+                cursor: not-allowed;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 60%;
+                padding-right: 5px;
+            }
+
+            .clear-rating-active {
+                cursor: pointer!important;
+            }
+
+            .glyphicon-minus-sign:before {
+                content: "\e082";
+            }
+
+            :before, :after {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+
+            .glyphicon {
+                position: relative;
+                top: 1px;
+                display: inline-block;
+                font-family: `Glyphicons Halflings`;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+
+            .rating-container .rating-stars {
+                position: relative;
+                cursor: pointer;
+                vertical-align: middle;
+                display: inline-block;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+
+            .rating-container .empty-stars {
+                color: #aaa;
+            }
+
+            .rating-container .star {
+                display: inline-block;
+                margin: 0 3px;
+                text-align: center;
+            }
+
+            .glyphicon-star-empty:before {
+                content: "\e007";
+            }
+
+            .rating-animate .filled-stars {
+                transition: width .25s ease;
+                -o-transition: width .25s ease;
+                -moz-transition: width .25s ease;
+                -webkit-transition: width .25s ease;
+            }
+
+            .rating-container .filled-stars {
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin: auto;
+                color: #fde16d;
+                white-space: nowrap;
+                overflow: hidden;
+                -webkit-text-stroke: 1px #777;
+                text-shadow: 1px 1px #999;
+            }
+
+            .rating-container .rating-input {
+                position: absolute;
+                cursor: pointer;
+                width: 100%;
+                height: 1px;
+                bottom: 0;
+                left: 0;
+                font-size: 1px;
+                border: none;
+                background: 0 0;
+                padding: 0;
+                margin: 0;
+            }
+
+            .rating-container .caption {
+                color: #999;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 60%;
+                margin-top: -.6em;
+                margin-left: 5px;
+                margin-right: 0;
+            }
+
+            .label-warning {
+                background-color: #f0ad4e;
+            }
+
             </style>
             <div class="reviews">
               <div class="row blockquote review-item">
                 <div class="col-md-3 text-center">
-                  <img class="rounded-circle reviewer" src="http://standaloneinstaller.com/upload/avatar.png">
+                  <img class="rounded-circle reviewer" src="../../WIAdmin/WIMedia/Img/avator/'. $this->User->id().'/' .self::getUserPhoto($res['id']) . '">
                   <div class="caption">
-                    <small>by <a href="#joe">Joe</a></small>
+                    <small>by <a href="javascript:void(0);">' .self::getUsername($res['parentId']) . '</a></small>
                   </div>
 
                 </div>
                 <div class="col-md-9">
-                  <h4>My awesome review</h4>
-                  <div class="ratebox text-center" data-id="0" data-rating="5"></div>
+                  <h4>' . $res['title'].'</h4>
+                  <div class="ratebox text-center" data-id="0" data-rating="5">
+
+                  <div class="rating-container rating-md rating-animate">
+                <div class="rating-stars">
+                <span class="empty-stars">
+                    <span class="star" style="font-size:40px;" id="1one">
+                    <i class="glyphicon glyphicon-star-empty"></i>
+                    </span>
+                    <span class="star" style="font-size:40px;" id="2one">
+                    <i class="glyphicon glyphicon-star-empty"></i>
+                    </span>
+                    <span class="star" style="font-size:40px;" id="3one">
+                    <i class="glyphicon glyphicon-star-empty"></i>
+                    </span>
+                    <span class="star" style="font-size:40px;" id="4one">
+                    <i class="glyphicon glyphicon-star-empty"></i>
+                    </span>
+                    <span class="star" style="font-size:40px;" id="5one">
+                    <i class="glyphicon glyphicon-star-empty"></i>
+                    </span>
+                </span>
+                <span class="filled-stars" id="' .$res['id'] . '" style="width:0%;">
+                    <span class="star" style="font-size:40px;">
+                    <i class="glyphicon glyphicon-star-empty"></i>
+                    </span>
+                    <span class="star" style="font-size:40px;">
+                    <i class="glyphicon glyphicon-star-empty"></i>
+                    </span>
+                    <span class="star" style="font-size:40px;" >
+                    <i class="glyphicon glyphicon-star-empty"></i>
+                    </span>
+                    <span class="star" style="font-size:40px;">
+                    <i class="glyphicon glyphicon-star-empty"></i>
+                    </span>
+                    <span class="star" style="font-size:40px;">
+                    <i class="glyphicon glyphicon-star-empty"></i>
+                    </span>
+                </span>
+                </div>
+                </div>
+                <input id="star_rating_'. $res['id'] . '" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="' .$res['rating'] .'" type="hidden">
                   <p class="review-text">' . $res['content'] . '</p>
 
                   <small class="review-date">March 26, 2017</small>
@@ -317,11 +466,51 @@ class WIProduct
 
             echo '<script type="text/javascript">
 
+                var rating = $("#star_rating_' . $res['id'] . '").val();
+
+                if(rating == 1){
+                    $("#' .$res['id'].'").css("width", "20%");
+                    }else if(rating == 2){
+                        $("#' .$res['id'].'").css("width", "40%");
+                    }else if(rating == 3){
+                        $("#' .$res['id'].'").css("width", "60%");
+                        }else if(rating == 4){
+                            $("#' .$res['id'].'").css("width", "80%");
+                            }else if(rating == 5){
+                                $("#' .$res['id'].'").css("width", "100%");
+                            }
+                
             </script>';
             }
  
             }
         
 
+    }
+
+
+    public function getUsername($id) 
+    {
+        $result = $this->WIdb->select(
+                    "SELECT * FROM `wi_members` WHERE `user_id` = :id",
+                    array ("id" => $this->User->id() )
+                  );
+        if ( count($result) > 0 )
+            return $result[0]['username'];
+        else
+            return "user";
+    }
+
+
+    public function getUserPhoto($id) 
+    {
+    $result = $this->WIdb->select(
+                    "SELECT * FROM `wi_user_details` WHERE `user_id` = :id",
+                    array ("id" => $this->User->id() )
+                  );
+        if ( count($result) > 0 )
+            return $result[0]['avatar'];
+        else
+            return "user";
     }
 }

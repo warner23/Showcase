@@ -238,47 +238,22 @@ class WIWYSIWYG
             </textarea>
           
           <div class="result"></div>
-          </div></div>';
+          <script type="text/javascript">';
 
-          self::script();
-
+             echo " $('.toolbar a').click(function(e) {
+  var command = $(this).data('command');
+  if (command == 'h1' || command == 'h2' || command == 'p') {
+    document.execCommand('formatBlock', false, command);
   }
-
-  public function script()
-  {
-    echo '<script type="text/javascript>
-    var pressed = 0;
-    myEditor.area.onkeydown = function(e) {
-        // Update history data on every 5 key presses
-        if (pressed < 5) {
-            pressed++;
-        } else {
-            myEditor.updateHistory();
-            pressed = 0;
-        }
-        // Press Shift + Tab to outdent
-        if (e.shiftKey && e.keyCode == 9) {
-            myEditor.outdent(`   `);
-            return false;
-        }
-        // Press `Shift + Enter` to add a line break
-        if (e.shiftKey && e.keyCode == 13) {
-            myEditor.insert(`<br>\n/`);
-            return false;
-        }
-        // Press `Ctrl + Enter` to create a new paragraph
-        if (e.ctrlKey && e.keyCode == 13) {
-            myEditor.wrap((this.value.length > 0 ? `\n/` : "") + `<p>`, `</p>\n/`);
-            return false;
-        }
-        // Press Tab to indent
-        if (e.keyCode == 9) {
-            myEditor.indent(`\n/`);
-            return false;
-        }
-    };
-};
-
+  if (command == 'forecolor' || command == 'backcolor') {
+    document.execCommand($(this).data('command'), false, $(this).data('value'));
+  }
+    if (command == 'createlink' || command == 'insertimage') {
+  url = prompt('Enter the link here: ','http:\/\/'); document.execCommand($(this).data('command'), false, url);
+  }
+  else document.execCommand($(this).data('command'), false, null);
+});
+    
 
 
 // the eye
@@ -292,7 +267,41 @@ e.onclick = function(){
    this.classList.toggle(`active`);
 }
 
-<script>';
+</script></div></div>";
+
+
+  }
+
+  public function script()
+  {
+    echo " $('.toolbar a').click(function(e) {
+  var command = $(this).data('command');
+  if (command == 'h1' || command == 'h2' || command == 'p') {
+    document.execCommand('formatBlock', false, command);
+  }
+  if (command == 'forecolor' || command == 'backcolor') {
+    document.execCommand($(this).data('command'), false, $(this).data('value'));
+  }
+    if (command == 'createlink' || command == 'insertimage') {
+  url = prompt('Enter the link here: ','http:\/\/'); document.execCommand($(this).data('command'), false, url);
+  }
+  else document.execCommand($(this).data('command'), false, null);
+});
+    
+
+
+// the eye
+var e = document.querySelector(`#eye`),
+    i =  document.querySelector(`#editor-area`),
+    o = document.querySelector(`.result`);
+
+e.onclick = function(){ 
+   o.innerHTML = i.value;
+   o.classList.toggle(`show`);
+   this.classList.toggle(`active`);
+}
+
+<script></div></div>";
   }
 
 	
