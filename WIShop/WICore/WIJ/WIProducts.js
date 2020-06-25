@@ -85,7 +85,7 @@ WIProducts.OpenReview = function(id){
       alert(err.Message);
     },
             success : function(result){
-            $("#reviews").html(result);
+            WIProducts.getProductReviews(id);
     }
 
     });

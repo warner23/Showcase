@@ -97,13 +97,13 @@ class WIProduct
                     <img style="max-width:100%;" src="../../WIAdmin/WIMedia/Img/shop/products/' . $res['photo']. '" />
                 </div>
                 <div class="col-xs-5" style="border:0px solid gray">
-                    <!-- Datos del vendedor y titulo del producto -->
+                   
                     <h3>'  . $res['title'] . '</h3>    
                     <h5 style="color:#337ab7">
-                     <a href="#">'  . $res['brand_id'] . '</a> · <small style="color:#337ab7"></small></h5>
+                     <a href="#">'  . self::brandSelector($res['brand_id']) . '</a> · <small style="color:#337ab7"></small></h5>
         
                     <!-- Precios -->
-                    <h6 class="title-price"><small>PRECIO OFERTA</small></h6>
+                    <h6 class="title-price"><small>PRICE</small></h6>
                     <h3 style="margin-top:0px;">£  '  . $res['price'] . '</h3>
         
                     <!-- Detalles especificos del producto -->
@@ -130,7 +130,6 @@ class WIProduct
                         </div>
                     </div>                
         
-                    <!-- Botones de compra -->
                     <div class="section" style="padding-bottom:20px;">
                         <button class="btn btn-success" id="product" product="'  . $res['id'] . '">
                         <span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart</button>
@@ -215,11 +214,13 @@ class WIProduct
             "id" => $id
              )
         );
-
-        if(count($result < 1)){
+        //var_dump($result);
+        $len = count($result);
+        if(count($result) < 1 ){
             echo 'there are currently no reviews to show, be the first to leave a review <a href="javascript:void(0)" onclick="WIProducts.OpenReview(`'.$id.'`);" class="btn">Leave a review</a>.';
         }else{
-            echo '
+            foreach($result as $res){
+                           echo '
             <style>
             }
                 .reviews{
@@ -307,7 +308,7 @@ class WIProduct
                 <div class="col-md-9">
                   <h4>My awesome review</h4>
                   <div class="ratebox text-center" data-id="0" data-rating="5"></div>
-                  <p class="review-text">My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. </p>
+                  <p class="review-text">' . $res['content'] . '</p>
 
                   <small class="review-date">March 26, 2017</small>
                 </div>                          
@@ -315,8 +316,10 @@ class WIProduct
             </div>';
 
             echo '<script type="text/javascript">
-                
+
             </script>';
+            }
+ 
             }
         
 

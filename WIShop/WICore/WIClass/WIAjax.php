@@ -156,6 +156,11 @@ switch ($action) {
         $review->OpenReview($_POST['id']);
         break;
 
+        case "saveReview":
+        $review = new WIProductReview();
+        $review->saveReview($_POST['review'], $_POST['new_rating'], $_POST['product_id']);
+        break;
+
         case "selected_cat":
         $shop = new WIShop();
         $shop->selectCat($_POST['cat_id']);
