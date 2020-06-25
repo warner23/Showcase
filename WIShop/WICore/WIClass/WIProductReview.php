@@ -13,12 +13,128 @@ class WIproductReview
 
     public function OpenReview($id)
     {
-        echo '<div class="container">
+        echo '<style>
+        .rating-md {
+    font-size: 3.13em;
+}
+
+.rating-container .clear-rating {
+    color: #aaa;
+    cursor: not-allowed;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 60%;
+    padding-right: 5px;
+}
+
+.clear-rating-active {
+    cursor: pointer!important;
+}
+
+.glyphicon-minus-sign:before {
+    content: "\e082";
+}
+
+:before, :after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: `Glyphicons Halflings`;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.rating-container .rating-stars {
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+.rating-container .empty-stars {
+    color: #aaa;
+}
+
+.rating-container .star {
+    display: inline-block;
+    margin: 0 3px;
+    text-align: center;
+}
+
+.glyphicon-star-empty:before {
+    content: "\e007";
+}
+
+.rating-animate .filled-stars {
+    transition: width .25s ease;
+    -o-transition: width .25s ease;
+    -moz-transition: width .25s ease;
+    -webkit-transition: width .25s ease;
+}
+
+.rating-container .filled-stars {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: auto;
+    color: #fde16d;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-text-stroke: 1px #777;
+    text-shadow: 1px 1px #999;
+}
+
+.rating-container .rating-input {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    font-size: 1px;
+    border: none;
+    background: 0 0;
+    padding: 0;
+    margin: 0;
+}
+
+.rating-container .caption {
+    color: #999;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 60%;
+    margin-top: -.6em;
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+.label-warning {
+    background-color: #f0ad4e;
+}
+
+        </style>
+
+
+        <div class="container">
     <div class="row" style="margin-top:40px;">
-        <div class="col-md-6">
+        <div class="col-md-12">
         <div class="well well-sm">
             <div class="text-right">
-                <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Leave a Review</a>
+                <a class="btn btn-success btn-green" href="javascript:void(0);" id="open-review-box">Leave a Review</a>
             </div>
         
             <div class="row" id="post-review-box" style="display:none;">
@@ -31,22 +147,63 @@ class WIproductReview
                         <div class="text-right">
 
 
-                        <div class="container">
+                        <div>
     <br/>
     <label for="input-1" class="control-label">Give a rating for this product:</label>
-    <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="2">
-    <br/>
 
+    <div class="rating-container rating-md rating-animate">
+        <div class="clear-rating clear-rating-active" title="Clear">
+            <i class="glyphicon glyphicon-minus-sign"></i>
+        </div>
+
+        <div class="rating-stars">
+        <span class="empty-stars">
+            <span class="star" onmouseover="WIReview.starMark();">
+            <i class="glyphicon glyphicon-star-empty"></i>
+            </span>
+            <span class="star" onmouseover="WIReview.starMark();">
+            <i class="glyphicon glyphicon-star-empty"></i>
+            </span>
+            <span class="star" onmouseover="WIReview.starMark();">
+            <i class="glyphicon glyphicon-star-empty"></i>
+            </span>
+            <span class="star" onmouseover="WIReview.starMark();">
+            <i class="glyphicon glyphicon-star-empty"></i>
+            </span>
+            <span class="star" onmouseover="WIReview.starMark();">
+            <i class="glyphicon glyphicon-star-empty"></i>
+            </span>
+        </span>
+        <span class="filled-stars" style="width: 40%;">
+            <span class="star">
+            <i class="glyphicon glyphicon-star-empty"></i>
+            </span>
+            <span class="star">
+            <i class="glyphicon glyphicon-star-empty"></i>
+            </span>
+            <span class="star">
+            <i class="glyphicon glyphicon-star-empty"></i>
+            </span>
+            <span class="star">
+            <i class="glyphicon glyphicon-star-empty"></i>
+            </span>
+            <span class="star">
+            <i class="glyphicon glyphicon-star-empty"></i>
+            </span>
+        </span>
+        </div>
+    </div>
+    <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="2" type="hidden">
+    <br/>
+            <div class="caption">
+                <span class="label label-warning">Two Stars</span>
+            </div>
 </div>
 
-
-
-
-
                             <div class="stars starrr" data-rating="0"></div>
-                            <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
+                            <a class="btn btn-danger btn-sm" href="javascript:viod(0);" id="close-review-box" style="display:none; margin-right: 10px;">
                             <span class="glyphicon glyphicon-remove"></span>Cancel</a>
-                            <button class="btn btn-success btn-lg" type="submit">Save</button>
+                            <button class="btn btn-success btn-lg" type="submit" onclick="WIReview.reviewSave();">Save</button>
                         </div>
 
                     </form>
@@ -63,6 +220,10 @@ class WIproductReview
 
 echo "<script type='text/javascript'>
 
+$('#open-review-box').click(function(){
+
+    $('#post-review-box').css('display', 'block');
+    })
 
 </script>";
     }

@@ -248,6 +248,7 @@ echo '<div class="container-fluid text-center">
 		<div class="row" >
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

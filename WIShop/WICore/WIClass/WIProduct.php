@@ -210,7 +210,6 @@ class WIProduct
 
     public function getProductReviews($id)
     {
-        
         $result = $this->WIdb->select("SELECT * FROM wi_product_review WHERE `productId`=:id",
             array(
             "id" => $id
@@ -220,8 +219,106 @@ class WIProduct
         if(count($result < 1)){
             echo 'there are currently no reviews to show, be the first to leave a review <a href="javascript:void(0)" onclick="WIProducts.OpenReview(`'.$id.'`);" class="btn">Leave a review</a>.';
         }else{
-            echo "there are reviews to show.";
-        }
+            echo '
+            <style>
+            }
+                .reviews{
+                  padding: 15px;
+                  max-width: 768px;
+                  margin: 0 auto;
+                }
+
+                .review-item{
+                  background-color: white;
+                  padding: 15px;
+                  margin-bottom: 5px;
+                  box-shadow: 1px 1px 5px #343a40;
+                }
+
+                .review-item .review-date{
+                  color: #cecece;
+                }
+                .review-item .review-text{
+                  font-size: 16px;
+                  font-weight: normal;
+                  margin-top: 5px;
+                  color: #343a40;
+                }
+
+                .review-item .reviewer{
+                  width: 100px;
+                  height: 100px;
+                  border: 1px solid #cecece;
+                }
+
+                /****Rating Stars***/
+                .raterater-bg-layer {
+                    color: rgba( 0, 0, 0, 0.25 );
+                }
+                .raterater-hover-layer {
+                    color: rgba( 255, 255, 0, 0.75 );
+                }
+                .raterater-hover-layer.rated { /* after the user selects a rating */
+                    color: rgba( 255, 255, 0, 1 );
+                }
+                .raterater-rating-layer {
+                    color: rgba( 255, 155, 0, 0.75 );
+                }
+                .raterater-outline-layer {
+                    color: rgba( 0, 0, 0, 0.25 );
+                }
+
+                /* dont change these - you might break something.. */
+                .raterater-wrapper {
+                    overflow:visible;
+                }
+
+                .software .raterater-wrapper {
+                    margin-top: 4px;
+                }
+
+                .raterater-layer,
+                .raterater-layer i {
+                    display: block;
+                    position: absolute;
+                    overflow: visible;
+                    top: 0px;
+                    left: 0px;
+                }
+                .raterater-hover-layer {
+                    display: none;
+                }
+                .raterater-hover-layer i,
+                .raterater-rating-layer i {
+                    width: 0px;
+                    overflow: hidden;
+                }
+
+            </style>
+            <div class="reviews">
+              <div class="row blockquote review-item">
+                <div class="col-md-3 text-center">
+                  <img class="rounded-circle reviewer" src="http://standaloneinstaller.com/upload/avatar.png">
+                  <div class="caption">
+                    <small>by <a href="#joe">Joe</a></small>
+                  </div>
+
+                </div>
+                <div class="col-md-9">
+                  <h4>My awesome review</h4>
+                  <div class="ratebox text-center" data-id="0" data-rating="5"></div>
+                  <p class="review-text">My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. </p>
+
+                  <small class="review-date">March 26, 2017</small>
+                </div>                          
+              </div>  
+            </div>';
+
+            echo '<script type="text/javascript">
+                
+            </script>';
+            }
+        
 
     }
 }
