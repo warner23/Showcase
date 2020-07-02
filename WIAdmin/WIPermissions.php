@@ -1,5 +1,4 @@
 <?php
-define("INCLUDE_CHECK", true);
 include_once 'WICore/init.php';
 
  if($admin->isAdmin()){

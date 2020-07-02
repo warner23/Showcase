@@ -1,5 +1,4 @@
 <?php
-define("INCLUDE_CHECK", true);
 include_once 'WICore/init.php';
 //echo "ses" . WISession::get('user_id');
  if($admin->isAdmin()){

@@ -215,7 +215,7 @@ class WIWebsite
   </div>
 
   <ul class="nav navbar-nav navbar-right">
-        <li class="dropdownCart"><a href="javascript:void(0)" id="cart" class="dropdown-toggle" aria-expanded="false" dropdown="false" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Cart
+        <li class="dropdownCart"><a href="javascript:void(0)" id="cart" class="dropdown-toggle" aria-expanded="false" dropdown="false" data-toggle="dropdown"><span class="fa fa-shopping-cart"></span>Cart
 <span class="badge">'; echo  $this->cart->CartCount(WISession::get('user_id') ); echo '</span></a>
 <div class="dropdown-menu" >
   <div class="panel panel-success">
@@ -256,7 +256,7 @@ class WIWebsite
             <section class="footer_bottom container-fluid text-center">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="">
                         <p class="copyright"><?php echo WILang::get("copyright");?> &copy; ' .$date . ' ' . $res['website_name'] . '-  All rights reserved.</p>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
