@@ -212,39 +212,7 @@ echo '<div class="container-fluid text-center">
 	{
 
     echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style type="text/css">
-	.blog_type{
-    float: left;
-    width: 12%;
-    margin-left: 15px;
-        list-style: none;
-	}
 
-	.blogSelect{
-    width: 9%;
-    margin: 0px 0px 0px 450px;
-        cursor: pointer;
-	}
-
-	.admin_post{
-        width: 18%;
-    height: 44px;
-    margin-left: 401px;
-	}
-
-	.block{
-		display: block;
-	}
-
-	.hidden{
-		display: none;
-	}
-
-	#wivid{
-		    width: 49%;
-    height: 137px;
-	}
-</style>
 <div class="container-fluid text-center">    
   <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 min_height">';
@@ -299,7 +267,7 @@ echo '<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
 				
             </div>	
             </div>
-     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
      <script type="text/javascript" src="WICore/WIJ/WICore.js"></script>
 
@@ -308,6 +276,7 @@ echo '<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
 <script type="text/javascript" src="WICore/WIJ/WIMediaCenter.js"></script>
 <script type="text/javascript" src="WICore/WIJ/WIMedia.js"></script>
 <script type="text/javascript" src="WICore/WIJ/WISlideMedia.js"></script>
+<script type="text/javascript" src="WICore/WIJ/WIComment.js"></script>
 ';
 
 		if(isset($page)){			

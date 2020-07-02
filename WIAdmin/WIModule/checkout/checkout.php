@@ -231,7 +231,7 @@ echo '<div class="container-fluid text-center">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
 
-						 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left"> Check Out';
+						 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">';
                          $this->Check->checkout();
 						echo '</div>
 					</div>

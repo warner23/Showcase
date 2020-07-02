@@ -105,6 +105,7 @@ class WIWebsite
                 <html class="no-js" lang="en">
                 <head>   
                   <title>' . WEBSITE_NAME. ' </title>
+                  <script src="https://cdn.tiny.cloud/1/frvshcuzctvz3ez3tuig66rf8607oei47r76s4hszqe9xcg8/tinymce/5/tinymce.min.js" referrerpolicy="origin"/></script>
                   <meta charset="utf-8">';
     }
 

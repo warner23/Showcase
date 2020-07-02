@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  * Comments class.
  */
@@ -9,7 +7,6 @@ class WIComment
     /**
      * @var 
      */
-    private $db = null;
 
     /**
      * @var ASUser
@@ -23,8 +20,9 @@ class WIComment
      */
     public function __construct()
     {
-       $this->WIdb = WIdb::getInstance();
-      $this->users = new WIUser(WISession::get('user_id'));
+       $this->WIdb   = WIdb::getInstance();
+       $this->users  = new WIUser(WISession::get('user_id'));
+
     }
 
     /**
@@ -32,7 +30,7 @@ class WIComment
      * @param int $userId Id of user who is posting the comment.
      * @param string $comment Comment text.
      */
-    public function insertComment($userId, $comment)
+    public function insertComment( $userId, $id, $comment)
     {
         if ($error = $this->validateComment($comment)) {
             respond(array(
@@ -43,18 +41,20 @@ class WIComment
         $userInfo = $this->users->getInfo($userId);
         $datetime = date("Y-m-d H:i:s");
 
-        $this->db->insert("wi_comments", array(
+        $this->WIdb->insert("wi_blog_comments", array(
+            "blog_id" => $id,
             "posted_by" => $userId,
             "posted_by_name" => $userInfo['username'],
             "comment" => strip_tags($comment),
             "post_time" => $datetime
         ));
 
-        respond(array(
-            "user" => $userInfo['username'],
+        $result = array(
+             "user" => $userInfo['username'],
             "comment" => stripslashes(strip_tags($comment)),
-            "postTime" => $datetime
-        ));
+            "postTime" => $datetime   
+        );
+        echo json_encode($result);
     }
 
     /**
@@ -63,9 +63,10 @@ class WIComment
      */
     private function validateComment($comment)
     {
-        return trim($comment) == ""
-            ? trans('field_required')
-            : null;
+        if(trim($comment) == ""){
+           return WILang::get('field_required');
+        }
+
     }
 
     /**
@@ -75,9 +76,17 @@ class WIComment
      */
     public function getUserComments($userId)
     {
-        return $this->db->select(
-            "SELECT * FROM `wi_comments` WHERE `posted_by` = :id",
+        return $this->WIdb->select(
+            "SELECT * FROM `wi_blog_comments` WHERE `posted_by` = :id",
             array("id" => $userId)
+        );
+    }
+
+     public function getBlogComments($blogId)
+    {
+        return $this->WIdb->select(
+            "SELECT * FROM `wi_blog_comments` WHERE `blog_id` = :id",
+            array("id" => $blogId)
         );
     }
 
@@ -90,6 +99,6 @@ class WIComment
     {
         $limit = (int) $limit;
 
-        return $this->db->select("SELECT * FROM `wi_comments` ORDER BY `post_time` DESC LIMIT $limit");
+        return $this->WIdb->select("SELECT * FROM `wi_blog_comments` ORDER BY `post_time` DESC LIMIT $limit");
     }
 }

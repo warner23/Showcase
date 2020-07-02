@@ -17,8 +17,8 @@ window.onload = loadScript;
  * define the coordinates of your company
  */
 
-lat = 53.472817;
-lng = -2.162430; 
+lat = 1.28870;
+lng = 103.82678; 
 
 var map;
 var MY_MAPTYPE_ID = 'custom_style';
@@ -73,10 +73,10 @@ function initialize() {
   
   var myLatlng = new google.maps.LatLng(lat,lng);
   var mapOptions = {
-    zoom: 16,
-    scrollwheel: true,
-    mapTypeControl:true,
-    streetViewControl:true,
+    zoom: 12,
+    scrollwheel: false,
+    mapTypeControl:false,
+    streetViewControl:false,
     center: myLatlng,
     mapTypeControlOptions: {
         mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
@@ -88,7 +88,7 @@ function initialize() {
 
   var marker = new google.maps.Marker({
       position: myLatlng,
-  	icon: "WIMedia/Img/marker.png",
+  	icon: "img/marker.png",
       map: map
   });
   

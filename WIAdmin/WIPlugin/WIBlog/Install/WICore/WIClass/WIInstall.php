@@ -240,6 +240,9 @@ class WIInstall
   `image` varchar(255) DEFAULT NULL,
   `image2` varchar(255) DEFAULT NULL,
   `image3` varchar(255) DEFAULT NULL,
+  `caption` varchar(255) DEFAULT NULL,
+  `caption1` varchar(255) DEFAULT NULL,
+  `caption2` varchar(255) DEFAULT NULL,
   `video` varchar(255) DEFAULT NULL,
   `audio` varchar(255) DEFAULT NULL,
   `youtube` varchar(255) DEFAULT NULL,
@@ -250,32 +253,54 @@ class WIInstall
   `post` varchar(255) NOT NULL,
   `button_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
+
+INSERT INTO `wi_blog` (`id`, `type`, `Category`, `day`, `month`, `image`, `image2`, `image3`, `caption`, `caption1`, `caption2`, `video`, `audio`, `youtube`, `title`, `href`, `user`, `tags`, `post`, `button_name`) VALUES
+(1, 'NoMedia', 2, '17', '03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'blog no nedia', NULL, 'Admin', NULL, 'bloggggggggggggging', NULL),
+(7, 'blog_image', 2, '17', '03', '5dba50d636208cd9e37c38036ca01fb0.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'coding sheet', NULL, 'Owner', NULL, 'cheat sheet', NULL),
+(3, 'blog_youtube', 2, '17', '03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '<iframe width='560' height='315' src='https://www.youtube.com/embed/oJbfyzaA2QA' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>', 'tuts', NULL, 'Owner', NULL, 'awesome', NULL),
+(8, 'blog_audio', 2, '18', '03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'JulesTunesfor.mp3', NULL, 'coding music', NULL, '', NULL, 'foced', NULL),
+(10, 'blog_video', 2, '18', '03', NULL, NULL, NULL, NULL, NULL, NULL, 'David Garrett - Explosive.mp4', NULL, NULL, 'tune', NULL, 'Owner', NULL, 'vid tune for coding', NULL),
+(11, 'blog_slider', 1, '18', '03', 'admin.PNG', 'admin_cjhat.PNG', 'admin_not].PNG', 'admin center', 'inbuild admin chat', 'notifications', NULL, NULL, NULL, 'wicms', NULL, 'Owner', NULL, 'admin center', NULL),
+(12, 'blog_youtube', 2, '18', '03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '<iframe width='560' height='315' src='https://www.youtube.com/embed/F9GujgK0y2M' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>', 'coding not hard', NULL, 'Owner', NULL, 'what you think', NULL);
 
 
 
 CREATE TABLE IF NOT EXISTS `wi_blogcategories` (
   `cat_id` int(100) NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
-
   PRIMARY KEY (`cat_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 
---
--- Dumping data for table `wi_blogcategories`
---
+INSERT INTO `wi_blogcategories` ( `title`) VALUES
+( 'cms systems'),
+('code development');
+
+CREATE TABLE IF NOT EXISTS `wi_blog_comments` (
+  `comment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `blog_id` int(11) NOT NULL,
+  `posted_by` int(11) NOT NULL,
+  `posted_by_name` varchar(30) NOT NULL,
+  `comment` text NOT NULL,
+  `post_time` datetime NOT NULL,
+  PRIMARY KEY (`comment_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 
-INSERT INTO `wi_blogcategories` (`title`) VALUES
-('cms systems'),
+INSERT INTO `wi_blog_comments` (`comment_id`, `blog_id`, `posted_by`, `posted_by_name`, `comment`, `post_time`) VALUES
+(1, 8, 1, 'warner', 'this is awesome, love itttt', '2020-07-01 23:22:33'),
+(2, 8, 1, 'warner', 'somethign', '2020-07-01 23:53:11'),
+(3, 10, 1, 'warner', 'fab', '2020-07-02 00:01:17'),
+(4, 10, 1, 'warner', 'amazing', '2020-07-02 00:05:09'),
+(5, 11, 1, 'warner', 'awesome man', '2020-07-02 00:08:12'),
+(6, 11, 1, 'warner', 'cool', '2020-07-02 00:09:50'),
+(7, 11, 1, 'warner', 'mint', '2020-07-02 00:11:05'),
+(8, 11, 1, 'warner', 'sweet', '2020-07-02 00:12:43'),
+(9, 8, 1, 'warner', 'wicked', '2020-07-02 00:15:41');
 
-( 'code development');
-
-
-
-        ";
+";
 
         $query = $this->WIdb->prepare($sql);
         $query->execute();

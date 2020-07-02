@@ -2,16 +2,33 @@
  <form  class="form-horizontal database-form" id="setup">
                       <fieldset>
                         <div id="legend">
-                          <legend class="">Add Language</legend>
+                          <legend class="">Blog Set Up</legend>
                         </div>
 
                         <div class="col-lg-12">
                         
-       
+                        <form>
+                            <fieldset>
+                      <div id="legend">
+                        <legend class="center">Blog Settings</legend>
+                      </div>  
+
+                      <div class="form-group">
+                        <!-- website name -->
+                        <div class="col-lg-4 col-xs-4 col-sm-s col-md-4">
+                        <label class="control-label"  for="Blog_name">Blog Name:</label>
+                      </div>
+                        <div class="controls col-lg-8">
+                          <input type="text" id="Blog_name"  maxlength="88" name="Blog_name" placeholder="Blog Name" class="input-xlarge form-control" value=""> <br />
+                        </div>
+                      </div>
+
+                          </fieldset>
+                        </form>
                         
                         </div>
                        
-                           <?php $web->viewLang(); ?>
+                         
 
                               <div class="form-group">
                         <!-- Button -->
@@ -24,68 +41,4 @@
                         <br /><br />
                   </form>
 
-             <div class="modal off" id="modal-lang-add">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" onclick="WILang.Closer()" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title" id="modal-username">
-                    <?php echo WILang::get("add_lang"); ?>
-                  </h4>
-                </div>
-
-                <div class="modal-body" id="details-body">
-                    
-                </div>
-                <div align="center" class="ajax-loading"><img src="WIMedia/Img/ajax_loader.gif" /></div>
-                <div class="modal-footer">
-                    <a href="javascript:void(0);" onclick="WILang.Closer()" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
-                      <?php echo WILang::get("cancel"); ?>
-                    </a>
-                    <a href="javascript:void(0);" id="btn-add-user" class="btn btn-primary">
-                      <?php echo WILang::get("add"); ?>
-                    </a>
-                </div>
-              </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-          </div><!-- /.modal -->
-
-            <div class="modal off" id="modal-lang-add">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" onclick="WILang.Close()" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title" id="modal-username">
-                    <?php echo WILang::get("add_lang"); ?>
-                  </h4>
-                </div>
-
-                <div class="modal-body" id="details-body">
-                     <form class="form-horizontal" id="add_lang">
-
-                    
-                      <div class="control-group form-group">
-                        <label class="control-label col-lg-3" for="lang">
-                          <?php echo WILang::get("add_lang"); ?>
-                        </label>
-                        <div class="controls col-lg-9">
-                          <input id="lang" name="lang" type="text" class="input-xlarge form-control" >
-                        </div>
-                      </div>
-
-                     
-                  </form>
-                </div>
-                <div align="center" class="ajax-loading"><img src="WIMedia/Img/ajax_loader.gif" /></div>
-                <div class="modal-footer">
-                    <a href="javascript:void(0);" onclick="WILang.Close()" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
-                      <?php echo WILang::get("cancel"); ?>
-                    </a>
-                    <a href="javascript:void(0);" id="btn-add-language" onclick="WILang.AddLang();"  class="btn btn-primary">
-                      <?php echo WILang::get("add"); ?>
-                    </a>
-                </div>
-              </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-          </div><!-- /.modal -->
-      
+            

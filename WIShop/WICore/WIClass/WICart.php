@@ -11,6 +11,7 @@ class WICart
 	{
 		$this->WIdb = WIdb::getInstance();
 		$this->User = new WIUser(WISession::get('user_id'));
+		$this->site = new WISite();
 	}
 
 
@@ -59,6 +60,8 @@ class WICart
                        "user_id" => $userId
                      )
                   );
+
+					echo '';
 		if (count($result) > 0){
 			$no = 1;
 			foreach ($result as $res) {
@@ -66,20 +69,22 @@ class WICart
 			$id  = $res['id'];
 			$pid = $res['p_id'];
 
-			//<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">' . $no .'</div>
-			//echo "id" . $id;
-			echo '<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
-			
-				<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
-				<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
-				<img class="img-responsive" src="../../../WIAdmin/WIMedia/Img/shop/products/' . $res['photo'] . '" style="width:60px;height:60px;">
-				</div>
-				</div>
-				<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">' . $res['product_title'] . '</div>
-				<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">' . $res['price'] . '</div>
-				<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">' . $res['quantity'] . '</div>
-				</div>';
+
+			echo '<span class="item">
+                    <span class="item-left">
+                        <img src="../../../WIAdmin/WIMedia/Img/shop/products/' . $res['photo'] . '" alt="' . $res['title'] . '" style="width:45px;height:45px;" />
+                        <span class="item-info">
+                            <span class="title">' . $res['title'] . '</span>
+                            <span class="price">' .CURRENCY_SYMBOL . '' . $res['price'] . '</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right" onclick="WICart.Delete(`' . $res['id'] . '`)">x</button>
+                    </span>
+                </span>';
 				$no = $no +1;
+
+				
 		  }
 		}
 
@@ -101,31 +106,36 @@ class WICart
 		$total = 0;
         $len = count($result);
 		foreach ($result as $basket) {
+
+			 if($count == $len){
+					$total = $total + $subtotal;
+				}else{
+
 				$subtotal = $basket['price'] * $basket['quantity'];
-				$total =+ $subtotal;
+				$total = $total + $subtotal;
 				echo '<tr>
 							<td data-th="Product">
 								<div class="row">
 									<div class="col-sm-2 hidden-xs"><img src="../../../WIAdmin/WIMedia/Img/shop/products/' . $basket['photo'] . '" alt="..." cwqlass="img-responsive"/></div>
 									<div class="col-sm-10">
 										<h4 class="nomargin">' . $basket['title'] . '</h4>
-										<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+									
 									</div>
 								</div>
 							</td>
 							<td data-th="Price" class="price">
-							<span>£</span>
+							<span>' .CURRENCY_SYMBOL . '</span>
 							<span id="price_' . $basket['id'] . '">' . $basket['price'] . ' </span>
 							</td>
 							<td data-th="Quantity">
-					<input type="number" pid="' . $basket['id'] . '" class="form-control text-center qty" id="qty_' . $basket['id'] . '" placeholder="' . $basket['quantity'] . '" value="' . $basket['quantity'] . '">
+					<input type="number" pid="' . $basket['id'] . '" class="form-control text-center qty" id="qty_' . $basket['id'] . '" placeholder="' . $basket['quantity'] . '" value="' . $basket['quantity'] . '" min="1">
 							</td>
 							<td data-th="Subtotal" class="text-center subtotal" id="total_' . $basket['id'] . '">' . $subtotal .'</td>
 							<td class="actions" data-th="">
-								<button class="btn btn-info btn-sm update"  onclick="WICart.refresh();">
+								<button class="btn btn-info btn-sm update"  onclick="WICart.refresh(`' . $basket['id'] . '`);">
 								<i class="fa fa-refresh"></i>
 								</button>
-								<button class="btn btn-danger btn-sm delete" onclick="WICart.delete(`' . $basket['id'] . '`);">
+								<button class="btn btn-danger btn-sm delete" onclick="WICart.MainKartDelete(`' . $basket['id'] . '`);">
 								<i class="fa fa-trash-o"></i>
 								</button>							
 							</td>
@@ -134,32 +144,41 @@ class WICart
 
 						$(document).ready(function () {
 
-						    $("body").delegate("#qty_' . $basket['id'] . '", "keyup", function(){
+						   $(document).on("input", "#qty_' . $basket['id'] . '", function(){
 						    var qty = $("#qty_' . $basket['id'] . '").val();
-						    console.log(qty);
-						    var price = $("#price_' . $basket['id'] . '").html();
-						    console.log(price);
-						    var total = qty * price;
-						    console.log(total);
-						    $("#total_' . $basket['id'] . '").html(total);
-
-						        });
-
-						    $(document).on("input", "#qty_' . $basket['id'] . '", function(){
-						    var qty = $("#qty_' . $basket['id'] . '").val();
-						    var price = $("#price_' . $basket['id'] . '").text();
+						    var price = parseInt($("#price_' . $basket['id'] . '").text());
 						    var total = qty* price;
 						    $("#total_' . $basket['id'] . '").html(total);
-						});
+						     });
+
+						     $(document).on("keydown", "#qty_' . $basket['id'] . '", function(){
+						    var qty = $("#qty_' . $basket['id'] . '").val();
+						    var price = parseInt($("#price_' . $basket['id'] . '").text());
+						    var total = qty* price;
+						    $("#total_' . $basket['id'] . '").html(total);
+						    var gTotal = parseInt($("#total").text());
+						    console.log(gTotal);
+						    $("#total").empty();
+						    var grandTotal = gTotal - price;
+						    console.log(grandTotal);
+						    $("#total").html(grandTotal);
+
+						     });
+						
+
 
 						});
-
 						</script>';
-
-				   if($count == $len){
-					$total =+ $subtotal;
-				}
 						$count++;
+				}
+
+
+
+			
+
+
+				  
+						
 			}
 
 			echo '</tbody>
@@ -169,13 +188,16 @@ class WICart
 						</tr>
 						<tr>
 							<td style="width:15%;"><a href="index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-							<td></td>
-							<td class="hidden-xs text-center" id="vat"><strong>VAT :</strong></td>
-
-							<td class="hidden-xs text-center" >
+							<td></td>';
+							if(VAT == 1){
+								echo '<td class="hidden-xs text-center" id="vat"><strong>VAT :</strong></td>';
+							}
 							
-							<strong>Total: £</strong>
-							<span id="total">' .$total .'</span>
+
+							echo '<td class="hidden-xs text-center" >
+							
+							<strong></strong>
+							<span id="currency">' .CURRENCY_SYMBOL . '</span><span id="total">' .$total .'</span>
 
 							</td>
 
@@ -251,6 +273,110 @@ class WICart
 		
 	}
 
+	public function newAddress()
+	{
+		echo '<!--SHIPPING METHOD-->
+					<div id="main_address_shipping">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">Main Address</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <h4>Shipping Address</h4>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12"><strong>Country:</strong></div>
+                                <div class="col-md-12">';
+                                  $this->site->countries(); 
+                                  echo '
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-xs-12">
+                                    <strong>First Name:</strong>
+                                    <input type="text" id="fname" name="first_name" class="form-control" value="" />
+                                </div>
+                                <div class="span1"></div>
+                                <div class="col-md-6 col-xs-12">
+                                    <strong>Last Name:</strong>
+                                    <input type="text" id="lname" name="last_name" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12"><strong>Address:</strong></div>
+                                <div class="col-md-12">
+                                    <input type="text" id="address" name="address" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12"><strong>City:</strong></div>
+                                <div class="col-md-12">
+                                    <input type="text" id="city" name="city" class="form-control" value="" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12"><strong>Zip / Postal Code:</strong></div>
+                                <div class="col-md-12">
+                                    <input type="text" id="postcode" name="post_code" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12"><strong>Phone Number:</strong></div>
+                                <div class="col-md-12">
+                                <input type="text" id="phone" name="phone_number" class="form-control" value="" /></div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12"><strong>Address Reference:</strong></div>
+                                <div class="col-md-12">
+                                <input type="text" id="addy_ref" name="addy_ref" class="form-control" value="" />
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-12"><strong></strong></div>
+                                <div class="col-md-12">
+                                <label>Main Address</label>
+                    <div class="btn-group" data-toggle="buttons-radio">
+                        <input type="hidden" name="main_address" class="btn-group-value" id="mn-address" value="true" />
+                        <label class="switch">
+                        <input type="checkbox" id="main_address" checked>
+                        <span class="slider round" id="main_addy">ON</span>
+                        
+                      </label>
+                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script type="text/javascript">
+                          var main_address = $("#mn-address").attr("value");
+                       if (main_address === "false"){
+                        $("#main_address").prop("checked", false);
+                        $("#main_addy").text("OFF");
+                        $("#main_addy").css("padding-left", "50%");
+                       }else if (main_address === "true"){
+                        $("#main_address").prop("checked", true);
+                        $("#main_addy").text("ON");
+                       }
+
+                         </script>
+                         </div>
+
+                    <!--SHIPPING METHOD END-->
+                    <div class="form-group">
+                        <!-- Button -->
+                        <div class="col-md-4 col-lg-8 col-xs-4">
+                           <button id="addy" class="btn btn-success">Save</button> 
+                        </div>
+                      </div>
+
+                      <div class="results" id="aresults"></div>';
+	}
+
 	public function OrderAddress()
 	{
 		$userId = $this->User->id();
@@ -265,8 +391,30 @@ class WICart
 		return $result;
 	}
 
+		public function OrderCost()
+	{
+		$userId = $this->User->id();
+
+		$result = $this->WIdb->select(
+                    "SELECT * FROM `wi_cust_address`
+                     WHERE `user_id` = :user_id",
+                     array(
+                       "user_id" => $userId
+                     )
+                  );
+		$shipping = $result[0]['Shipping_costs'];
+		if($shipping == ""){
+			return "0.00";
+		}else{
+			return $shipping;
+		}
+		
+	}
+
+
 
 	public function TotalCost()
+
 	{
 		$userId = $this->User->id();
 
@@ -281,17 +429,64 @@ class WICart
 		$total = 0;
         $len = count($result);
 		foreach ($result as $basket) {
-				$subtotal = $basket['price'] * $basket['quantity'];
-				$total = $total + $subtotal;
 
-				   if($count == $len){
+			 if($count == $len){
+			 	$subtotal = $basket['price'] * $basket['quantity'];
 					$total = $total + $subtotal;
+				}else{
+					$subtotal = $basket['price'] * $basket['quantity'];
+				$total = $total + $subtotal;
+				$count++;
 				}
-						$count++;
+				
 			}
 
-		return number_format($total,  2, '.', '');
+		$shipping = self::OrderCost();
+
+		$grandTotal = $total + $shipping;
+
+		return number_format($grandTotal,  2, '.', '');
 ;
+	}
+
+	public function cart_delete($id)
+	{
+		$this->WIdb->delete("wi_cart", "id = :id", array( "id" => $id ));
+
+		$msg = "You have removed an item from your basket";
+
+		$user = WISession::get('user_id');
+
+		$result = array(
+		"status" => "successful",
+		"msg"    => $msg,
+		"user"   => $user
+		);
+
+		echo json_encode($result);
+	}
+
+	public function update_cart($qty, $id, $total)
+	{
+
+			$this->WIdb->update(
+                    "wi_cart", 
+                    array("quantity" => $qty, "total_amount" => $total), 
+                    "`id` = :id",
+                    array( "id" => $id )
+               );
+
+		$msg = "You have updated an item from your basket";
+
+		$user = WISession::get('user_id');
+
+		$result = array(
+		"status" => "successful",
+		"msg"    => $msg,
+		"user"   => $user
+		);
+
+		echo json_encode($result);
 	}
 
 }

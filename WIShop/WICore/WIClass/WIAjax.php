@@ -186,6 +186,16 @@ switch ($action) {
         $cart->getCart(WISession::get("user_id"));
         break;
 
+        case "update_cart":
+        $cart = new WICart();
+        $cart->update_cart($_POST['qty'], $_POST['id'], $_POST['total']);
+        break;
+
+        case "cart_delete":
+        $cart = new WICart();
+        $cart->cart_delete($_POST['id']);
+        break;
+
          case "cartCount":
         $cart = new WICart();
         $cart->CartCount($_POST['userId']);
@@ -205,6 +215,11 @@ switch ($action) {
         $check = new WICheckout();
         $check->showPaymentGet($_POST['response']);
         break;
+
+        case "changeShipping":
+        $shop = new WIShop();
+        $shop->changeShipping($_POST['cost']);
+        break;
 	
 	default:
 		
@@ -222,6 +237,11 @@ switch($action){
        case "cart":
        $check = new WICheckout();
        $check->cart();
+       break;
+
+       case "newAddress":
+       $cart = new WICart();
+       $cart->newAddress();
        break;
 }
 

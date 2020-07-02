@@ -918,6 +918,16 @@ switch ($action) {
         $shop->appendbrandNewItem($_POST['newItem']);
         break;
 
+        case "prependshippingNewItem":
+        $shop = new WIShop();
+        $shop->prependshippingNewItem($_POST['newItem']);
+        break;
+
+        case "appendshippingNewItem":
+        $shop = new WIShop();
+        $shop->appendshippingNewItem($_POST['newItem']);
+        break;
+
         case "new_product":
         $products = new WIProduct();
         $products->AddNewProduct($_POST['product']);
@@ -1035,9 +1045,9 @@ switch($action){
         $dash->Map_visitors();
         break;
 
-        case "editProducts":
-        $product = new WIProduct();
-        $product->EditProduct();
+        case "getProdShipping":
+        $shop = new WIShop();
+        $shop->getProdShipping();
         break;
         
         default:

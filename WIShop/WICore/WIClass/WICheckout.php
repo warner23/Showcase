@@ -13,6 +13,7 @@ class WICheckout
 	    $this->login = new WILogin();
         $this->site = new WISite();
         $this->user   = new WIUser(WISession::get('user_id'));
+        $this->Shop  = new WIShop();
         //$this->Paypal = new WIPaypalExpress();
 	}
 
@@ -99,77 +100,7 @@ class WICheckout
 			)
 			);
 
-		echo '<style>
-		/* style switcher  */
-
-
-
-		/* switch button styling   */
-
-		.switch {
-		  position: relative;
-		  display: inline-block;
-		  width: 60px;
-		  height: 34px;
-		  margin-left: 8%;
-		  float: right;
-		}
-
-		.switch input { 
-		  opacity: 0;
-		  width: 0;
-		  height: 0;
-		}
-
-		.slider {
-		  position: absolute;
-		  cursor: pointer;
-		  top: 0;
-		  left: 0;
-		  right: 0;
-		  bottom: 0;
-		  background-color: #ccc;
-		  -webkit-transition: .4s;
-		  transition: .4s;
-		      padding-left: 10%;
-		    padding-top: 10%;
-		}
-
-		.slider:before {
-		  position: absolute;
-		  content: "";
-		  height: 26px;
-		  width: 26px;
-		  left: 4px;
-		  bottom: 4px;
-		  background-color: white;
-		  -webkit-transition: .4s;
-		  transition: .4s;
-		}
-
-		input:checked + .slider {
-		  background-color: #2196F3;
-		}
-
-		input:focus + .slider {
-		  box-shadow: 0 0 1px #2196F3;
-		}
-
-		input:checked + .slider:before {
-		  -webkit-transform: translateX(26px);
-		  -ms-transform: translateX(26px);
-		  transform: translateX(26px);
-		}
-
-		/* Rounded sliders */
-		.slider.round {
-		  border-radius: 34px;
-		}
-
-		.slider.round:before {
-		  border-radius: 50%;
-		}
-		</style>
+		echo '
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
                 <h3>'; WILang::get('shipping'); echo '</h3>
                 <hr>
@@ -304,8 +235,8 @@ class WICheckout
 				<img src="../../../WIAdmin/WIMedia/Img/shop/products/' . $c['photo'] . '" alt="..." class="img-responsive"/></div>
 				<div class="col-sm-10">
 				<h4 class="nomargin title">' . $c['title'] . '</h4>
-				<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
 				</div>
+                <div id="new_address"></div>
 				<div class="addressing">';
 
 				if($addresses > 0){
@@ -317,11 +248,22 @@ class WICheckout
 							 
 							  
 							echo '</select>
-							<a href="javascript:void(0)">add new address</a>';
+							<a href="javascript:void(0)" onclick="WICheckout.addAddress()">add new address</a>';
 				}else{
 					echo '<button class="btn">Add address</button>';
 				}
 				echo '</div>
+                <script type="text/javascript">
+                       $(document).ready(function(){
+
+                        $("select#shipping").on("change", function() {
+                           // console.log( this.value );
+
+                            WICheckout.changeShipping(this.value);
+
+                          })
+                       });
+                     </script>
 
                 <div class="pricing" id="pricing">';
                     echo 'Item Price : £
@@ -350,7 +292,9 @@ class WICheckout
 
               echo '</ul>
               
-               
+               <div class="ship" id="shipping_method">';
+                $this->Shop->shippingMethod();
+                echo '</div>
 
 
               <strong>Total: £</strong>
@@ -382,8 +326,8 @@ class WICheckout
                 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 
-                // payment api code for PayPal
-                // DO NOT  ALTER !!!
+               <!-- // payment api code for PayPal
+                // DO NOT  ALTER !!!-->
 
 
                  <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -396,15 +340,12 @@ class WICheckout
   </script>
 
               <div id="paypalCheckoutContainer"></div>
+              <div id="paypalpay" class="hide"></div>
               
-
             <!-- PayPal In-Context Checkout script -->
             <script type="text/javascript">';
 
-              echo "
-
-
-    paypal.Buttons({
+              echo "paypal.Buttons({
 
         // Set your environment
         env: '". PAYPAL_ENVIRONMENT ."',
@@ -473,8 +414,8 @@ class WICheckout
             ).then(function(res) {
                 return res.json();
             }).then(function(res) {
-                //window.location.href = 'success.php';
-                WICheckout.success(res);
+                WICheckout.pushpayment(res);
+
             });
         }
 
@@ -543,448 +484,6 @@ class WICheckout
             echo json_encode ($result);   
 	}
 
-public function PayPal()
-    {
-        $version = "V2";
-
-        if($version == "V1"){
-
-            //require  dirname(dirname(dirname(__FILE__))) .'/paypal.php';
-        include_once  dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Common/PayPalModel.php';
-        include_once  dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/Payer.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/Item.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/ItemList.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/Details.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/Amount.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/CartBase.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/TransactionBase.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/Transaction.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/RedirectUrls.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Rest/IResource.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Common/PayPalResourceModel.php';
-        require dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Api/Payment.php';
-        include_once  dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Rest/ApiContext.php';
-        include_once  dirname(dirname(__FILE__)) .'/WIVendor/paypal/V1/Auth/OAuthTokenCredential.php';
-
-
-        $paypal = new \Rest\ApiContext(new \PayPal\Auth\OAuthTokenCredential(PAYPAL_CLIENT_ID ,PAYPAL_SECRET));
-
-        $user_id = WISession::get('user_id');
-
-        $data = $this->WIdb->select("SELECT * FROM `wi_cart` WHERE `user_id`=:user_id", array(
-            "user_id" => $user_id
-            )
-        );
-        
-
-        foreach ($data as $d ) {
-            $product = $d['product_title'];
-            $price   = $d['price'];
-            $quantity   = $d['quantity'];
-            $shipping = 2.00;
-
-        $total = $price + $shipping;
-
-        $payer = new Payer();
-        $payer->SetPaymentMethod('paypal');
-
-        $item = new Item();
-        $item->SetName($product)
-             ->SetCurrency('GBP')
-             ->SetQuantity($quantity)
-             ->SetPrice($price);
-
-        $itemList = new ItemList();
-        $itemList->SetItems($item);
-
-        $details = new Details();
-        $details->SetShipping($shipping)
-                ->SetSubtotal($price);
-
-        $amount = new Amount();
-        $amount->SetCurrency('GBP')
-               ->SetTotal($total)
-               ->SetDetails($details);
-
-        $transaction = new Transaction();
-        $transaction->SetAmount($amount)
-                    ->SetItemList($itemList)
-                    ->SetDescription('Pay for your items')
-                    ->SetInvoiceNumber(uniqid() );
-
-        $redirectUrls = new RedirectUrls();
-        $redirectUrls->SetReturnUrl(paypal_callback . 'pay.php?success=true')
-                    ->SetCancelUrl(paypal_callback . 'pay.php?success=true');
-
-        $payment = new Payment();
-        $payment->SetIntent('sale')
-                ->SetPayer($payer)
-                ->SetRedirectUrl($redirectUrls)
-                ->SetTransactions($transaction);
-
-        try{
-            $payment->create($paypal);
-        }catch(Exception $e){
-            die($e);
-        }
-
-        }
-
-        
-
-        $approveUrl->payment->getApprovalLink();
-
-        hedader("Location:{$redirectUrls}");
-
-        }elseif ($version == "V2") {
-            
-            //self::getAccessToken(PAYPAL_CLIENT_ID, PAYPAL_SECRET);
-        $user_id = $this->user->id();
-
-        $cart = $this->WIdb->select(
-                    "SELECT * FROM `wi_cart` WHERE user_id =:u",
-                     array(
-                       "u" => $user_id
-                     )
-                  );
-
-        $address = $this->WIdb->select(
-                    "SELECT * FROM `wi_cust_address` WHERE user_id =:u",
-                     array(
-                       "u" => $user_id
-                     )
-                  );
-
-$randNo= (string)rand(10000,20000);
-$orderData = '{
-    "intent" : "CAPTURE",
-    "application_context" : {
-        "return_url" : "",
-        "cancel_url" : ""
-    },
-    "purchase_units" : [ 
-        {
-            "reference_id" : "PU1",
-            "description" : "Camera Shop",
-            "invoice_id" : "INV-CameraShop-'.$randNo.'",
-            "custom_id" : "CUST-CameraShop",
-            "amount" : {
-                "currency_code" : "'.$_POST['currency'].'",
-                "value" : "'.$_POST['total_amt'].'",
-                "breakdown" : {
-                    "item_total" : {
-                        "currency_code" : "'.$_POST['currency'].'",
-                        "value" : "'.$_POST['item_amt'].'"
-                    },
-                    "shipping" : {
-                        "currency_code" : "'.$_POST['currency'].'",
-                        "value" : "'.$_POST['shipping_amt'].'"
-                    },
-                    "tax_total" : {
-                        "currency_code" : "'.$_POST['currency'].'",
-                        "value" : "'.$_POST['tax_amt'].'"
-                    },
-                    "handling" : {
-                        "currency_code" : "'.$_POST['currency'].'",
-                        "value" : "'.$_POST['handling_fee'].'"
-                    },
-                    "shipping_discount" : {
-                        "currency_code" : "'.$_POST['currency'].'",
-                        "value" : "'.$_POST['shipping_discount'].'"
-                    },
-                    "insurance" : {
-                        "currency_code" : "'.$_POST['currency'].'",
-                        "value" : "'.$_POST['insurance_fee'].'"
-                    }
-                }
-            },
-            "items" : [{
-                "name" : "DSLR Camera",
-                "description" : "Black Camera - Digital SLR",
-                "sku" : "sku01",
-                "unit_amount" : {
-                    "currency_code" : "'.$_POST['currency'].'",
-                    "value" : "'.$_POST['item_amt'].'"
-                },
-                "quantity" : "1",
-                "category" : "PHYSICAL_GOODS"
-            }]
-        }
-    ]
-}';
-
-    if(array_key_exists('shipping_country_code', $_POST)) {
-
-        $orderDataArr = json_decode($orderData, true);
-        $orderDataArr['application_context']['shipping_preference'] = "SET_PROVIDED_ADDRESS";
-        $orderDataArr['application_context']['user_action'] = "PAY_NOW";
-        
-        $orderDataArr['purchase_units'][0]['shipping']['address']['address_line_1']= $_POST['shipping_line1'];
-        $orderDataArr['purchase_units'][0]['shipping']['address']['address_line_2']= $_POST['shipping_line2'];
-        $orderDataArr['purchase_units'][0]['shipping']['address']['admin_area_2']= $_POST['shipping_city'];
-        $orderDataArr['purchase_units'][0]['shipping']['address']['admin_area_1']= $_POST['shipping_state'];
-        $orderDataArr['purchase_units'][0]['shipping']['address']['postal_code']= $_POST['shipping_postal_code'];
-        $orderDataArr['purchase_units'][0]['shipping']['address']['country_code']= $_POST['shipping_country_code'];
-
-        $orderData = json_encode($orderDataArr);
-    }
-
-header('Content-Type: application/json');
-echo json_encode($this->PayPalHP->orderCreate($orderData));
-        
-
-    }
-}
-
-
-    public function Process()
-    {
-
-    if(isset($_GET["token"]) && isset($_GET["PayerID"]))
-    {
-    //we will be using these two variables to execute the "DoExpressCheckoutPayment"
-    //Note: we haven't received any payment yet.
-    
-    $token = $_GET["token"];
-    $payer_id = $_GET["PayerID"];
-    
-    //get session variables
-    $paypal_product = $_SESSION["paypal_products"];
-    $paypal_data = '';
-    $ItemTotalPrice = 0;
-
-    foreach($paypal_product['items'] as $key=>$p_item)
-    {       
-        $paypal_data .= '&L_PAYMENTREQUEST_0_QTY'.$key.'='. urlencode($p_item['itm_qty']);
-        $paypal_data .= '&L_PAYMENTREQUEST_0_AMT'.$key.'='.urlencode($p_item['itm_price']);
-        $paypal_data .= '&L_PAYMENTREQUEST_0_NAME'.$key.'='.urlencode($p_item['itm_name']);
-        $paypal_data .= '&L_PAYMENTREQUEST_0_NUMBER'.$key.'='.urlencode($p_item['itm_code']);
-        
-        // item price X quantity
-        $subtotal = ($p_item['itm_price']*$p_item['itm_qty']);
-        
-        //total price
-        $ItemTotalPrice = ($ItemTotalPrice + $subtotal);
-    }
-
-    $padata =   '&TOKEN='.urlencode($token).
-                '&PAYERID='.urlencode($payer_id).
-                '&PAYMENTREQUEST_0_PAYMENTACTION='.urlencode("SALE").
-                $paypal_data.
-                '&PAYMENTREQUEST_0_ITEMAMT='.urlencode($ItemTotalPrice).
-                '&PAYMENTREQUEST_0_TAXAMT='.urlencode($paypal_product['assets']['tax_total']).
-                '&PAYMENTREQUEST_0_SHIPPINGAMT='.urlencode($paypal_product['assets']['shippin_cost']).
-                '&PAYMENTREQUEST_0_HANDLINGAMT='.urlencode($paypal_product['assets']['handaling_cost']).
-                '&PAYMENTREQUEST_0_SHIPDISCAMT='.urlencode($paypal_product['assets']['shippin_discount']).
-                '&PAYMENTREQUEST_0_INSURANCEAMT='.urlencode($paypal_product['assets']['insurance_cost']).
-                '&PAYMENTREQUEST_0_AMT='.urlencode($paypal_product['assets']['grand_total']).
-                '&PAYMENTREQUEST_0_CURRENCYCODE='.urlencode($PayPalCurrencyCode);
-
-    //We need to execute the "DoExpressCheckoutPayment" at this point to Receive payment from user.
-    $paypal= new MyPayPal();
-    $httpParsedResponseAr = $paypal->PPHttpPost('DoExpressCheckoutPayment', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
-    
-    //Check if everything went ok..
-    if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"])) 
-    {
-
-            echo '<h2>Success</h2>';
-            echo 'Your Transaction ID : '.urldecode($httpParsedResponseAr["PAYMENTINFO_0_TRANSACTIONID"]);
-            
-                /*
-                //Sometimes Payment are kept pending even when transaction is complete. 
-                //hence we need to notify user about it and ask him manually approve the transiction
-                */
-                
-                if('Completed' == $httpParsedResponseAr["PAYMENTINFO_0_PAYMENTSTATUS"])
-                {
-                    echo '<div style="color:green">Payment Received! Your product will be sent to you very soon!</div>';
-                }
-                elseif('Pending' == $httpParsedResponseAr["PAYMENTINFO_0_PAYMENTSTATUS"])
-                {
-                    echo '<div style="color:red">Transaction Complete, but payment is still pending! '.
-                    'You need to manually authorize this payment in your <a target="_new" href="http://www.paypal.com">Paypal Account</a></div>';
-                }
-
-                // we can retrive transection details using either GetTransactionDetails or GetExpressCheckoutDetails
-                // GetTransactionDetails requires a Transaction ID, and GetExpressCheckoutDetails requires Token returned by SetExpressCheckOut
-                $padata =   '&TOKEN='.urlencode($token);
-                $paypal= new MyPayPal();
-                $httpParsedResponseAr = $paypal->PPHttpPost('GetExpressCheckoutDetails', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
-
-                if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"])) 
-                {
-                    
-                    echo '<br /><b>Stuff to store in database :</b><br />';
-                    
-                    echo '<pre>';
-                    /*
-                    #### SAVE BUYER INFORMATION IN DATABASE ###
-                    //see (http://www.sanwebe.com/2013/03/basic-php-mysqli-usage) for mysqli usage
-                    //use urldecode() to decode url encoded strings.
-                    
-                    $buyerName = urldecode($httpParsedResponseAr["FIRSTNAME"]).' '.urldecode($httpParsedResponseAr["LASTNAME"]);
-                    $buyerEmail = urldecode($httpParsedResponseAr["EMAIL"]);
-                    
-                    //Open a new connection to the MySQL server
-                    $mysqli = new mysqli('host','username','password','database_name');
-                    
-                    //Output any connection error
-                    if ($mysqli->connect_error) {
-                        die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
-                    }       
-                    
-                    $insert_row = $mysqli->query("INSERT INTO BuyerTable 
-                    (BuyerName,BuyerEmail,TransactionID,ItemName,ItemNumber, ItemAmount,ItemQTY)
-                    VALUES ('$buyerName','$buyerEmail','$transactionID','$ItemName',$ItemNumber, $ItemTotalPrice,$ItemQTY)");
-                    
-                    if($insert_row){
-                        print 'Success! ID of last inserted record is : ' .$mysqli->insert_id .'<br />'; 
-                    }else{
-                        die('Error : ('. $mysqli->errno .') '. $mysqli->error);
-                    }
-                    
-                    */
-                    
-                    echo '<pre>';
-                    print_r($httpParsedResponseAr);
-                    echo '</pre>';
-                } else  {
-                    echo '<div style="color:red"><b>GetTransactionDetails failed:</b>'.urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]).'</div>';
-                    echo '<pre>';
-                    print_r($httpParsedResponseAr);
-                    echo '</pre>';
-
-                }
-    
-    }else{
-            echo '<div style="color:red"><b>Error : </b>'.urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]).'</div>';
-            echo '<pre>';
-            print_r($httpParsedResponseAr);
-            echo '</pre>';
-    }
-}else{
-
-    // if isset is not set
-
-
-            //paypal settings
-$PayPalMode             = 'sandbox'; // sandbox or live
-$PayPalApiUsername      = 'sb-pxfjg2310161_api1.business.example.com'; //PayPal API Username
-$PayPalApiPassword      = 'UQPKHCFNTU56657R'; //Paypal API password
-$PayPalApiSignature     = 'A.pHE6kQt3KL-ifbh197SAudny1AAoIax5yjgbEvJ7Dg6oUI1J6dPdmH'; //Paypal API Signature
-$PayPalCurrencyCode     = 'GBP'; //Paypal Currency Code
-$PayPalReturnURL        = SCRIPT_URL. '/WIShow/checkout.php'; //Point to paypal-express-checkout page
-$PayPalCancelURL        = SCRIPT_URL.'/WIShow/checkout.php'; //Cancel URL if user clicks cancel
-
-//Additional taxes and fees                                         
-$HandalingCost      = 0.00;  //Handling cost for the order.
-$InsuranceCost      = 0.00;  //shipping insurance cost for the order.
-$shipping_cost      = 1.50; //shipping cost
-$ShippinDiscount    = 0.00; //Shipping discount for this order. Specify this as negative number (eg -1.00)
-$taxes              = array( //List your Taxes percent here.
-                            'VAT' => 12, 
-                            'Service Tax' => 5
-                            );
-       
-       $user_id = WISession::get('user_id');
-       $result = $this->WIdb->select(
-                    "SELECT * FROM `wi_cart` WHERE user_id =:u",
-                     array(
-                       "u" => $user_id
-                     )
-                  );
-
-        $paypalmode = ($PayPalMode=='sandbox') ? '.sandbox' : '';
-        $paypal_data = "";
-        $ItemTotalPrice = 0;
-        $i = 0;
-
-        foreach($result as $res){
-             $paypal_data .= '&L_PAYMENTREQUEST_0_NAME'.$i.'='.urlencode($res['product_title']);
-        $paypal_data .= '&L_PAYMENTREQUEST_0_AMT'.$i.'='.urlencode($res['price']);        
-        $paypal_data .= '&L_PAYMENTREQUEST_0_QTY'.$i.'='. urlencode($res["quantity"]);
-        
-        // item price X quantity
-        $subtotal = ($res['price'] *$res["quantity"]);
-        
-        //total price
-        $ItemTotalPrice = $ItemTotalPrice + $subtotal;
-        
-        //create items for session
-        $paypal_product['items'][] = array('itm_name'=>$res['product_title'],
-                                            'itm_price'=>$res['price'],
-                                            'itm_qty'=>$res["quantity"]
-                                            );
-        $i++;
-        }
-
-        $total_tax = 0;
-        foreach($taxes as $key => $value){ //list and calculate all taxes in array
-            $tax_amount     = round($ItemTotalPrice * ($value / 100));
-            $tax_item[$key] = $tax_amount;
-            $total_tax = $total_tax + $tax_amount; //total tax amount
-    }
-
-    $GrandTotal = ($ItemTotalPrice + $total_tax + $HandalingCost + $InsuranceCost + $shipping_cost + $ShippinDiscount);
-    
-                                
-    $paypal_product['assets'] = array('tax_total'=>$total_tax, 
-                                'handaling_cost'=>$HandalingCost, 
-                                'insurance_cost'=>$InsuranceCost,
-                                'shippin_discount'=>$ShippinDiscount,
-                                'shippin_cost'=>$shipping_cost,
-                                'grand_total'=>$GrandTotal);
-    
-    //create session array for later use
-    $_SESSION["paypal_products"] = $paypal_product;
-    
-    //Parameters for SetExpressCheckout, which will be sent to PayPal
-    $padata =   '&METHOD=SetExpressCheckout'.
-                '&RETURNURL='.urlencode($PayPalReturnURL ).
-                '&CANCELURL='.urlencode($PayPalCancelURL).
-                '&PAYMENTREQUEST_0_PAYMENTACTION='.urlencode("SALE").
-                $paypal_data.               
-                '&NOSHIPPING=0'. //set 1 to hide buyer's shipping address, in-case products that does not require shipping
-                '&PAYMENTREQUEST_0_ITEMAMT='.urlencode($ItemTotalPrice).
-                '&PAYMENTREQUEST_0_TAXAMT='.urlencode($total_tax).
-                '&PAYMENTREQUEST_0_SHIPPINGAMT='.urlencode($shipping_cost).
-                '&PAYMENTREQUEST_0_HANDLINGAMT='.urlencode($HandalingCost).
-                '&PAYMENTREQUEST_0_SHIPDISCAMT='.urlencode($ShippinDiscount).
-                '&PAYMENTREQUEST_0_INSURANCEAMT='.urlencode($InsuranceCost).
-                '&PAYMENTREQUEST_0_AMT='.urlencode($GrandTotal).
-                '&PAYMENTREQUEST_0_CURRENCYCODE='.urlencode($PayPalCurrencyCode).
-                '&LOCALECODE=GB'. //PayPal pages to match the language on your website.
-                '&LOGOIMG=http://wicms.uk/WIAdmin/WIMedia/Img/jeader/wi_cms_logo.jpg'. //site logo
-                '&CARTBORDERCOLOR=FFFFFF'. //border color of cart
-                '&ALLOWNOTE=1';
-
-        
-        //We need to execute the "SetExpressCheckOut" method to obtain paypal token
-        $httpParsedResponseAr = $this->Paypal->PPHttpPost('SetExpressCheckout', $padata, $PayPalApiUsername, $PayPalApiPassword, $PayPalApiSignature, $PayPalMode);
-        
-        //Respond according to message we receive from Paypal
-        if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"]))
-        {
-                unset($_SESSION["cart_products"]); //session no longer needed
-                //Redirect user to PayPal store with Token received.
-                $paypalurl ='https://www'.$paypalmode.'.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token='.$httpParsedResponseAr["TOKEN"].'';
-                header('Location: '.$paypalurl);
-        }
-        else
-        {
-            //Show error message
-            echo '<div style="color:red"><b>Error : </b>'.urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]).'</div>';
-            echo '<pre>';
-            print_r($httpParsedResponseAr);
-            echo '</pre>';
-        }
-
-
-}
-
-
-    }
 
     public function cart()
     {
@@ -1107,7 +606,9 @@ $taxes              = array( //List your Taxes percent here.
         )
         );
 
-       // var_dump($res);
+        $this->WIdb->delete("wi_cart", "userId = :id", array( "id" => $user_id ));
+
+        var_dump($res);
         echo '<div class="row-fluid">
     <!-- Middle Section -->
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -1227,19 +728,15 @@ $taxes              = array( //List your Taxes percent here.
 
     public function showPaymentGet($res)
     {
-         $intent = $res['intent'];
-        $status = $res['status'];
-        $user_id = $this->user->id();
-        $receipt_id = $res['id'];
-        $payerInfo = $res['payer'];
-        $ref_id    = $res['purchase_units'][0]['reference_id'];
-        $shipping = $res['purchase_units'][0]['shipping'];
 
+        $shipping = $res['purchase_units'][0]['shipping'];
+        $shipping_address = $shipping['address'];
         $cost = $res['purchase_units'][0]['amount']['value'];
         $shipping_cost = $res['purchase_units'][0]['amount']['breakdown']['shipping']['value'];
         $tax = $res['purchase_units'][0]['amount']['breakdown']['tax_total']['value'];
         $total = $res['purchase_units'][0]['amount']['value'];
 
+        $status = $res['status'];
         $this->WIdb->insert('wi_order',
         array(
         "userId" => $user_id,
@@ -1284,7 +781,7 @@ $taxes              = array( //List your Taxes percent here.
         </div>
         <form id="orderConfirm"
               class="form-horizontal"
-              style="display: none;">
+              style="display: block;">
             <h3>Your payment is authorized.</h3>
             <h4>Confirm the order to execute</h4>
             <hr>
@@ -1293,14 +790,15 @@ $taxes              = array( //List your Taxes percent here.
                 <div class="col-sm-7">
                     <p id="confirmRecipient">' . $shipping['name']['full_name'] . '</p>
                     <p id="confirmAddressLine1">' . $shipping['address']['address_line_1'] . '</p>
-                    <p id="confirmAddressLine2">' . $shipping['address']['admin_area_2'] . '</p>
+                    <p id="confirmAddressLine2">' . $shipping['address']['address_line_2'] . '</p>
                     <p>
-                        <span id="confirmCity"></span>,
-                        <span id="confirmState"></span> - <span id="confirmZip"></span>
+                        <span id="confirmCity">'.$shipping['address']['admin_area_2'] .'</span>,
+                        <span id="confirmState"></span> - <span id="confirmZip">'.$shipping['address']['postal_code'] .'</span>
                     </p>
-                    <p id="confirmCountry"></p>
+                    <p id="confirmCountry">'.$shipping['address']['country_code'] .'</p>
                 </div>
             </div>
+
             <div class="form-group">
                 <label for="shippingMethod" class="col-sm-5 control-label">Shipping Type</label>
                 <div class="col-sm-7">
@@ -1318,6 +816,7 @@ $taxes              = array( //List your Taxes percent here.
                     </select>
                 </div>
             </div>
+
             <hr>
             <div class="form-group">
                 <div class="col-sm-offset-5 col-sm-7">
@@ -1370,7 +869,10 @@ $taxes              = array( //List your Taxes percent here.
     $result = array(
         "status" => $status,
         "msg"    => $msg,
-        "receipt"  => $receipt
+        "receipt"  => $receipt,
+        "shipping"  => $shipping,
+        "shipping_address" => $shipping_address
+
     );
 
     echo json_encode($result);

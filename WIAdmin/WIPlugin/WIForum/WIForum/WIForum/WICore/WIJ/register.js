@@ -51,7 +51,7 @@ register.registerUser = function (data) {
     var btn = $("#btn-register");
     
     //put button to loading state
-    wiengine.loadingButton(btn, $_lang.creating_account);
+    WICore.loadingButton(btn, $_lang.creating_account);
     
     //hash passwords before send them through network
     data.userData.password = CryptoJS.SHA512(data.userData.password).toString();
@@ -67,7 +67,7 @@ register.registerUser = function (data) {
         },
         success: function (result) {
             //return button to normal state
-            wiengine.removeLoadingButton(btn);
+            WICore.removeLoadingButton(btn);
 
             console.log(result);
             
@@ -80,12 +80,12 @@ register.registerUser = function (data) {
                 //display all errors
                 for(var i=0; i<res.errors.length; i++) {
                     var error = res.errors[i];
-                    wiengine.displayErrorMessage($("#"+error.id), error.msg);
+                    WICore.displayErrorMessage($("#"+error.id), error.msg);
                 }
             }
             else {
                 //display success message
-                wiengine.displaySuccessMessage($(".form-horizontal register-form fieldset"), res.msg);
+                WICore.displaySuccessMessage($(".form-horizontal register-form fieldset"), res.msg);
              //  $( "#msg").html(+res.msg+)
 
             }
@@ -102,7 +102,7 @@ register.validateRegistration = function () {
     var valid = true;
     
     //remove previous error messages
-    wiengine.removeErrorMessages();
+    WICore.removeErrorMessages();
     
     
     //check if all fields are filled
@@ -110,7 +110,7 @@ register.validateRegistration = function () {
         var el = $(this);
 
         if($.trim(el.val()) === "") {
-            wiengine.displayErrorMessage(el);
+            WICore.displayErrorMessage(el);
             valid = false;
         }
     });
@@ -121,21 +121,21 @@ register.validateRegistration = function () {
         regPassConf = $("#reg-repeat-password");
     
     //check if email is valid
-    if(!wiengine.validateEmail(regMail.val()) && regMail.val() != "") {
+    if(!WICore.validateEmail(regMail.val()) && regMail.val() != "") {
         valid = false;
-        wiengine.displayErrorMessage(regMail,$_lang.email_wrong_format);
+        WICore.displayErrorMessage(regMail,$_lang.email_wrong_format);
     }
 
     //check if password and confirm password fields are equal
     if(regPass.val() !== regPassConf.val() && regPass.val() != "" && regPassConf.val() != "") {
         valid = false;
-        wiengine.displayErrorMessage(regPassConf, $_lang.passwords_dont_match);
+        WICore.displayErrorMessage(regPassConf, $_lang.passwords_dont_match);
     }
 
     //check password length
     if($.trim(regPass.val()).length <= 5) {
         valid = false;
-        wiengine.displayErrorMessage(regPass, $_lang.password_length);
+        WICore.displayErrorMessage(regPass, $_lang.password_length);
     }
 
     return valid;

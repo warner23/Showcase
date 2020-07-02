@@ -42,6 +42,40 @@ class WISite
 		return $res[$column];
 	}
 
+	public function Countries()
+	{
+		$query = $this->WIdb->prepare('SELECT * FROM `wi_countries`');
+		$query->execute();
+
+		$result = $query->fetchAll(PDO::FETCH_ASSOC);
+		echo '<select id="countries">';
+		foreach ($result as $res) {
+			echo '<option value="' . $res['country_code'] . '" title="' . $res['country_name'].'">' . $res['country_name'].'</option>';
+		}
+		echo '</select>';
+
+	}
+
+		public function Country($id, $country)
+	{
+		$query = $this->WIdb->prepare('SELECT * FROM `wi_countries`');
+		$query->execute();
+
+		$result = $query->fetchAll(PDO::FETCH_ASSOC);
+		echo '<select id="countries' . $id . '" class="countries">';
+		foreach ($result as $res) {
+			if ($res['country_name'] === $country) {
+
+				echo '<option value="' . $res['country_code'] . '" title="' . $res['country_name'].'" selected="true">' . $res['country_name'].'</option>';
+			}else{
+				echo '<option value="' . $res['country_code'] . '" title="' . $res['country_name'].'">' . $res['country_name'].'</option>';
+			}
+			
+		}
+		echo '</select>';
+
+	}
+
 
 	
 

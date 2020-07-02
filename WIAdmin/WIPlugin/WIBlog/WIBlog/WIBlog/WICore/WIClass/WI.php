@@ -16,11 +16,11 @@ include_once 'WILogin.php';
 include_once 'WIRegister.php';
 include_once 'WIUser.php';
 include_once 'WIHelperFunctions.php';
-//include_once 'WICalendar.php';
 include_once 'WISite.php';
 include_once 'WIMaintenace.php';
 include_once 'WIBlog.php';
 include_once 'WIComment.php';
+include_once 'WIResponse.php';
 
 
 
@@ -33,7 +33,6 @@ WISession::startSession();
 $login    = new WILogin();
 $register = new WIRegister();
 $mailer   = new WIEmail();
-//$calendar = new WICalendar();
 $site   = new WISite();
 $validator = new WIValidator();
 $maint = new WIMaintenace();

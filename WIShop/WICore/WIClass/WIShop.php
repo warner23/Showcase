@@ -13,6 +13,7 @@ class WIShop
     {
         $this->WIdb = WIdb::getInstance();
         $this->Page = new WIPagination();
+        $this->User = new WIUser(WISession::get('user_id'));
     }
 
     public function Cat()
@@ -121,6 +122,26 @@ class WIShop
         </div>
     </div>';
         }
+    }
+
+    public function shippingMethod()
+    {
+        $result = $this->WIdb->select('SELECT * FROM `wi_shipping`');
+        echo '<select id="shipping" class="shipping">';
+        foreach ($result as $res) {
+                echo '<option value="' . $res['cost'] . '" title="' . $res['name'].'">' . $res['name'].'-' . $res['cost'] . '</option>';
+            }
+        echo '</select>';
+    }
+
+    public function changeShipping($cost)
+    {
+        $this->WIdb->update(
+                    "wi_cust_address", 
+                    array("Shipping_costs" => $cost), 
+                    "`user_id` = :id",
+                    array( "id" => $this->User->id() )
+               );
     }
 
 

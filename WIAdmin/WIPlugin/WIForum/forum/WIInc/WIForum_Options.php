@@ -10,12 +10,12 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        WIShop Options
+                        WIForum Options
                         <small>Control panel</small>
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">WIShop Options</li>
+                        <li class="active">WIForum Options</li>
                     </ol>
                 </section>
 
@@ -33,14 +33,14 @@
 
                      <div id="tabs4">
   <ul>
-    <li><a href="#tabs-1">Set Up</a></li>
-    <li><a href="#tabs-2">Add</a></li>
+    <li><a href="#tabs-1">options</a></li>
+    <li><a href="#tabs-2">permissions</a></li>
   </ul>
   <div id="tabs-1">
-<?php include_once "WIInc/site/WIShop/set_up.php"; ?>  
+<?php include_once "WIInc/site/WIForum/options.php"; ?>  
   </div>
   <div id="tabs-2">
-<?php include_once "WIInc/site/WIShop/permissions.php"; ?> 
+<?php include_once "WIInc/site/WIForum/permissions.php"; ?> 
   </div>
 </div>
                      </div>

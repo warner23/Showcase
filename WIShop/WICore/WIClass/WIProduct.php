@@ -47,7 +47,7 @@ class WIProduct
         <div class="panel-body">
             <img src="../WIAdmin/WIMedia/Img/shop/products/' . $result['photo'] . '" class="img-responsive img img-fluid/>
         </div>
-        <div class="panel-footer">£' . $result['price'] . '
+        <div class="panel-footer">' .CURRENCY_SYMBOL . '' . $result['price'] . '
         </div>
         </div></a>
     </div>';
@@ -105,7 +105,7 @@ class WIProduct
         
                     <!-- Precios -->
                     <h6 class="title-price"><small>PRICE</small></h6>
-                    <h3 style="margin-top:0px;">£  '  . $res['price'] . '</h3>
+                    <h3 style="margin-top:0px;">' .CURRENCY_SYMBOL . ''  . $res['price'] . '</h3>
         
                     <!-- Detalles especificos del producto -->
                     <div class="section">

@@ -13,6 +13,7 @@ $orderAddress = $cart->OrderAddress();
 
 $total_amount = $cart->TotalCost();
 
+$Shipping_costs = $cart->OrderCost();
 
 $orderData = '{
     "intent" : "CAPTURE",
@@ -36,7 +37,7 @@ $orderData = '{
                     },
                     "shipping" : {
                         "currency_code" : "'.CURRENCY.'",
-                        "value" : "0.00"
+                        "value" : "' . $Shipping_costs . '"
                     },
                     "tax_total" : {
                         "currency_code" : "'.CURRENCY.'",
@@ -81,4 +82,5 @@ $orderData = '{
 
 
 header('Content-Type: application/json');
+var_dump($orderData);
 echo json_encode($paypalHelper->orderCreate($orderData));

@@ -3,19 +3,19 @@ $(document).ready(function () {
     //comment button click
     $("#comment").click(function () {
         //remove all error messages
-        wiengine.removeErrorMessages();
+        WICore.removeErrorMessages();
         
         var comment = $("#comment-text"),
              btn    = $(this);
              
         //validate comment
         if($.trim(comment.val()) == "") {
-            wiengine.displayErrorMessage(comment, $_lang.field_required);
+            WICore.displayErrorMessage(comment, $_lang.field_required);
             return;
         }
         
         //set button to posting state
-        wiengine.loadingButton(btn, $_lang.posting);
+        WICore.loadingButton(btn, $_lang.posting);
         
          $.ajax({
             url: "WICore/WIClass/WIAjax.php",
@@ -26,7 +26,7 @@ $(document).ready(function () {
             },
             success: function (result) {
                 //return button to normal state
-                wiengine.removeLoadingButton(btn);
+                WICore.removeLoadingButton(btn);
                 try {
                    //try to parse result to JSON
                    var res = JSON.parse(result);
@@ -43,7 +43,7 @@ $(document).ready(function () {
                 }
                 catch(e){
                    //parsing error, display error message
-                   wiengine.displayErrorMessage(comment, $_lang.error_writing_to_db);
+                   WICore.displayErrorMessage(comment, $_lang.error_writing_to_db);
                 }
             }
         });

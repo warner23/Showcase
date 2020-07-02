@@ -105,6 +105,7 @@ class WIWebsite
                 <html class="no-js" lang="en">
                 <head>   
                   <title>' . WEBSITE_NAME. ' </title>
+                  <script src="https://cdn.tiny.cloud/1/frvshcuzctvz3ez3tuig66rf8607oei47r76s4hszqe9xcg8/tinymce/5/tinymce.min.js" referrerpolicy="origin"/></script>
                   <meta charset="utf-8">';
     }
 
@@ -182,10 +183,10 @@ class WIWebsite
 
         while($res = $query1->fetch(PDO::FETCH_ASSOC))
         {    
-         echo '<li><a href="../' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
+         echo '<li class="main_Menu"><a href="../' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
          if($res['parent'] > 0)
          {
-            echo '<li><a href="../' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
+            echo '<li class="main_Menu"><a href="../' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
          }
         }
         echo '</ul>

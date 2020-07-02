@@ -35,8 +35,8 @@ switch ($action) {
         break;
         
     case "postComment":
-        $WIComment = new WIComment();
-        $WIComment->insertComment(WISession::get("user_id"), $_POST['comment'], $_POST['rid']);
+        $comment = new WIComment();
+        $comment->insertComment(WISession::get('user_id'), $_POST['id'], $_POST['comment']);
         break;
 
         case "getComments":
@@ -192,6 +192,8 @@ switch ($action) {
         $user = new WIUser(WISession::get('user_id'));
         echo json_encode($user->getRole());
         break;
+
+        
 
 	
 	default:

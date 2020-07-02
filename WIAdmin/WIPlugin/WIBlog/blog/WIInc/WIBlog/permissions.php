@@ -59,14 +59,17 @@
  <form  class="form-horizontal database-form" id="meta">
                       <fieldset>
                         <div id="legend">
-                          <legend class="">Add Translations</legend>
+                          <legend class="">Blog Permissions</legend>
                         </div>
 
                         <div class="col-lg-12">
                         <div class="control-group form-group">
                         <!-- Button -->
+
                         <div class="col-lg-3 col-sm-3 col-md-3">
                            <button id="add_trans_btn" onclick="WILang.AddTransModal()" class="btn btn-success" >Add</button> 
+
+
                         </div>
                       </div>
                       <div class="results" id="results"></div>
@@ -74,8 +77,9 @@
        
                         
                         </div>
-                       <div id="trans"><!-- content will be loaded here --></div>  
-                     <!-- <?php $web->viewTrans(); ?> -->
+                       <div id="permissions">
+                       
+                        </div>  
                  <div class="loading-div closed"><img src="WIMedia/Img/ajax-loader.gif" ></div>
                   
 

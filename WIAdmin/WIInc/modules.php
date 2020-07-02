@@ -144,7 +144,6 @@ position: absolute;
     <li><a href="#tabs-4">Available Modules</a></li>
     <li><a href="#tabs-5">Settings</a></li>
     <li><a href="#tabs-6">Edit Modules</a></li>
-    <li><a href="#tabs-7">Modules Shop</a></li>
   </ul>
     <div id="tabs-1">
 <?php include_once 'WIInc/site/modules/install_elements.php';?>
@@ -164,10 +163,6 @@ position: absolute;
 
     <div id="tabs-6">
 <?php include_once 'WIInc/site/modules/edit_modules.php';?>
-  </div>
-
-    <div id="tabs-7">
- <?php include_once 'WIInc/site/modules/modules_store.php';?>
   </div>
 </div> 
 

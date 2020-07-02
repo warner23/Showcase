@@ -60,6 +60,7 @@
     <li><a href="#tabs-2">Edit Products</a></li>
     <li><a href="#tabs-3">Brands</a></li>
     <li><a href="#tabs-4">Categories</a></li>
+    <li><a href="#tabs-5">Shipping</a></li>
     
   </ul>
   <div id="tabs-1">
@@ -75,7 +76,9 @@
     <div id="tabs-4">
  <?php include_once 'WIInc/site/WIShop/categories.php'; ?> 
   </div>
-
+  <div id="tabs-5">
+ <?php include_once 'WIInc/site/WIShop/shipping.php'; ?> 
+  </div>
 
 </div>
 

@@ -197,6 +197,11 @@ switch ($action) {
         $forum->CreatePost($_POST['cat_id'], $_POST['section_id']);
         break;
 
+        case "new_post":
+        $forum = new WIForum();
+        $forum->newPost($_POST['cat_id'], $_POST['section_id'] ,$_POST['fposting'], $_POST['title']);
+        break;
+
 
             default:
         

@@ -46,3 +46,11 @@ function e($value)
 {
     return htmlentities($value, ENT_QUOTES, 'UTF-8', false);
 }
+
+
+function respond(array $data, $statusCode = 200)
+{
+    $response = new WIResponse();
+
+    $response->send($data, $statusCode);
+}

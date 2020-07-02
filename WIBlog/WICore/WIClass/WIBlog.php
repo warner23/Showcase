@@ -9,6 +9,7 @@ class WIBlog
 	function __construct() 
 	{
        $this->WIdb = WIdb::getInstance();
+       $this->Comment = new WIComment();
     }
 
 
@@ -500,11 +501,9 @@ class WIBlog
 		}else{
 
 		foreach ($res as $media) {
-			//print_r($media);
-			$MediaType = $media['type'];
-			foreach ($MediaType as $type) {
-				//print_r($type);
-			}
+		
+		$MediaType = $media['type'];
+
 		if($media['type'] === "NoMedia"){
 				
 				echo '<div class="blog_style_2"><article class="post_container">                             
@@ -536,11 +535,26 @@ class WIBlog
                ' . $media['post'] . '                                  
                </p>                                    
                                            
-               </div>                        
-                              
-                    </article></div>
-                              
-                         <!-- .blog-post end -->';
+                </div>  
+         <div class="comments-comments">';
+              $comments = $this->Comment->getBlogComments($media['id']);
+              foreach ($comments as $c) {
+              	echo '<blockquote>' . $c['comment'] . '
+              	<small>' . $c['posted_by_name'] . ' <em>at ' . $c['post_time'] . '</em></small>
+              	</backquote>';
+              }
+               echo '</div>   
+
+         <textarea class="form-control" name="comment" rows="3" id="comment-text-'.$media['id'].'"></textarea> 
+
+          <div class="form-group">
+                    <button class="btn btn-primary" id="btn-comment-'.$media['id'].'" onclick="WIComment.newCommment(`'.$media['id'].'`)" type="submit">
+                        <i class="fa fa-comment"></i>
+                        '.WILang::get("comment").'
+                    </button>
+                </div>                        
+                                
+         </article>';
 		}
 	    if($media['type'] === "blog_slider"){
 			echo '<!-- .latest-posts start -->                            
@@ -557,19 +571,19 @@ class WIBlog
    <figure class="post-image">                                  
    <div class="slideshow-container">
 
-<div class="mySlides fade">
+<div class="mySlides">
   <div class="numbertext"></div>
    <img src="../../../WIAdmin/WIMedia/Img/blog/revslider/' . $media['image'] . '" style="width:100%">
   <div class="text">' . $media['caption'] . '</div>
 </div>
 
-<div class="mySlides fade">
+<div class="mySlides">
   <div class="numbertext"></div>
 <img src="../../../WIAdmin/WIMedia/Img/blog/revslider/' . $media['image2'] . '" style="width:100%">        
   <div class="text">' . $media['caption1'] . '</div>
 </div>
 
-<div class="mySlides fade">
+<div class="mySlides">
   <div class="numbertext"></div>
 <img src="../../../WIAdmin/WIMedia/Img/blog/revslider/' . $media['image3'] . '" style="width:100%">
   <div class="text">' . $media['caption2'] . '</div>
@@ -605,8 +619,26 @@ class WIBlog
 <p>                                        
 ' . $media['post'] . '                                  
 </p>                                    
-</div>                        
-</article><!-- .blog-post end -->
+ </div>  
+         <div class="comments-comments">';
+              $comments = $this->Comment->getBlogComments($media['id']);
+              foreach ($comments as $c) {
+              	echo '<blockquote>' . $c['comment'] . '
+              	<small>' . $c['posted_by_name'] . ' <em>at ' . $c['post_time'] . '</em></small>
+              	</backquote>';
+              }
+               echo '</div>   
+
+         <textarea class="form-control" name="comment" rows="3" id="comment-text-'.$media['id'].'"></textarea> 
+
+          <div class="form-group">
+                    <button class="btn btn-primary" id="btn-comment-'.$media['id'].'" onclick="WIComment.newCommment(`'.$media['id'].'`)" type="submit">
+                        <i class="fa fa-comment"></i>
+                        '.WILang::get("comment").'
+                    </button>
+                </div>                        
+                                
+         </article>
 <script type="text/javascript">
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -669,8 +701,26 @@ function showSlides(n) {
     <p>                                     
     ' . $media['post'] . '                                 
     </p>                                    
-    </div>                        
-    </article><!-- .blog-post end --> ';
+     </div>  
+         <div class="comments-comments">';
+              $comments = $this->Comment->getBlogComments($media['id']);
+              foreach ($comments as $c) {
+              	echo '<blockquote>' . $c['comment'] . '
+              	<small>' . $c['posted_by_name'] . ' <em>at ' . $c['post_time'] . '</em></small>
+              	</backquote>';
+              }
+               echo '</div>   
+
+         <textarea class="form-control" name="comment" rows="3" id="comment-text-'.$media['id'].'"></textarea> 
+
+          <div class="form-group">
+                    <button class="btn btn-primary" id="btn-comment-'.$media['id'].'" onclick="WIComment.newCommment(`'.$media['id'].'`)" type="submit">
+                        <i class="fa fa-comment"></i>
+                        '.WILang::get("comment").'
+                    </button>
+                </div>                        
+                                
+         </article>';
 			
 		}
 		//$type = "blog_image";
@@ -697,7 +747,7 @@ function showSlides(n) {
                                <div class="blog-meta">                                        
                                <ul>                                            
                                <li class="fa fa-user">                                                
-                               <a href="#">' . $media['user'] . '</a>                                           
+                               <a href="javascript:void(0)">' . $media['user'] . '</a>                                           
                                 </li>                                           
                                  <li class="post-tags fa fa-tags">                                               
                                   <a href="javascript:void(0)">news, </a>                                                
@@ -708,9 +758,26 @@ function showSlides(n) {
                                    <p>                                      
                                    ' . $media['post'] . '                               
                                    </p>                                    
-                                                               
-                                   </div>                         
-                                   </article><!-- .blog-post end --> </div>';
+                                    </div>  
+         <div class="comments-comments">';
+              $comments = $this->Comment->getBlogComments($media['id']);
+              foreach ($comments as $c) {
+              	echo '<blockquote>' . $c['comment'] . '
+              	<small>' . $c['posted_by_name'] . ' <em>at ' . $c['post_time'] . '</em></small>
+              	</backquote>';
+              }
+               echo '</div>   
+
+         <textarea class="form-control" name="comment" rows="3" id="comment-text-'.$media['id'].'"></textarea> 
+
+          <div class="form-group">
+                    <button class="btn btn-primary" id="btn-comment-'.$media['id'].'" onclick="WIComment.newCommment(`'.$media['id'].'`)" type="submit">
+                        <i class="fa fa-comment"></i>
+                        '.WILang::get("comment").'
+                    </button>
+                </div>                        
+                                
+         </article>';
 		}
 
 		if($media['type'] === "blog_audio"){
@@ -746,10 +813,28 @@ function showSlides(n) {
         </ul>                                    
         </div>                                   
          <p>                                      
-         ' . $media['post'] . '</p>                                    
-         <textarea class="form-control" name="comment" rows="3"></textarea>                         
-         </div>                         
-         </article><!-- .blog-post end -->  ';
+         ' . $media['post'] . '</p> 
+
+          </div>  
+         <div class="comments-comments">';
+              $comments = $this->Comment->getBlogComments($media['id']);
+              foreach ($comments as $c) {
+              	echo '<blockquote>' . $c['comment'] . '
+              	<small>' . $c['posted_by_name'] . ' <em>at ' . $c['post_time'] . '</em></small>
+              	</backquote>';
+              }
+               echo '</div>   
+
+         <textarea class="form-control" name="comment" rows="3" id="comment-text-'.$media['id'].'"></textarea> 
+
+          <div class="form-group">
+                    <button class="btn btn-primary" id="btn-comment-'.$media['id'].'" onclick="WIComment.newCommment(`'.$media['id'].'`)" type="submit">
+                        <i class="fa fa-comment"></i>
+                        '.WILang::get("comment").'
+                    </button>
+                </div>                        
+                                
+         </article>';
 		}
 
 		if($media['type'] === "blog_youtube"){
@@ -786,9 +871,26 @@ function showSlides(n) {
     <p>                                     
     ' . $media['post'] . '                                 
     </p>                                    
-    </div>                        
-    </article></div>
-      <!-- .blog-post end -->';
+     </div>  
+         <div class="comments-comments">';
+              $comments = $this->Comment->getBlogComments($media['id']);
+              foreach ($comments as $c) {
+              	echo '<blockquote>' . $c['comment'] . '
+              	<small>' . $c['posted_by_name'] . ' <em>at ' . $c['post_time'] . '</em></small>
+              	</backquote>';
+              }
+               echo '</div>   
+
+         <textarea class="form-control" name="comment" rows="3" id="comment-text-'.$media['id'].'"></textarea> 
+
+          <div class="form-group">
+                    <button class="btn btn-primary" id="btn-comment-'.$media['id'].'" onclick="WIComment.newCommment(`'.$media['id'].'`)" type="submit">
+                        <i class="fa fa-comment"></i>
+                        '.WILang::get("comment").'
+                    </button>
+                </div>                        
+                                
+         </article>';
 			  }
 
 			}

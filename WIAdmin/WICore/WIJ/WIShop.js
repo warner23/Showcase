@@ -12,6 +12,7 @@ $(document).ready(function(event)
     WIShop.cat();
     WIShop.brand();
     WIShop.getEditProducts();
+    WIShop.shipping();
 
 
     $("#shop_settings").click(function(event)
@@ -157,6 +158,19 @@ WIShop.brand = function(){
         });
 }
 
+WIShop.shipping = function(){
+    $.ajax({
+            url      : "WICore/WIClass/WIAjax.php",
+            method   : "GET",
+            data     : {
+                action : "getProdShipping"
+            },
+            success  : function(data){
+                $("#get_shipping").html(data);
+            }
+        });
+}
+
 WIShop.newCategory = function(){
   console.log('clicked');
 }
@@ -235,7 +249,7 @@ WIShop.catprependList = function(event){
 
        $.ajax({
         url: "WICore/WIClass/WIAjax.php",
-        type: "GET",
+        type: "POST",
         data: {
             action : "prependNewItem",
             newItem : newItem
@@ -254,7 +268,7 @@ WIShop.catapppendList = function(event){
 
   $.ajax({
         url: "WICore/WIClass/WIAjax.php",
-        type: "GET",
+        type: "POST",
         data: {
             action : "appendNewItem",
             newItem : newItem
@@ -270,18 +284,18 @@ WIShop.catapppendList = function(event){
 
 WIShop.brandprependList = function(event){
   console.log('cloc');
-   var newItem = $("#newItem").val();
+   var newItem = $("#brandnewItem").val();
 
        $.ajax({
         url: "WICore/WIClass/WIAjax.php",
-        type: "GET",
+        type: "POST",
         data: {
             action : "prependbrandNewItem",
             newItem : newItem
         },
         success: function(result)
         {
-           $("ol#catList").prepend('<li><span contenteditable>'+newItem+'</span></li>');
+           $("ol#brandList").prepend('<li><span contenteditable>'+newItem+'</span></li>');
         }
 
     });
@@ -289,18 +303,56 @@ WIShop.brandprependList = function(event){
 }
 
 WIShop.brandapppendList = function(event){
-  var newItem = $("#newItem").val();
+  var newItem = $("#brandnewItem").val();
 
   $.ajax({
         url: "WICore/WIClass/WIAjax.php",
-        type: "GET",
+        type: "POST",
         data: {
             action : "appendbrandNewItem",
             newItem : newItem
         },
         success: function(result)
         {
-           $("ol#catList").append('<li><span contenteditable>'+newItem+'</span></li>');
+           $("ol#brandList").append('<li><span contenteditable>'+newItem+'</span></li>');
+        }
+    });
+     
+}
+
+WIShop.shippingprependList = function(event){
+  console.log('cloc');
+   var newItem = $("#shippingnewItem").val();
+
+       $.ajax({
+        url: "WICore/WIClass/WIAjax.php",
+        type: "POST",
+        data: {
+            action : "prependshippingNewItem",
+            newItem : newItem
+        },
+        success: function(result)
+        {
+           $("ol#shippingList").prepend('<li><span contenteditable>'+newItem+'</span></li>');
+        }
+
+    });
+
+}
+
+WIShop.shippingapppendList = function(event){
+  var newItem = $("#shippingnewItem").val();
+
+  $.ajax({
+        url: "WICore/WIClass/WIAjax.php",
+        type: "POST",
+        data: {
+            action : "appendshippingNewItem",
+            newItem : newItem
+        },
+        success: function(result)
+        {
+           $("ol#shippingList").append('<li><span contenteditable>'+newItem+'</span></li>');
         }
     });
      

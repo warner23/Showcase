@@ -38,10 +38,10 @@
 
   </ul>
   <div id="tabs-1">
-<?php include_once 'WIInc/set_up.php'; ?>  
+<?php include_once 'WIInc/site/WIBlog/set_up.php'; ?>  
   </div>
   <div id="tabs-2">
-<?php include_once 'WIInc/permissions.php'; ?> 
+<?php include_once 'WIInc/site/WIBlog/permissions.php'; ?> 
   </div>
 
 </div>

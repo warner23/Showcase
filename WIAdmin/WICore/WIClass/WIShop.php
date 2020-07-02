@@ -420,6 +420,71 @@ li{
         echo json_encode($result);
     }
 
+    public function getProdShipping()
+    {
+        $result = $this->WIdb->select("SELECT * FROM `wi_shipping`");
+
+
+                 echo '
+        <style>
+        ul, ol{ display:inline-block; vertical-align:top; margin:5%; padding:0; }
+li{
+  max-width:170px; margin-bottom:8px;
+  a{ margin-left:5px; cursor:pointer;
+    &:hover{ text-decoration:none; }
+    &::before{
+      color:red;
+      content:"\00D7";
+    }
+  }
+}
+
+.repoLink{ position:absolute; top:10px; right:10px; font-weight:700; }
+        </style>';
+         echo '<section>
+            <h4>Shipping Options</h4>
+             <ol id="shippingList">';
+
+         foreach($result as $res){
+          echo '<li><span contenteditable>' . $res['name'] . '</span></li>';
+         }
+    
+       echo '</ol>
+        </section>';
+
+    }
+
+
+        public function prependshippingNewItem($newItem)
+    {
+        $this->WIdb->insert('wi_shipping', array(
+            "name" => $newItem
+        ));
+
+        $msg = "You have successful added a new Brand" .$newItem;
+        $result = array(
+         "status" => "successful",
+         "msg"    => $msg 
+        ); 
+
+        echo json_encode($result);
+    }
+
+        public function appendshippingNewItem($newItem)
+    {
+        $this->WIdb->insert('wi_shipping', array(
+            "name" => $newItem
+        ));
+
+        $msg = "You have successful added a new Brand" .$newItem;
+        $result = array(
+         "status" => "successful",
+         "msg"    => $msg 
+        ); 
+
+        echo json_encode($result);
+    }
+
 
 }
 

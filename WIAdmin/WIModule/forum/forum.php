@@ -236,26 +236,8 @@ echo '<div class="container-fluid text-center">
 			  <link rel="stylesheet" href="/resources/demos/style.css">
 			  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 			  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-						<style>
-					.center{
-					 text-align: -webkit-center;
-					}
-
-					.col-forum-main{
-						margin-top: 30px;
-					}
-
-
-					   .ui-tabs-vertical { width: 55em; }
-					  .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
-					  .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
-					  .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
-					  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
-					  .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
-
-
-						</style>
-						<div class="col-lg-12 col-xs-12 col-xl-12 col-md-12">';
+						
+				<div class="col-lg-12 col-xs-12 col-xl-12 col-md-12">';
 						          echo $this->WIForum->ForumMenu();
 						echo '</div>
 						<div class="col-forum-main">

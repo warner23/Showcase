@@ -130,10 +130,78 @@ switch ($action) {
         $calendar->addEvent($_POST['date']) ;
         break;
 
-         case "getEvents":
+        case "getEvents":
         $calendar = new WICalendar();
         $calendar->getEvents($_POST['date']) ;
         break;
+
+        // forum section
+
+        case "topicInfo":
+        $forum = new WIForum();
+        $forum->WISection($_POST['id']) ;
+        break;
+
+        case "postInfo":
+        $forum = new WIForum();
+        $forum->WIPosts($_POST['id']) ;
+        break;
+
+        case "add_new_cat":
+        $forum = new WIForum();
+        $forum->add_new_cat($_POST['cat_title'], $_POST['cat_desc']) ;
+        break;
+
+        case "add_new_topic":
+        $forum = new WIForum();
+        $forum->add_new_topic($_POST['topic_title'], $_POST['cat_id']) ;
+        break;
+
+        case "add_new_post":
+        $forum = new WIForum();
+        $forum->add_new_post($_POST['post'],$_POST['topic_id'], $_POST['cat_id'], $_POST['title']) ;
+        break;
+
+        //admin side forum settings
+                // forum
+        case "new_category":
+        onlyAdmin();
+        $forum = new WIForum();
+        $forum->New_Category($_POST['Cat']);
+        break;
+
+        case "new_section":
+        onlyAdmin();
+        $forum = new WIForum();
+        $forum->New_Section($_POST['Section']);
+        break;
+
+       case "delete_category":
+        onlyAdmin();
+        $forum = new WIForum();
+        $forum->DeleteCategory($_POST['id']);
+        break;
+
+        case "scf":
+        $forum = new WIForum();
+        $forum->SCF($_POST['id']);
+        break;
+
+        case "csf":
+        $forum = new WIForum();
+        $forum->CSF($_POST['id']);
+        break;
+
+        case "createpost":
+        $forum = new WIForum();
+        $forum->CreatePost($_POST['cat_id'], $_POST['section_id']);
+        break;
+
+        case "new_post":
+        $forum = new WIForum();
+        $forum->newPost($_POST['cat_id'], $_POST['section_id'] ,$_POST['fposting'], $_POST['title']);
+        break;
+
 
             default:
         

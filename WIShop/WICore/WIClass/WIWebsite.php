@@ -215,17 +215,11 @@ class WIWebsite
   </div>
 
   <ul class="nav navbar-nav navbar-right">
-        <li><a href="javascript:void(0)" id="cart" class="dropdown-toggle" aria-expanded="false" dropdown="false" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Cart
+        <li class="dropdownCart"><a href="javascript:void(0)" id="cart" class="dropdown-toggle" aria-expanded="false" dropdown="false" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Cart
 <span class="badge">'; echo  $this->cart->CartCount(WISession::get('user_id') ); echo '</span></a>
 <div class="dropdown-menu" >
   <div class="panel panel-success">
     <div class="panel-heading">
-      <div class="row">
-        <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">img</div>
-        <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">product</div>
-        <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">price</div>
-        <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">quant</div>
-      </div>
     </div>
     <div class="panel-body">
           <div class="row" id="cart_product"></div>
