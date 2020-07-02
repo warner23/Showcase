@@ -211,37 +211,7 @@ echo '<div class="container-fluid text-center">
 	{
 
     echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style type="text/css">
 
-	.block{
-		display: block;
-	}
-
-	.hidden{
-		display: none;
-	}
-
-	.panel-info .panel-heading {
-    color: #0a0a0a;
-    background-color: #d9edf7;
-    border-color: #bce8f1;
-}
-
-
-a {
-    color: #0e0e0e;
-    text-decoration: none;
-}
-
-.panel-info {
-    border-color: #a7a8a9;
-}
-
-.panel-body {
-    padding: 0px;
-}
-
-</style>
 <div class="container-fluid text-center">    
   <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 min_height">';

@@ -133,8 +133,6 @@ class WILogin
             $st2  = "Successfully logged in User:  . ' $username . '" ;
             //$maintain = new WIMaintenace();
             $this->maint->LogFunction($st1, $st2);
-        echo "log in" . WISession::get("user_id");
-
         }
         else {
             //wrong username/password combination

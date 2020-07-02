@@ -168,11 +168,11 @@ class WIdb extends PDO
     }
     
 
-    public function delete($table, $where, $bind = array(), $limit = 1)
+    public function delete($table, $where, $bind = array())
     {
         $this->WIdb = self::getInstance();
 
-        $smt = $this->WIdb->prepare("DELETE FROM $table WHERE $where LIMIT $limit");
+        $smt = $this->WIdb->prepare("DELETE FROM $table WHERE $where");
         
         foreach ($bind as $key => &$value) {
             $smt->bindParam(":$key", $value);

@@ -146,16 +146,17 @@ WICheckout.pushpayment = function(res){
 
 }
 WICheckout.success = function(res){
+  //console.log(res);
   $.ajax({
       type: 'POST',
       url: 'WICore/WIVendor/paypal/V2/api/captureOrder.php',
-      data: postPatchOrderData,
+      data: res,
       success: function (response) {
           console.log('Patch Order Response : '+ JSON.stringify(response));
-          if (response.ack)
-              return WICheckout.callPaymentCapture();
-          else
-              alert('Something went wrong');
+         // if (response.ack)
+              //return WICheckout.callPaymentCapture();
+         // else
+             // alert('Something went wrong');
       }
                 });
 }
@@ -172,7 +173,7 @@ WICheckout.showPaymentExecute = function(response){
         success: function (response) {
          var res = JSON.parse(response);
 
-         if(res.status == "APPROVED"){
+         if(res.status == "COMPLETED"){
              WICheckout.stepTwo();
             $("#confirmation_t").html(res.receipt);
          }else{
@@ -195,6 +196,7 @@ WICheckout.showPaymentGet = function(response){
         success: function (response) {
           var res = JSON.parse(response);
           console.log(res);
+          console.log('order id: '+res.id);
          if(res.status == "APPROVED"){
            $("#paypalCheckoutContainer").css("display", "none");
             $("#paypalpay").removeClass('hide').addClass('show');
@@ -216,22 +218,21 @@ WICheckout.showPaymentGet = function(response){
         document.getElementById('confirmCountry').innerText = shipping_address.country_code;
         $('#orderConfirm').css('display', 'block');
         //showDom('orderConfirm');
-
         // Listen for click on confirm button
         document.querySelector('#confirmButton').addEventListener('click', function () {
             let shippingMethodSelect = document.getElementById("shippingMethod"),
                 updatedShipping = shippingMethodSelect.options[shippingMethodSelect.selectedIndex].value,
-                currentShipping = res.purchase_units[0].amount.breakdown.shipping.value;
+                currentShipping = res.shipping_cost
 
             let postPatchOrderData = {
                     "order_id": res.id,
-                    "item_amt": res.purchase_units[0].amount.breakdown.item_total.value,
-                    "tax_amt": res.purchase_units[0].amount.breakdown.tax_total.value,
-                    "handling_fee": res.purchase_units[0].amount.breakdown.handling.value,
-                    "insurance_fee": res.purchase_units[0].amount.breakdown.insurance.value,
-                    "shipping_discount": res.purchase_units[0].amount.breakdown.shipping_discount.value,
-                    "total_amt": res.purchase_units[0].amount.value,
-                    "currency": res.purchase_units[0].amount.currency_code,
+                    "item_amt": res.item_cost,
+                    "tax_amt": res.tax_cost,
+                    "handling_fee": res.handling_cost,
+                    "insurance_fee": res.insurance_cost,
+                    "shipping_discount": res.ship_discount,
+                    "total_amt": res.cost,
+                    "currency": res.cc,
                     "current_shipping": currentShipping
                 };
 
@@ -244,9 +245,9 @@ WICheckout.showPaymentGet = function(response){
             console.log('Current shipping '+ currentShipping + ' and updated shipping is '+ updatedShipping);
             console.log('order id: '+res.id);
             if(currentShipping == updatedShipping) {
-                return callPaymentCapture(); 
+                 WICheckout.callPaymentCapture(); 
             } else {
-                WICheckout.success(postPatchOrderData);
+                 WICheckout.callPaymentCapture(); 
             }
         });
 
@@ -331,8 +332,8 @@ WICheckout.callPaymentCapture = function(){
                     type: 'POST',
                     url: 'WICore/WIVendor/paypal/V2/api/captureOrder.php',
                     success: function (response) {
-                        hideDom('orderConfirm');
-                        hideDom('loadingAlert');
+                        $("#orderConfirm").css("display", "none");
+                        $("#loadingAlert").css("display", "none");
                         console.log('Capture Response : '+ JSON.stringify(response));
                         if (response.ack)
                             WICheckout.showPaymentExecute(response.data);

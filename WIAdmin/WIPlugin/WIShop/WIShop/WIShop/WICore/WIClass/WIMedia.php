@@ -17,7 +17,7 @@ class WIMedia
 
     public function NewMedia($ele_id,$preview_class, $preview_id)
     {
-      if ($ele_id === "login") {
+      if ($ele_id === "actors") {
          echo '<div class="modal hide" id="modal-'.$ele_id.'-details">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -28,7 +28,52 @@ class WIMedia
                   </h4>
                 </div>
                 <div class="modal-body" id="details-body">
-                    
+                    <form class="form-horizontal" id="add-'.$ele_id.'-form">
+
+
+                       <div class="form-group">
+                        <label class="control-label col-lg-3" for="addActor-image">
+                           User Photo
+                        </label>
+                        <div class="'.$preview_class.'" id="'.$preview_id.'"></div>
+                        <div class="well on" id="uploadOptions">
+                      <a href="javascript:void(0);" class="btn media_manager" onclick="WIMedia.MediaManager(`'.$ele_id.'`, `'.$preview_id.'`, `personImgM`, `' . $preview_id . '`, `person`)">Upload from WIMedia Library</a>
+                      <a href="javascript:void(0);" class="btn media_manager" onclick="WIMedia.dropAndDragUpload(`'.$ele_id.'`,`wi_theatre_person`, `person`,`person`,`new`)">upload from computer</a>
+                    </div>
+                        
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-lg-3" for="addPerson-name">
+                          Name
+                        </label>
+                        <div class="control col-lg-9">
+                          <input id="addPerson-name" name="addPerson-name" type="name" class="input-xlarge form-control" placeholder="Person\'s Name">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        
+                          <label class="control-label col-lg-3" for="addPerson-name">
+                          Date Of Birth
+                        </label>
+                        <div class="control col-lg-9">
+                  <input id="datepicker" name="addPerson-dob" type="text" class="input-xlarge form-control" placeholder="Date Of Birth"></div>
+                </div>
+                  
+
+                      <div class="form-group">
+                        <label class="control-label col-lg-3" for="addPerson-bio">
+                          Biography
+                        </label>
+                        <div class="control col-lg-9">
+                          <textarea id="addPerson-bio" name="addPerson-bio" type="text" class="input-xlarge form-control" placeholder="Biography"></textarea>
+                        </div>
+                      </div>
+
+                      <hr>
+                      <div id="AddPersonResults"></div>
+                     
                   </form>
                 </div>
                 <div align="center" class="ajax-loading"><img class="hide" src="WIMedia/Img/ajax_loader.gif" />

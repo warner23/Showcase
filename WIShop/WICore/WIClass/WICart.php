@@ -115,7 +115,7 @@ class WICart
 				$total = $total + $subtotal;
 				echo '<tr>
 							<td data-th="Product">
-								<div class="row">
+							<div class="row">
 									<div class="col-sm-2 hidden-xs"><img src="../../../WIAdmin/WIMedia/Img/shop/products/' . $basket['photo'] . '" alt="..." cwqlass="img-responsive"/></div>
 									<div class="col-sm-10">
 										<h4 class="nomargin">' . $basket['title'] . '</h4>
@@ -170,14 +170,7 @@ class WICart
 						});
 						</script>';
 						$count++;
-				}
-
-
-
-			
-
-
-				  
+				}	  
 						
 			}
 
@@ -243,28 +236,30 @@ class WICart
 		$len = count($result);
 		foreach ($result as $res) {
 			$count++;
-
+			
 			if($count == $len){
 				$orders .= '{
                 "name" : "' . $res['title'] . '",
                 "description" : "",
                 "sku" : "sku'.$res['id'] .'",
-                "quantity" : "' . $res['quantity'] . '",
                 "unit_amount" : {
                     "currency_code" : "'.CURRENCY.'",
-                    "value" : "' . number_format($res['total_amount'],  2, '.', '') . '"
-                }
+                    "value" : "' . number_format($res['price'],  2, '.', '') . '"
+                },
+                "quantity" : "' . $res['quantity'] . '"
+
             }';
 			}else{
 				 $orders .='{
                 "name" : "' . $res['title'] . '",
                 "description" : "",
                 "sku" : "sku'.$res['id'] .'",
-                "quantity" : "' . $res['quantity'] . '",
                 "unit_amount" : {
                     "currency_code" : "'.CURRENCY.'",
-                    "value" : "' . number_format($res['total_amount'], 2, '.', '') . '"
-                }
+                    "value" : "' . number_format($res['price'], 2, '.', '') . '"
+                },
+                "quantity" : "' . $res['quantity'] . '"
+
             },';
 			}
 
@@ -403,8 +398,8 @@ class WICart
                      )
                   );
 		$shipping = $result[0]['Shipping_costs'];
-		if($shipping == ""){
-			return "0.00";
+		if($shipping == " "){
+			
 		}else{
 			return $shipping;
 		}
@@ -414,8 +409,8 @@ class WICart
 
 
 	public function TotalCost()
-
 	{
+
 		$userId = $this->User->id();
 
 		$result = $this->WIdb->select(
@@ -429,24 +424,25 @@ class WICart
 		$total = 0;
         $len = count($result);
 		foreach ($result as $basket) {
-
+			
 			 if($count == $len){
-			 	$subtotal = $basket['price'] * $basket['quantity'];
+			 	//$subtotal = $basket['price'] * $basket['quantity'];
 					$total = $total + $subtotal;
 				}else{
 					$subtotal = $basket['price'] * $basket['quantity'];
 				$total = $total + $subtotal;
-				$count++;
-				}
 				
+				}
+				$count++;
 			}
 
+		//echo $total;
 		$shipping = self::OrderCost();
 
 		$grandTotal = $total + $shipping;
+		//echo $grandTotal;
 
 		return number_format($grandTotal,  2, '.', '');
-;
 	}
 
 	public function cart_delete($id)

@@ -132,13 +132,33 @@ switch ($action) {
         break;
 
         case "getProduct":
-        $shop = new WIShop();
-        $shop->Product($_POST['get_product']);
+        $product = new WIProduct();
+        $product->Product($_POST['get_product']);
         break;
 
-        case "productInfo":
-        $shop = new WIShop();
-        $shop->productInfo($_POST['id']);
+        case "getProductOverView":
+        $product = new WIProduct();
+        $product->getProductOverView($_POST['product_id']);
+        break;
+
+        case "getProductInfor":
+        $product = new WIProduct();
+        $product->getProductInfor($_POST['product_id']);
+        break;
+
+        case "getProductReviews":
+        $product = new WIProduct();
+        $product->getProductReviews($_POST['product_id']);
+        break;
+
+        case "OpenReview":
+        $review = new WIProductReview();
+        $review->OpenReview($_POST['id']);
+        break;
+
+        case "saveReview":
+        $review = new WIProductReview();
+        $review->saveReview($_POST['review'], $_POST['new_rating'], $_POST['product_id']);
         break;
 
         case "selected_cat":
@@ -158,18 +178,22 @@ switch ($action) {
 
         case "addProduct":
         $cart = new WICart();
-        $cart->addProduct($_POST['pid']);
+        $cart->addProduct($_POST['pid'], $_POST['qty']);
         break;
-
-        case "getLogin":
-        $log = new WIMedia();
-        $log->addProduct($_POST['pid']);
-        break;
-
 
         case "getCart":
         $cart = new WICart();
         $cart->getCart(WISession::get("user_id"));
+        break;
+
+        case "update_cart":
+        $cart = new WICart();
+        $cart->update_cart($_POST['qty'], $_POST['id'], $_POST['total']);
+        break;
+
+        case "cart_delete":
+        $cart = new WICart();
+        $cart->cart_delete($_POST['id']);
         break;
 
          case "cartCount":
@@ -177,10 +201,48 @@ switch ($action) {
         $cart->CartCount($_POST['userId']);
         break;
 
+        case "process":
+        $check = new WICheckout();
+        $check->PayPal();
+        break;
+
+        case "showPaymentExecute":
+        $check = new WICheckout();
+        $check->showPaymentExecute($_POST['response']);
+        break;
+
+        case "showPaymentGet":
+        $check = new WICheckout();
+        $check->showPaymentGet($_POST['response']);
+        break;
+
+        case "changeShipping":
+        $shop = new WIShop();
+        $shop->changeShipping($_POST['cost']);
+        break;
 	
 	default:
 		
 		break;
+}
+
+$action = isset($_GET['action']) ? $_GET['action'] : null;
+switch($action){
+
+       case "checkout":
+       $check = new WICheckout();
+       $check->PayPal();
+       break;
+
+       case "cart":
+       $check = new WICheckout();
+       $check->cart();
+       break;
+
+       case "newAddress":
+       $cart = new WICart();
+       $cart->newAddress();
+       break;
 }
 
 function onlyAdmin() {
