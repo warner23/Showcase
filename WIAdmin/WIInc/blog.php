@@ -5,39 +5,7 @@
   } );
   </script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style type="text/css">
-  .blog_type{
-    float: left;
-    width: 12%;
-    margin-left: 15px;
-        list-style: none;
-  }
 
-  .blogSelect{
-    width: 9%;
-    margin: 0px 0px 0px 450px;
-        cursor: pointer;
-  }
-
-  .admin_post{
-        width: 18%;
-    height: 44px;
-    margin-left: 401px;
-  }
-
-  .block{
-    display: block;
-  }
-
-  .hidden{
-    display: none;
-  }
-
-  #wivid{
-        width: 49%;
-    height: 137px;
-  }
-</style>
  <aside class="right-side">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">

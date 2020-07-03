@@ -1,32 +1,4 @@
- <style type="text/css">
-    li{
-        list-style: none;
-    }
-
-    .wrap{
-    width: 44%;
-    height: 44px;
-    margin-left: 288px;
-
-    }
-
-    .pgs{
-            width: 50%;
-    margin-left: 297px;
-    }
-
-    .close {
-    float: right;
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 10px #000;
-    filter: alpha(opacity=20);
-    opacity: .5;
-}
-</style>
- <aside class="right-side">
+<aside class="right-side">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>

@@ -200,7 +200,7 @@ display: block;
 }
 
 .edit .WI .wicreate .drag {
-    right: 13%;
+    right: 34%;
     z-index: 10;
     float: right;
 }
@@ -211,10 +211,10 @@ display: block;
 }
 
 .edit .WI .column .box .configuration {
-  position: absolute;
-  top: 3px;
-  right: 88px;
-  white-space: nowrap; 
+    position: absolute;
+    top: 3px;
+    right: 300px;
+    white-space: nowrap;
 }
 
 .optset{
@@ -228,6 +228,8 @@ margin: -17px 3px 14px -1px;
     z-index: 10;
     color: #fff;
     float: right;
+    margin: 3% 20% 0% -37%;
+    width: 17%;
 }
 
 .WI .configuration {
@@ -243,12 +245,14 @@ margin: -17px 3px 14px -1px;
 
 .WI .drag, .WI .remove {
   filter: alpha(opacity=20);
-  opacity: 0.2;
-  -webkit-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  transition: all 500ms ease; 
+    opacity: 0.2;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+    margin-left: -274px;
+    width: 27%;
 }
 
 
@@ -374,14 +378,15 @@ a.language-selected {
 }
 
 .toolbox-reset {
-  background: inherit;
-  color: inherit;
-  display: inherit;
-  line-height: inherit;
-  margin: inherit;
-  padding: inherit;
-  -webkit-text-size-adjust: inherit;
-  -ms-text-size-adjust: inherit; }
+background: inherit;
+    color: inherit;
+    display: inherit;
+    line-height: inherit;
+    /* margin: inherit; */
+    /* padding: inherit; */
+    -webkit-text-size-adjust: inherit;
+    -ms-text-size-adjust: inherit;
+}
   .toolbox-reset .collapse {
     display: block; }
   .toolbox-reset .modal {

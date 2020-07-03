@@ -1,9 +1,4 @@
-<style type="text/css">
-  .right{
-    margin-left: 23%;
-  }
-</style>
-              <div class="col-md-8 right">
+<div class="col-md-8 right">
                   <div class="control-group roles-input">
                     <div class="controls col-lg-3">
                       <input type="text" class="form-control col-lg-3" id='role-name' placeholder="<?php echo WILang::get('role_name'); ?>">

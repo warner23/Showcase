@@ -62,7 +62,7 @@ class WIProfile
                   );
 
         if(!empty($result[0]["avatar"])){
-       echo '<img class="img" src="../WIAdmin/WIMedia/Img/avator/' . $result[0]["avatar"] . '" width="218px" />';
+       echo '<img class="img" src="../WIAdmin/WIMedia/Img/avator/'. $userId.'/' . $result[0]["avatar"] . '" width="218px" />';
       
     } else {
       echo '

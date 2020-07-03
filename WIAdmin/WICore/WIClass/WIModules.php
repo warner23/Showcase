@@ -222,9 +222,12 @@ class WIModules
         while ($res = $query->fetch(PDO::FETCH_ASSOC)) {
 
             $element_name = $res['element_name'];
+
+            if (strpos($element_name," ") != false){
+                $element_name = preg_replace('/\s+/', '_', $element_name);
+            }
             
-              
-             echo '<div class="col-md-4">
+             echo '<div class="col-mods">
         <div class="panel panel-info">
         <div class="panel-heading">' . $element_name . '</div>
         <div class="panel-body">
@@ -236,9 +239,8 @@ class WIModules
             
         </div>
         </div>';
-                if (strpos($element_name,"_") != false){
-                $element_name = str_replace("_", " ", $element_name);
-            }
+
+             
     echo '</div>  <script type="text/javascript">
      
     var element = "' . $res['element_status'] . '";
@@ -282,7 +284,6 @@ class WIModules
     echo $Pagin;
     echo '</div></div>';
     }
-
 
 
     public function getModules()
@@ -884,14 +885,12 @@ class WIModules
 
      public function ActiveElementsGrid()
      {
-
          if(isset($_POST["page"])){
         $page_number = filter_var($_POST["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
         if(!is_numeric($page_number)){die('Invalid page number!');} //incase of invalid page number
     }else{
         $page_number = 1; //if there's no page number, set it to 1
     }
-
         $onclick = "nextElement";
         $element_status = "enabled";
         $item_per_page = 15;
@@ -929,7 +928,7 @@ class WIModules
             echo '<div class="grid box-element wicreate ui-draggable">
             <a href="javascript:void(0);" id="' .$res['element_id'] . '" onclick="WIScript.gridEdit(`' .$res['element_name'] . '`)" class="edit editting-' .$res['element_id'] . ' label label-important remove"><i class="far fa-edit"></i>Edit</a>
                 
-                <div class="rowActions groupActions">
+                <div class="rowActions groupActions hide">
                     <div class="actionBtnWrapper">
                 <button class="btn item_handle" type="button"></button>
                 <button class="btn item_editToggle" type="button"></button>

@@ -6,6 +6,7 @@
 	<title><?php  echo WEBSITE_NAME; ?></title>
 	<link rel="stylesheet" type="text/css" href="WIInc/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="WIInc/css/dashboard.css">
+	<link rel="stylesheet" type="text/css" href="WIInc/css/admin.css">
 	<link rel="stylesheet" type="text/css" href="WIInc/css/mod.css">
 	<link rel="stylesheet" type="text/css" href="WIInc/css/wipagebuilder.css">
 

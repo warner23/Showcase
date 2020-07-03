@@ -482,8 +482,7 @@ WIScript.SaveContent = function(){
         var c = $('#contenteditor').html();
         var id = $('#editorId');
         id.children('.view').empty().html(c);
-        $("#modal-editorModal-details").removeClass('show');
-        $("#modal-editorModal-details").addClass(
+        $("#modal-editorModal-details").removeClass('show').addClass('hide');
 }
 
 WIScript.downloadLayoutSrc = function(){

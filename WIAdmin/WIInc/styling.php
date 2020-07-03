@@ -1,15 +1,4 @@
- <style type="text/css">
-   .off{
-    display: none;
-   }
-
-   .on{
-    display: block;
-   }
- </style>
-
-
-  <script>
+<script>
 
       $(function() {
     //  jQueryUI 1.10 and HTML5 ready
