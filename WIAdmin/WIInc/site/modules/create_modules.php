@@ -138,7 +138,7 @@
               drag
             </span>
             <span class="configuration">
-                      <button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">Editor</button> 
+                      <button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal" onclick="WIScript.Editor();">Editor</button> 
                       <a class="btn btn-mini" href="#" rel="well">Well</a> 
                     </span>
 

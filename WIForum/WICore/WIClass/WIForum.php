@@ -316,18 +316,20 @@
 		foreach ($result as $res) {
 			$count++;
 			if($count == $len){
-				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
-			<div class-"col-lg-12 col-xs-11 col-md-12">
+				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">';
+				self::userImage($res['user_posted']);
+			echo '<div class-"col-lg-12 col-xs-11 col-md-12">
 					<input type="hidden" id="post_id" value="'. $res['id'] .'">
 					<input type="hidden" id="section_id" value="'. $res['section_id'] .'">
 					<input type="hidden" id="cat_id" value="'. $res['category_id'] .'">
 				  	<div id="forum_post_title">' . $res['title'] .'</div>
 				  		  <div id="forum_post">' . $res['post'] .'</div>
-				  		  </div>
+				  		  </div></li>
 				  	<button onclick="WIForum.CreatePost(`'. $res['category_id'] .'`,`'. $res['section_id'] .'`)">Reply</button>';
 			}else{
-				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
-			<div class-"col-lg-12 col-xs-11 col-md-12">
+				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">';
+				self::userImage($res['user_posted']);
+			echo '<div class-"col-lg-12 col-xs-11 col-md-12">
 					<input type="hidden" id="post_id" value="'. $res['id'] .'">
 				  	<div id="forum_post_title">' . $res['title'] .'</div>
 				  		  <div id="forum_post">' . $res['post'] .'</div>
@@ -387,6 +389,35 @@
         );
 
         echo json_encode($result);
+	}
+
+	public function userImage($user_id)
+	{
+		$result = $this->WIdb->select(
+                    "SELECT * FROM `wi_user_details`
+                     WHERE `user_id` = :u",
+                     array(
+                       "u" => $user_id
+                     )
+                  );
+		echo '<style>
+		.blogUser{
+		width: 11%;
+	    float: left;
+	    border-radius: 58%;
+	    border: 2px solid silver;
+	        margin-top: 0%;
+    margin-bottom: -1%;
+		}
+
+		</style>';
+		$avatorPic = $result[0]['avatar'];
+
+		if($avatorPic == ""){
+			echo '<img class="blogUser" src="../../WIAdmin/WIMedia/Img/avator/'.$user_id.'/default.png">';
+		}else{
+			echo '<img class="blogUser" src="../../WIAdmin/WIMedia/Img/avator/'.$user_id.'/'. $avatorPic.'">';
+		}
 	}
 
 

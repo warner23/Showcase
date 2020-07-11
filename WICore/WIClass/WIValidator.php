@@ -94,6 +94,7 @@ class WIValidator
         $result = $this->WIdb->select('SELECT * FROM `wi_members` WHERE `password_reset_key` = :k', array(
             'k' => $key
         ));
+       // var_dump($result);
 
         // if key doesn't exist in WIdb or it somehow exists more than once, it is not valid key
         if ( count ( $result ) !== 1 )

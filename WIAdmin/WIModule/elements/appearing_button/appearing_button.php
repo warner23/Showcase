@@ -25,6 +25,7 @@ class appearing_button
             "element_powered" => $power
         )); 
 	}
+	
 
 		public function editMod()
 	{

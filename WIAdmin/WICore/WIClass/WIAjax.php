@@ -1049,6 +1049,11 @@ switch($action){
         $shop = new WIShop();
         $shop->getProdShipping();
         break;
+
+        case "addAttr":
+        $mod = new WIModules();
+        $mod->fieldEdit();
+        break;
         
         default:
         break;

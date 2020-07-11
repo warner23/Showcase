@@ -208,7 +208,14 @@ class WIModules
          $query->bindParam(':power' ,$power, PDO::PARAM_STR);
         $query->bindParam(':item_per_page', $item_per_page, PDO::PARAM_INT);
         $query->execute();
-
+/*
+        $result = $this->WIdb->select("SELECT * FROM `wi_elements` WHERE element_powered =:power ORDER BY `element_id` ASC LIMIT :page, :item_per_page", 
+            array(
+            "page" => $page_position,
+            "power" => $power,
+            "item_per_page"  => $item_per_page
+            )
+        );*/
         echo '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="elementsContents">';
         
         echo '<ul class="contents">';
@@ -216,7 +223,7 @@ class WIModules
 
             $element_name = $res['element_name'];
 
-            if (strpos($element_name," ") != false){
+            if (strpos($element_name," ") != faslse){
                 $element_name = preg_replace('/\s+/', '_', $element_name);
             }
             
@@ -510,10 +517,22 @@ class WIModules
                 ), 
             $column);
         return $result[$column];
+        //$query = $WIdb->prepare('SELECT * FROM `wi_mod` WHERE `module_name` = :mod_name');
+        //$query->bindParam(':mod_name', $mod_name, PDO::PARAM_STR);
+       // $query->execute();
+       // $res = $query->fetch(PDO::FETCH_ASSOC);
+       //return $res[$column];
     }
 
         public function InstallToggle($mod_name) 
     {
+/*        $WIdb = WIdb::getInstance();
+
+        $query = $WIdb->prepare('SELECT * FROM `wi_mod` WHERE `module_name` = :mod_name');
+        $query->bindParam(':mod_name', $mod_name, PDO::PARAM_STR);
+        $query->execute();
+
+        $res = $query->fetch(PDO::FETCH_ASSOC);*/
 
         $result = $this->WIdb->select("SELECT * FROM `wi_mod` WHERE `module_name` = :mod_name", 
             array(
@@ -533,6 +552,13 @@ class WIModules
 
     public  function InstallElementToggle($mod_name) 
     {
+/*        $WIdb = WIdb::getInstance();
+
+        $query = $WIdb->prepare('SELECT * FROM `wi_elements` WHERE `element_type` = :mod_name or `element_name` =:mod_name');
+        $query->bindParam(':mod_name', $mod_name, PDO::PARAM_STR);
+        $query->execute();
+
+        $res = $query->fetch(PDO::FETCH_ASSOC);*/
 
         $result = $this->WIdb->select("SELECT * FROM `wi_elements` WHERE `element_type` = :mod_name or `element_name` =:mod_name", 
             array(
@@ -573,6 +599,12 @@ class WIModules
 
         $this->WIdb->delete("wi_elements", "element_name = :mod_name", array( "mod_name" => $mod_name ));
 
+
+       /* $sql = "DELETE FROM `wi_elements` WHERE element_name= :mod_name";
+        $query = $this->WIdb->prepare($sql);
+        $query->bindParam(':mod_name', $mod_name, PDO::PARAM_STR);
+        $query->execute();*/
+
     }
 
     public function install_mod($mod_name, $author)
@@ -586,7 +618,12 @@ class WIModules
 
     public function uninstall_mod($mod_name)
     {
+/*        //
 
+        $sql = "DELETE FROM `wi_mod` WHERE module_name= :mod_name";
+        $query = $this->WIdb->prepare($sql);
+        $query->bindParam(':mod_name', $mod_name, PDO::PARAM_STR);
+        $query->execute();*/
         $this->WIdb->delete("wi_mod", "module_name = :mod_name", array( "mod_name" => $mod_name ));
 
     }
@@ -594,21 +631,42 @@ class WIModules
 
     public function active_available_mod($mod_name, $enable)
     {
+        //INSERT INTO `wi_mod` (module_name, mod_status) VALUES (:mod_name, :mod_status)
 
-        $this->WIdb->update('wi_mod',array("mod_status" => $enable),
-            "`module_name` = :mod_name",
-        array("mod_name" => $mod_name)
-        );
+/*        $sql = "UPDATE `wi_mod` SET `mod_status` = :mod_status WHERE `module_name` = :mod_name";
+        $query = $this->WIdb->prepare($sql);
+        $query->bindParam(':mod_name', $mod_name, PDO::PARAM_STR);
+        $query->bindParam(':mod_status', $enable, PDO::PARAM_STR);
+        $query->execute();*/
+
+                          $this->WIdb->update(
+                    'wi_mod',
+                     array(
+                         "mod_status" => $enable
+                     ),
+                     "`module_name` = :mod_name",
+                     array("mod_name" => $mod_name)
+                );
+
+
     }
 
         public function activateAvailableElements($element_name, $enable)
     {
 
+         
+          
         $element_font = "wi_" .$element_name;
 
         if (strpos($element_name,"_") != faslse){
                 $element_name = str_replace("_", " ", $element_name);
             }
+/*        $sql = "UPDATE `wi_elements` SET `element_status` = :element_status, `element_font`=:element_font WHERE `element_name` = :element_name";
+        $query = $this->WIdb->prepare($sql);
+        $query->bindParam(':element_name', $element_name, PDO::PARAM_STR);
+        $query->bindParam(':element_status', $enable, PDO::PARAM_STR);
+        $query->bindParam(':element_font', $element_font, PDO::PARAM_STR);
+        $query->execute();*/
 
         $this->WIdb->update(
                     'wi_elements',
@@ -625,6 +683,13 @@ class WIModules
 
         public function active_available_elements($mod_name, $enable)
     {
+        //INSERT INTO `wi_mod` (module_name, mod_status) VALUES (:mod_name, :mod_status)
+
+/*        $sql = "UPDATE `wi_elements` SET `element_status` = :element_status WHERE `element_name` = :element_name";
+        $query = $this->WIdb->prepare($sql);
+        $query->bindParam(':element_name', $mod_name, PDO::PARAM_STR);
+        $query->bindParam(':element_status', $enable, PDO::PARAM_STR);
+        $query->execute();*/
 
         $this->WIdb->update(
                     'wi_elements',
@@ -640,6 +705,14 @@ class WIModules
 
         public function deactive_available_mod($mod_name, $disable)
     {
+        //echo $disable;
+        //echo $mod_name;
+/*        $sql = "UPDATE `wi_mod` SET `mod_status` = :mod_status WHERE `module_name` = :mod_name";
+        $query = $this->WIdb->prepare($sql);
+        $query->bindParam(':mod_name', $mod_name, PDO::PARAM_STR);
+        $query->bindParam(':mod_status', $disable, PDO::PARAM_STR);
+        $query->execute();*/
+
         $this->WIdb->update(
                     'wi_mod',
                      array(
@@ -943,7 +1016,7 @@ class WIModules
                       </span>
                     </span>
                     </div>
-                    <div class="fieldActions groupActions hide" id="' . self::numberGenerator(). '">';
+                    <div class="fieldActions groupActions" id="' . self::numberGenerator(). '">';
                       self::RgroupActions();
                       echo '</div>
                     <div class="fieldEdit slideToggle panelsWrap panelCount" style="display:none; position:relative; opacity:1; height:auto;">';
@@ -985,7 +1058,7 @@ class WIModules
                       </span>
                     </span>
                     </div>
-                    <div class="fieldActions groupActions hide" id="' . self::numberGenerator(). '">';
+                    <div class="fieldActions groupActions" id="' . self::numberGenerator(). '">';
                       self::RgroupActions();
                       echo '</div>
                     <div class="fieldEdit slideToggle panelsWrap panelCount" style="display:none; position:relative; opacity:1; height:auto;">';
@@ -1028,7 +1101,7 @@ class WIModules
                       </span>
                     </span>
                     </div>
-                    <div class="fieldActions groupActions hide" id="' . self::numberGenerator(). '">';
+                    <div class="fieldActions groupActions" id="' . self::numberGenerator(). '">';
                           self::RgroupActions();
                           echo '</div>
                     <div class="fieldEdit slideToggle panelsWrap panelCount" style="display:none; position:relative; opacity:1; height:auto;">';
@@ -1075,7 +1148,12 @@ class WIModules
                           echo '</div>
                     <div class="fieldEdit slideToggle panelsWrap panelCount" id="' . self::numberGenerator(). '" style="display:none; position:relative; opacity:1; height:auto;">';
                           //self::fieldEdit();
-                          echo '</div>';
+                          echo '</div>
+                          <div class="panels" style="height:116.313px;display:none;">
+                          <div class="Fpanel attrsPanels">';
+                          self::attrsPanels();
+                          echo '</div>
+                          </div>';
                    echo $res['element'] . '
                   </div>';
             }
@@ -1291,6 +1369,225 @@ class WIModules
      }
 
 
+    public function ActiveElementsCommonFields()
+     {
+
+         if(isset($_POST["page"])){
+        $page_number = filter_var($_POST["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
+        if(!is_numeric($page_number)){die('Invalid page number!');} //incase of invalid page number
+    }else{
+        $page_number = 1; //if there's no page number, set it to 1
+    }
+
+        $onclick = "nextElement";
+        $element_status = "enabled";
+        $item_per_page = 15;
+        $power = "power_on";
+        $type = "Common Fields";
+        $result = $this->WIdb->select(
+                    "SELECT * FROM `wi_elements` WHERE `element_status` = :element_status AND `element_powered` =:power AND `element_type`=:type",
+                     array(
+                       "element_status" => $element_status,
+                       "power" => $power,
+                       "type" => $type,
+                ));
+        $rows = count($result);
+
+        //break records into pages
+        $total_pages = ceil($rows/$item_per_page);
+        
+        //get starting position to fetch the records
+        $page_position = (($page_number-1) * $item_per_page);
+        
+
+        $sql = "SELECT * FROM `wi_elements` WHERE `element_status` = :element_status AND `element_powered` =:power AND `element_type` =:type ORDER BY `element_id` ASC LIMIT :page, :item_per_page";
+        $query = $this->WIdb->prepare($sql);
+        $query->bindParam(':page', $page_position, PDO::PARAM_INT);
+         $query->bindParam(':element_status' ,$element_status, PDO::PARAM_STR);
+          $query->bindParam(':power' ,$power, PDO::PARAM_STR);
+          $query->bindParam(':type' ,$type, PDO::PARAM_STR);
+        $query->bindParam(':item_per_page', $item_per_page, PDO::PARAM_INT);
+        $query->execute();
+
+        echo '<ul id="draggable" class="ui-widget-header control-panel common-fields">';
+        while ($res = $query->fetch(PDO::FETCH_ASSOC)) {
+            //var_dump($res);
+            echo '<li id="'.$res['element_name'] . '" title="'.$res['element_name'] . '" class="ui-draggable ui-draggable-handle '.$res['element_font'] . ' draggable-4">
+            '.$res['element_name'] . '
+            </li>
+            <script type="text/javascript">
+                $( "button#modEle" ).mousedown(function() {
+              $("li#'.$res['element_name'] . '").attr("draggable", true);
+            });
+            </script>';
+        }
+         $Pagin = $this->Page->Pagination($item_per_page, $page_number, $rows, $total_pages, $onclick);
+    //print_r($Pagination);
+         echo '</ul>';
+         echo '<div align="center">';
+    /* We call the pagination function here to generate Pagination link for us. 
+    As you can see I have passed several parameters to the function. */
+    echo $Pagin;
+    echo '</div>';
+
+     }
+
+
+     public function ActiveElementsHTMLElements()
+     {
+
+         if(isset($_POST["page"])){
+        $page_number = filter_var($_POST["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
+        if(!is_numeric($page_number)){die('Invalid page number!');} //incase of invalid page number
+    }else{
+        $page_number = 1; //if there's no page number, set it to 1
+    }
+
+        $onclick = "nextElement";
+        $element_status = "enabled";
+        $item_per_page = 15;
+        $power = "power_on";
+        $type = "HTML Elements";
+        $result = $this->WIdb->select(
+                    "SELECT * FROM `wi_elements` WHERE `element_status` = :element_status AND `element_powered` =:power AND `element_type`=:type",
+                     array(
+                       "element_status" => $element_status,
+                       "power" => $power,
+                       "type" => $type
+                ));
+        $rows = count($result);
+
+        //break records into pages
+        $total_pages = ceil($rows/$item_per_page);
+        
+        //get starting position to fetch the records
+        $page_position = (($page_number-1) * $item_per_page);
+        
+
+        $sql = "SELECT * FROM `wi_elements` WHERE `element_status` = :element_status AND `element_powered` =:power AND `element_type`=:type ORDER BY `element_id` ASC LIMIT :page, :item_per_page";
+        $query = $this->WIdb->prepare($sql);
+        $query->bindParam(':page', $page_position, PDO::PARAM_INT);
+         $query->bindParam(':element_status' ,$element_status, PDO::PARAM_STR);
+          $query->bindParam(':power' ,$power, PDO::PARAM_STR);
+          $query->bindParam(':type' ,$type, PDO::PARAM_STR);
+        $query->bindParam(':item_per_page', $item_per_page, PDO::PARAM_INT);
+        $query->execute();
+
+        echo '<ul id="draggable" class="ui-widget-header control-panel html-elements">';
+        while ($res = $query->fetch(PDO::FETCH_ASSOC)) {
+            echo '<li id="'.$res['element_name'] . '" title="'.$res['element_name'] . '" class="ui-draggable ui-draggable-handle '.$res['element_font'] . ' draggable-4">
+                '.$res['element_name'] . '
+            </li>
+            <script type="text/javascript">
+                $( "button#modEle" ).mousedown(function() {
+              $("li#'.$res['element_name'] . '").attr("draggable", true);
+            });
+            </script>';
+        }
+
+         $Pagin = $this->Page->Pagination($item_per_page, $page_number, $rows, $total_pages, $onclick);
+    //print_r($Pagination);
+         echo '</ul>';
+
+         echo '<div align="center">';
+    /* We call the pagination function here to generate Pagination link for us. 
+    As you can see I have passed several parameters to the function. */
+    echo $Pagin;
+    echo '</div>';
+
+     }
+
+     public function ActiveElementsLayouts()
+     {
+
+         if(isset($_POST["page"])){
+        $page_number = filter_var($_POST["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
+        if(!is_numeric($page_number)){die('Invalid page number!');} //incase of invalid page number
+    }else{
+        $page_number = 1; //if there's no page number, set it to 1
+    }
+
+        $onclick = "nextElement";
+        $element_status = "enabled";
+        $item_per_page = 15;
+        $power = "power_on";
+        $type = "Layout";
+        $result = $this->WIdb->select(
+                    "SELECT * FROM `wi_elements` WHERE `element_status` = :element_status AND `element_powered` =:power AND `element_type`=:type",
+                     array(
+                       "element_status" => $element_status,
+                       "power" => $power,
+                       "type" => $type
+                ));
+        $rows = count($result);
+
+        //break records into pages
+        $total_pages = ceil($rows/$item_per_page);
+        
+        //get starting position to fetch the records
+        $page_position = (($page_number-1) * $item_per_page);
+        
+
+       $sql = "SELECT * FROM `wi_elements` WHERE `element_status` = :element_status AND `element_powered` =:power AND `element_type`=:type ORDER BY `element_id` ASC LIMIT :page, :item_per_page";
+        $query = $this->WIdb->prepare($sql);
+        $query->bindParam(':page', $page_position, PDO::PARAM_INT);
+         $query->bindParam(':element_status' ,$element_status, PDO::PARAM_STR);
+          $query->bindParam(':power' ,$power, PDO::PARAM_STR);
+          $query->bindParam(':type' ,$type, PDO::PARAM_STR);
+        $query->bindParam(':item_per_page', $item_per_page, PDO::PARAM_INT);
+        $query->execute();
+
+        echo '<ul id="draggable" class="ui-widget-header control-panel layers">';
+        while ($res = $query->fetch(PDO::FETCH_ASSOC)) {
+            echo '<li id="'.$res['element_name'] . '" title="'.$res['element_name'] . '" class="draggable-4  '.$res['element_font'] . '">'.$res['element_name'] . '
+                
+            </li>
+                <script type="text/javascript">
+                $( "button#modEle" ).mousedown(function() {
+              $("li#'.$res['element_name'] . '").attr("draggable", true);
+            });
+            </script>';
+        }
+         $Pagin = $this->Page->Pagination($item_per_page, $page_number, $rows, $total_pages, $onclick);
+    //print_r($Pagination);
+         echo '</ul>';
+
+         echo '<div align="center">';
+    /* We call the pagination function here to generate Pagination link for us. 
+    As you can see I have passed several parameters to the function. */
+    echo $Pagin;
+    echo '</div>';
+
+     }
+
+     public function dropElement($mod_name)
+     {
+
+        include_once dirname(dirname(dirname(__FILE__))) . '/WIModule/elements/' .$mod_name.'/'.$mod_name.'.php';
+        
+
+        $mod_name = new $mod_name;
+
+        $mod_name->mod_name();
+
+     }
+
+     public function dropColElement($mod_name)
+     {
+        include_once dirname(dirname(dirname(__FILE__))) . '/WIModule/columns/columns.php';
+        /*
+        spl_autoload_register(function($mod_name)
+        {
+            require_once $dir .'/' .$mod_name . '.php';
+        });
+        */
+
+        $columns = new columns;
+
+        $columns->$mod_name();
+
+     }
+
           public function editDropElement($mod_name, $page_id)
      {
         include_once dirname(dirname(dirname(__FILE__))) . '/WIModule/' .$mod_name.'/'.$mod_name.'.php';
@@ -1306,6 +1603,11 @@ class WIModules
      {
         $mod_name = "columns";
         $mod_status = "enabled";
+/*        $sql = "SELECT * FROM `wi_mod` WHERE module_name = :mod_name AND mod_status = :mod_status";
+        $query = $this->WIdb->prepare($sql);
+        $query->bindParam(':mod_name', $mod_name, PDO::PARAM_STR);
+        $query->bindParam(':mod_status', $mod_status, PDO::PARAM_STR);
+        $query->execute();*/
 
         $result = $this->WIdb->select("SELECT * FROM `wi_mod` WHERE module_name = :mod_name AND mod_status = :mod_status", 
             array(
@@ -1437,6 +1739,15 @@ class WIModules
         );
         $mlang = $result[0]['multi_lang'];
         
+   // echo $mlang;
+
+/*        $sql1 = "SELECT * FROM `wi_modules` WHERE `name`=:name";
+        $query1 = $this->WIdb->prepare($sql1);
+        $query1->bindParam(':name', $name, PDO::PARAM_STR);
+        $query1->execute();
+
+        $res = $query1->fetch(PDO::FETCH_ASSOC);
+        echo $column;*/
 
         $res = $this->WIdb->select("SELECT * FROM `wi_modules` WHERE `name`=:name", 
             array(
@@ -1476,7 +1787,13 @@ class WIModules
 
     public function ModName($page)
     {
+/*        $sql = "SELECT * FROM `wi_page` WHERE `name`=:page";
+        echo $page;
+        $query = $this->WIdb->prepare($sql);
+        $query->bindParam(':page', $page, PDO::PARAM_STR);
+        $query->execute();
 
+        $res = $query->fetch(PDO::FETCH_ASSOC);*/
 
         $result = $this->WIdb->select("SELECT * FROM `wi_page` WHERE `name`=:page", 
             array(
@@ -2588,8 +2905,6 @@ lg (for laptops and desktops - screens equal to or greater than 1200px wide)
   {
 
     $tabNum = self::numberGenerator();
-    $tablets = self::numberGenerator();
-    $addAtt = self::numberGenerator();
     echo ' <script>
   $( function() {
     $( "#' . $tabNum. '" ).tabs();
@@ -2598,11 +2913,11 @@ lg (for laptops and desktops - screens equal to or greater than 1200px wide)
 
 <div id="' . $tabNum. '">
   <ul>
-    <li><a href="#attributes-' . $tablets. '">Attributes</a></li>
-    <li><a href="#options-' . $tablets. '">Options</a></li>
-    <li><a href="#conditions-' . $tablets. '">Conditions</a></li>
+    <li><a href="#attributes">Attributes</a></li>
+    <li><a href="#options">Options</a></li>
+    <li><a href="#conditions">Conditions</a></li>
   </ul>
-  <div id="attributes-' . $tablets. '">
+  <div id="attributes">
     <div class="fPanelWrap">
       <ul class="fieldEditGroup fieldEditAttrs">
       <li class="attrsClassNameWrap propWrapper controlCount="1" id="PanelWrapers">
@@ -2625,7 +2940,7 @@ lg (for laptops and desktops - screens equal to or greater than 1200px wide)
       </div>
       </div>
   </div>
-  <div id="options-' . $tablets. '">
+  <div id="options">
     <div class="Fpanel optionsPanel">
       <div class="FpanelWrap">
         <ul class="fieldEditGroup fieldEditOptions">
@@ -2653,11 +2968,11 @@ lg (for laptops and desktops - screens equal to or greater than 1200px wide)
         </ul>
         </div>
         <div class="panelActionButtons">
-        <button type="button" class="addOptions" id="'. $addAtt.'">+ Options</button>
+        <button type="button" class="addOptions">+ Options</button>
         </div>
         </div>
   </div>
-  <div id="conditions-' . $tablets. '">
+  <div id="conditions">
      <div class="panel conditions-panel">
           <ul class="field-edit-group">
             <li class="field-conditions">

@@ -32,10 +32,10 @@ class WIAdminChat
 	    	//echo "ave" . $result[0]['avatar'];
 	    	//if($result["avatar"] === " ")
 	    	if(!empty($result["avatar"])){
-			 echo '<img alt="user image" class="online" src="../WIAdmin/WIMedia/Img/avator/' . $result["avatar"] . '" width="60px" />';
+			 echo '<img alt="user image" class="online" src="../WIAdmin/WIMedia/Img/avator/'. $userId.'/' . $result["avatar"] . '" width="60px" />';
 			
 		} else {
-		  echo '<img alt="user image" class="online" src="../WIAdmin/WIMedia/Img/avator/image01.jpg" width="60px" />';
+		  echo '<img alt="user image" class="online" src="../WIAdmin/WIMedia/Img/avator/'. $userId.'/image01.jpg" width="60px" />';
 		}
 
 	    	

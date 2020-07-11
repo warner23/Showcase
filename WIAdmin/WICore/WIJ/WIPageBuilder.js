@@ -82,3 +82,16 @@ WIPageBuilder.clone = function(){
 WIPageBuilder.delete= function(){
 $( "#dropStage" ).remove()
 }
+
+WIPageBuilder.editAttr = function(id){
+	if($("#"+id).hasClass('editMode')){
+		$("#"+id).css('display','none');
+        $("#"+id).removeClass('editMode');
+        $(".fieldActions").css('top','-96%');
+	}else{
+		$("#"+id).css('display','block');
+        $("#"+id).addClass('editMode');
+        $(".fieldActions").css('top','-38%');
+	}
+
+}

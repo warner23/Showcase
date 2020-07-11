@@ -106,13 +106,22 @@ class WIEditor
                         </button>
                     </div>
                 </div>
-                <div class="panel-body" id="WIEditor">
+                <div class="panel-body" id="wieditor">
                 <div class="textarea" contenteditable="true" id="contenteditor">This is a test</div>
 
                 </div>
         </div>
     </div>
-</div>';
+</div><script type="text/javascript>
+    var editor = wysiwyg( "#wieditor", {
+        toolbar: "top",
+        buttons: buttons.slice(1),
+        selectionbuttons: buttons.slice(2,3).concat( buttons.slice(4,13) ),
+        suggester: suggester,
+        interceptenter: interceptenter,
+        hijackmenu: true
+    });
+</script>';
 	echo $WIEditor;
     }
 

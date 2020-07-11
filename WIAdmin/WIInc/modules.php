@@ -190,6 +190,7 @@ position: absolute;
     <script type="text/javascript" src="WICore/WIJ/WIScripts.js"></script>
     <script type="text/javascript" src="WIInc/js/FileSaver.js"></script>
     <script type="text/javascript" src="WIInc/js/blob.js"></script>
+    <script type="text/javascript" src="WICore/WIJ/wysiwyg.js"></script>
 
                <?php  
 

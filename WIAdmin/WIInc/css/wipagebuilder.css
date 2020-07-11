@@ -1,5 +1,5 @@
 .rowActions{
-	    width: 24px;
+	width: 24px;
     height: 24px;
     left: -23px;
     text-align: right;
@@ -9,6 +9,14 @@
     white-space: normal;
     border: 1px solid #ccc;
     border-right: 1px solid #fff;
+}
+
+.rowActions:hover {
+        min-width: 24px;
+    width: 24px;
+    height: 120px;
+    overflow: hidden;
+    position: absolute;
 }
 
 .rowActions button {
@@ -138,17 +146,86 @@
 }
 
 .fieldActions{
-	    right: 0;
+right: -14%;
     text-align: right;
     transition: width .15s;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 0;
     will-change: width;
-        border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+    width: 24px;
+    height: 24px;
+    /* left: -23px; */
+    text-align: right;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    transition: height .15s ease-in-out;
+    white-space: normal;
+    border: 1px solid #ccc;
+    border-right: 1px solid #fff;
+    top: -94%;
+}
+
+.fieldActions:hover {
+        min-width: 24px;
+    width: 24px;
+    height: 120px;
+    overflow: hidden;
+    position: absolute;
 }
 
 .fieldEdit{
 	    margin-top: 23px;
     display: none;
     overflow: hidden;
+}
+
+
+.mactionBtnWrapper{
+        position: relative;
+    white-space: nowrap;
+}
+
+.column-actions{
+width: 24px;
+    height: 24px;
+    padding: 0;
+    right: 50%;
+    top: 0%;
+    overflow: hidden;
+    left: 209px;
+    position: absolute;
+    top: 0;
+    line-height: 0;
+    z-index: 1;
+}
+
+.column-actions:hover {
+    width: 160px;
+    height: 24px;
+    padding: 0;
+    right: 50%;
+    top: 0%;
+    overflow: hidden;
+    left: 209px;
+    position: absolute;
+    top: 0;
+    line-height: 0;
+    z-index: 1;
+
+}
+
+.mactionBtnWrapper{
+
+}
+
+.fieldActions{
+
+}
+
+.fas{
+    display: block;
+    padding: 0 !important;
+    width: max-content;
+    margin: auto;
 }

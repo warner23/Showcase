@@ -32,9 +32,18 @@ $(document).ready(function () {
     
     
     $("#btn-reset-pass").click(function () {
-        var np    = $("#password-reset-new-password"),
+        var np    = $("#password-reset-new-password").val();
+        repeatnp  = $("#password-reset-repeat-password").val();
+        //botsum    = $("#password-reset-bot-sum").val();
+ 
         valid = true;
         
+
+        if(np != repeatnp){
+            valid = false;
+            var match = "Your passwords do not match.";
+            WICore.displayErrorMessage(botwrong);
+        }
         if($.trim(np.val()) === "") {
             valid = false;
             WICore.displayErrorMessage(np);
@@ -46,7 +55,7 @@ $(document).ready(function () {
         }
 
         if(valid)
-            passres.resetPassword(np.val());
+            passres.resetPassword(np);
         });
                     
 });
