@@ -347,23 +347,14 @@
 		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
 		<input id="'.$cat_id.'" class="casting" name="category_id" type="hidden">
 		<input id="'.$section_id.'" class="casting" name="section_id" type="hidden">
-		<input id="title" class="title" name="title" type="text" placeholder="title">
-		<script>
-    tinymce.init({
-      selector: "#mytextarea"
-    });
-  </script>
-  <textarea id="mytextarea" name="mytextarea">
-      Hello, World!
-    </textarea>
-
-    <div class="form-group">
+		<input id="title" class="title" name="title" type="text" placeholder="title">';
+           $this->wysiwyg->Editor();
+        echo '<div class="form-group">
                     <button class="btn btn-primary" id="btn-post" onclick="WIForum.newPost(`'.$cat_id.'`,`'.$section_id.'`)" type="submit">
                         <i class="fa fa-comment"></i>
                         '.WILang::get("post").'
                     </button>
                 </div>
-		<!-- //$this->wysiwyg->Editor(); -->
 		</li>';
 	}
 
@@ -400,17 +391,7 @@
                        "u" => $user_id
                      )
                   );
-		echo '<style>
-		.blogUser{
-		width: 11%;
-	    float: left;
-	    border-radius: 58%;
-	    border: 2px solid silver;
-	        margin-top: 0%;
-    margin-bottom: -1%;
-		}
 
-		</style>';
 		$avatorPic = $result[0]['avatar'];
 
 		if($avatorPic == ""){

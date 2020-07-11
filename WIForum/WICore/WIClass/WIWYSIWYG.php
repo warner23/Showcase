@@ -9,180 +9,7 @@ class WIWYSIWYG
 
   public function Editor()
   {
-    echo '<style class="cp-pen-styles">
-    .fore-wrapper{
-          width: 4%;
-    float: left;
-    }
-
-    .back-wrapper{
-                width: 4%;
-    float: left;
-    }
-        .editor-control {
-          padding: 0.5em;
-          background: #DBDBDB;
-        }
-        .editor-control a {
-          color: #858788;
-          text-decoration: none;
-          padding: 2px 5px;
-          border: 1px solid ​​#C0392B;
-          border-radius: 2px;
-          margin: 0;
-          display: inline;
-          font-size: 12px;
-          font-weight: 400;
-          text-transform: uppercase;
-          -webkit-transition: all 0.5s ease;
-          transition: all 0.5s ease;
-        }
-        .editor-control a:hover {
-          color: #F0A2A2;
-          -webkit-transition: all 0.5s ease;
-          transition: all 0.5s ease;
-        }
-        /*  Modal
-        --------------------*/
-
-        .custom-modal-overlay {
-          position: fixed;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          z-index: 9998;
-          background-color: #FFF;
-          background-color: rgba(255, 255, 255, 0.72);
-        }
-        .custom-modal {
-          position: absolute;
-          top: 20%;
-          left: 50%;
-          z-index: 9999;
-          padding: 1.2em;
-          width: 300px;
-          margin-left: -150px;
-          background-color: #FFFFFF;
-          border: 1px solid #CACACA;
-        }
-        .custom-modal-header {
-          margin: -1.2em -1.2em 0;
-          padding: 0.5em 0.7em;
-          background-color: #F0F0F0;
-          color: #B9B9B9;
-          font-weight: normal;
-        }
-        .custom-modal-content {
-          margin: 1.2em 0
-        }
-        .custom-modal input, .custom-modal button {
-          background-color: #F5F5F5;
-          color: #A3A3A3;
-          border: 1px solid #D3D3D3;
-          padding: 5px;
-        }
-        .custom-modal input {
-          display: block;
-          width: 96%;
-        }
-        .custom-modal button {
-          padding-right: 10px;
-          padding-left: 10px;
-          border-color: #DADADA;
-          color: #9B9B9B;
-          cursor: pointer;
-          margin: 0 4px 0 0;
-          -webkit-transition: all 0.5s ease;
-          transition: all 0.5s ease;
-        }
-        .custom-modal button:focus, .custom-modal button:hover {
-          background-color: #FFFFFF;
-          -webkit-transition: all 0.5s ease;
-          transition: all 0.5s ease;
-        }
-        .editor{
-          position:relative;
-          display: block;
-          width: 600px;
-          margin: 10% auto;
-          background: #F0F0F0;
-          height: 300px;
-          overflow: hidden;
-          border: 1px solid #DFDFDF;
-        }
-        .editor .editor-area {
-          display: block;
-          width: 580px;
-          margin: 5px;
-          padding: 5px;
-          height: 245px;
-          background: #FFFFFF;
-          color: #6B6B6B;
-          border: none;
-          overflow:auto;
-          resize: none;
-        }
-        .editor .editor-area:focus {
-          outline-color: #C9C5C5;
-        }
-
-        .result {
-          position: absolute;
-          top: 34px;
-          left: 0;
-          display: block;
-          width: 580px;
-          margin: 5px;
-          padding: 5px;
-          height: 245px;
-          border: none;
-          overflow:auto;
-          visibility: hidden;
-          opacity:0;
-          background: #FFFFFF;
-          color: #6B6B6B;
-          -webkit-transition: all 1s ease;
-          transition:all 1s ease;
-        }
-        .result img{
-          display:block;
-          width:100%;
-        }
-        .show{
-          visibility: visible !important;
-          opacity:1;
-          -webkit-transition: all 1s ease;
-          transition:all 1s ease;
-        }
-        .active{
-          color:#f55 !important;
-        }
-
-        .fore-wrapper{
-          cursor:pointer;
-        }
-
-
-        .back-wrapper{
-          cursor:pointer;
-        }
-
-        .back-palette{
-          width: 382%;
-    height: 9px;
-    overflow: inherit;
-    background-color: #f5f4f4;
-        }
-
-        .fore-palette{
-          width: 382%;
-    height: 9px;
-    overflow: inherit;
-    background-color: #f5f4f4;
-        }
-        </style>
-        <div class="editor">
+    echo '<div class="editor">
             <div class="editor-control" id="editor-control">
             <div class="toolbar" id="toolbar">
               <a href="javascript:void(0);" data-command="undo"><i class="fa fa-undo"></i></a>
@@ -251,6 +78,7 @@ var selection = (textarea.value).substring(textarea.selectionStart,textarea.sele
   console.log(command);
 
   if (command == 'h1' || command == 'h2' || command == 'p') {
+    console.log('h1');
     document.execCommand('formatBlock', false, command);
   }
   if (command == 'forecolor' || command == 'backcolor') {
@@ -265,10 +93,10 @@ var selection = (textarea.value).substring(textarea.selectionStart,textarea.sele
   const newElement = document.createElement($(this).data('command'));
   newElement.append(selection);
   console.log(newElement);
-        var text = $('#editor-area').html();
-        var str = selection;
-        str.replace(selection, newElement)
-        $('#editor-area').html(text.replace(selection, newElement));
+    var text = $('#editor-area').html();
+    //var markUp = text.replace(selection, newElement.outerHTML);
+    //console.log(markUp);
+    $('#editor-area').html(text.replace(selection, newElement.outerHTML));
 
 });
     
