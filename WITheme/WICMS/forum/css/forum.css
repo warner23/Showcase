@@ -1,7 +1,7 @@
 #postviewer{
-            width: 65%;
-                  float: right;
-                  overflow: scroll;
+  width: 68%;
+  float: right;
+  overflow: scroll;
       }
 
       .well {
@@ -99,6 +99,7 @@
     text-transform: uppercase;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
+        float: left;
   }
   .editor-control a:hover {
     color: #F0A2A2;
@@ -167,8 +168,8 @@
   .editor{
     position:relative;
     display: block;
-    width: 600px;
-    margin: 10% auto;
+    width: 100%;
+    margin: 0% auto;
     background: #F0F0F0;
     height: 300px;
     overflow: hidden;
@@ -176,7 +177,7 @@
   }
   .editor .editor-area {
     display: block;
-    width: 580px;
+    width: 100%;
     margin: 5px;
     padding: 5px;
     height: 245px;
@@ -218,6 +219,7 @@
     -webkit-transition: all 1s ease;
     transition:all 1s ease;
   }
+  
   .active{
     color:#f55 !important;
   }
@@ -253,11 +255,10 @@ border: 2px solid silver;
     margin-top: 0%;
 margin-bottom: -1%;
 }
-/*
-   .ui-tabs-vertical { width: 55em; }
-  .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
-  .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
-  .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
-  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
-  .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
-*/
+
+.ui-widget-content {
+    border: 1px solid #dddddd;
+    background: #ffffff;
+    color: #333333;
+    background-color: gainsboro;
+}

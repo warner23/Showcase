@@ -229,3 +229,77 @@ width: 24px;
     width: max-content;
     margin: auto;
 }
+
+
+  .editor-control a {
+    color: #858788;
+    text-decoration: none;
+    padding: 2px 5px;
+    border: 1px solid ​​#C0392B;
+    border-radius: 2px;
+    margin: 0;
+    display: inline;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+
+    .toolbar a {
+    color: #858788;
+    text-decoration: none;
+    padding: 2px 5px;
+    border: 1px solid ​​#C0392B;
+    border-radius: 2px;
+    margin: 0;
+    display: inline;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+
+  .fore-wrapper{
+          width: 4%;
+    float: left;
+    }
+
+    .back-wrapper{
+                width: 4%;
+    float: left;
+    }
+
+    .fore-wrapper{
+    cursor:pointer;
+  }
+
+
+  .back-wrapper{
+    cursor:pointer;
+  }
+
+  .back-palette{
+    width: 100%;
+    height: 9px;
+    overflow: inherit;
+    background-color: #f5f4f4;
+    margin-top: 68%;
+  }
+
+  .fore-palette{
+    width: 164%;
+    /* height: 10px; */
+    overflow: inherit;
+    background-color: #f5f4f4;
+    margin-top: 16px;
+  }
+
+.palette-item{
+float: left;
+    width: 14%;
+    height: 14px;
+}
+
+

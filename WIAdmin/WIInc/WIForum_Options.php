@@ -37,7 +37,7 @@
     <li><a href="#tabs-2">permissions</a></li>
   </ul>
   <div id="tabs-1">
-<?php include_once "WIInc/site/WIForum/options.php"; ?>  
+<?php include_once "WIInc/site/WIForum/WIForum_Options.php"; ?>  
   </div>
   <div id="tabs-2">
 <?php include_once "WIInc/site/WIForum/permissions.php"; ?> 

@@ -6577,6 +6577,7 @@ background: white;
 .toolbox-reset .modal-header {
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
+      text-align: center;
 }
 /* line 14, /Users/jan/devex/front-end/vendor/bootstrap-sass/assets/stylesheets/bootstrap/mixins/_clearfix.scss */
 .toolbox-reset .modal-header:before, .toolbox-reset .modal-header:after {
@@ -6641,7 +6642,6 @@ background: white;
   /* line 136, /Users/jan/devex/front-end/vendor/bootstrap-sass/assets/stylesheets/bootstrap/_modals.scss */
   .toolbox-reset .modal-dialog {
     width: auto;
-    margin: 30px auto;
   }
   /* line 140, /Users/jan/devex/front-end/vendor/bootstrap-sass/assets/stylesheets/bootstrap/_modals.scss */
   .toolbox-reset .modal-content {

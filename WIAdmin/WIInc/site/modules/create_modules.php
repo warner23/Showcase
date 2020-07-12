@@ -176,11 +176,7 @@
       
          <?php  
  $modal->moduleModal('editorModal', 'WIEditor', 'WIScript', 'SaveContent','Save'); 
- $modal->moduleModal('downloadingModal', 'Save', 'WIScript', 'saveHtml','Save'); 
-
-/*  $modal->moduleModal('page-edit', 'Choose where to upload from', 'WIMedia', 'pagemedia','Save'); 
- $modal->moduleModal('page-media', 'Change Media', 'WIMedia', 'PagePics','Save'); 
- $modal->moduleModal('page-upload', 'Upload Media', 'WIMedia', 'PageUploadPics','Save'); */ 
+ $modal->moduleModal('downloadingModal', 'Save', 'WIScript', 'saveHtml','Save');
 
  $modal->moduleModal('media-edit', 'Change media', 'WIMedia', 'pagemedia','Save'); 
  $modal->moduleModal('media-media', 'Change Media', 'WIMedia', 'PageMediaPics','Save'); 

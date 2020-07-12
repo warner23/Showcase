@@ -523,25 +523,28 @@ WIScript.BaseEdit = function(name){
     }
 }
 
+
 WIScript.Editor = function(){
     console.log('click');
         $("#modal-editorModal-details").removeClass('hide').addClass('show');
-
+        
         var t = $(event.target);
         var c = $(event.target).closest('view');
         currenteditor = $(event.target).parent().parent().parent().find('.view');
         editor = $(event.target).parent().parent().parent().parent().find('.box');
         editor.attr('id', "editorId");
-
+        WIWYSIWYG.palettes();
         var eText = currenteditor.html();
-        $('#contenteditor').empty().html(eText);
+        $('#editor-area').empty().html(eText);
 }
 
 
 WIScript.SaveContent = function(){
 
-        var c = $('#contenteditor').html();
+        var c = $('#editor-area').html();
+        console.log(c);
         var id = $('#editorId');
+        console.log(id.children('.view') );
         id.children('.view').empty().html(c);
         $("#modal-editorModal-details").removeClass('show').addClass('hide');
 }

@@ -166,6 +166,7 @@ WIForum.CreatePost = function(cat_id, section_id){
             success: function (result) {
             $(result).insertAfter('ul#postviewer>li:last');
             WIWYSIWYG.palettes();
+            $('#forumCreatePost').remove();
             }
     });  
 }

@@ -198,5 +198,55 @@ class WIPermissions
                
     }
 
+    public function ForumPermissionTabs()
+    {
+        $result = $this->WIdb->select("SELECT * FROM `wi_user_roles`");
+
+        echo ' <script>
+                $( function() {
+
+                  var index = "key";
+              //  Define friendly data store name
+              var dataStore = window.sessionStorage;
+              //  Start magic!
+              try {
+                  // getter: Fetch previous value
+                  var oldIndex = dataStore.getItem(index);
+              } catch(e) {
+                  // getter: Always default to first tab in error state
+                  var oldIndex = 0;
+              }
+
+                  $( "#tabs" ).tabs({
+        // The zero-based index of the panel that is active (open)
+        active : oldIndex,
+        // Triggered after a tab has been activated
+        activate : function( event, ui ){
+            //  Get future value
+            var newIndex = ui.newTab.parent().children().index(ui.newTab);
+            //  Set future value
+            dataStore.setItem( index, newIndex ) 
+        }
+    }); 
+
+    
+    });
+                </script>
+
+                <div id="tabs">
+              <ul>';
+         foreach ($result as $tab) {
+          echo  '<li><a href="#tabs-' . $tab['role_id'] . '">' . $tab['role'] . '</a></li>';
+        }
+        echo '</ul>';
+
+        foreach ($result as $tab) {
+          echo  '<div id="tabs-' . $tab['role_id'] . '">';
+                  self::PermissionContents($tab['role_id'], $tab['role']);
+                  echo '</div>'; 
+        }
+        echo '</div>';
+    }
+
    
 }

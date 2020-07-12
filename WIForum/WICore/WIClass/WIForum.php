@@ -229,17 +229,17 @@
 		while($result = $query->fetch(PDO::FETCH_ASSOC))
 		{
 			echo '<div class="col-100">
-<div class="col-labels1">'. $result['post_title'] .'</div></div>
-			<div class="inner_col">
-<div class="section_box">
-<div class="avatpic_post"><a href="#"><img class="ava" src="#"></a>
-</div><!-- end avatpic-->
-<div class="post_name">' . $result['thread_title'] . '</div><!-- end section-->
-<div class="post_comment">' . $result['post_body'] . '</div><!-- end section-->
-<div class="post_author">' . $result['post_author'] . '</div><!-- end section-->
-<div class="last_time">' . $result['date_time'] . '</div><!-- end section-->
-</div><!-- end section box-->
-</div><!-- end inner col-->';
+			<div class="col-labels1">'. $result['post_title'] .'</div></div>
+						<div class="inner_col">
+			<div class="section_box">
+			<div class="avatpic_post"><a href="#"><img class="ava" src="#"></a>
+			</div><!-- end avatpic-->
+			<div class="post_name">' . $result['thread_title'] . '</div><!-- end section-->
+			<div class="post_comment">' . $result['post_body'] . '</div><!-- end section-->
+			<div class="post_author">' . $result['post_author'] . '</div><!-- end section-->
+			<div class="last_time">' . $result['date_time'] . '</div><!-- end section-->
+			</div><!-- end section box-->
+			</div><!-- end inner col-->';
 		}
 
 	}
@@ -325,7 +325,7 @@
 				  	<div id="forum_post_title">' . $res['title'] .'</div>
 				  		  <div id="forum_post">' . $res['post'] .'</div>
 				  		  </div></li>
-				  	<button onclick="WIForum.CreatePost(`'. $res['category_id'] .'`,`'. $res['section_id'] .'`)">Reply</button>';
+				  	<button id="forumCreatePost" onclick="WIForum.CreatePost(`'. $res['category_id'] .'`,`'. $res['section_id'] .'`)">Reply</button>';
 			}else{
 				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">';
 				self::userImage($res['user_posted']);
@@ -350,8 +350,8 @@
 		<input id="title" class="title" name="title" type="text" placeholder="title">';
            $this->wysiwyg->Editor();
         echo '<div class="form-group">
-                    <button class="btn btn-primary" id="btn-post" onclick="WIForum.newPost(`'.$cat_id.'`,`'.$section_id.'`)" type="submit">
-                        <i class="fa fa-comment"></i>
+         <button class="btn btn-primary" id="btn-post" onclick="WIForum.newPost(`'.$cat_id.'`,`'.$section_id.'`)" type="submit">
+          <i class="fa fa-comment"></i>
                         '.WILang::get("post").'
                     </button>
                 </div>
