@@ -816,7 +816,12 @@ img {
 
   fieldset {
 
-    margin-top: 5%;
+    margin-top: 0%;
+}
+.group{
+      width: 60%;
+    height: 50px;
+    margin-left: 300px;
 }
 
   .sectionwrapper{
@@ -824,7 +829,6 @@ img {
     margin-left: 0%;
     width: 50%;
     float: right;
-        margin-top: -29px;
   }
 
   .sect{
@@ -2409,7 +2413,7 @@ body > .header .logo .icon {
 .modal-body {
     position: relative;
     padding: 15px;
-    margin-top: 23px;
+    margin-top: -35px;
 }
 /*
 Component: timeline
@@ -7750,7 +7754,7 @@ body > .header {
 @media screen and (min-width: 1250px) {
   .left-side {
     top: 56px;
-    width: 18%;
+    width: 14%;
   }
 /*
     By default the layout is not fixed but if you add the class .fixed to the body element

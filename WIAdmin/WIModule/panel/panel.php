@@ -45,7 +45,7 @@ class panel
        }
 
         if(TWITTER_ENABLED === "true"){
-        $Twitter =  '<a href="javascript:void(0)">
+        $Twitter =  '<a href="WICore/WIVendor/Hybridauth/index.php?p=twitter&token=' .WISession::get("WI_social_token") .'">
            <img src="WIAdmin/WIMedia/Img/social/twitter.png" class="fade high-opacity" alt="Twitter" title="' . WILang::get("login_with") . ' Twitter"/>
             </a>';
        }else{
@@ -61,7 +61,7 @@ class panel
        }
 
       if(GOOGLE_ENABLED === "true"){
-          $Google = '<a href="javascript:void(0)">
+          $Google = '<a href="WICore/WIVendor/Hybridauth/index.php?p=google&token=' .WISession::get("WI_social_token") .'">
   <img src="WIAdmin/WIMedia/Img/social/gplus.png" class="fade high-opacity" alt="Google+" title="' . WILang::get("login_with") . ' GooglePlus"/>
                           </a>';
        }else{
@@ -223,9 +223,15 @@ class panel
 
                   $url = $_SERVER["PHP_SELF"];
 
-                    if (strpos($url,"WIMembers") !== false) {
+                  if (strpos($url,"WIMembers") !== false) {
                     echo '<a href="../alogin.php">' .WILang::get("admin_panel") . ' </a>';
-                  } else {
+                  } else if(strpos($url,"WIBlog") !== false) {
+                    echo '<a href="../alogin.php">' .WILang::get("admin_panel") . ' </a>';
+                  }else if(strpos($url,"WIForum") !== false) {
+                    echo '<a href="../alogin.php">' .WILang::get("admin_panel") . ' </a>';
+                  }else if(strpos($url,"WIShop") !== false) {
+                    echo '<a href="../alogin.php">' .WILang::get("admin_panel") . ' </a>';
+                  }else{
                     echo '<a href="alogin.php">' .WILang::get("admin_panel") . ' </a>';
                   }
                   echo '</div>
@@ -252,11 +258,7 @@ class panel
                       </div>
                                </div>
                            </div>
-                      </div>
-                          
-                          
-                          
-                             
+                      </div>           
                   </div>
                 </div> <!-- /login -->  
 

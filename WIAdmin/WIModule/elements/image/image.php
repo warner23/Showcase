@@ -47,7 +47,6 @@ class image
         <button><input text="text" placeholder="button" id="button"></button></div>';
     }
 
-
  public function mod_name()
   {
     echo '<li class="stageFields fieldTypeButton firstField LastField" data-hover-tag="Field" id="field" style="display:none;">
@@ -122,7 +121,6 @@ class image
 
     </li>';
   }
-
 
   public function LgroupActions()
   {

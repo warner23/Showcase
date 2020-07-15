@@ -56,9 +56,6 @@ class WIRegister
 
             $userId = $this->WIdb->lastInsertId();
 
-            $folder = dirname(dirname(dirname(__FILE__))) .'/WIAdmin/WIMedia/Img/avator/' . $userId.'/';
-            mkdir ($folder, 0755);
-            
             $st1  = $user['username'] ;
             $st2  = "Added new user";
             //$maintain = new WIMaintenace();

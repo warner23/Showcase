@@ -144,11 +144,6 @@ try {
         $register->addSocialAccount($userId, $provider, $userProfile->identifier);
         $login->byId($userId);
 
-        $folder = dirname(dirname(dirname(dirname(__FILE__)))) .'/WIAdmin/WIMedia/Img/avator/' . $userId.'/';
-        //echo $folder;
-        WISession::set('folder', $folder);
-        mkdir ($folder, 0755);
-        
         header('location: ../../../WIMembers/profile.php');      
         /*redirect(get_redirect_page());
         echo "

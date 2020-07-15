@@ -96,18 +96,11 @@ class javascript
         case "Tabs":
         $element = '<div class="preview">Tabs</div>
                     <div class="view">
-                    $( function() {
-                      $( "#tabs" ).tabs();
-                    } );
-                    </script>
-                      <div class="tabbable" id="WITabs">
+                      <div class="tabbable" id="myTabs">
+                        <!-- Only required for left/right tabs -->
                         <ul class="nav nav-tabs">
-                          <li class="active">
-                          <a href="#tab1" data-toggle="tab" contenteditable="true">Section 1</a>
-                          </li>
-                          <li>
-                          <a href="#tab2" data-toggle="tab" contenteditable="true">Section 2</a>
-                          </li>
+                          <li class="active"><a href="#tab1" data-toggle="tab" contenteditable="true">Section 1</a></li>
+                          <li><a href="#tab2" data-toggle="tab" contenteditable="true">Section 2</a></li>
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab1" contenteditable="true">

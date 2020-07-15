@@ -14,13 +14,6 @@ class WIPermissions
 
     public function permissionTabs()
     {
-
-/*        $sql = "SELECT * FROM `wi_user_roles`";
-        $query = $this->WIdb->prepare($sql);
-        $query->execute();
-
-        $result = $query->fetchAll(PDO::FETCH_ASSOC);*/
-
         $result = $this->WIdb->select("SELECT * FROM `wi_user_roles`");
 
         echo ' <script>
@@ -67,38 +60,38 @@ class WIPermissions
                   echo '</div>'; 
         }
         echo '</div>';
-
-
     }
 
     public function PermissionContents($id, $role)
     {
-
         $result = $this->WIdb->select(
-                    "SELECT * FROM `wi_user_permissions` WHERE `group` AND `role_id`=:id",
+          "SELECT * FROM `wi_user_permissions` WHERE `group` AND `role_id`=:id",
                      array("id" => $id));
 
         echo '<div id="legend">
-                          <legend class="user_role_id" id="' . $result[0]['id'] .'">' . $role . ' Permissions</legend>
-                        </div>';
+                          <legend class="user_role_id" id="' . $id .'">' . $role . ' Permissions 
 
-        echo '<div class="sectionwrapper">
+                        <div class="sectionwrapper">
                         <div class="sect">edit</div>
                         <div class="sect">Create</div>
                         <div class="sect">Delete</div>
                         <div class="sect">View</div>
+                        </div></legend>
                         </div>';
-
-
+            echo '<form class="form-horizontal UPermission-form" id="UPermission-"'.$role.'>
+            <fieldset>';
         foreach ($result as $res ) {
-          echo ' <form  class="form-horizontal UPermission-form" id="UPermission-"'.$role.'>
-                      <fieldset>
+          echo ' <div>
+                      
                         <div class="form-group">
+                        <div class="col-xs-4 col-md-4 col-lg-4">
                            <label>' . $res['perm_name'] . '</label>
+                        </div>
 
-                    <div class="btn-group perm" id="editing" data-toggle="buttons-radio">
+                    <div class="group" id="editing" data-toggle="buttons-radio">
 
                     <input type="hidden" class="site" id="' . $res['id'] . '">
+                    <div class="col-xs-12 col-md-12 col-lg-12">
                      <label class="switch">
                       <input type="hidden" name="view" id="view-' . $res['id'] . '" class="btn-group-value" value="' . $res['view'] . '"/>
                         <input type="checkbox" id-"view_site_' . $res['id'] . '" checked class="view_site">
@@ -122,17 +115,11 @@ class WIPermissions
                         <input type="checkbox" id="edit_site_' . $res['id'] . '" checked>
                         <span class="slider round ed" id="ed-' . $res['id'] . '"></span>
                       </label>
-
+                      </div>
                     </div>
-                </div>
-
-                              
-                      <div class="results" id="results"></div>
-                    </fieldset>
+                </div>  
+                    
                         <br /><br />
-                  </form>
-
-
                    <script type="text/javascript">
                        var edit = $("#edit-' . $res['id'] . '").attr(`value`);
                        if (edit === "0"){
@@ -174,12 +161,12 @@ class WIPermissions
                         $("#view_site_' . $res['id'] . '").prop("checked", true);
                         $("#vi-' . $res['id'] . '").text(`ON`);
                        }
-
-
-
                    </script>
                   ';
         }
+        echo '</fieldset>
+        </form>';
+
       
     }
 

@@ -14,7 +14,6 @@ class product
 		$this->site = new WISite();
 		$this->mod  = new WIModules();
 		$this->page = new WIPage();
-		$this->prod = new WIProduct();
 		//$this->page = new WIPage();
 	}
 
@@ -223,57 +222,30 @@ echo '<div class="container-fluid text-center">
 		}
 
 
-		echo '<style>
-		 .animated {
-	    -webkit-transition: height 0.2s;
-	    -moz-transition: height 0.2s;
-	    transition: height 0.2s;
-		}
-
-		.stars
-		{
-		    margin: 20px 0;
-		    font-size: 24px;
-		    color: #d17581;
-		}
-
-		
-		</style>
-		<div class="container-fluid text-center">    
+		echo '<div class="container-fluid text-center">    
   <div class="row content">
 
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="product_item" >
-		</div>
-		<div class="row" >
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="product_item" >
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+						
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+					</div>
+					<div class="row" >
+          <div class="span9">
+            <ul class="nav nav-tabs" id="tabs">
+              <li class="active"><a href="#description">Description</a></li>
+              <li><a href="#reviews"><span class="badge badge-inverse">10</span> Reviews</a></li>
+            </ul>
 
-  <script>
-  $( function() {
-    $( "#tabs" ).tabs();
-  } );
-  </script>
-
-<div id="tabs">
-  <ul>
-    <li><a href="#tabs-1">Description</a></li>
-    <li><a href="#tabs-2">Previews</a></li>
-  </ul>
-  <div id="tabs-1">
-    <div id="description"></div>  
-    </div>
-  <div id="tabs-2">
-  <div id="reviews"></div> 
-  </div>
-
-</div>
-            
+            <div class="tab-content">
+              <div class="tab-pane active" id="description">
+                <p>
+                  
+                </p>
+              </div>
+              <div class="tab-pane" id="reviews">...</div>
+            </div>
           </div>
         </div>
 
@@ -283,7 +255,6 @@ echo '<div class="container-fluid text-center">
               <script type="text/javascript" src="WICore/WIJ/WIShop.js"></script>
               <script type="text/javascript" src="WICore/WIJ/WIProducts.js"></script>
               <script src="WICore/WIJ/WICart.js"></script>
-              <script src="WICore/WIJ/WIReview.js"></script>
               ';
 
 		if(isset($page)){			
@@ -303,10 +274,6 @@ echo '<div class="container-fluid text-center">
 	echo '</div>
 			</div>';
 	}
-
-
-
-
 
 
 }

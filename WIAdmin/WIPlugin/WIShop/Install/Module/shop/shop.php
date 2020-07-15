@@ -211,7 +211,39 @@ echo '<div class="container-fluid text-center">
 	{
 
     echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+	.blog_type{
+    float: left;
+    width: 12%;
+    margin-left: 15px;
+        list-style: none;
+	}
 
+	.blogSelect{
+    width: 9%;
+    margin: 0px 0px 0px 450px;
+        cursor: pointer;
+	}
+
+	.admin_post{
+        width: 18%;
+    height: 44px;
+    margin-left: 401px;
+	}
+
+	.block{
+		display: block;
+	}
+
+	.hidden{
+		display: none;
+	}
+
+	#wivid{
+		    width: 49%;
+    height: 137px;
+	}
+</style>
 <div class="container-fluid text-center">    
   <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 min_height">';
@@ -231,13 +263,14 @@ echo '<div class="container-fluid text-center">
 
 		echo '<div class="container">
 <div class="row">
-<div class="col-md-2 col-xs-2 col-lg-2 col-sm-2">
+<div class="col-md-1 col-xs-1 col-xs-1 col-lg-1 col-sm-1"></div>
+<div class="col-md-2 col-xs-2 col-xs-2 col-lg-2 col-sm-2">
 	<div id="get_cat"></div>
 	<div id="get_brand"></div>
 	
 
 </div>
-<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+<div class="col-md-8 col-xs-8 col-xs-8 col-lg-8 col-sm-8">
 	<div class="panel panel-info">
 	<div id="product_msg"></div>
 	<div class="panel-heading">Products</div>
@@ -248,10 +281,11 @@ echo '<div class="container-fluid text-center">
 	<div class="panel-footer"></div>
 	</div>
 </div>
-
+<div class="col-md-1 col-xs-1 col-xs-1 col-lg-1 col-sm-1"></div>
+</div>
 </div>
 
-<script type="text/javascript" src="WICore/WIJ/WIShop.js"></script>
+<script type="text/javascript" src="WICore/WIJ/shop.js"></script>
 <script type="text/javascript" src="WICore/WIJ/WICart.js"></script>';
 
 		if(isset($page)){			

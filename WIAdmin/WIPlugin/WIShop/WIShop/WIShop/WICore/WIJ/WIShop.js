@@ -3,45 +3,14 @@ $(document).ready(function(){
     WIShop.brand();
     WIShop.products();
 
-
-    $("body").delegate(".attr,.attr2", "click", function(event){
-            var clase = $(this).attr("class");
-
-                $("." + clase).removeClass("active");
-                $(this).addClass("active");
-        });
-
-        $("body").delegate(".btn-minus", "click", function(event){
-            //var now = $(".section > div > input").val();
-            var now = $("#quantity").val();
-            console.log(now);
-                if ($.isNumeric(now)){
-                    if (parseInt(now) -1 > 0){ now--;}
-                    console.log(now);
-                    $("#quantity").val(now);
-                }else{
-                    $("#quantity").val("1");
-                }
-        });
-
-        
-        $("body").delegate(".btn-plus", "click", function(event){
-                var now = $(".section > div > input").val();
-                if ($.isNumeric(now)){
-                    $(".section > div > input").val(parseInt(now)+1);
-                }else{
-                    $(".section > div > input").val("1");
-                }
-            });
-
     $("body").delegate("a.product_link", "click", function(event){
             var product_id     = this.id;
             //alert(product_id);
             //$.cookie.set("product_id", "product_id");
 
              var date = new Date();
-            var minutes = 30;
-            date.setTime(date.getTime() + (minutes * 60 * 1000));
+ var minutes = 30;
+ date.setTime(date.getTime() + (minutes * 60 * 1000));
             $.cookie("product_id", product_id, {expires: date});
             
         });
@@ -122,15 +91,13 @@ $(document).ready(function(){
         $("body").delegate("#product","click",function(event){
         event.preventDefault();
         var pid  = $(this).attr('product');
-            qty  = $("#quantity").attr('value');
 
         $.ajax({
             url      : "WICore/WIClass/WIAjax.php",
             method   : "POST",
             data     : {
                 action : "addProduct",
-                pid : pid,
-                qty : qty
+                pid : pid
             },
             success  : function(data){
                 //alert(data);
@@ -203,3 +170,17 @@ WIShop.products = function(){
             }
         });
 }
+
+WIShop.login = function(){
+
+$.ajax({
+            url      : "WICore/WIClass/WIAjax.php",
+            method   : "POST",
+            data     : {
+                action : "getLogin"
+            },
+            success  : function(data){
+                $("#get_products").html(data);
+            }
+        });
+};

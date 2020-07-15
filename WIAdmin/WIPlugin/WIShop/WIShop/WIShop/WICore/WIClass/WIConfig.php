@@ -2,8 +2,6 @@
 
 include_once dirname(dirname(dirname(dirname(__FILE__)))) . '/WIAdmin/WICore/WILib.php';
 
-include_once dirname(dirname(dirname(dirname(__FILE__)))) . '/WIAdmin/WICore/WIShopLib.php';
-
 date_default_timezone_set('UTC');
 
 //Bootstrap
@@ -17,7 +15,7 @@ define('WEBSITE_NAME', $webName);
 
 define('WEBSITE_DOMAIN', $domain);
 
-//define('CONTACT_EMAIL', $contact_email);
+
 //it can be the same as domain (if script is placed on website's root folder) 
 //or it can cotain path that include subfolders, if script is located in some subfolder and not in root folder
 define('SCRIPT_URL', $script);
@@ -133,88 +131,3 @@ define('DEFAULT_LANGUAGE', $default_lang);
 
 // VERSION 
 define('WICMS_VERSION', $version);
-
-
-//SHOP
-define('SHOP_NAME',$shop_name);
-
-define('BUSINESS_EMAIL', $business_email );
-
-define('PAYPAL_CALLBACK', $paypal_callback);
-
-define('PAYPAL_CANCEL_URL', $cancel_url);
-
-define('PAYPAL_NOTIFY_URL', $notify_url);
-
-define("BASE_URL", $base_url);
-
-define('PAYPAL_PRO',$paypal_pro );
-
-define('CURRENCY',$currency);
-
-define('CURRENCY_SYMBOL',$currency_symbol);
-
-define('CURRENT_URL', $current_url);
-
-define('PAYPAL_ENVIRONMENT', $paypal_environment);
-
-if(PAYPAL_PRO){
-	define("PAYPAL_CLIENT_ID", $paypal_id) ;
-	define("PAYPAL_SECRET", $paypal_secret);
-	define("PAYPAL_BASE_URL", $paypal_pro_base_url);
-}
-else{
-	define("PAYPAL_CLIENT_ID", $paypal_id);
-	define("PAYPAL_SECRET", $paypal_secret);
-	define("PAYPAL_BASE_URL", $paypal_base_url);
-}
-
-
-define("PAYPAL_ACCESS_TOKEN", "A21AAGGnlDrmEJhYh3z4DxtsQm2BV_DdyYrZJp7y6EbRlujb7RcC-0_2q2pcmsvqjWFmKYCDQNN07jDj2fWqi2B5x6keNO1bw");
-
-define("API_VERSION", "V2");
-
-define("URL", array(
-
-    "current" => CURRENT_URL,
-
-    "services" => array(
-        "orderCreate" => BASE_URL.'WICore/WIVendor/paypal/' . API_VERSION.'/api/createOrder.php',
-        "orderGet" => BASE_URL.'WICore/WIVendor/paypal/' . API_VERSION.'/api/getOrderDetails.php',
-		"orderPatch" => BASE_URL.'WICore/WIVendor/paypal/' . API_VERSION.'/api/patchOrder.php',
-		"orderCapture" => BASE_URL.'WICore/WIVendor/paypal/' . API_VERSION.'/api/captureOrder.php'
-    ),
-
-	"redirectUrls" => array(
-        "returnUrl" => BASE_URL.'success.php',
-		"cancelUrl" => BASE_URL.'cancel.php',
-    )
-));
-
-define("PAYPAL_ENDPOINTS", array(
-	"sandbox" => "https://api.sandbox.paypal.com",
-	"production" => "https://api.paypal.com"
-));
-
-// PayPal REST API version
-define("PAYPAL_REST_VERSION", "v2");
-
-// ButtonSource Tracker Code
-define("SBN_CODE", "sb-ubere2307035@personal.example.com");
-
-
-define("PAYPAL_CREDENTIALS", array(
-	"sandbox" => [
-		"client_id" => $paypal_id,
-		"client_secret" => $paypal_secret
-	],
-	"production" => [
-		"client_id" => "",
-		"client_secret" => ""
-	]
-));
-
-
-define("VAT", $VAT);
-
-

@@ -7,9 +7,9 @@ $(document).ready(function()
 
 
 
-var WICheckout ={};
+var checkout ={};
 
-WICheckout.stepOne = function(){
+checkout.stepOne = function(){
     $("#step_one").removeClass('show');
     $("#step_one").addClass('hide');
     $("#step_two").removeClass('hide');
@@ -24,7 +24,7 @@ WICheckout.stepOne = function(){
 }
 
 
-WICheckout.stepTwo = function(){
+checkout.stepTwo = function(){
     $("#step_two").removeClass('show');
     $("#step_two").addClass('hide');
     $("#step_three").removeClass('hide');
@@ -37,7 +37,7 @@ WICheckout.stepTwo = function(){
 
 }
 
-WICheckout.stepThree = function(){
+checkout.stepThree = function(){
     $("#step_three").removeClass('show');
     $("#step_three").addClass('hide');
     $("#step_four").removeClass('hide');
@@ -50,7 +50,7 @@ WICheckout.stepThree = function(){
 
 }
 
-WICheckout.stepFour = function(){
+checkout.stepFour = function(){
     $("#step_four").removeClass('show');
     $("#step_four").addClass('hide');
     $("#step_five").removeClass('hide');
@@ -62,283 +62,3 @@ WICheckout.stepFour = function(){
 
 
 }
-
-WICheckout.checkout = function(){
-
-
-        $.ajax({
-        url: "WICore/WIClass/WIAjax.php",
-        type: "GET",
-        data: {
-            action  : "checkout"
-
-        },
-        success: function (result) {
-           WICore.removeLoadingButton(btn);
-           if( result.status === 'success' ){
-               window.location.reload();
-           }else {
-               WICore.displayErrorMessage($("#login-username"));
-               WICore.displayErrorMessage($("#login-password"), result.message);
-           }
-
-        }
-    });
-}
-
-
-WICheckout.confirmation = function(){
-
-  var btn = $("#paypal-button");
-        $.ajax({
-        url: "WICore/WIClass/WIAjax.php",
-        type: "POST",
-        data: {
-            action  : "process"
-        },
-        success: function (result) {
-           if( result.status === 'success' ){
-               //window.location.reload();
-           }else {
-               WICore.displayErrorMessage($("#login-username"));
-               WICore.displayErrorMessage($("#login-password"), result.message);
-           }
-
-        }
-    });
-}
-
-
-WICheckout.GetCart = function(){
-
-          $.ajax({
-        url: "WICore/WIClass/WIAjax.php",
-        type: "GET",
-        data: {
-            action  : "cart"
-        },
-        success: function (result) {
-           if( result.status === 'success' ){
-               //window.location.reload();
-           }else {
-               WICore.displayErrorMessage($("#login-username"));
-               WICore.displayErrorMessage($("#login-password"), result.message);
-           }
-
-        }
-    });
-}
-
-
-WICheckout.pushpayment = function(res){
-
-    if (res.ack) {
-        if(WICheckout.getUrlParams('commit') === 'true') {
-          console.log('execute');
-             WICheckout.showPaymentExecute(res.data);
-        } else {
-          console.log('payGet');
-             WICheckout.showPaymentGet(res.data);
-        }
-    } else {
-        alert('Something went wrong');
-    } 
-
-}
-WICheckout.success = function(res){
-  //console.log(res);
-  $.ajax({
-      type: 'POST',
-      url: 'WICore/WIVendor/paypal/V2/api/captureOrder.php',
-      data: res,
-      success: function (response) {
-          console.log('Patch Order Response : '+ JSON.stringify(response));
-         // if (response.ack)
-              //return WICheckout.callPaymentCapture();
-         // else
-             // alert('Something went wrong');
-      }
-                });
-}
-
-WICheckout.showPaymentExecute = function(response){
-
-            $.ajax({
-        url: "WICore/WIClass/WIAjax.php",
-        type: "POST",
-        data: {
-            action  : "showPaymentExecute",
-            response     : response
-        },
-        success: function (response) {
-         var res = JSON.parse(response);
-
-         if(res.status == "COMPLETED"){
-             WICheckout.stepTwo();
-            $("#confirmation_t").html(res.receipt);
-         }else{
-
-         }
-
-        }
-    });
-}
-
-WICheckout.showPaymentGet = function(response){
-  
-       $.ajax({
-        url: "WICore/WIClass/WIAjax.php",
-        type: "POST",
-        data: {
-            action  : "showPaymentGet",
-            response     : response
-        },
-        success: function (response) {
-          var res = JSON.parse(response);
-          console.log(res);
-          console.log('order id: '+res.id);
-         if(res.status == "APPROVED"){
-           $("#paypalCheckoutContainer").css("display", "none");
-            $("#paypalpay").removeClass('hide').addClass('show');
-            $("#paypalpay").html(res.receipt);
-            
-            let shipping = res.shipping;
-        let shipping_address = res.shipping_address;
-        console.log('Get Order result' + JSON.stringify(res));
-        console.log('shipping add' + JSON.stringify(shipping));
-        document.getElementById('confirmRecipient').innerText = shipping.name.full_name;
-        document.getElementById('confirmAddressLine1').innerText = shipping_address.address_line_1;
-        if(shipping_address.address_line_2)
-            document.getElementById('confirmAddressLine2').innerText = shipping_address.address_line_1;
-        else
-            document.getElementById('confirmAddressLine2').innerText = "";
-        document.getElementById('confirmCity').innerText = shipping_address.admin_area_2;
-        document.getElementById('confirmState').innerText = shipping_address.admin_area_1;
-        document.getElementById('confirmZip').innerText = shipping_address.postal_code;
-        document.getElementById('confirmCountry').innerText = shipping_address.country_code;
-        $('#orderConfirm').css('display', 'block');
-        //showDom('orderConfirm');
-        // Listen for click on confirm button
-        document.querySelector('#confirmButton').addEventListener('click', function () {
-            let shippingMethodSelect = document.getElementById("shippingMethod"),
-                updatedShipping = shippingMethodSelect.options[shippingMethodSelect.selectedIndex].value,
-                currentShipping = res.shipping_cost
-
-            let postPatchOrderData = {
-                    "order_id": res.id,
-                    "item_amt": res.item_cost,
-                    "tax_amt": res.tax_cost,
-                    "handling_fee": res.handling_cost,
-                    "insurance_fee": res.insurance_cost,
-                    "shipping_discount": res.ship_discount,
-                    "total_amt": res.cost,
-                    "currency": res.cc,
-                    "current_shipping": currentShipping
-                };
-
-            console.log('patch data: '+ JSON.stringify(postPatchOrderData));
-            // Execute the payment
-            $('#confirmButton').css('display', 'none');
-            $('#loadingAlert').css('display', 'block');
-
-
-            console.log('Current shipping '+ currentShipping + ' and updated shipping is '+ updatedShipping);
-            console.log('order id: '+res.id);
-            if(currentShipping == updatedShipping) {
-                 WICheckout.callPaymentCapture(); 
-            } else {
-                 WICheckout.callPaymentCapture(); 
-            }
-        });
-
-           }else{
-            console.log("something went wrong.");
-           }
-         }
-    });
-}
-
-
-WICheckout.showDom = function(id) {
-    let arr;
-    if (!Array.isArray(id)) {
-        arr = [id];
-    } else {
-        arr = id;
-    }
-    arr.forEach(function (domId) {
-        document.getElementById(domId).style.display = 'block';
-    });
-}
-
-WICheckout.hideDom = function(id) {
-    let arr;
-    if (!Array.isArray(id)) {
-        arr = [id];
-    } else {
-        arr = id;
-    }
-    arr.forEach(function (domId) {
-        document.getElementById(domId).style.display = 'none';
-    });
-}
-
-WICheckout.getUrlParams = function(prop) {
-    let params = {},
-        search = decodeURIComponent( window.location.href.slice( window.location.href.indexOf( '?' ) + 1 ) ),
-        definitions = search.split( '&' );
-
-    definitions.forEach( function(val) {
-        let parts = val.split( '=', 2 );
-        params[ parts[ 0 ] ] = parts[ 1 ];
-    } );
-
-    return ( prop && prop in params ) ? params[ prop ] : params;
-}
-
-WICheckout.addAddress = function(){
-
-         $.ajax({
-        url: "WICore/WIClass/WIAjax.php",
-        type: "GET",
-        data: {
-            action  : "newAddress"
-        },
-        success: function (result) {
-          $("#new_address").html(result);
-        }
-    });
-  
-}
-
-
-WICheckout.changeShipping = function(cost){
-
-    $.ajax({
-            url      : "WICore/WIClass/WIAjax.php",
-            method   : "POST",
-            data     : {
-                action : "changeShipping",
-                cost : cost
-            },
-            success  : function(data){
-                
-            }
-        });
-}
-
-WICheckout.callPaymentCapture = function(){
-        $.ajax({
-                    type: 'POST',
-                    url: 'WICore/WIVendor/paypal/V2/api/captureOrder.php',
-                    success: function (response) {
-                        $("#orderConfirm").css("display", "none");
-                        $("#loadingAlert").css("display", "none");
-                        console.log('Capture Response : '+ JSON.stringify(response));
-                        if (response.ack)
-                            WICheckout.showPaymentExecute(response.data);
-                        else
-                            alert("Something went wrong");
-                    }
-        });
-    }
