@@ -29,23 +29,23 @@ class forms
 
                 <form id="form-horizontal">
                   <div class="control-group">
-                    <label class="control-label" for="inputEmail" contenteditable="true">Email</label>
+                    <label class="control-label textMod" for="inputEmail" contenteditable="true">Email</label>
                     <div class="controls">
                       <input id="inputEmail" placeholder="Email" type="text">
                     </div>
                   </div>
                   <div class="control-group">
-                    <label class="control-label" for="inputPassword" contenteditable="true">Password</label>
+                    <label class="control-label textMod" for="inputPassword" contenteditable="true">Password</label>
                     <div class="controls">
                       <input id="inputPassword" placeholder="Password" type="password">
                     </div>
                   </div>
                   <div class="control-group">
                     <div class="controls">
-                      <label class="checkbox" contenteditable="true">
+                      <label class="checkbox textMod" contenteditable="true">
                         <input type="checkbox">
                         Remember me </label>
-                      <button type="submit" class="btnform" contenteditable="true">Sign In</button>
+                      <button type="submit" class="btnform textMod" contenteditable="true">Sign In</button>
                     </div>
                   </div>
                 </form>
@@ -55,7 +55,7 @@ class forms
         case "Label":
         $element = '<div class="preview">Label</div>
                     <div class="view">
-                      <label class="control-label" contenteditable="true">Label</label>
+                      <label class="control-label textMod" contenteditable="true">Label</label>
                     </div>';
         break;
 
@@ -192,7 +192,7 @@ class forms
         case "Button":
         $element = '<div class="preview">Button</div>
                     <div class="view">
-                      <button class="btn" type="button" contenteditable="true">Button</button>
+                      <button class="btn textMod" type="button" contenteditable="true">Button</button>
                     </div>';
         break;
 
@@ -200,9 +200,9 @@ class forms
         $element = '<div class="preview">Button Dropdowns</div>
                     <div class="view">
                       <div class="btn-group">
-                        <button class="btn btn-default" contenteditable="true">Action</button>
+                        <button class="btn btn-default textMod" contenteditable="true">Action</button>
                         <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
-                        <ul class="dropdown-menu" contenteditable="true">
+                        <ul class="dropdown-menu textMod" contenteditable="true">
                           <li><a href="#">Action</a></li>
                           <li><a href="#">Another Action</a></li>
                           <li><a href="#">Something Else here</a></li>

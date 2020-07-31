@@ -23,7 +23,7 @@ class Components
        switch ($element_name) {
 
         case "Button Group":
-        $element = '<div class="preview">Button Group</div>
+        $element = '<div class="preview">Button Align Group</div>
                     <div class="view">
                       <div class="btn-group">
                         <button class="btn" type="button"><i class="icon-align-left"></i></button>
@@ -111,13 +111,13 @@ class Components
 
         case "Badge":
         $element = '<div class="preview">Badge</div>
-                    <div class="view"> <span class="badge" contenteditable="true">1</span> </div>';
+                    <div class="view"> <span class="badge" contenteditable="true" class="textMod">1</span> </div>';
         break;
 
         case "Jumbotron":
         $element = '<div class="preview">Jumbotron</div>
                     <div class="view">
-                      <div class="hero-unit" contenteditable="true">
+                      <div class="hero-unit textMod" contenteditable="true">
                         <h1>Hello, world!</h1>
                         <p>This is a template for a simple marketing or information website.
                           It includes a large callout called the herop unit and three  supporting pieaces of content. Use iot as starting point to create something more unique
@@ -167,7 +167,7 @@ class Components
         case "Page Header":
         $element = '<div class="preview">Page Header</div>
                     <div class="view">
-                      <div class="page-header" contenteditable="true">
+                      <div class="page-header textMod" contenteditable="true">
                         <h1>Example Page Header<small>Subtext for header</small></h1>
                       </div>
                     </div>';
@@ -177,9 +177,9 @@ class Components
         case "Text":
         $element = '<div class="preview">Text</div>
                     <div class="view">
-                      <h2 contenteditable="true">Header</h2>
-                      <p contenteditable="true">Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump ground round strip steak kielbasa short loin t-bone. Biltong capicola corned beef, ribeye chuck andouille sausage ham hock turkey spare ribs beef tail sirloin shank.</p>
-                      <p><a class="btn" href="javascript:void(0);" contenteditable="true">View Deatils »</a></p>
+                      <h2 contenteditable="true" class="textMod">Header</h2>
+                      <p contenteditable="true" class="textMod">Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump ground round strip steak kielbasa short loin t-bone. Biltong capicola corned beef, ribeye chuck andouille sausage ham hock turkey spare ribs beef tail sirloin shank.</p>
+                      <p><a class="btn textMod" href="javascript:void(0);" contenteditable="true">View Deatils »</a></p>
                     </div>';
         break;
 
@@ -190,7 +190,7 @@ class Components
                         <li class="span4">
                           <div class="thumbnail">
                             <img alt="300x200" src="img/people.jpg">
-                            <div class="caption" contenteditable="true">
+                            <div class="caption textMod" contenteditable="true">
                               <h3>Thumbnail label</h3>
                               <p> Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump ground round strip steak kielbasa short loin t-bone. Biltong capicola corned beef, ribeye chuck andouille sausage ham hock turkey spare ribs beef tail sirloin shank.</p>
                               <p><a class="btn btn-primary" href="javascript:void(0);">Action</a> <a class="btn" href="javascript:void(0);">Action</a></p>
@@ -200,7 +200,7 @@ class Components
                         <li class="span4">
                           <div class="thumbnail">
                             <img alt="300x200" src="img/city.jpg">
-                            <div class="caption" contenteditable="true">
+                            <div class="caption textMod" contenteditable="true">
                               <h3>Thumbnail label</h3>
                               <p> Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump ground round strip steak kielbasa short loin t-bone. Biltong capicola corned beef, ribeye chuck andouille sausage ham hock turkey spare ribs beef tail sirloin shank.</p>
                               <p><a class="btn btn-primary" href="javascript:void(0);">Action</a> <a class="btn" href="javascript:void(0);">Action</a></p>
@@ -210,7 +210,7 @@ class Components
                         <li class="span4"">
                           <div class="thumbnail">
                             <img alt="300x200" src="img/sports.jpg">
-                            <div class="caption" contenteditable="true">
+                            <div class="caption textMod" contenteditable="true">
                               <h3>Thumbnail label</h3>
                               <p> Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump ground round strip steak kielbasa short loin t-bone. Biltong capicola corned beef, ribeye chuck andouille sausage ham hock turkey spare ribs beef tail sirloin shank.</p>
                               <p><a class="btn btn-primary" href="javascript:void(0);">Action</a> <a class="btn" href="javascript:void(0);">Action</a></p>
@@ -235,7 +235,7 @@ class Components
                     <div class="view">
                       <div class="media">
                         <a href="javascript:void(0);" class="pull-left"> <img src="img/a_002.jpg" class="media-object"> </a>
-                        <div class="media-body" contenteditable="true">
+                        <div class="media-body textMod" contenteditable="true">
                           <h4 class="media-heading">Nested Media Header</h4>
                           Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump ground round strip steak kielbasa short loin t-bone. Biltong capicola corned beef, ribeye chuck andouille sausage ham hock turkey spare ribs beef tail sirloin shank.
                         </div>
@@ -246,7 +246,7 @@ class Components
                 case "List group":
         $element = '<div class="preview">List group</div>
                     <div class="view">
-                      <div class="list-group" contenteditable="true">
+                      <div class="list-group textMod" contenteditable="true">
                         <a href="javascript:void(0);" class="list-group-item active">Home</a>
                         <div class="list-group-item">List header</div>
                         <div class="list-group-item">
@@ -264,12 +264,12 @@ class Components
                     <div class="view">
                       <div class="panel panel-default">
                         <div class="panel-heading">
-                          <h3 class="panel-title" contenteditable="true">Panel title</h3>
+                          <h3 class="panel-title textMod" contenteditable="true">Panel title</h3>
                         </div>
-                        <div class="panel-body" contenteditable="true">
+                        <div class="panel-body textMod" contenteditable="true">
                           Panel content
                         </div>
-                        <div class="panel-footer" contenteditable="true">
+                        <div class="panel-footer textMod" contenteditable="true">
                           Panel footer
                         </div>
                       </div>

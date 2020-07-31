@@ -97,6 +97,6 @@
 
    <?php  
 
- $modal->moduleModal('theme', 'Add new theme', 'WITheme', 'theme','create theme'); 
+ $modal->moduleModal('theme', 'Add new theme', 'WITheme', 'theme','create theme',''); 
 
    ?>

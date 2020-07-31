@@ -6,7 +6,7 @@
 class button 
 {
 	
-	    function __construct()
+	  function __construct()
     {
         $this->WIdb = WIdb::getInstance();
     }

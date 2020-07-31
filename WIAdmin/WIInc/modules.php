@@ -194,7 +194,7 @@ position: absolute;
 
                <?php  
 
- $modal->moduleModal('element_enable', 'Element Enabler', 'WIMod', 'enabler','Enable all elements'); 
+ $modal->moduleModal('element_enable', 'Element Enabler', 'WIMod', 'enabler','Enable all elements',''); 
 
    ?>
     <!--<script src="WIInc/js/docs.min.js"></script>

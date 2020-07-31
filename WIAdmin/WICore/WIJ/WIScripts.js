@@ -268,6 +268,8 @@ WIScript.handleJsIds = function(e){
     console.log(e);
     console.log(e.target.childNodes[0].parentElement.attributes[1].nodeValue);
     var ele = e.target.childNodes[0].parentElement.attributes[1].nodeValue;
+    
+    console.log(ele);
     if($("#"+ele).hasClass('grid')){
         console.log('grid found');
         WIScript.handleGridsIds(e);
@@ -278,10 +280,46 @@ WIScript.handleJsIds = function(e){
     WIScript.handleAccordionIds();
     WIScript.handleCarouselIds();
     WIScript.handleTabsIds();
+    }else if($("#"+ele).hasClass('module')){
+        WIScript.handleModuleIds(e);
     }
 
     
     
+
+}
+WIScript.handleModuleIds = function(e){
+
+    console.log(e.target.childNodes);
+    
+    //console.log(rand);
+
+    $("#changeImg").attr('id', 'contentPic');
+    $(".changeText").attr('id', 'contenttext');
+
+    var random = WIScript.randomNumber();
+
+    $.each($('.textMod'), function(i, val) { 
+        var rand = WIScript.randomNumber();
+    $(this).before('<button id="editorModal'+rand+'" onclick="WIScript.Editor(`'+rand+'`);" class="btn btn-mini">Editor</button>');
+    $(this).attr('id', rand);
+    $(this).removeClass('textMod');
+    });
+
+    $.each($('.picMod'), function(i, val) { 
+        var rand = WIScript.randomNumber();
+    $(this).before('<button id="changePic" onclick="WIMedia.changePic(`media-edit`,`'+random+'`)">Change Pic</button>');
+    $(this).attr('id', random);
+    $(this).removeClass('picMod');
+    });
+
+    $.each($('.newpic'), function(i, val) { 
+        var rand = WIScript.randomNumber();
+    $(this).attr('value', random);
+    $(this).attr('id', random);
+    $(this).removeClass('newpic');
+
+    });
 
 }
 
@@ -524,28 +562,33 @@ WIScript.BaseEdit = function(name){
 }
 
 
-WIScript.Editor = function(){
+WIScript.Editor = function(selector){
     console.log('click');
         $("#modal-editorModal-details").removeClass('hide').addClass('show');
         
-        var t = $(event.target);
+        /*var t = $(event.target);
         var c = $(event.target).closest('view');
         currenteditor = $(event.target).parent().parent().parent().find('.view');
         editor = $(event.target).parent().parent().parent().parent().find('.box');
-        editor.attr('id', "editorId");
+        editor.attr('id', "editorId");*/
         WIWYSIWYG.palettes();
-        var eText = currenteditor.html();
+        var eText = $("#"+selector).html();
         $('#editor-area').empty().html(eText);
+        var button = $("#modalEditorButton");
+        $("#modalEditorButton").attr('onclick', 'WIScript.SaveContent(`'+selector+'`);');
+
 }
 
 
-WIScript.SaveContent = function(){
+WIScript.SaveContent = function(selector){
 
-        var c = $('#editor-area').html();
-        console.log(c);
-        var id = $('#editorId');
-        console.log(id.children('.view') );
-        id.children('.view').empty().html(c);
+       
+        var d = $('#editor-area').val();
+       
+        console.log(d);
+         console.log(selector);
+
+        $("div#"+selector).html(d);
         $("#modal-editorModal-details").removeClass('show').addClass('hide');
 }
 
@@ -555,6 +598,8 @@ WIScript.downloadLayoutSrc = function(){
     var d = $("#download-layout").children().html($(".WI").html() );
 
     var t = $("#download-layout").children();
+    console.log(d);
+    console.log(t);
     t.find(".preview, .configuration, .drag, .remove").remove();
     t.find(".wicreate").addClass("row-fluid clearfix");
     t.find(".wicreate").removeClass("ui-draggable wicreate");
@@ -563,15 +608,20 @@ WIScript.downloadLayoutSrc = function(){
     t.find(".optset").remove();
     t.find(".panel-nav").remove();
 
+     t.find(".rowActions").remove();
+      t.find(".groupConfig").remove();
+      t.find(".column-actions").remove();
+      t.find("#changePic").remove();
+
     t.find(".view").addClass("col-lg-12 col-md-12 col-sm-12");
     t.find(".view").removeClass("view");
 
-    t.find(".box-element").addClass("col-lg-12 col-md-12 col-sm-12");
-    t.find(".box-element").removeClass("box ui-draggable box-element");
-/*    t.find(".box-element").removeClass("ui-draggable");
-    t.find(".box-element").removeClass("box-element");*/
-
+    t.find(".box-element").addClass("col-lg-12 col-md-12 col-sm-12").removeClass("box-element");
+    t.find("#editorModal").remove();
     t.find(".WIattrsPanels").remove();
+
+    var src = $("img#pagePic").attr('src');
+    t.find("img#pagePic").attr('src',"WIAdmin/"+src);
 
     $("#download-layout .column").removeClass("ui-sortable");
     $("#download-layout .row-fluid").removeClass("clearfix").children().removeClass("column");
@@ -716,7 +766,7 @@ WIScript.saveHtml = function(){
                 $("#modal-downloadingModal-details").addClass("hide")
                 $(".in").removeClass("modal-backdrop")
                  WICore.displaySuccessfulMessage($("#wresults"), res.msg); 
-                 WICore.Refresh();               
+                // WICore.Refresh();               
             }
         }
     });

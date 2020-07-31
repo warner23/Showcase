@@ -54,13 +54,14 @@ class WIProduct
         //get starting position to fetch the records
         $page_position = (($page_number-1) * $item_per_page);
 
-        $sql = "SELECT * FROM `wi_product` ORDER BY RAND() ASC LIMIT :page, :item_per_page";
-        $query = $this->WIdb->prepare($sql);
-        $query->bindParam(':page', $page_position, PDO::PARAM_INT);
-        $query->bindParam(':item_per_page', $item_per_page, PDO::PARAM_INT);
-        $query->execute();
+        $results = $this->WIdb->select(
+                    "SELECT * FROM `wi_product` ORDER BY RAND() ASC LIMIT :page, :item_per_page",
+                     array(
+                       "page" => $page_position,
+                       "item_per_page" => $item_per_page,
+                ));
 
-        while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
+        foreach($results as $res) {
             echo '  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
         <div class="panel panel-info" id="' . WISession::get('user_id') . '">
         <div class="panel-heading">' . $result['title'] . '</div>

@@ -18,39 +18,32 @@
                     <!-- Small boxes (Stat box) -->
 
                     <div class="row">
-                        <div class="col-lg-3 col-xs-6 col-xl-12">
-                            <!-- input box's box -->
 
+                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-                             <div class="col-lg-3 col-xs-6 col-xl-12">
-
-                          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">  
-                          <div id="page_selector">
+                          <div class="col-lg-2 col-xs-2 col-md-2" style="float: left;">
+                           <label for="select_page" id="page"> Select Page </label>
                           <select id="page_selection">
                           <?php $page->selectPage();   ?>
                           </select>
-                           
                           </div>
-                      </div>
-                    </div>
-
-                            <div class="col-lg-3 col-xs-6 col-xl-12">
-                           <div class="form-group">
-
-                        <!-- Username -->
-                        <label class="control-label col-lg-2 col-xs-2 col-md-2 col-sm-2"  for="page-title" id="page"> Page </label>
+                      
+                          <div class="col-lg-3 col-xs-4 col-xl-2">
+                        <label class="col-lg-2 col-xs-2 col-md-2 col-sm-2"  for="page-title" id="page"> Page </label>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                           <input type="text" id="page-title" name="title" placeholder="pagetitle" class="input-xlarge form-control" value=""> <br />
                         </div>
+                      </div>
 
-                        <label class="control-label col-lg-2 col-xs-2 col-md-2 col-sm-2"  for="page-title" id="assigned"> Module Assigned </label>
+                      <div class="col-lg-3 col-xs-4 col-xl-4">
+                        <label class="col-lg-2 col-xs-2 col-md-2 col-sm-2"  for="page-title" id="assigned"> Module Assigned </label>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                          <input type="text" id="mod-assigned" name="mod-assigned" placeholder="mod-assigned" class="input-xlarge form-control" value=""> <br />
+                          <input type="text" id="mod-assigned" name="mod-assigned" placeholder="mod-assigned" class="input-xlarge form-control" value=""> 
                           <button onclick="WIEditpage.assignMod()">Assign Mod</button>
                         </div>
                       </div>
-                    </div>
 
+                    </div>
 
                     <div class="col-lg-3 col-xs-6 col-xl-12">
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">  
@@ -137,7 +130,7 @@
                        });
                      </script>
 <?php
-$modal->moduleModal('assign', 'Assign Module', 'WIEditpage', 'assign','Save');  
+$modal->moduleModal('assign', 'Assign Module', 'WIEditpage', 'assign','Save','');  
 
 ?>
 

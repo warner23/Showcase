@@ -200,10 +200,10 @@ display: block;
 }
 
 .edit .WI .wicreate .drag {
-    right: 22%;
+    right: 64%;
     z-index: 10;
     float: right;
-    margin-top: 10.5%;
+    margin-top: 0.5%;
 }
 
 
@@ -229,7 +229,7 @@ margin: -17px 3px 14px -1px;
 z-index: 10;
     color: #fff;
     float: right;
-    margin: 13% 22% 0% -44%;
+    margin: 3% 0% 0% -33%;
     width: 17%;
 }
 

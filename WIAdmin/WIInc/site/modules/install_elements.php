@@ -1,6 +1,6 @@
 
             <div class="row">
 
-<?php $mod->InstallElements(); ?>
+<?php $mod->displayElements(); ?>
             </div>
             

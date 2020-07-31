@@ -40,9 +40,9 @@
 
 
 <?php 
-$modal->moduleModal('js-add', 'Add js', 'WIJS', 'addjs','Save'); 
-$modal->moduleModal('js-edit', 'Edit js', 'WIJS', 'editjs','Save'); 
- $modal->moduleModal('js-delete', 'Delete js', 'WIJS', 'Deletejs','Delete');
+$modal->moduleModal('js-add', 'Add js', 'WIJS', 'addjs','Save',''); 
+$modal->moduleModal('js-edit', 'Edit js', 'WIJS', 'editjs','Save',''); 
+ $modal->moduleModal('js-delete', 'Delete js', 'WIJS', 'Deletejs','Delete','');
 
 ?>
 

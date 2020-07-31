@@ -40,7 +40,7 @@ class WIModal
 </div>';
 	}
 
-	public function moduleModal($ele_id, $title, $action, $function, $button)
+	public function moduleModal($ele_id, $title, $action, $function, $button, $footer_b)
 	{
 		echo '<!-- Modal -->
 <div class="modal hide" id="modal-'.$ele_id.'-details" tabindex="-1" role="dialog" aria-labelledby="WIModalLabel" aria-hidden="true">
@@ -56,7 +56,7 @@ class WIModal
       </div>
        <div align="center" class="ajax-loading hide"><img src="WIMedia/Img/ajax_loader.gif" /></div>
       <div class="modal-footer">';
-       self::footer($button, $action, $function);
+       self::footer($button, $action, $function,$footer_b);
       echo '</div>
     </div>
   </div>
@@ -96,13 +96,13 @@ class WIModal
         </button>';
 	}
 
-	public function footer($button, $action, $function)
+	public function footer($button, $action, $function, $footer_b)
 	{
     if($button == ""){
 
     }else{
       echo ' <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="'.$action.'.'.$function.'()">'.$button.'.</button>';
+        <button id="'.$footer_b.'" type="button" class="btn btn-primary" onclick="'.$action.'.'.$function.'()">'.$button.'.</button>';
     }
 
 	}
@@ -247,8 +247,8 @@ class WIModal
     public function pagemedia()
   {
     echo '<div class="well">
-          <button onclick="WIMedia.PageMediaPics()">Upload from WIMedia Library</button>
-          <button onclick="WIMedia.PageMediaUploadPics()">upload from computer</button>
+          <button onclick="WIMedia.PagePics()">Upload from WIMedia Library</button>
+          <button onclick="WIMedia.PageUploadPics()">upload from computer</button>
         </div>';
   }
 
@@ -316,8 +316,9 @@ class WIModal
   public function PageMediaUploadPics()
   {
    echo '<div class="col-lg-3 col-md-3 col-sm-2">';
-          $this->site->MediaPageDisplay();                  
-    echo '</div><div align="center" class="ajax-loading"><img src="ajax_loader.gif" /></div>';
+          $this->site->pageModuleDisplay();   
+    echo '</div><div align="center" class="ajax-loading hide">
+    <img src="WIMedia/Img/ajax_loader.gif" /></div>';
   }
 
     public function UploadProductPics()

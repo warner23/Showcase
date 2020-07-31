@@ -63,4 +63,4 @@
 
  </script>
 
-<?php $modal->new_modal('delete', 'Delete Page', 'WIPages', 'delete','delete');    ?>
+<?php $modal->new_modal('delete', 'Delete Page', 'WIPages', 'delete','delete','');    ?>

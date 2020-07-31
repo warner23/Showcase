@@ -963,6 +963,16 @@ class WISite
         <input type="hidden" name="supload" id="supload" value="page">';
 	}
 
+        public function pageModuleDisplay()
+    {
+
+        echo '<div id="ModDragandDropHandler">Drag & Drop Files Here</div>
+        <div class="img-preview" id="preview"></div>
+        <div class="upload-msg" id="status"></div>
+        </figure>
+        <input type="hidden" name="supload" id="supload" value="page" selector="page">';
+    }
+
     public function MediaPageDisplay()
 	{
 

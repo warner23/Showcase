@@ -90,7 +90,7 @@ function sendFileToProductServer(formData,status)
     status.setAbort(jqXHR);
 }
 
-function sendFileToPageServer(formData,status)
+function sendFileToPageServer(formData,status, selector)
 {
       var uploadURL ="WICore/WIClass/PageImageUpload.php"; //Upload URL
     var extraData ={}; //Extra Data.
@@ -121,13 +121,14 @@ function sendFileToPageServer(formData,status)
             info = JSON.parse(data);
             console.log(info.name);
             status.setProgress(100);
-            $("#dragandrophandler").remove();
+            $("#ModDragandDropHandler").remove();
             $("img.cp").remove();
-            $("#modal-page-upload-details").removeClass("show").addClass("hide");
-            var preview = '<img src="'+info.name+'" class="img-responsive cp" style="width:140px;" id="pagePic" value="'+info.id+'">';
-            $("#newpic .mediaPic").before(preview);
-            $("#newpic").removeAttr("id");
+            //$("#modal-page-upload-details").removeClass("show").addClass("hide");
+            $("#modal-media-upload-details").removeClass("show").addClass("hide");
+            //var preview = ('<img src="'+info.name+'" class="img-responsive cp" id="pagePic" value="'+info.id+'" style="width:140px;">');
+            var preview = '<img src="'+info.name+'" class="img-responsive cp" style="width:180px;" id="pagePic" value="'+info.id+'">';
 
+            $("#"+selector).append(preview);
         }
     }); 
  
@@ -363,7 +364,7 @@ function createStatusbar(obj)
         });
     }
 }
-function handleFileUpload(files,obj,dir)
+function handleFileUpload(files,obj,dir, selector)
 {
    for (var i = 0; i < files.length; i++) 
    {
@@ -383,7 +384,7 @@ function handleFileUpload(files,obj,dir)
         }else if(dir === "forum"){
             sendFileToForumServer(fd,status);
         }else if(dir === "page"){
-            sendFileToPageServer(fd,status);
+            sendFileToPageServer(fd,status, selector);
         }else if(dir === "media"){
             sendFileToMediaServer(fd,status);
         }else if(dir === "lang"){

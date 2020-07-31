@@ -26,8 +26,8 @@
                   </form>
 
 <?php
-$modal->moduleModal('trans-edit', 'Edit Trans', 'WILang', 'EditTrans','Save'); 
-$modal->moduleModal('trans-add', 'Add Trans', 'WILang', 'Addtrans','Save'); 
-$modal->moduleModal('trans-delete', 'Delete Trans', 'WILang', 'transitemdelete','Save');
+$modal->moduleModal('trans-edit', 'Edit Trans', 'WILang', 'EditTrans','Save',''); 
+$modal->moduleModal('trans-add', 'Add Trans', 'WILang', 'Addtrans','Save',''); 
+$modal->moduleModal('trans-delete', 'Delete Trans', 'WILang', 'transitemdelete','Save','');
 ?>
           

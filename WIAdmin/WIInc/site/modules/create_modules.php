@@ -36,30 +36,15 @@
             </div>
           </li>
           <li class="mod1">
-            <div class="col-md-4 col-lg-8 col-xs-4">
-          <input type="text" name="mod_name" id="mod_name" placeholder="Module Name" class="input-xlarge form-control"  autofocus>
+            <div class="col-md-12 col-lg-8 col-xs-4">
+          <input type="text" name="mod_name" id="mod_name" placeholder="Module Name" class="module_name_input"  autofocus>
+          <button type="button" class="btn btn-primary" rel="/build/downloadModal" role="button" data-toggle="modal" data-target="#downloadModal" id="downloadModal">
+                <i class="fa icon-chevron-down" ></i>Save
+              </button>
           </div>
           </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <div class="btn-group" style="width: 100%;">
 
-              <button type="button" class="btn btn-primary" rel="/build/downloadModal" role="button" onclick="WIScript.handleSaveLayout();">
-                <i class="fa icon-chevron-down" ></i>Save Layout
-              </button>
-
-              <button class="btn btn-default navbar-btn" href="#clear" id="clear" color="#333;">
-                <i class="fa icon-trash" style="color: #333;"></i>Clear
-              </button>
-              
-
-              <button type="button" class="btn btn-primary" rel="/build/downloadModal" role="button" data-toggle="modal" data-target="#downloadModal" id="downloadModal">
-                <i class="fa icon-chevron-down" ></i>Save
-              </button>
-            </div>
-          </li>
-        </ul>
       </div>
     </nav>
 
@@ -76,8 +61,9 @@
     <li class="elementsG on">Grid</li>
     <li aria-hidden="true" class="elementsB off">Base</li>
     <li aria-hidden="true" class="elementsC off">Components</li>
-     <li aria-hidden="true" class="elementsF off">Forms</li>
-      <li aria-hidden="true" class="elementsJ off">Javscript</li>
+    <li aria-hidden="true" class="elementsF off">Forms</li>
+    <li aria-hidden="true" class="elementsJ off">Javscript</li>
+    <li aria-hidden="true" class="elementsM off">Modules</li>
   </ul>
    <button class="" onclick="WIPageBuilder.Rotate()" title="Next Group" type="button" data-toggle="tooltip" data-placement="top"><img src="WIMedia/Img/mfp-right.png"></button>
   <div id="grid" class="on">
@@ -95,6 +81,9 @@
   </div>
   <div id="javascript" class="off">
         <?php  $mod->ActiveElementsJavascript()  ?>
+  </div>
+    <div id="modulesM" class="off">
+        <?php  $mod->ActiveElementsModules()  ?>
   </div>
 
 </div>
@@ -175,12 +164,12 @@
       </div>
       
          <?php  
- $modal->moduleModal('editorModal', 'WIEditor', 'WIScript', 'SaveContent','Save'); 
- $modal->moduleModal('downloadingModal', 'Save', 'WIScript', 'saveHtml','Save');
+ $modal->moduleModal('editorModal', 'WIEditor', 'WIScript', 'SaveContent','Save', 'modalEditorButton'); 
+ $modal->moduleModal('downloadingModal', 'Save', 'WIScript', 'saveHtml','Save','');
 
- $modal->moduleModal('media-edit', 'Change media', 'WIMedia', 'pagemedia','Save'); 
- $modal->moduleModal('media-media', 'Change Media', 'WIMedia', 'PageMediaPics','Save'); 
- $modal->moduleModal('media-upload', 'Upload Media', 'WIMedia', 'PageMediaUploadPics','Save');
+ $modal->moduleModal('media-edit', 'Change media', 'WIMedia', 'pagemedia','Save',''); 
+ $modal->moduleModal('media-media', 'Change Media', 'WIMedia', 'PageMediaPics','Save',''); 
+ $modal->moduleModal('media-upload', 'Upload Media', 'WIMedia', 'PageMediaUploadPics','Save','');
    ?>
 
     <script>

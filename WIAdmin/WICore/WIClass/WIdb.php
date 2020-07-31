@@ -47,8 +47,6 @@ class WIdb extends PDO
             $smt->bindParam(":$key", $value, PDO::PARAM_STR);
         }
 
-
-        
         $smt->execute();
         $result = $smt->fetchAll($fetchMode);        
 
@@ -60,7 +58,27 @@ class WIdb extends PDO
             echo "null";
         }
 
-        
+    }
+
+    public function selectwithOptions($sql, $array = array(), $fetchMode = PDO::FETCH_ASSOC)
+    {
+        $this->WIdb = self::getInstance();
+        $smt = $this->WIdb->prepare($sql);
+        foreach ($array as $key => &$value) {
+            //echo ":$key", $value;
+            $smt->bindParam(':$key', $value, PDO::PARAM_STR);
+        }
+
+        $smt->execute();
+        $result = $smt->fetchAll($fetchMode);        
+
+        $smt->closeCursor();
+
+        if($result > 0){
+            return $result;
+        }else{
+            echo "null";
+        }
 
     }
 

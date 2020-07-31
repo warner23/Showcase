@@ -33,12 +33,23 @@ WIPageBuilder.Rotate = function(){
 	$(".elementsJ").removeClass('off').addClass('on');
 	$( "#forms" ).removeClass('on').addClass('off');
 	$( "#javascript" ).removeClass('off').addClass('on');
-    }	
+    }else if($(".elementsJ").hasClass('on') ) {
+    	console.log('click');
+	$(".elementsJ").removeClass('on').addClass('off');
+	$(".elementsM").removeClass('off').addClass('on');
+	$( "#javascript" ).removeClass('on').addClass('off');
+	$( "#modulesM" ).removeClass('off').addClass('on');
+    }
 }
 
 WIPageBuilder.RotateX = function(){
 	
-	    if ($(".elementsJ").hasClass('on') ) {
+	  if ($(".elementsM").hasClass('on') ) {
+	$(".elementsM").removeClass('on').addClass('off');
+	$(".elementsJ").removeClass('off').addClass('on');
+	$( "#modulesM" ).removeClass('on').addClass('off');
+	$( "#javascript" ).removeClass('off').addClass('on');
+    }else if ($(".elementsJ").hasClass('on') ) {
 	$(".elementsJ").removeClass('on').addClass('off');
 	$(".elementsF").removeClass('off').addClass('on');
 	$( "#javascript" ).removeClass('on').addClass('off');

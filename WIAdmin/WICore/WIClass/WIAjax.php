@@ -226,7 +226,7 @@ switch ($action) {
     case "mod_install":
     onlyAdmin();
         $mod = new WIModules();
-        $mod->install_mod($_POST['mod_name'], $_POST['author'] );
+        $mod->install_mod($_POST['mod_name'] );
         break;
 
         case "element_install":
@@ -537,7 +537,7 @@ switch ($action) {
     case "loadPage":
     onlyAdmin();
         $page = new WIPage();
-        $page->LoadPage($_POST['page']);
+        $page->LoadingPage($_POST['page']);
         break;
 
     case "loadOptions":

@@ -1,3 +1,4 @@
+
 @charset "utf-8";
 /* Simple fluid media
    Note: Fluid media requires that you remove the media's height and width attributes from the HTML
@@ -496,6 +497,17 @@ font-size:200%;
 }
 
 #mediadragandrophandler
+{
+border:2px dotted #0B85A1;
+width:400px;
+color:#92AAB0;
+text-align:left;vertical-align:middle;
+padding:10px 10px 10 10px;
+margin-bottom:10px;
+font-size:200%;
+}
+
+#ModDragandDropHandler
 {
 border:2px dotted #0B85A1;
 width:400px;
@@ -7705,7 +7717,7 @@ body > .header {
 /*left side - contains sidebar*/
 .left-side {
   position: absolute;
-  width: 21%;
+  width: 16%;
   top: 54px;
 }
 
@@ -7745,7 +7757,7 @@ body > .header {
 
 
   .right-side {
-     margin-left: 14%;
+     margin-left: 16%;
   }
 
 }

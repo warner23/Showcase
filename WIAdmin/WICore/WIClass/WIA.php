@@ -34,7 +34,6 @@ $site         = new WISite();
 $contact      = new WIContact();
 $img          = new WIImage();
 $plug         = new WIPlugin();
-$mod          = new WIModules();
 $editor       = new WIEditor();
 $blog         = new WIBlog();
 $forum        = new WIForum();

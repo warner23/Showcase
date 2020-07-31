@@ -1,4 +1,4 @@
-<?php
+?php
 include_once 'WI.php';
 require_once 'WIA.php';
 

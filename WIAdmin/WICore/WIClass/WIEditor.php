@@ -8,6 +8,7 @@ class WIEditor
     public function __construct()
     {
         $this->WIdb = WIdb::getInstance();
+        $this->site = new WISite();
     }
 
 
@@ -26,10 +27,18 @@ class WIEditor
               <div class="back-palette hide" id="back-palette">
               </div>
             </div>
-            <a href="javascript:void(0);" data-command="bold" class="btn tile"><i class="fa fa-bold"></i></a>
-            <a href="javascript:void(0);" data-command="italic" class="btn tile"><i class="fa fa-italic"></i></a>
-            <a href="javascript:void(0);" data-command="underline" class="btn tile"><i class="fa fa-underline"></i></a>
-            <a href="javascript:void(0);" data-command="strikeThrough" class="btn tile"><i class="fa fa-strikethrough"></i></a>
+            <a href="javascript:void(0);" data-command="bold" class="btn tile" title="Bold">
+            <i class="fa fa-bold"></i>
+            </a>
+            <a href="javascript:void(0);" data-command="italic" class="btn tile" title="Italic">
+            <i class="fa fa-italic"></i>
+            </a>
+            <a href="javascript:void(0);" data-command="underline" class="btn tile" title="underline">
+            <i class="fa fa-underline"></i>
+            </a>
+            <a href="javascript:void(0);" data-command="strikeThrough" class="btn tile">
+            <i class="fa fa-strikethrough"></i>
+            </a>
             <a href="javascript:void(0);" data-command="justifyLeft" class="btn tile"><i class="fa fa-align-left"></i></a>
             <a href="javascript:void(0);" data-command="justifyCenter" class="btn tile"><i class="fa fa-align-center"></i></a>
             <a href="javascript:void(0);" data-command="justifyRight" class="btn tile"><i class="fa fa-align-right"></i></a>
@@ -47,15 +56,32 @@ class WIEditor
             <a href="javascript:void(0);" data-command="subscript" class="btn tile"><i class="fa fa-subscript"></i></a>
             <a href="javascript:void(0);" data-command="superscript" class="btn tile"><i class="fa fa-superscript"></i></a>
             <a href="javascript:void(0);" data-command="code" class="btn tile"><i class="fa fa-code"></i></a>
-            <a href="javascript:void(0);"><i class="fa fa-quote" class="btn tile"></i></a>
-            <a href="javascript:void(0);"<i class="fa fa-hr" class="btn tile"></i></a>
-            <a href="javascript:void(0);"><i class="fa fa-lorem" class="btn tile"></i></a>
-            <a href="javascript:void(0);"><i class="fa fa-undo" class="btn tile"></i></a>
-            <a href="javascript:void(0);"><i class="fa fa-rotate-right" class="btn tile"></i></a>
-            <a href="javascript:void(0);"><i class="fa fa-select" class="btn tile"></i></a>
-            <a href="javascript:void(0);"><i class="fa fa-intro" class="btn tile"></i></a>
-            <a href="javascript:void(0);" id="eye" title="Preview" class="btn tile">
-            <i class="fa fa-eye" class="btn tile"></i></a>
+            <a href="javascript:void(0);">
+            <i class="fa fa-quote" class="btn tile"></i>
+            </a>
+            <a href="javascript:void(0);" class="btn tile">
+            <i class="fa fa-hr"></i>
+            </a>
+            <a href="javascript:void(0);" class="btn tile">
+            <i class="fa fa-lorem"></i>
+            </a>
+            <a href="javascript:void(0);" class="btn tile">
+            <i class="fa fa-undo"></i>
+            </a>
+            <a href="javascript:void(0);" class="btn tile">
+            <i class="fa fa-rotate-right"></i>
+            </a>
+            <a href="javascript:void(0);" class="btn tile">
+            <i class="fa fa-select"></i>
+            </a>
+            <a href="javascript:void(0);" class="btn tile">
+            <i class="fa fa-intro"></i>
+            </a>
+            <a href="javascript:void(0);" class="btn tile">
+            <i class="fas fa-brackets-curly"></i></a>
+
+            <a href="javascript:void(0);" id="eye" title="Preview" class="btn tile" title="Eye">
+            <i class="fa fa-eye"></i></a>
             </div>
             <textarea class="editor-area" id="editor-area" placeholder="Start here.." rows="8" cols="65">
 
@@ -78,13 +104,24 @@ class WIEditor
               var command = $(this).data('command');
               console.log(command);
 
-              const newElement = document.createElement($(this).data('command'));
+              if(command == 'Code'){
+                const newElement = ". $this->site->Website_Info('site_name') . "
+              
+                var text = $('#editor-area').html();
+                
+                $('#editor-area').html(text.replace(selection, newElement.outerHTML));
+
+                }else{
+                  const newElement = document.createElement($(this).data('command'));
               newElement.append(selection);
               console.log(newElement);
                 var text = $('#editor-area').html();
                 //var markUp = text.replace(selection, newElement.outerHTML);
                 //console.log(markUp);
                 $('#editor-area').html(text.replace(selection, newElement.outerHTML));
+                }
+
+              
 
             });
                 
