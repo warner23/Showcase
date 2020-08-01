@@ -42,8 +42,8 @@
 
 <?php 
 
-$modal->moduleModal('meta-edit', 'Edit Meta', 'WIMeta', 'editMeta','Save'); 
- $modal->moduleModal('meta-delete', 'Delete Meta', 'WIMeta', 'DeleteMeta','Delete');
+$modal->moduleModal('meta-edit', 'Edit Meta', 'WIMeta', 'editMeta','Save',''); 
+ $modal->moduleModal('meta-delete', 'Delete Meta', 'WIMeta', 'DeleteMeta','Delete','');
 
 ?>
 

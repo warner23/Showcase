@@ -179,10 +179,9 @@ class WIWebsite
         echo '<div class="menu"><div class="col-lg-12 col-md-12 col-sm-12 menusT">
               <div id="nav">
                <ul id="mainMenu" class="mainMenu default">';
-
         while($res = $query1->fetch(PDO::FETCH_ASSOC))
         {    
-         echo '<li><a href="' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
+         echo '<li class=""><a href="' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
          if($res['parent'] > 0)
          {
             echo '<li><a href="' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
@@ -245,7 +244,7 @@ class WIWebsite
         $sql = "SELECT * FROM `wi_lang`";
         $query = $this->WIdb->prepare($sql);
         $query->execute();
-         echo '<div class="col-lg-5 col-md-5 col-sm-5 col-xs-10">
+         echo '<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                          <div class="flags-wrapper">';
         while($res = $query->fetchAll(PDO::FETCH_ASSOC) ){
 
@@ -322,7 +321,7 @@ class WIWebsite
 
      public function google_lang()
     {
-      echo '<div class="col-lg-5 col-md-5 col-sm-5 col-xs-10">
+      echo '<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                          <div class="flags-wrapper">
                          <div id="google_translate_element"></div><script type="text/javascript">
 function googleTranslateElementInit() {

@@ -226,7 +226,7 @@ switch ($action) {
     case "mod_install":
     onlyAdmin();
         $mod = new WIModules();
-        $mod->install_mod($_POST['mod_name'], $_POST['author'] );
+        $mod->install_mod($_POST['mod_name'] );
         break;
 
         case "element_install":
@@ -537,7 +537,7 @@ switch ($action) {
     case "loadPage":
     onlyAdmin();
         $page = new WIPage();
-        $page->LoadPage($_POST['page']);
+        $page->LoadingPage($_POST['page']);
         break;
 
     case "loadOptions":
@@ -888,6 +888,52 @@ switch ($action) {
         $shop->shop_settings($_POST['shop_settings']);
         break;
 
+        case "getProdCat":
+        $shop = new WIShop();
+        $shop->EditCat();
+        break;
+        
+        case "getProdBrand":
+        $shop = new WIShop();
+        $shop->EditBrand();
+        break;
+
+        case "prependNewItem":
+        $shop = new WIShop();
+        $shop->prependNewItem($_POST['newItem']);
+        break;
+
+        case "appendNewItem":
+        $shop = new WIShop();
+        $shop->appendNewItem($_POST['newItem']);
+        break;
+
+        case "prependbrandNewItem":
+        $shop = new WIShop();
+        $shop->prependbrandNewItem($_POST['newItem']);
+        break;
+
+        case "appendbrandNewItem":
+        $shop = new WIShop();
+        $shop->appendbrandNewItem($_POST['newItem']);
+        break;
+
+        case "prependshippingNewItem":
+        $shop = new WIShop();
+        $shop->prependshippingNewItem($_POST['newItem']);
+        break;
+
+        case "appendshippingNewItem":
+        $shop = new WIShop();
+        $shop->appendshippingNewItem($_POST['newItem']);
+        break;
+
+        case "new_product":
+        $products = new WIProduct();
+        $products->AddNewProduct($_POST['product']);
+        break;
+
+
 
          //END END END DO NOT REMOVE
         default:
@@ -997,6 +1043,16 @@ switch($action){
         case "mapData":
         $dash = new WIDashboard();
         $dash->Map_visitors();
+        break;
+
+        case "getProdShipping":
+        $shop = new WIShop();
+        $shop->getProdShipping();
+        break;
+
+        case "addAttr":
+        $mod = new WIModules();
+        $mod->fieldEdit();
         break;
         
         default:

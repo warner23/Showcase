@@ -1,20 +1,29 @@
 
-  <script>
-  $( function() {
-    $( "#tabs" ).tabs();
-  } );
-  </script>
+<style>
+.center{
+ text-align: -webkit-center;
+}
 
- <aside class="right-side">
+   .ui-tabs-vertical { width: 55em; }
+  .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+  .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+  .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
+  .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
+
+
+</style>
+<asider class="right-side">
+
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Shop
+                        Forum
                         <small>Control panel</small>
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">Shop</li>
+                        <li><a href="javascript:void(0);"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active">Forum</li>
                     </ol>
                 </section>
 
@@ -23,38 +32,17 @@
 
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
-                        <div class="col-lg-3 col-xs-6 col-xl-12">
+                        <div class="col-lg-12 col-xs-12 col-xl-12 col-md-12">
+                          <div class="col-lg-12 col-xs-12 col-xl-12 col-md-12">
+                               <button id="opencatModal">New Category</button>
+                                <button id="opensectionModal">New Section</button>
+                              </div>
                             <!-- input box's box -->
                             <div class="modal-body">
-
+                              
             <div class="well">
 
-
-                     <div id="tabs">
-  <ul>
-    <li><a href="#tabs-1">Add Product</a></li>
-    <li><a href="#tabs-2">Edit Products</a></li>
-    <li><a href="#tabs-3">Brands</a></li>
-    <li><a href="#tabs-4">Categories</a></li>
-    
-  </ul>
-  <div id="tabs-1">
-<?php include_once 'WIInc/site/WIShop/products.php'; ?>  
-  </div>
-  <div id="tabs-2">
-<?php include_once 'WIInc/site/WIShop/change_product.php'; ?> 
-  </div>
-  <div id="tabs-3">
- <?php include_once 'WIInc/site/WIShop/brands.php'; ?> 
-  </div>
-
-    <div id="tabs-4">
- <?php include_once 'WIInc/site/WIShop/categories.php'; ?> 
-  </div>
-
-
-</div>
-
+              <?php  $forum->edit_forum(); ?>
 
                      </div>
                      </div>
@@ -62,8 +50,29 @@
                      </div>
 
                      </section>
+                   </asider>
+
+
 <script type="text/javascript" src="WICore/WIJ/WICore.js"></script>
-    <script type="text/javascript" src="WIPlugin/WIShop/WICore/WIJ/WIProduct.js"></script>
-    <script type="text/javascript" src="WIPlugin/WIShop/WICore/WIJ/WIProductMedia.js"></script>
-    <script type="text/javascript" src="WIPlugin/WIShop/WICore/WIJ/WIProductMediaCenter.js"></script>
-   
+<script type="text/javascript" src="WICore/WIJ/WIForum.js"></script>
+
+<script type="text/javascript">
+  
+  $('#category_selector').on('change', function() {
+            // alert( this.value );
+    $("#category_selector").val(this.value).prop("selected", "selected");                      
+    })
+</script>
+
+   <?php 
+
+    $modal->moduleModal('new-cat', 'Add new category', 'WIForum', 'ForumCategory','create category'); 
+
+    $modal->moduleModal('new-section', 'Add new section', 'WIForum', 'ForumSection','create section'); 
+
+    $modal->moduleModal('edit-cat', 'Edit category', 'WIForum', 'ForumEditCategory','edit category'); 
+
+    $modal->moduleModal('edit-section', 'Edit Section', 'WIForum', 'ForumEditSection','edit section'); 
+
+    $modal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory','delete category'); 
+   ?>

@@ -41,16 +41,16 @@ font-size:200%;
 
 
                                      <?php  
- $modal->moduleModal('lang-add', 'Add Lang', 'WILang', 'AddLang','Save'); 
-  $modal->moduleModal('lang-add-selection', 'Change flag', 'WILang', 'addlangchangepic','Save'); 
- $modal->moduleModal('lang-add-media', 'Change Media', 'WILang', 'addLangPics',''); 
- $modal->moduleModal('lang-add-upload', 'Upload Media', 'WILang', 'addUploadPics','');
+ $modal->moduleModal('lang-add', 'Add Lang', 'WILang', 'AddLang','Save',''); 
+  $modal->moduleModal('lang-add-selection', 'Change flag', 'WILang', 'addlangchangepic','Save',''); 
+ $modal->moduleModal('lang-add-media', 'Change Media', 'WILang', 'addLangPics','',''); 
+ $modal->moduleModal('lang-add-upload', 'Upload Media', 'WILang', 'addUploadPics','','');
 
- $modal->moduleModal('lang-edit', 'Edit Lang', 'WILang', 'SaveEditLang','Save'); 
- $modal->moduleModal('lang-delete', 'Delete Lang', 'WILang', 'Delete','Delete'); 
- $modal->moduleModal('lang-selection', 'Change flag', 'WILang', 'langchangepic','Save'); 
- $modal->moduleModal('lang-media', 'Change Media', 'WILang', 'LangPics',''); 
- $modal->moduleModal('lang-upload', 'Upload Media', 'WILang', 'editUploadPics','');
+ $modal->moduleModal('lang-edit', 'Edit Lang', 'WILang', 'SaveEditLang','Save',''); 
+ $modal->moduleModal('lang-delete', 'Delete Lang', 'WILang', 'Delete','Delete',''); 
+ $modal->moduleModal('lang-selection', 'Change flag', 'WILang', 'langchangepic','Save',''); 
+ $modal->moduleModal('lang-media', 'Change Media', 'WILang', 'LangPics','',''); 
+ $modal->moduleModal('lang-upload', 'Upload Media', 'WILang', 'editUploadPics','','');
  //$modal->moduleModal('header-upload', 'Upload Media', 'WILang', 'UploadPics','Save'); 
 
    ?>

@@ -1,12 +1,4 @@
-
-<style>
-.center{
- text-align: -webkit-center;
-}
-
-</style>
-
-  <script>
+<script>
   $( function() {
 
     var index = 'key';

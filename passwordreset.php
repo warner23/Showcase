@@ -1,12 +1,13 @@
 <?php
 
-include "ASEngine/AS.php";
+include "WICore/WIClass/WI.php";
 
 if (! isset($_GET['k'])) {
-    redirect('login.php');
+    redirect('index.php');
 }
 
-$valid = app('validator')->prKeyValid($_GET['k']);
+$valid = $validator->prKeyValid($_GET['k']);
+
 ?>
 <!doctype html>
 <html lang="en"> 
@@ -14,17 +15,22 @@ $valid = app('validator')->prKeyValid($_GET['k']);
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Advanced Security - PHP MySQL Register/Login System">
-        <meta name="author" content="Milos Stojanovic">
+        <meta name="description" content="WICMS - Warner Infinity">
+        <meta name="author" content="Jules Warner">
         
-        <title><?= trans('password_reset'); ?> | Advanced Security</title>
+        <title><?php echo WILang::get('password_reset'); ?> | WICMS</title>
+        <link rel='stylesheet' href='WITheme/WICMS/site/css/frameworks/bootstrap.css' type='text/css' media='all' />
+        <link rel='stylesheet' href='WITheme/WICMS/site/css/style.css' type='text/css' media='all' />
+        <link rel='stylesheet' href='WITheme/WICMS/site/css/vender/bootstrap.min.css' type='text/css' media='all' />
+        <link rel='stylesheet' href='WITheme/WICMS/site/css/style3.css' type='text/css' media='all' />
+        <script type="text/javascript" src="WITheme/WICMS/site/js/frameworks/JQuery.js"></script>
+        <script type="text/javascript" src="WITheme/WICMS/site/js/frameworks/bootstrap.js"></script>
 
-        <link rel='stylesheet' href='assets/css/bootstrap.min.css' type='text/css' media='all' />
-        <link rel='stylesheet' href='ASLibrary/css/style3.css' type='text/css' media='all' />
+        <link rel="icon" type="image/png" href="WIAdmin/WIMedia/Img/favicon/wi_cms_logo.PNG"/>
+          <script type="text/javascript">
+            var $_lang = <?php echo WILang::all(); ?>;
+        </script> 
 
-        <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="ASLibrary/js/js-bootstrap.php"></script>
     </head>
     <body>
         <div class="container">
@@ -32,7 +38,7 @@ $valid = app('validator')->prKeyValid($_GET['k']);
                 <div class="modal-dialog" >
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3><?= WEBSITE_NAME; ?></h3>
+                            <h3><?php echo WEBSITE_NAME; ?></h3>
                         </div>
                         <div class="modal-body">
                             <div class="well">
@@ -40,12 +46,12 @@ $valid = app('validator')->prKeyValid($_GET['k']);
                                     <form class="form-horizontal" id="password-reset-form">
                                         <fieldset>
                                             <div id="legend">
-                                                <legend class=""><?= trans('password_reset'); ?></legend>
+                                                <legend class=""><?php echo WILang::get('password_reset'); ?></legend>
                                             </div>
 
                                             <div class="control-group form-group">
                                                 <label class="control-label col-lg-4"  for="login-username">
-                                                    <?= trans('new_password'); ?>
+                                                    <?php echo WILang::get('new_password'); ?>
                                                 </label>
                                                 <div class="controls col-lg-8">
                                                     <input type="password" id="password-reset-new-password"
@@ -53,17 +59,25 @@ $valid = app('validator')->prKeyValid($_GET['k']);
                                                 </div>
                                             </div>
 
+                                            <div class="control-group  form-group">
+                                            <label class="control-label col-lg-4" for="password-reset-repeat-password"><?php echo WILang::get("repeat_password") ?> <span class="required">*</span></label>
+                                            <div class="controls col-lg-8">
+                                                <input type="password" id="password-reset-repeat-password" class="input-xlarge form-control">
+                                            </div>
+                                         </div>
+
+                                  
                                             <div class="control-group form-group">
                                                 <div class="controls col-lg-offset-4 col-lg-8">
                                                     <button id="btn-reset-pass" class="btn btn-success">
-                                                        <?= trans('reset_password'); ?>
+                                                       <?php echo WILang::get('reset_password'); ?>
                                                     </button>
                                                 </div>
                                             </div>
                                         </fieldset>
                                     </form>
                                 <?php else : ?>
-                                    <h5 class="text-error text-center"><?= trans('invalid_password_reset_key') ?></h5>
+                                    <h5 class="text-error text-center"><?php echo WILang::get('invalid_password_reset_key') ?></h5>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -72,9 +86,9 @@ $valid = app('validator')->prKeyValid($_GET['k']);
             </div>
         </div>
 
-        <script type="text/javascript" src="assets/js/sha512.js"></script>
-        <script type="text/javascript" src="ASLibrary/js/asengine.js"></script>
-        <script type="text/javascript" src="ASLibrary/js/passwordreset.js"></script>
+        <script type="text/javascript" src="WICore/WIJ/sha512.js"></script>
+        <script type="text/javascript" src="WICore/WIJ/WICore.js"></script>
+        <script type="text/javascript" src="WICore/WIJ/WIPasswordReset.js"></script>
 
     </body>
 </html>

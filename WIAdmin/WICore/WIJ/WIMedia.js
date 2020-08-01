@@ -1,11 +1,13 @@
 $(document).ready(function(){
 
-  $("img").click(function() {      
+  $("img.selectorImage").click(function() {      
     $(this).toggleClass("hover");
     var id = $(".hover").attr("id");
 
     if($(this).hasClass('favicon')){
       WIMedia.changefavicon(id);
+    }else if($(this).hasClass('product')){
+      WIMedia.changeProduct(id);
     }else{
          // alert(id);
     WIMedia.change(id);
@@ -13,9 +15,39 @@ $(document).ready(function(){
 
   });
 
+  var Mod = $("#ModDragandDropHandler");
   var obj = $("#dragandrophandler");
+  var product = $("#productdragandrophandler");
   var media = $("#mediadragandrophandler");
   var dir = $("#supload").attr("value");
+  var selector = $("#selector").attr("value");
+
+
+//ModHandler drop and drag object handling
+Mod.on('dragenter', function (e) 
+{
+    e.stopPropagation();
+    e.preventDefault();
+    $(this).css('border', '2px solid #0B85A1');
+});
+Mod.on('dragover', function (e) 
+{
+     e.stopPropagation();
+     e.preventDefault();
+});
+Mod.on('drop', function (e) 
+{
+ 
+     $(this).css('border', '2px dotted #0B85A1');
+     e.preventDefault();
+     var files = e.originalEvent.dataTransfer.files;
+ 
+     //We need to send dropped files to Server
+     console.log(files,obj, dir, selector);
+     handleFileUpload(files,obj,dir, selector);
+});
+
+//OBJ drop and drag object handling
 obj.on('dragenter', function (e) 
 {
     e.stopPropagation();
@@ -35,10 +67,11 @@ obj.on('drop', function (e)
      var files = e.originalEvent.dataTransfer.files;
  
      //We need to send dropped files to Server
-     console.log(files,obj, dir);
-     handleFileUpload(files,obj,dir);
+     console.log(files,obj, dir, selector);
+     handleFileUpload(files,obj,dir, selector);
 });
 
+//media drop and drag object handling
 media.on('dragenter', function (e) 
 {
     e.stopPropagation();
@@ -53,14 +86,43 @@ media.on('dragover', function (e)
 media.on('drop', function (e) 
 {
  
+ $(this).css('border', '2px dotted #0B85A1');
+ e.preventDefault();
+ var files = e.originalEvent.dataTransfer.files;
+
+ //We need to send dropped files to Server
+ console.log(files,media, dir, selector);
+ handleFileUpload(files,media,dir, selector);
+});
+
+//product drop and drag object handling
+product.on('dragenter', function (e) 
+{
+    e.stopPropagation();
+    e.preventDefault();
+    $(this).css('border', '2px solid #0B85A1');
+});
+product.on('dragover', function (e) 
+{
+     e.stopPropagation();
+     e.preventDefault();
+});
+product.on('drop', function (e) 
+{
+ 
      $(this).css('border', '2px dotted #0B85A1');
      e.preventDefault();
      var files = e.originalEvent.dataTransfer.files;
  
      //We need to send dropped files to Server
-     console.log(files,media, dir);
-     handleFileUpload(files,media,dir);
+     console.log(files,product, dir, selector);
+     handleFileUpload(files,product,dir, selector);
 });
+
+
+
+
+
 $(document).on('dragenter', function (e) 
 {
     e.stopPropagation();
@@ -87,9 +149,27 @@ WIMedia.media = function(){
     $("#modal-header-media-details").removeClass("hide").addClass("show");
 }
 
+WIMedia.changeProductPic = function(event){
+  console.log('clicked');
+  return false;
+  event.preventDefault();
+  event.stopPropagation();
+  $("#modal-product-edit-details").removeClass("hide").addClass("show");
+}
+
 WIMedia.langmedia = function(){
    $("#modal-lang-selection-details").removeClass("hide").addClass("show");
     $("#modal-lang-media-details").removeClass("hide").addClass("show");
+}
+
+WIMedia.ProductMedia = function(){
+   $("#modal-product-media-details").removeClass("hide").addClass("show");
+    $("#modal-product-edit-details").removeClass("hide").addClass("hide");
+}
+
+WIMedia.ProductUpload = function(){
+   $("#modal-product-upload-details").removeClass("hide").addClass("show");
+    $("#modal-product-edit-details").removeClass("hide").addClass("hide");
 }
 
 WIMedia.Langupload = function(){
@@ -112,9 +192,10 @@ WIMedia.changeiconPic = function(){
      $("#modal-favicon-media-details").removeClass("hide").addClass("show");
 }
 
-WIMedia.changePic = function(ele){
-
-  	     $("#modal-"+ele+"-details").removeClass("hide").addClass("show");
+WIMedia.changePic = function(ele, selector){
+  $("#modal-"+ele+"-details").removeClass("hide").addClass("show");
+  console.log(selector);
+  $("#"+selector).attr('id','selector');
   }
 
 WIMedia.editPic = function(ele){
@@ -135,6 +216,8 @@ WIMedia.changefaviconPic = function(){
 
          $("#modal-favicon-edit-details").removeClass("hide").addClass("show");
   }
+
+
 
   WIMedia.closeEdit = function(){
 
@@ -180,6 +263,14 @@ WIMedia.changefaviconPic = function(){
     $("#modal-favicon-media-details").removeClass("show").addClass("hide");
     $("#modal-favicon-edit-details").removeClass("show").addClass("hide");
     $(".cp").attr("src", "WIMedia/Img/favicon/"+img);
+    $(".cp").attr("value", img);
+  }
+
+    WIMedia.changeProduct = function(img){
+
+    $("#modal-product-media-details").removeClass("show").addClass("hide");
+    $("#modal-product-edit-details").removeClass("show").addClass("hide");
+    $(".cp").attr("src", "WIMedia/Img/shop/products/"+img);
     $(".cp").attr("value", img);
   }
 
@@ -250,6 +341,18 @@ WIMedia.changefaviconPic = function(){
         $("#modal-media-edit-details").removeClass("show").addClass("hide");
         $("#modal-media-upload-details").removeClass("hide").addClass("show");;
   }
+
+  WIMedia.PagePics = function(){
+        $("#modal-media-edit-details").removeClass("show").addClass("hide");
+        $("#modal-media-media-details").removeClass("hide").addClass("show");;
+  }
+
+
+  WIMedia.PageUploadPics = function(){
+        $("#modal-media-edit-details").removeClass("show").addClass("hide");
+        $("#modal-media-upload-details").removeClass("hide").addClass("show");;
+  }
+
 
   WIMedia.PageMediaPics = function(){
    $("#modal-media-edit-details").removeClass("hide").addClass("show");

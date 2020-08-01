@@ -11,8 +11,8 @@
 
 
                    <?php  
- $modal->moduleModal('header-edit', 'Change Header', 'WIMedia', 'changepic','Save'); 
- $modal->moduleModal('header-media', 'Change Media', 'WIMedia', 'HeaderPics','Save'); 
- $modal->moduleModal('header-upload', 'Upload Media', 'WIMedia', 'UploadPics','Save'); 
+ $modal->moduleModal('header-edit', 'Change Header', 'WIMedia', 'changepic','Save',''); 
+ $modal->moduleModal('header-media', 'Change Media', 'WIMedia', 'HeaderPics','Save',''); 
+ $modal->moduleModal('header-upload', 'Upload Media', 'WIMedia', 'UploadPics','Save',''); 
 
    ?>

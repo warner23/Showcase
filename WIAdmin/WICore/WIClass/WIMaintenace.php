@@ -39,9 +39,8 @@ class WIMaintenace
 
 	public function UniqueVisitors()
 	{
-		$sql = "SELECT * FROM `wi_track`";
-		$query = $this->WIdb->prepare($sql);
-		$query->execute();
+
+		$result = $this->WIdb->select("SELECT * FROM `wi_track`");
 
 		
 	}

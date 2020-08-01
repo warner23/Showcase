@@ -1,3 +1,4 @@
+
 @charset "utf-8";
 /* Simple fluid media
    Note: Fluid media requires that you remove the media's height and width attributes from the HTML
@@ -506,6 +507,17 @@ margin-bottom:10px;
 font-size:200%;
 }
 
+#ModDragandDropHandler
+{
+border:2px dotted #0B85A1;
+width:400px;
+color:#92AAB0;
+text-align:left;vertical-align:middle;
+padding:10px 10px 10 10px;
+margin-bottom:10px;
+font-size:200%;
+}
+
 .progressBar {
     width: 200px;
     height: 22px;
@@ -816,7 +828,12 @@ img {
 
   fieldset {
 
-    margin-top: 5%;
+    margin-top: 0%;
+}
+.group{
+      width: 60%;
+    height: 50px;
+    margin-left: 300px;
 }
 
   .sectionwrapper{
@@ -824,7 +841,6 @@ img {
     margin-left: 0%;
     width: 50%;
     float: right;
-        margin-top: -29px;
   }
 
   .sect{
@@ -950,6 +966,19 @@ table.text-center th {
 .perm{
   margin-left: 35%;
 }
+
+.category{
+   width: 50%;
+    float: left;
+}
+
+.editcategory{
+      width: 25%;
+    float: left;
+}
+
+
+
 /*
     Components: navbar, logo and content header
 -------------------------------------------------
@@ -2396,7 +2425,7 @@ body > .header .logo .icon {
 .modal-body {
     position: relative;
     padding: 15px;
-    margin-top: 23px;
+    margin-top: -35px;
 }
 /*
 Component: timeline
@@ -7688,7 +7717,7 @@ body > .header {
 /*left side - contains sidebar*/
 .left-side {
   position: absolute;
-  width: 21%;
+  width: 16%;
   top: 54px;
 }
 
@@ -7703,8 +7732,8 @@ body > .header {
 
 @media screen and (min-width: 992px) {
   .left-side {
-    top: 56px;
-    width: 21%;
+   top: 56px;
+    width: 15%;
   }
   /*Right side strech mode*/
   .right-side.strech {
@@ -7728,7 +7757,7 @@ body > .header {
 
 
   .right-side {
- margin-left: 20%;
+     margin-left: 16%;
   }
 
 }
@@ -7737,7 +7766,7 @@ body > .header {
 @media screen and (min-width: 1250px) {
   .left-side {
     top: 56px;
-    width: 18%;
+    width: 14%;
   }
 /*
     By default the layout is not fixed but if you add the class .fixed to the body element

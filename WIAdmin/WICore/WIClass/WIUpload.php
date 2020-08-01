@@ -11,7 +11,6 @@ class WIUpload
 
 	public function uploadFile($data)
 	{
-
 		 $Destination = 'WIMedia/Img/header/';
     if(!isset($_FILES['ImageFile']) || !is_uploaded_file($_FILES['ImageFile']['tmp_name']))
     {

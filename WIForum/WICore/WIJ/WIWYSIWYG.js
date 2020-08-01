@@ -2,7 +2,6 @@ $(document).ready(function () {
 
 });
 
-
 var WIWYSIWYG = {};
 
 WIWYSIWYG.wysiwyg = function(){
@@ -44,28 +43,6 @@ WIWYSIWYG.BackWrapper = function(){
  			$('.back-palette').removeClass('show').addClass('hide');
  			$('.back-wrapper').addClass('closed') 		
  		}
-}
-
-WIWYSIWYG.clicked = function(event){
-	console.log('clicked');
-	console.log(event);
-	  var command = $(this).data('command');
-  if (command == 'h1' || command == 'h2' || command == 'p') {
-    document.execCommand('formatBlock', false, command);
-  }
-  if (command == 'forecolor' || command == 'backcolor') {
-    document.execCommand($(this).data('command'), false, $(this).data('value'));
-  }
-    if (command == 'createlink' || command == 'insertimage') {
-  url = prompt('Enter the link here: ','http:\/\/'); document.execCommand($(this).data('command'), false, url);
-  }
-
-  switch(command){
-  	case 'bold': 
-		WIEditor.bold();
-		break;
-  }
-  //else document.execCommand($(this).data('command'), false, null);
 }
 
 

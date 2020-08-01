@@ -40,7 +40,7 @@ class WIModal
 </div>';
 	}
 
-	public function moduleModal($ele_id, $title, $action, $function, $button)
+	public function moduleModal($ele_id, $title, $action, $function, $button, $footer_b)
 	{
 		echo '<!-- Modal -->
 <div class="modal hide" id="modal-'.$ele_id.'-details" tabindex="-1" role="dialog" aria-labelledby="WIModalLabel" aria-hidden="true">
@@ -56,7 +56,7 @@ class WIModal
       </div>
        <div align="center" class="ajax-loading hide"><img src="WIMedia/Img/ajax_loader.gif" /></div>
       <div class="modal-footer">';
-       self::footer($button, $action, $function);
+       self::footer($button, $action, $function,$footer_b);
       echo '</div>
     </div>
   </div>
@@ -78,6 +78,16 @@ class WIModal
     echo '<div class="delete_id" id=""><p>Are you sure you want to delete</p></div> ';
   }
 
+  public function deletecategories()
+  {
+    echo '<div class="delete_id" id=""><p>Are you sure you want to delete</p></div> ';
+  }
+
+  public function deletebrand()
+  {
+    echo '<div class="delete_id" id=""><p>Are you sure you want to delete</p></div> ';
+  }
+
 	public function header($action, $ele_id, $title)
 	{
 		echo '<h5 class="modal-title" id="WIModalLabel">' .$title .'</h5>
@@ -86,13 +96,13 @@ class WIModal
         </button>';
 	}
 
-	public function footer($button, $action, $function)
+	public function footer($button, $action, $function, $footer_b)
 	{
     if($button == ""){
 
     }else{
       echo ' <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="'.$action.'.'.$function.'()">'.$button.'.</button>';
+        <button id="'.$footer_b.'" type="button" class="btn btn-primary" onclick="'.$action.'.'.$function.'()">'.$button.'.</button>';
     }
 
 	}
@@ -226,11 +236,19 @@ class WIModal
         </div>';
   }
 
+    public function changeProductPic()
+  {
+    echo '<div class="well">
+          <button onclick="WIMedia.ProductMedia()">Upload from WIMedia Library</button>
+          <button onclick="WIMedia.ProductUpload()">upload from computer</button>
+        </div>';
+  }
+
     public function pagemedia()
   {
     echo '<div class="well">
-          <button onclick="WIMedia.PageMediaPics()">Upload from WIMedia Library</button>
-          <button onclick="WIMedia.PageMediaUploadPics()">upload from computer</button>
+          <button onclick="WIMedia.PagePics()">Upload from WIMedia Library</button>
+          <button onclick="WIMedia.PageUploadPics()">upload from computer</button>
         </div>';
   }
 
@@ -255,6 +273,14 @@ class WIModal
     echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
          <p><h1>'; echo WILang::get('Media_Lib'); echo '</h1></p>';
           $this->Img->PagePics();
+          echo '</div>';
+  }
+
+    public function ProductPics()
+  {
+    echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <p><h1>'; echo WILang::get('Media_Lib'); echo '</h1></p>';
+          $this->Img->ProductPics();
           echo '</div>';
   }
 
@@ -290,8 +316,16 @@ class WIModal
   public function PageMediaUploadPics()
   {
    echo '<div class="col-lg-3 col-md-3 col-sm-2">';
-          $this->site->MediaPageDisplay();                  
-    echo '</div><div align="center" class="ajax-loading"><img src="ajax_loader.gif" /></div>';
+          $this->site->pageModuleDisplay();   
+    echo '</div><div align="center" class="ajax-loading hide">
+    <img src="WIMedia/Img/ajax_loader.gif" /></div>';
+  }
+
+    public function UploadProductPics()
+  {
+    echo '<div class="col-lg-3 col-md-3 col-sm-2">';
+          $this->site->ProductDisplay(); 
+          echo '</div>';
   }
 
       public function assign()
@@ -518,6 +552,66 @@ class WIModal
                       echo '</select>
                       <input id="addpage" name="addpage" type="hidden" class="input-xlarge form-control" >
                       </div>
+                      </div>
+                  </form>';
+  }
+
+      public function addcategories()
+  {
+    echo '<form class="form-horizontal" id="add-cat-modal">
+                      <div class="form-group">
+                        <label class="control-label col-lg-3" for="css">';
+                           echo WILang::get('add_shop_Cat'); 
+                        echo '</label>
+                        <div class="col-lg-9">
+                          <input id="cat_shop_cat" name="cat" type="text" class="input-xlarge form-control" >
+                        </div>
+                       
+                      </div>
+                  </form>';
+  }
+
+        public function editcategories()
+  {
+    echo '<form class="form-horizontal" id="edit-cat-modal">
+                      <div class="form-group">
+                        <label class="control-label col-lg-3" for="css">';
+                           echo WILang::get('edit_shop_Cat'); 
+                        echo '</label>
+                        <div class="col-lg-9">
+                          <input id="edit_cat_shop_cat" name="editcat" type="text" class="input-xlarge form-control" >
+                        </div>
+                       
+                      </div>
+                  </form>';
+  }
+
+      public function addbrand()
+  {
+    echo '<form class="form-horizontal" id="add-brand-modal">
+                      <div class="form-group">
+                        <label class="control-label col-lg-3" for="css">';
+                           echo WILang::get('add_shop_Brand'); 
+                        echo '</label>
+                        <div class="col-lg-9">
+                          <input id="add_shop_brand" name="cat" type="text" class="input-xlarge form-control" >
+                        </div>
+                       
+                      </div>
+                  </form>';
+  }
+
+        public function editbrand()
+  {
+    echo '<form class="form-horizontal" id="edit-cat-modal">
+                      <div class="form-group">
+                        <label class="control-label col-lg-3" for="css">';
+                           echo WILang::get('edit_shop_brand'); 
+                        echo '</label>
+                        <div class="col-lg-9">
+                          <input id="edit_shop_brand" name="edit_shop_brand" type="text" class="input-xlarge form-control" >
+                        </div>
+                       
                       </div>
                   </form>';
   }

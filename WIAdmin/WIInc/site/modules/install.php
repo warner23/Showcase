@@ -5,6 +5,6 @@
             </div>
             <div class="row">
 
-<?php $mod->InstallMods(); ?>
+<?php $mod->displayModules(); ?>
             </div>
             

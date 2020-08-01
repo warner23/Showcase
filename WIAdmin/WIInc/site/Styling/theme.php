@@ -24,8 +24,8 @@
 
 
 <?php 
-$modal->moduleModal('theme-add', 'Edit Theme', 'WITheme', 'addtheme','Save'); 
+$modal->moduleModal('theme-add', 'Edit Theme', 'WITheme', 'addtheme','Save',''); 
 
- $modal->moduleModal('theme-delete', 'Delete Theme', 'WITheme', 'Deletetheme','Delete');
+ $modal->moduleModal('theme-delete', 'Delete Theme', 'WITheme', 'Deletetheme','Delete','');
 
 ?>

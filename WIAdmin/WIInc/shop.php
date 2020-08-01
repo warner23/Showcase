@@ -37,7 +37,7 @@
                         <small>Control panel</small>
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li><a href="javascript:void(0)"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li class="active">Shop</li>
                     </ol>
                 </section>
@@ -60,6 +60,7 @@
     <li><a href="#tabs-2">Edit Products</a></li>
     <li><a href="#tabs-3">Brands</a></li>
     <li><a href="#tabs-4">Categories</a></li>
+    <li><a href="#tabs-5">Shipping</a></li>
     
   </ul>
   <div id="tabs-1">
@@ -75,7 +76,9 @@
     <div id="tabs-4">
  <?php include_once 'WIInc/site/WIShop/categories.php'; ?> 
   </div>
-
+  <div id="tabs-5">
+ <?php include_once 'WIInc/site/WIShop/shipping.php'; ?> 
+  </div>
 
 </div>
 
@@ -87,7 +90,8 @@
 
                      </section>
 <script type="text/javascript" src="WICore/WIJ/WICore.js"></script>
-    <script type="text/javascript" src="WIPlugin/WIShop/WICore/WIJ/WIProduct.js"></script>
-    <script type="text/javascript" src="WIPlugin/WIShop/WICore/WIJ/WIProductMedia.js"></script>
-    <script type="text/javascript" src="WIPlugin/WIShop/WICore/WIJ/WIProductMediaCenter.js"></script>
+    <script type="text/javascript" src="WICore/WIJ/WIProduct.js"></script>
+    <script type="text/javascript" src="WICore/WIJ/WIShop.js"></script>
+    <script type="text/javascript" src="WICore/WIJ/WIMedia.js"></script>
+    <script type="text/javascript" src="WICore/WIJ/WIMediaCenter.js"></script>
    

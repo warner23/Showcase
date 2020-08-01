@@ -63,7 +63,13 @@ $mod->getModMain($contents, $page, $contents);
 $web->footer();
 ?>
 
+	<script type="text/javascript" src="../WITheme/WICMS/forum/js/jquery.cookie.js"></script> <!-- jQuery cookie --> 
+	<script type="text/javascript" src="../WITheme/WICMS/forum/js/styleswitch.js"></script> <!-- Style Colors Switcher -->
 
+
+	<!-- Start Style Switcher -->
+	<div class="switcher"></div>
+	<!-- End Style Switcher -->
 
 </body>
 </html>

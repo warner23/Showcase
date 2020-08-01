@@ -3,13 +3,7 @@
 
 <script src='WICore/WIJ/WIUpload.js'></script>
 
-
-<style>
-.img-responsive{
-    max-width: 150px;
-}
-</style>
- <aside class="right-side">
+<aside class="right-side">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>

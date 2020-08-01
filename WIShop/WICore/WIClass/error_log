@@ -1,0 +1,835 @@
+[02-Jul-2020 13:59:06 UTC] PHP Notice:  Undefined variable: user_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 742
+[02-Jul-2020 13:59:06 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 743
+[02-Jul-2020 13:59:06 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 750
+[02-Jul-2020 13:59:06 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 751
+[02-Jul-2020 13:59:06 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 751
+[02-Jul-2020 13:59:06 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 752
+[02-Jul-2020 13:59:06 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 752
+[02-Jul-2020 13:59:06 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 754
+[02-Jul-2020 13:59:06 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 756
+[02-Jul-2020 13:59:06 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 13:59:06 UTC] PHP Notice:  Undefined variable: user_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 762
+[02-Jul-2020 13:59:06 UTC] PHP Notice:  Undefined variable: receipt_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 13:59:06 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 764
+[02-Jul-2020 13:59:06 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 766
+[02-Jul-2020 13:59:06 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 13:59:06 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 793
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined variable: user_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 749
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 750
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 757
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 758
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 758
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 15:16:31 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined variable: user_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 769
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined variable: receipt_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 770
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 771
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 15:16:31 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 800
+[02-Jul-2020 15:16:31 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 887
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined variable: user_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 749
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 750
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 757
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 758
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 758
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 15:17:46 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined variable: user_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 769
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined variable: receipt_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 770
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 771
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 15:17:46 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 800
+[02-Jul-2020 15:17:46 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 887
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined variable: user_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 749
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 750
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 757
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 758
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 758
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 15:21:41 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined variable: user_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 769
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined variable: receipt_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 770
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 771
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 15:21:41 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 800
+[02-Jul-2020 15:21:41 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 887
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined variable: user_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 749
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 750
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 757
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 758
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 758
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 15:23:53 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined variable: user_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 769
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined variable: receipt_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 770
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 771
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 15:23:53 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 800
+[02-Jul-2020 15:23:53 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 887
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'intent' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 566
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 566
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'status' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 567
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 567
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'id' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 569
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 569
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'payer' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 570
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 570
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'reference_id' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'shipping' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'breakdown' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'shipping' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'breakdown' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'tax_total' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'email' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 589
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 589
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 592
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 592
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'address_line_1' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 592
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 592
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'viewAddressLine2' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 594
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 594
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'admin_area_2' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 594
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 594
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'admin_area_1' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 673
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 673
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'given_name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 673
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 673
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 674
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 674
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'surname' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 674
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 674
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 682
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 682
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'full_name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 682
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 682
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'address_line_1' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'viewAddressLine2' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'admin_area_2' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'admin_area_1' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'postal_code' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'payments' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'currency_code' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:23:58 UTC] PHP Warning:  Illegal string offset 'status' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 713
+[02-Jul-2020 15:23:58 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 713
+[02-Jul-2020 15:26:31 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIProduct.php on line 194
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined variable: user_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 749
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 750
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 757
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 758
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 758
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 15:27:10 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined variable: user_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 769
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined variable: receipt_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 770
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 771
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 15:27:10 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 800
+[02-Jul-2020 15:27:10 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 887
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'intent' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 566
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 566
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'status' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 567
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 567
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'id' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 569
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 569
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'payer' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 570
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 570
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'reference_id' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'shipping' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'breakdown' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'shipping' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'breakdown' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'tax_total' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'email' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 589
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 589
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 592
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 592
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'address_line_1' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 592
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 592
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'viewAddressLine2' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 594
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 594
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'admin_area_2' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 594
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 594
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'admin_area_1' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 673
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 673
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'given_name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 673
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 673
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 674
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 674
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'surname' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 674
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 674
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 682
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 682
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'full_name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 682
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 682
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'address_line_1' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'viewAddressLine2' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'admin_area_2' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'admin_area_1' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'postal_code' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'payments' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'currency_code' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:27:15 UTC] PHP Warning:  Illegal string offset 'status' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 713
+[02-Jul-2020 15:27:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 713
+[02-Jul-2020 15:31:24 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIProduct.php on line 194
+[02-Jul-2020 15:32:09 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 752
+[02-Jul-2020 15:32:09 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 15:32:09 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 15:32:09 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 15:32:09 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 15:32:09 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 15:32:09 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 15:32:09 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 15:32:09 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 15:32:09 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 15:32:09 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 775
+[02-Jul-2020 15:32:09 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 15:32:09 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 802
+[02-Jul-2020 15:32:09 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 889
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'intent' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 566
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 566
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'status' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 567
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 567
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'id' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 569
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 569
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'payer' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 570
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 570
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'reference_id' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'shipping' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'breakdown' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'shipping' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'breakdown' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'tax_total' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'email' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 589
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 589
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 592
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 592
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'address_line_1' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 592
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 592
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'viewAddressLine2' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 594
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 594
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'admin_area_2' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 594
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 594
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'admin_area_1' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 673
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 673
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'given_name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 673
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 673
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 674
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 674
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'surname' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 674
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 674
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 682
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 682
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'full_name' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 682
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 682
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'address_line_1' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'viewAddressLine2' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'admin_area_2' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'admin_area_1' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'address' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'postal_code' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'payments' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'value' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'purchase_units' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'amount' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'currency_code' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 15:32:16 UTC] PHP Warning:  Illegal string offset 'status' in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 713
+[02-Jul-2020 15:32:16 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 713
+[02-Jul-2020 16:52:10 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 752
+[02-Jul-2020 16:52:10 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 16:52:10 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 16:52:10 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 16:52:10 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 16:52:10 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 16:52:10 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 16:52:10 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 16:52:10 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 16:52:10 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 16:52:10 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 775
+[02-Jul-2020 16:52:10 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 16:52:10 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 802
+[02-Jul-2020 16:52:10 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 889
+[02-Jul-2020 17:00:27 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 752
+[02-Jul-2020 17:00:27 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 17:00:27 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:00:27 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:00:27 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:00:27 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:00:27 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 17:00:27 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 17:00:27 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:00:27 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 17:00:27 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 775
+[02-Jul-2020 17:00:27 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:00:27 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 802
+[02-Jul-2020 17:00:27 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 889
+[02-Jul-2020 17:06:39 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIProduct.php on line 194
+[02-Jul-2020 17:07:22 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 752
+[02-Jul-2020 17:07:22 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 17:07:22 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:07:22 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:07:22 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:07:22 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:07:22 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 17:07:22 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 17:07:22 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:07:22 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 17:07:22 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 775
+[02-Jul-2020 17:07:22 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:07:22 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 802
+[02-Jul-2020 17:07:22 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 889
+[02-Jul-2020 17:11:50 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 752
+[02-Jul-2020 17:11:50 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 17:11:50 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:11:50 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:11:50 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:11:50 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:11:50 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 17:11:50 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 17:11:50 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:11:50 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 17:11:50 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 775
+[02-Jul-2020 17:11:50 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:11:50 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 802
+[02-Jul-2020 17:11:50 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 889
+[02-Jul-2020 17:25:58 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 752
+[02-Jul-2020 17:25:58 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 17:25:58 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:25:58 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:25:58 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:25:58 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:25:58 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 17:25:58 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 17:25:58 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:25:58 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 17:25:58 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 775
+[02-Jul-2020 17:25:58 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:25:58 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 802
+[02-Jul-2020 17:25:58 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 889
+[02-Jul-2020 17:34:30 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 752
+[02-Jul-2020 17:34:30 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 17:34:30 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:34:30 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:34:30 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:34:30 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:34:30 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 17:34:30 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 17:34:30 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:34:30 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 17:34:30 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 775
+[02-Jul-2020 17:34:30 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:34:30 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 802
+[02-Jul-2020 17:34:30 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 889
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined index: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 566
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined index: status in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 567
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined index: id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 569
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined index: payer in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 570
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined index: purchase_units in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 571
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined index: purchase_units in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 572
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined index: purchase_units in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined index: purchase_units in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined index: purchase_units in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined index: purchase_units in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 17:34:41 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'grandTotal' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:34:41 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined index: purchase_units in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 696
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined index: purchase_units in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 701
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined index: purchase_units in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 702
+[02-Jul-2020 17:34:41 UTC] PHP Notice:  Undefined index: status in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 713
+[02-Jul-2020 17:49:35 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIProduct.php on line 194
+[02-Jul-2020 17:52:23 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 752
+[02-Jul-2020 17:52:23 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 17:52:23 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:52:23 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:52:23 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:52:23 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:52:23 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 17:52:23 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 17:52:23 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:52:23 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 17:52:23 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 775
+[02-Jul-2020 17:52:23 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:52:23 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 802
+[02-Jul-2020 17:52:23 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 889
+[02-Jul-2020 17:55:36 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 752
+[02-Jul-2020 17:55:36 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 17:55:36 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:55:36 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:55:36 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:55:36 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:55:36 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 17:55:36 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 17:55:36 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:55:36 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 17:55:36 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 775
+[02-Jul-2020 17:55:36 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:55:36 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 802
+[02-Jul-2020 17:55:36 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 889
+[02-Jul-2020 17:55:45 UTC] PHP Notice:  Undefined index: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 566
+[02-Jul-2020 17:55:45 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 17:55:45 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 17:55:45 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 17:55:45 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 17:55:45 UTC] PHP Notice:  Undefined index: email in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 589
+[02-Jul-2020 17:55:45 UTC] PHP Notice:  Array to string conversion in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 17:55:45 UTC] PHP Notice:  Undefined variable: Array in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 17:55:45 UTC] PHP Notice:  Array to string conversion in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 17:55:45 UTC] PHP Notice:  Undefined variable: Array in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 17:55:45 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 17:55:45 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 17:55:45 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'grandTotal' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:55:45 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'mode' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:55:45 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 17:55:45 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 17:57:53 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIProduct.php on line 194
+[02-Jul-2020 17:58:32 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 752
+[02-Jul-2020 17:58:32 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 17:58:32 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:58:32 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 17:58:32 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:58:32 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 17:58:32 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 17:58:32 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 17:58:32 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:58:32 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 17:58:32 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 775
+[02-Jul-2020 17:58:32 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:58:32 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 802
+[02-Jul-2020 17:58:32 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 889
+[02-Jul-2020 17:58:41 UTC] PHP Notice:  Undefined index: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 566
+[02-Jul-2020 17:58:41 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 17:58:41 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 17:58:41 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 17:58:41 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 17:58:41 UTC] PHP Notice:  Undefined index: email in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 589
+[02-Jul-2020 17:58:41 UTC] PHP Notice:  Array to string conversion in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 17:58:41 UTC] PHP Notice:  Undefined variable: Array in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 17:58:41 UTC] PHP Notice:  Array to string conversion in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 17:58:41 UTC] PHP Notice:  Undefined variable: Array in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 17:58:41 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 17:58:41 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 17:58:41 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'grandTotal' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:58:41 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'mode' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 17:58:41 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 17:58:41 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 18:00:12 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIProduct.php on line 194
+[02-Jul-2020 18:00:47 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 752
+[02-Jul-2020 18:00:47 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 18:00:47 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 18:00:47 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 18:00:47 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 18:00:47 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 761
+[02-Jul-2020 18:00:47 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 763
+[02-Jul-2020 18:00:47 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 18:00:47 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 18:00:47 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 773
+[02-Jul-2020 18:00:47 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 775
+[02-Jul-2020 18:00:47 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 18:00:47 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 802
+[02-Jul-2020 18:00:47 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 889
+[02-Jul-2020 18:00:55 UTC] PHP Notice:  Undefined index: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 566
+[02-Jul-2020 18:00:55 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 18:00:55 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 18:00:55 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 18:00:55 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 18:00:55 UTC] PHP Notice:  Undefined index: email in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 589
+[02-Jul-2020 18:00:55 UTC] PHP Notice:  Array to string conversion in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 18:00:55 UTC] PHP Notice:  Undefined variable: Array in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 18:00:55 UTC] PHP Notice:  Array to string conversion in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 18:00:55 UTC] PHP Notice:  Undefined variable: Array in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 18:00:55 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 18:00:55 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 18:00:55 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'grandTotal' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 18:00:55 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'mode' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 18:00:55 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 684
+[02-Jul-2020 18:00:55 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 687
+[02-Jul-2020 20:20:10 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIProduct.php on line 194
+[02-Jul-2020 20:20:34 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIProduct.php on line 194
+[02-Jul-2020 20:21:47 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 751
+[02-Jul-2020 20:21:47 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 758
+[02-Jul-2020 20:21:47 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 20:21:47 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 759
+[02-Jul-2020 20:21:47 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 20:21:47 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 760
+[02-Jul-2020 20:21:47 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 762
+[02-Jul-2020 20:21:47 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 764
+[02-Jul-2020 20:21:47 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:21:47 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 772
+[02-Jul-2020 20:21:47 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 774
+[02-Jul-2020 20:21:47 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:21:47 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 801
+[02-Jul-2020 20:21:47 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 888
+[02-Jul-2020 20:21:57 UTC] PHP Notice:  Undefined index: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 566
+[02-Jul-2020 20:21:57 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 20:21:57 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 20:21:57 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 20:21:57 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 20:21:57 UTC] PHP Notice:  Undefined index: email in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 589
+[02-Jul-2020 20:21:57 UTC] PHP Notice:  Array to string conversion in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 20:21:57 UTC] PHP Notice:  Undefined variable: Array in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 20:21:57 UTC] PHP Notice:  Array to string conversion in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 20:21:57 UTC] PHP Notice:  Undefined variable: Array in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 20:21:57 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 20:21:57 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 20:21:57 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'grandTotal' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:21:57 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'mode' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:21:57 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 20:21:57 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 20:31:06 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIProduct.php on line 194
+[02-Jul-2020 20:31:40 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 757
+[02-Jul-2020 20:31:40 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 764
+[02-Jul-2020 20:31:40 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 20:31:40 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 20:31:40 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 766
+[02-Jul-2020 20:31:40 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 766
+[02-Jul-2020 20:31:40 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 768
+[02-Jul-2020 20:31:40 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 770
+[02-Jul-2020 20:31:40 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:31:40 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 778
+[02-Jul-2020 20:31:40 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 780
+[02-Jul-2020 20:31:40 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:31:40 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 807
+[02-Jul-2020 20:31:40 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 894
+[02-Jul-2020 20:31:48 UTC] PHP Notice:  Undefined index: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 566
+[02-Jul-2020 20:31:48 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 20:31:48 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 20:31:48 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 20:31:48 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 20:31:48 UTC] PHP Notice:  Undefined index: email in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 589
+[02-Jul-2020 20:31:48 UTC] PHP Notice:  Array to string conversion in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 20:31:48 UTC] PHP Notice:  Undefined variable: Array in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 20:31:48 UTC] PHP Notice:  Array to string conversion in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 20:31:48 UTC] PHP Notice:  Undefined variable: Array in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 20:31:48 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 20:31:48 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 20:31:48 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'grandTotal' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:31:48 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'mode' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:31:48 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 20:31:48 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 20:37:12 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIProduct.php on line 194
+[02-Jul-2020 20:39:36 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 757
+[02-Jul-2020 20:39:36 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 764
+[02-Jul-2020 20:39:36 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 20:39:36 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 20:39:36 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 766
+[02-Jul-2020 20:39:36 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 766
+[02-Jul-2020 20:39:36 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 768
+[02-Jul-2020 20:39:36 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 770
+[02-Jul-2020 20:39:36 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:39:36 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 778
+[02-Jul-2020 20:39:36 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 780
+[02-Jul-2020 20:39:36 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:39:36 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 807
+[02-Jul-2020 20:39:36 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 894
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Undefined index: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 566
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Undefined index: email in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 589
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Array to string conversion in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Undefined variable: Array in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Array to string conversion in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Undefined variable: Array in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 20:39:45 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'grandTotal' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:39:45 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'mode' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Undefined variable: limit in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 175
+[02-Jul-2020 20:39:45 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 181
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 20:39:45 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 20:42:39 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 757
+[02-Jul-2020 20:42:39 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 764
+[02-Jul-2020 20:42:39 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 20:42:39 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 765
+[02-Jul-2020 20:42:39 UTC] PHP Notice:  Undefined variable: payerInfo in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 766
+[02-Jul-2020 20:42:39 UTC] PHP Notice:  Undefined variable:  in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 766
+[02-Jul-2020 20:42:39 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 768
+[02-Jul-2020 20:42:39 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 770
+[02-Jul-2020 20:42:39 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sessionId' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:42:39 UTC] PHP Notice:  Undefined variable: ref_id in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 778
+[02-Jul-2020 20:42:39 UTC] PHP Notice:  Undefined variable: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 780
+[02-Jul-2020 20:42:39 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'code' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:42:39 UTC] PHP Notice:  Undefined index: address_line_2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 807
+[02-Jul-2020 20:42:39 UTC] PHP Notice:  Undefined variable: shipping_discount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 894
+[02-Jul-2020 20:42:47 UTC] PHP Notice:  Undefined index: intent in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 566
+[02-Jul-2020 20:42:47 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 574
+[02-Jul-2020 20:42:47 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 575
+[02-Jul-2020 20:42:47 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 576
+[02-Jul-2020 20:42:47 UTC] PHP Notice:  Undefined index: amount in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 577
+[02-Jul-2020 20:42:47 UTC] PHP Notice:  Undefined index: email in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 589
+[02-Jul-2020 20:42:47 UTC] PHP Notice:  Array to string conversion in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 20:42:47 UTC] PHP Notice:  Undefined variable: Array in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 590
+[02-Jul-2020 20:42:47 UTC] PHP Notice:  Array to string conversion in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 20:42:47 UTC] PHP Notice:  Undefined variable: Array in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 591
+[02-Jul-2020 20:42:47 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 593
+[02-Jul-2020 20:42:47 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 595
+[02-Jul-2020 20:42:47 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'grandTotal' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:42:47 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'mode' cannot be null in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIdb.php on line 128
+[02-Jul-2020 20:42:47 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
+[02-Jul-2020 20:42:47 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
+[02-Jul-2020 21:23:57 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIProduct.php on line 194

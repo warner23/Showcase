@@ -29,15 +29,14 @@ $(document).ready(function(event){
                     startdrag = 0;
                 }
             });
-            WIScript.handleJsIds();
+            console.log(e.target.childNodes);
+
+            WIScript.handleJsIds(e);
             if(stopsave>0) stopsave--;
             startdrag = 0;
         },
         drop: function(event, ui ){
-            console.log(ui);
-             console.log(event);
-             var rand = Math.random();
-             $("#1").attr('id',rand);
+
         }
     });
 
@@ -53,9 +52,33 @@ $(document).ready(function(event){
             t.helper.css('width','100%');
             t.helper.css('display','block');
             t.helper.css('height','auto');
+
         },
-        stop: function() {
-            WIScript.handleJsIds();
+        stop: function(e, t) {
+            console.log(e.target.childNodes);
+            WIScript.handleJsIds(e);
+            if(stopsave>0) stopsave--;
+            startdrag = 0;
+        }
+    });
+
+    $(".sidebar-nav .callToAction").draggable({
+        connectToSortable: ".view",
+        helper: "clone",
+        handle: ".drag",
+        start: function(e,t) {
+            if (!startdrag) stopsave++;
+            startdrag = 1;
+        },
+        drag: function(e, t) {
+            t.helper.css('width','100%');
+            t.helper.css('display','block');
+            t.helper.css('height','auto');
+
+        },
+        stop: function(e, t) {
+            console.log(e.target.childNodes);
+            //WIScript.handleJsIds(e);
             if(stopsave>0) stopsave--;
             startdrag = 0;
         }
@@ -74,8 +97,7 @@ $(document).ready(function(event){
     $("#editorModal").click(function(e) {
         e.preventDefault();
         console.log("modaled");
-        $("#modal-editorModal-details").removeClass('hide').removeClass('fade');
-        $("#modal-editorModal-details").addClass('show');
+        $("#modal-editorModal-details").removeClass('hide').addClass('show');
 
         currenteditor = $(this).parent().parent().find('.view');
         var eText = currenteditor.html();
@@ -168,6 +190,11 @@ var WIScript = {};
 webpage = "";
 
 
+WIScript.test = function(t){
+    console.log("test"+t);
+     var c = t.child();
+     console.log(c); 
+}
  
 WIScript.supportstorage = function(){
     if (typeof window.localStorage=='object')
@@ -259,42 +286,136 @@ WIScript.redoLayout = function(){
     return false;
 }
 
-WIScript.handleJsIds = function(){
+WIScript.handleJsIds = function(e){
+    console.log(e);
+    console.log(e.target.childNodes[0].parentElement.attributes[1].nodeValue);
+    var ele = e.target.childNodes[0].parentElement.attributes[1].nodeValue;
+    
+    console.log(ele);
+    if($("#"+ele).hasClass('grid')){
+        console.log('grid found');
+        WIScript.handleGridsIds(e);
+    }else if ($("#"+ele).hasClass('base')) {
+        WIScript.handleBasesIds(e);
+    }else if ($("#"+ele).hasClass('javascript')) {
     WIScript.handleModalIds();
     WIScript.handleAccordionIds();
     WIScript.handleCarouselIds();
     WIScript.handleTabsIds();
-    WIScript.handleGridsIds();
-    WIScript.handleBasesIds();
+    }else if($("#"+ele).hasClass('module')){
+        WIScript.handleModuleIds(e);
+    }else if($("#"+ele).hasClass('action')){
+        WIScript.callToAction(e);
+    }
+
+    
+    
+
+}
+WIScript.handleModuleIds = function(e){
+
+    console.log(e.target.childNodes);
+    
+    //console.log(rand);
+
+    $("#changeImg").attr('id', 'contentPic');
+    $(".changeText").attr('id', 'contenttext');
+
+    var random = WIScript.randomNumber();
+
+    $.each($('.textMod'), function(i, val) { 
+        var rand = WIScript.randomNumber();
+    $(this).before('<button id="editorModal'+rand+'" onclick="WIScript.Editor(`'+rand+'`);" class="btn btn-mini">Editor</button>');
+    $(this).attr('id', rand);
+    $(this).removeClass('textMod');
+    });
+
+    $.each($('.picMod'), function(i, val) { 
+        var rand = WIScript.randomNumber();
+    $(this).before('<button id="changePic" onclick="WIMedia.changePic(`media-edit`,`'+random+'`)">Change Pic</button>');
+    $(this).attr('id', random);
+    $(this).removeClass('picMod');
+    });
+
+    $.each($('.newpic'), function(i, val) { 
+        var rand = WIScript.randomNumber();
+    $(this).attr('value', random);
+    $(this).attr('id', random);
+    $(this).removeClass('newpic');
+
+    });
 
 }
 
-WIScript.handleGridsIds = function(){
-    console.log("grid id");
-        var e = $(".WI #WIattrsPanels");
-        var c = $(".WI .edit");
+WIScript.handleGridsIds = function(e){
+    console.log(e.target.childNodes);
+    var groupActions = e.target.childNodes[3].attributes[1].nodeValue;
+    var columns = e.target.childNodes[11].attributes[1].nodeValue;
+    var target_id = e.target.childNodes[1].attributes[1].nodeValue;
+     
+
     var t = WIScript.randomNumber();
-    var n = "attrsPanels-" + t;
-    var i = "edit-" + t;
-    e.attr("id", n);
-    c.attr("id", t);
-    c.attr("class", i )
+    $("#"+groupActions).attr('id',target_id);
+    var id = $(".WI .rowActions").attr('id');
+    $("#"+id).addClass('groupActions-'+t);
+    $("#"+id).attr('id', t);
+    $(".groupActions-"+t).removeClass('hide').addClass('show');
+
+    $("#"+columns).attr('id',target_id);
+    var cid = $(".WI .column-actions").attr('id');
+    $("#"+cid).addClass('actions-'+t)
+    $(".actions-"+t).removeClass('hide').addClass('show');
+
 }
 
-WIScript.handleBasesIds = function(){
-    console.log("base id");
-        var e = $(".WI #WIFieldId");
+WIScript.handleBasesIds = function(e){
+    console.log(e.target.childNodes);
+    var fieldActions = e.target.childNodes[5].attributes[1].nodeValue;
+    var target_id = e.target.childNodes[1].attributes[0].nodeValue;
+    var fieldAtt = e.target.childNodes[7].attributes[1].nodeValue;
+    console.log(fieldAtt);
+    var t = WIScript.randomNumber();
+     $("#"+fieldActions).attr('id',target_id);
+     var id = $(".WI .fieldActions").attr('id');
+     $("#"+id).addClass('fieldActions-'+t);
+     $("#"+id).attr('id', t);
+    console.log(target_id);
+     var attId = WIScript.randomNumber();
+        $("#"+fieldAtt).attr('id',target_id);
+        var Fid = $(".WI .panelsWrap").attr('id');
+        $("#"+Fid).addClass('panelsWrap-'+attId);
+        console.log(Fid);
+        $("#"+Fid).attr('id', attId);
+        console.log(attId);
+        var button = $(".item_editToggle");
+        var n = "FieldId-" + t;
+        var i = "fieldEdit-" + t;
+        button.attr('onclick', 'WIPageBuilder.editAttr(`'+attId+'`);');
+
+    $.ajax({
+        url: "WICore/WIClass/WIAjax.php",
+        type: "GET",
+        data: {
+            action : "addAttr"
+        },
+        success: function(result)
+        {
+            
+            $(".fieldActions-"+t).removeClass('hide').addClass('show');
+            $("#"+attId).html(result);
+
+            var e = $(".WI #WIFieldId");
         var c = $(".WI .fieldEdit");
         var f = $(".WI #changeFont");
         var image = $(".WI #mediaPic");
-    var t = WIScript.randomNumber();
-    var n = "FieldId-" + t;
-    var i = "fieldEdit-" + t;
+            
     e.attr("id", n);
-    c.attr("id", t);
     c.attr("class", i );
     f.attr("id", WIScript.randomNumber() ).removeAttr("changeFont");
     image.attr("id", WIScript.randomNumber() ).removeAttr("mediaPic");
+        }
+    });
+        
 
 }
 
@@ -342,7 +463,7 @@ WIScript.handleModalIds = function(){
 
 
 WIScript.handleTabsIds = function(){
-        var e = $(".WI #WITabs");
+    var e = $(".WI #WITabs");
     var t = WIScript.randomNumber();
     var n = "tabs-" + t;
     e.attr("id", n);
@@ -352,9 +473,12 @@ WIScript.handleTabsIds = function(){
         //console.log(n);
         var r = "panel-" + WIScript.randomNumber();
         //$(t).attr("id", r);
+        $(".addon").attr("href", "#" + r)
         console.log($(t).parent().parent().children().find("a href"));
-        $(t).parent().parent().find("a href=#" + n).attr("href", "#" + r);
+       // $(t).parent().parent().find("a href=#" + n).attr("href", "#" + r);
     });
+    console.log($("#"+n).parent());
+    $("#"+n).parent().append('<script>$( function() {$( "#"'+n+').tabs();}));</script>');
 
 }
 
@@ -461,29 +585,35 @@ WIScript.BaseEdit = function(name){
     }
 }
 
-WIScript.Editor = function(){
 
-        $("#modal-editorModal-details").removeClass('hide').removeClass('fade');
-        $("#modal-editorModal-details").addClass('show');
-
-        var t = $(event.target);
+WIScript.Editor = function(selector){
+    console.log('click');
+        $("#modal-editorModal-details").removeClass('hide').addClass('show');
+        
+        /*var t = $(event.target);
         var c = $(event.target).closest('view');
         currenteditor = $(event.target).parent().parent().parent().find('.view');
         editor = $(event.target).parent().parent().parent().parent().find('.box');
-        editor.attr('id', "editorId");
+        editor.attr('id', "editorId");*/
+        WIWYSIWYG.palettes();
+        var eText = $("#"+selector).html();
+        $('#editor-area').empty().html(eText);
+        var button = $("#modalEditorButton");
+        $("#modalEditorButton").attr('onclick', 'WIScript.SaveContent(`'+selector+'`);');
 
-        var eText = currenteditor.html();
-        $('#contenteditor').empty().html(eText);
 }
 
 
-WIScript.SaveContent = function(){
+WIScript.SaveContent = function(selector){
 
-        var c = $('#contenteditor').html();
-        var id = $('#editorId');
-        id.children('.view').empty().html(c);
-        $("#modal-editorModal-details").removeClass('show');
-        $("#modal-editorModal-details").addClass(
+       
+        var d = $('#editor-area').val();
+       
+        console.log(d);
+         console.log(selector);
+
+        $("div#"+selector).html(d);
+        $("#modal-editorModal-details").removeClass('show').addClass('hide');
 }
 
 WIScript.downloadLayoutSrc = function(){
@@ -492,6 +622,8 @@ WIScript.downloadLayoutSrc = function(){
     var d = $("#download-layout").children().html($(".WI").html() );
 
     var t = $("#download-layout").children();
+    console.log(d);
+    console.log(t);
     t.find(".preview, .configuration, .drag, .remove").remove();
     t.find(".wicreate").addClass("row-fluid clearfix");
     t.find(".wicreate").removeClass("ui-draggable wicreate");
@@ -500,15 +632,20 @@ WIScript.downloadLayoutSrc = function(){
     t.find(".optset").remove();
     t.find(".panel-nav").remove();
 
+     t.find(".rowActions").remove();
+      t.find(".groupConfig").remove();
+      t.find(".column-actions").remove();
+      t.find("#changePic").remove();
+
     t.find(".view").addClass("col-lg-12 col-md-12 col-sm-12");
     t.find(".view").removeClass("view");
 
-    t.find(".box-element").addClass("col-lg-12 col-md-12 col-sm-12");
-    t.find(".box-element").removeClass("box ui-draggable box-element");
-/*    t.find(".box-element").removeClass("ui-draggable");
-    t.find(".box-element").removeClass("box-element");*/
-
+    t.find(".box-element").addClass("col-lg-12 col-md-12 col-sm-12").removeClass("box-element");
+    t.find("#editorModal").remove();
     t.find(".WIattrsPanels").remove();
+
+    var src = $("img#pagePic").attr('src');
+    t.find("img#pagePic").attr('src',"WIAdmin/"+src);
 
     $("#download-layout .column").removeClass("ui-sortable");
     $("#download-layout .row-fluid").removeClass("clearfix").children().removeClass("column");
@@ -653,7 +790,7 @@ WIScript.saveHtml = function(){
                 $("#modal-downloadingModal-details").addClass("hide")
                 $(".in").removeClass("modal-backdrop")
                  WICore.displaySuccessfulMessage($("#wresults"), res.msg); 
-                 WICore.Refresh();               
+                // WICore.Refresh();               
             }
         }
     });

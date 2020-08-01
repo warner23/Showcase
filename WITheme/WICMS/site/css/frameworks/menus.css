@@ -11,6 +11,7 @@
 .mainMenu li{
     display: inline-block;
     float: left;
+    height: 40px;
 }
 
 .mainMenu a{

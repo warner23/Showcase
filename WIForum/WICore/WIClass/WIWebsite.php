@@ -105,6 +105,7 @@ class WIWebsite
                 <html class="no-js" lang="en">
                 <head>   
                   <title>' . WEBSITE_NAME. ' </title>
+                 
                   <meta charset="utf-8">';
     }
 

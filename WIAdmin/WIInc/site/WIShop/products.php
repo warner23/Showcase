@@ -1,26 +1,23 @@
   <form class="form-horizontal" id="product">
                       <fieldset>
                       <div id="legend">
-                        <legend class="">Add Product</legend>
+                        <legend class="">Product</legend>
                       </div>  
+                      <div id="pstatus"></div>
 
 
                        <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12">
-
+                        <input type="hidden" name="user_id" id="user_id"value="<?php echo WISession::get('user_id'); ?>">
                         <div class="col-sm-6 col-lg-6 col-md-6 col-xs-6">
                       <div class="form-group">
                         <!-- Username -->
-                        <label class="control-label col-sm-6 col-lg-6 col-md-6 col-xs-6"  for="categories">Category:</label>
-                        <div class="controls col-sm-6 col-lg-6 col-md-6 col-xs-6">
-                         <h4 class="modal-title" id="modal-categories">
-                    <?php echo WILang::get('Pick_Category'); ?>
-                  </h4>
-                </div>
+                        
                 <div class="modal-body" id="details-body">
+
                     <?php $categories = $WIdb->select("SELECT * FROM `wi_categories`"); ?>
                     <?php if(count($categories) > 0): ?>
                       <p><?php echo WILang::get('Pick_Category'); ?>:</p>
-                      <select id="select-user-role" class="form-control" style="width: 100%;">
+                      <select id="cat_Selector" class="form-control" style="width: 100%;">
                       <?php foreach($categories as $category): ?>
                           <option value="<?php echo $category['cat_id']; ?>">
                             <?php echo e(ucfirst($category['title'])); ?>
@@ -35,19 +32,13 @@
                       <div class="col-sm-6 col-lg-6 col-md-6 col-xs-6">
 
                         <div class="form-group">
-                        <!-- Password-->
-                        <label class="control-label col-lg-4" for="brands">Brand:</label>
-                        <div class="controls col-lg-8">
-                         
-                  <h4 class="modal-title" id="modal-brands">
-                    <?php echo WILang::get('Pick_Brand'); ?>
-                  </h4>
-                </div>
+                        
+                       
                 <div class="modal-body" id="details-body">
                     <?php $brands = $WIdb->select("SELECT * FROM `wi_brands`"); ?>
                     <?php if(count($brands) > 0): ?>
                       <p><?php echo WILang::get('Pick_Brand'); ?>:</p>
-                      <select id="select-user-role" class="form-control" style="width: 100%;">
+                      <select id="brand_selector" class="form-control" style="width: 100%;">
                       <?php foreach($brands as $brand): ?>
                           <option value="<?php echo $brand['brand_id']; ?>">
                             <?php echo e(ucfirst($brand['title'])); ?>
@@ -60,16 +51,17 @@
                         </div>
                       </div>
 
-                        <div class="col-sm-4 col-lg-4 col-md-4 col-xs-4">
+                        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-6">
                           <style>
-#dragandrophandler
-{
-border:2px dotted #0B85A1;
-color:#92AAB0;
-text-align:left;vertical-align:middle;
-padding:10px 10px 10 10px;
-margin-bottom:10px;
-font-size:200%;
+
+#productdragandrophandler{
+  border: 2px dotted #0B85A1;
+    color: #92AAB0;
+    text-align: left;
+    vertical-align: middle;
+    padding: 10px 10px 10 10px;
+    margin-bottom: 10px;
+    font-size: 200%;
 }
 .progressBar {
     height: 22px;
@@ -125,36 +117,90 @@ margin-right:5px;
     vertical-align:top
     }
 </style>
-                         <div id="dragandrophandler">Drag & Drop Files Here</div>
+                          <div>
+                            <div id="product_pic">
+                          <img src="../../WIAdmin/WIMedia/Img/shop/products/default.png" class="img-responsive product cp">
+                          </div>
+                          <a href="javascript:void(0);" id="change" onclick="WIMedia.changePic('product-edit')"><span>Change Product Photo</span>
+                          </a>
+                          </div>
                           <br><br>
                          
                         </div>
 
-                        <div class="col-sm-8 col-lg-8 col-md-8 col-xs-8">
+                        <div class="col-sm-6 col-lg-6 col-md-6 col-xs-6">
 
                           <div class="form-group">
                         <!-- Password-->
                         <label class="control-label col-lg-4" for="title">Title:</label>
-                        <div class="controls col-lg-8">
+                        <div class="col-lg-8">
                           <input type="text" id="title" maxlength="100" name="title" placeholder="title" class="input-xlarge form-control" value="title">
                         </div>
                       </div>
 
                       <div class="form-group">
                         <!-- Password-->
-                        <label class="control-label col-lg-4" for="descrption">Description:</label>
-                        <div class="controls col-lg-8">
-                          <input type="text" id="descrption" maxlength="100" name="descrption" placeholder="descrption" class="input-xlarge form-control" value="descrption">
+                        <label class="control-label col-lg-4" for="meta_title">Meta Title ( for SEO ):</label>
+                        <div class="col-lg-8">
+                          <input type="text" id="meta_title" maxlength="100" name="title" placeholder="meta title" class="input-xlarge form-control" value="meta_title">
                         </div>
+                      </div>
+
+                      <div class="form-group">
+                        <!-- Password-->
+                        <label class="control-label col-lg-4" for="Description">Description:</label>
+                        <div class="col-lg-8">
+                          <textarea type="text" id="description" maxlength="100" name="description" placeholder="description" class="input-xlarge form-control" value="description">
+                        </textarea>
                       </div>
 
                      <div class="form-group">
                         <!-- Password-->
                         <label class="control-label col-lg-4" for="price">Price:</label>
-                        <div class="controls col-lg-8">
+                        <div class="col-lg-8">
                           <input type="text" id="price" maxlength="100" name="price" placeholder="price" class="input-xlarge form-control" value="price">
                         </div>
                       </div>
+
+                      <div class="form-group">
+                        <!-- Password-->
+                        <label class="control-label col-lg-4" for="shipping">Shipping:</label>
+                        <div class="col-lg-8">
+                          <input type="text" id="shipping" maxlength="100" name="shipping" placeholder="shipping" class="input-xlarge form-control" value="shipping">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <!-- Password-->
+                        <label class="control-label col-lg-4" for="Quantity">Quantity:</label>
+                        <div class="col-lg-8">
+                          <input type="text" id="quantity" maxlength="100" name="quantity" placeholder="quantity" class="input-xlarge form-control" value="quantity">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <!-- Password-->
+                        <label class="control-label col-lg-4" for="discount">discount:</label>
+                        <div class="col-lg-8">
+                          <input type="text" id="discount" maxlength="100" name="discount" placeholder="discount" class="input-xlarge form-control" value="discount">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group">
+                        <!-- Password-->
+                        <label class="control-label col-lg-4" for="sku">sku:</label>
+                        <div class="col-lg-8">
+                          <input type="text" id="sku" maxlength="100" name="sku" placeholder="sku" class="input-xlarge form-control" value="sku">
+                        </div>
+                      </div>
+
+
+
+
+
+                      <button class="btn" id="NewProduct" onclick="WIProduct.NewProduct();">Save</button>
+
                         </div>
 
                         
@@ -163,8 +209,33 @@ margin-right:5px;
                       
                       </form>
 
-                    
 
+                     <script type="text/javascript">
+
+                      $('#cat_Selector').on('change', function() {
+                          //alert( this.value );
+
+                          var mailer  = $("#cat_Selector").val();
+                          //alert(mailer);
+
+                        if( mailer === "smtp"){
+                          $("#smtp-wrapper").css("display", "block");
+                          $("#email-settings").attr("id","email-settings-smtp");
+                        }else{
+                           $("#smtp-wrapper").css("display", "none");
+                           $("#email-settings-smtp").removeAttr("id","email-settings-smtp");
+                           $(".btn").attr("id","email-settings");
+                        }
+                        })
+
+                        
+                      </script>
+<?php  
+ $modal->moduleModal('product-edit', 'Change Product', 'WIMedia', 'changeProductPic','Save'); 
+ $modal->moduleModal('product-media', 'Change Media', 'WIMedia', 'ProductPics','Save'); 
+ $modal->moduleModal('product-upload', 'Upload Media', 'WIMedia', 'UploadProductPics','Save'); 
+
+?>
                     
 
                         

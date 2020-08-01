@@ -42,7 +42,7 @@
                         <br /><br />
                   </form>
 <?php
-$modal->moduleModal('add-css', 'Add CSS', 'WICSS', 'addCss','Save'); 
-$modal->moduleModal('edit-css', 'edit CSS', 'WICSS', 'editCss','Save'); 
-$modal->moduleModal('delete-css', 'Delete CSS', 'WICSS', 'deleteCss','Save'); 
+$modal->moduleModal('add-css', 'Add CSS', 'WICSS', 'addCss','Save',''); 
+$modal->moduleModal('edit-css', 'edit CSS', 'WICSS', 'editCss','Save',''); 
+$modal->moduleModal('delete-css', 'Delete CSS', 'WICSS', 'deleteCss','Save',''); 
 ?>

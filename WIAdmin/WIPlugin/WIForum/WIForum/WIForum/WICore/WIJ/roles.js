@@ -3,11 +3,11 @@
 var roles = {};
 
 roles.addRole = function () {
-	wiengine.removeErrorMessages();
+	WICore.removeErrorMessages();
 	var role = $("#role-name");
 
 	if($.trim(role.val()) == "") {
-		wiengine.displayErrorMessage(role);
+		WICore.displayErrorMessage(role);
 		return;
 	}
 
@@ -35,7 +35,7 @@ roles.addRole = function () {
 					$(".roles-table").append(html);
 				}
 				else
-					wiengine.displayErrorMessage(role, res.message);
+					WICore.displayErrorMessage(role, res.message);
 			}
 			catch(e) {
 				alert($_lang.error_updating_db)

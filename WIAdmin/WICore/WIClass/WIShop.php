@@ -18,33 +18,107 @@ class WIShop
 
     public function Cat()
     {
-    //echo "recieved";
-    $query = $this->WIdb->prepare('SELECT * FROM `wi_categories`');
-    $query->execute();
-    //var_dump($query);
-    echo '<div class="nav nav-pills nav-stacked">
-    <li class="active"><a href="#"><h4>Categories</h4></li>';
-    while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
-        echo '<li><a href="#" class="category" cid="' . $result['cat_id']. '">' . $result['title'] . '</li>';
+
+         echo '<div class="nav nav-pills nav-stacked">
+           <li class="active">
+           <a href="javascript:void(0);">
+           <h4>Categories</h4></a>
+           </li>';
+
+         $result = $this->WIdb->select('SELECT * FROM `wi_categories`');
+
+         foreach($result as $res){
+        echo '<li>
+        <a href="javascript:void(0);" class="category" cid="' . $res['cat_id']. '">' . $res['title'] . '</a>
+
+
+        </li>';
+         }
+    
+       echo '</div>';
     }
-    echo '</div>';
 
-
-
+    public function EditCat()
+    {
+        echo '
+        <style>
+        ul, ol{ display:inline-block; vertical-align:top; margin:5%; padding:0; }
+li{
+  max-width:170px; margin-bottom:8px;
+  a{ margin-left:5px; cursor:pointer;
+    &:hover{ text-decoration:none; }
+    &::before{
+      color:red;
+      content:"\00D7";
+    }
+  }
 }
 
+.repoLink{ position:absolute; top:10px; right:10px; font-weight:700; }
+        </style>';
+         echo '<section>
+            <h4>Categories</h4>
+             <ol id="catList">';
+
+         $result = $this->WIdb->select('SELECT * FROM `wi_categories`');
+
+         foreach($result as $res){
+        echo '<li><span contenteditable>' . $res['title'] . '</span></li>';
+         }
+    
+       echo '</ol>
+        </section>';
+    }
 
     public function Brand()
     {
-    
-    $query = $this->WIdb->prepare('SELECT * FROM wi_brands');
-        $query->execute();
         echo '<div class="nav nav-pills nav-stacked">
-    <li class="active"><a href="#"><h4>Brands</h4></li>';
-        while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
-            echo '<li><a href="#" class="brand" bid="' . $result['brand_id'] . '">' . $result['title'] . '</li>';
+    <li class="active">
+    <a href="javascript:void(0);">
+    <h4>Brands</h4>
+    </li>';
+
+        $result = $this->WIdb->select('SELECT * FROM wi_brands');
+
+         foreach($result as $res){
+            echo '<li>
+            <a href="javascript:void(0);" class="brand" bid="' . $res['brand_id'] . '">' . $res['title'] . '
+            </li>';
         }
         echo '</div>';
+
+    }
+
+    public function EditBrand()
+    {
+         echo '
+        <style>
+        ul, ol{ display:inline-block; vertical-align:top; margin:5%; padding:0; }
+li{
+  max-width:170px; margin-bottom:8px;
+  a{ margin-left:5px; cursor:pointer;
+    &:hover{ text-decoration:none; }
+    &::before{
+      color:red;
+      content:"\00D7";
+    }
+  }
+}
+
+.repoLink{ position:absolute; top:10px; right:10px; font-weight:700; }
+        </style>';
+         echo '<section>
+            <h4>Categories</h4>
+             <ol id="brandList">';
+
+        $result = $this->WIdb->select('SELECT * FROM wi_brands');
+
+         foreach($result as $res){
+          echo '<li><span contenteditable>' . $res['title'] . '</span></li>';
+         }
+    
+       echo '</ol>
+        </section>';
 
     }
     
@@ -70,13 +144,14 @@ class WIShop
         //get starting position to fetch the records
         $page_position = (($page_number-1) * $item_per_page);
 
-        $sql = "SELECT * FROM `wi_products` ORDER BY RAND() ASC LIMIT :page, :item_per_page";
-        $query = $this->WIdb->prepare($sql);
-        $query->bindParam(':page', $page_position, PDO::PARAM_INT);
-        $query->bindParam(':item_per_page', $item_per_page, PDO::PARAM_INT);
-        $query->execute();
+        $results = $this->WIdb->select(
+                    "SELECT * FROM `wi_product` ORDER BY RAND() ASC LIMIT :page, :item_per_page",
+                     array(
+                       "page" => $page_position,
+                       "item_per_page" => $item_per_page,
+                ));
 
-        while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
+        foreach($results as $res) {
             echo '  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
         <a class="product_link" href="product.php" id="' . $result['product_id'] . '">
         <div class="panel panel-info" id="' . WISession::get('user_id') . '">
@@ -103,10 +178,14 @@ class WIShop
 
     public function productInfo($id)
     {
-        $query = $this->WIdb->prepare('SELECT * FROM wi_products WHERE `product_id`=:id');
-        $query->bindParam(':id', $id, PDO::PARAM_INT);
-        $query->execute();
-        while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
+
+        $results = $this->WIdb->select(
+                    "SELECT * FROM wi_products WHERE `product_id`=:id'",
+                     array(
+                       "id" => $id
+                ));
+
+        foreach($results as $res) {
             echo '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div id="product_msg"></div>
                             <img class="img-responsive" id="image" src="../../WIAdmin/WIMedia/Img/shop/' . $result['product_image']. '">
@@ -140,10 +219,14 @@ class WIShop
     
     public function selectCat($cid)
     {
-        $query = $this->WIdb->prepare('SELECT * FROM wi_products WHERE product_cat = :cid');
-        $query->bindParam(':cid', $cid, PDO::PARAM_INT);
-        $query->execute();
-        while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
+
+         $results = $this->WIdb->select(
+                    "SELECT * FROM wi_products WHERE product_cat = :cid",
+                     array(
+                       "cid" => $cid
+                ));
+
+        foreach($results as $res) {
             echo '  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
         <div class="panel panel-info">
         <div class="panel-heading">' . $result['product_title'] . '</div>
@@ -162,10 +245,14 @@ class WIShop
 
     public function selectBrand($bid)
     {
-        $query = $this->WIdb->prepare('SELECT * FROM wi_products WHERE product_brand = :bid');
-        $query->bindParam(':bid', $bid, PDO::PARAM_INT);
-        $query->execute();
-        while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
+
+        $results = $this->WIdb->select(
+                    "SELECT * FROM wi_products WHERE product_brand = :bid",
+                     array(
+                       "bid" => $bid
+                ));
+
+        foreach($results as $res) {
             echo '  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
         <div class="panel panel-info">
         <div class="panel-heading">' . $result['product_title'] . '</div>
@@ -184,9 +271,10 @@ class WIShop
 
     public function Search($keywords)
     {
-        $query = $this->WIdb->prepare('SELECT * FROM wi_products');
-        $query->execute();
-        while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
+
+        $results = $this->WIdb->select("SELECT * FROM wi_products");
+
+        foreach($results as $res) {
             echo '  <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
         <div class="panel panel-info">
         <div class="panel-heading">' . $result['product_title'] . '</div>
@@ -283,10 +371,132 @@ class WIShop
             echo json_encode ($result);  
         }
 
+    }
+
+    public function prependNewItem($newItem)
+    {
+        $this->WIdb->insert('wi_categories', array(
+            "title" => $newItem
+        ));
+
+        $msg = "You have successful added a new category" .$newItem;
+        $result = array(
+         "status" => "successful",
+         "msg"    => $msg 
+        ); 
+
+        echo json_encode($result);
+    }
+
+        public function appendNewItem($newItem)
+    {
+        $this->WIdb->insert('wi_categories', array(
+            "title" => $newItem
+        ));
+
+        $msg = "You have successful added a new category" .$newItem;
+        $result = array(
+         "status" => "successful",
+         "msg"    => $msg 
+        ); 
+
+        echo json_encode($result);
+    }
 
 
+    public function prependbrandNewItem($newItem)
+    {
+        $this->WIdb->insert('wi_brands', array(
+            "title" => $newItem
+        ));
+
+        $msg = "You have successful added a new Brand" .$newItem;
+        $result = array(
+         "status" => "successful",
+         "msg"    => $msg 
+        ); 
+
+        echo json_encode($result);
+    }
+
+        public function appendbrandNewItem($newItem)
+    {
+        $this->WIdb->insert('wi_brands', array(
+            "title" => $newItem
+        ));
+
+        $msg = "You have successful added a new Brand" .$newItem;
+        $result = array(
+         "status" => "successful",
+         "msg"    => $msg 
+        ); 
+
+        echo json_encode($result);
+    }
+
+    public function getProdShipping()
+    {
+        $result = $this->WIdb->select("SELECT * FROM `wi_shipping`");
 
 
+                 echo '
+        <style>
+        ul, ol{ display:inline-block; vertical-align:top; margin:5%; padding:0; }
+        li{
+          max-width:170px; margin-bottom:8px;
+          a{ margin-left:5px; cursor:pointer;
+            &:hover{ text-decoration:none; }
+            &::before{
+              color:red;
+              content:"\00D7";
+            }
+          }
+        }
+
+        .repoLink{ position:absolute; top:10px; right:10px; font-weight:700; }
+                </style>';
+                 echo '<section>
+            <h4>Shipping Options</h4>
+             <ol id="shippingList">';
+
+         foreach($result as $res){
+          echo '<li><span contenteditable>' . $res['name'] . '</span></li>';
+         }
+    
+       echo '</ol>
+        </section>';
+
+    }
+
+
+        public function prependshippingNewItem($newItem)
+    {
+        $this->WIdb->insert('wi_shipping', array(
+            "name" => $newItem
+        ));
+
+        $msg = "You have successful added a new Brand" .$newItem;
+        $result = array(
+         "status" => "successful",
+         "msg"    => $msg 
+        ); 
+
+        echo json_encode($result);
+    }
+
+        public function appendshippingNewItem($newItem)
+    {
+        $this->WIdb->insert('wi_shipping', array(
+            "name" => $newItem
+        ));
+
+        $msg = "You have successful added a new Brand" .$newItem;
+        $result = array(
+         "status" => "successful",
+         "msg"    => $msg 
+        ); 
+
+        echo json_encode($result);
     }
 
 

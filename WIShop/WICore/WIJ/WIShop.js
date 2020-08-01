@@ -3,6 +3,37 @@ $(document).ready(function(){
     WIShop.brand();
     WIShop.products();
 
+
+    $("body").delegate(".attr,.attr2", "click", function(event){
+            var clase = $(this).attr("class");
+
+                $("." + clase).removeClass("active");
+                $(this).addClass("active");
+        });
+
+        $("body").delegate(".btn-minus", "click", function(event){
+            //var now = $(".section > div > input").val();
+            var now = $("#quantity").val();
+            console.log(now);
+                if ($.isNumeric(now)){
+                    if (parseInt(now) -1 > 0){ now--;}
+                    console.log(now);
+                    $("#quantity").val(now);
+                }else{
+                    $("#quantity").val("1");
+                }
+        });
+
+        
+        $("body").delegate(".btn-plus", "click", function(event){
+                var now = $(".section > div > input").val();
+                if ($.isNumeric(now)){
+                    $(".section > div > input").val(parseInt(now)+1);
+                }else{
+                    $(".section > div > input").val("1");
+                }
+            });
+
     $("body").delegate("a.product_link", "click", function(event){
             var product_id     = this.id;
             //alert(product_id);

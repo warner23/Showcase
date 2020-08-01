@@ -20,6 +20,7 @@
                             <!-- input box's box -->
                             <div class="modal-body">
 
+
             <div class="well">
               <?php  $perm->ForumPermissionTabs(); ?>
 

@@ -210,6 +210,13 @@ width: 100%;
         color: white;
 }
 
+.elementsM{
+    font-size: 13px;
+    text-align: -webkit-center;
+    margin: 8px 0px 0px 0px;
+        color: white;
+}
+
 .offsetleft10{
       margin-left: -182px;
 }
@@ -254,7 +261,7 @@ width: 100%;
           </li>
 
           <li>
-            <div class="controls col-lg-9">
+            <div class="col-lg-9">
           <input type="text" name="edit_mod_name" id="edit_mod_name" placeholder="Module Name" class="input-xlarge form-control"  autofocus>
           </div>
           </li>
@@ -356,7 +363,7 @@ width: 100%;
 
          <?php  
 
- $modal->moduleModal('editdownloadingModal', 'Save', 'WIScript', 'saveHtml','Save'); 
+ $modal->moduleModal('editdownloadingModal', 'Save', 'WIScript', 'saveHtml','Save',''); 
 
    ?>
 

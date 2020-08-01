@@ -14,15 +14,23 @@ class call_to_action
 	public function Install($element_name)
 	{
 		$author = "Jules Warner";
-		$type = "Common Fields";
+		$type = "action";
 		$font = "wi_" . $element_name;
 		$power = "power_on";
+		$module = '<div class="preview">Call To Action</div>
+                    <div class="view">
+                    <div class="overlay">
+                    <div class="ao"><button onclick="WIScript.callToAction();">Call To Action</button></div>
+                    </div>
+                    </div>
+                    ';
 		$this->WIdb->insert('wi_elements', array(
             "element_name" => $element_name,
             "element_author" => $author,
             "element_type" => $type,
             "element_font" => $font,
-            "element_powered" => $power
+            "element_powered" => $power,
+            "element"         => $module
         )); 
 	}
 

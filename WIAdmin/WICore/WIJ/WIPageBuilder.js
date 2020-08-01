@@ -33,12 +33,34 @@ WIPageBuilder.Rotate = function(){
 	$(".elementsJ").removeClass('off').addClass('on');
 	$( "#forms" ).removeClass('on').addClass('off');
 	$( "#javascript" ).removeClass('off').addClass('on');
-    }	
+    }else if($(".elementsJ").hasClass('on') ) {
+    	console.log('click');
+	$(".elementsJ").removeClass('on').addClass('off');
+	$(".elementsM").removeClass('off').addClass('on');
+	$( "#javascript" ).removeClass('on').addClass('off');
+	$( "#modulesM" ).removeClass('off').addClass('on');
+    }else if($(".elementsM").hasClass('on') ) {
+    	console.log('click');
+	$(".elementsM").removeClass('on').addClass('off');
+	$(".elementsA").removeClass('off').addClass('on');
+	$( "#modulesM" ).removeClass('on').addClass('off');
+	$( "#actionsA" ).removeClass('off').addClass('on');
+    }
 }
 
 WIPageBuilder.RotateX = function(){
 	
-	    if ($(".elementsJ").hasClass('on') ) {
+	  if ($(".elementsA").hasClass('on') ) {
+	$(".elementsA").removeClass('on').addClass('off');
+	$(".elementsM").removeClass('off').addClass('on');
+	$( "#actionsA" ).removeClass('on').addClass('off');
+	$( "#modulesM" ).removeClass('off').addClass('on');
+    }else if ($(".elementsM").hasClass('on') ) {
+	$(".elementsM").removeClass('on').addClass('off');
+	$(".elementsJ").removeClass('off').addClass('on');
+	$( "#modulesM" ).removeClass('on').addClass('off');
+	$( "#javascript" ).removeClass('off').addClass('on');
+    }else if ($(".elementsJ").hasClass('on') ) {
 	$(".elementsJ").removeClass('on').addClass('off');
 	$(".elementsF").removeClass('off').addClass('on');
 	$( "#javascript" ).removeClass('on').addClass('off');
@@ -81,4 +103,17 @@ WIPageBuilder.clone = function(){
 
 WIPageBuilder.delete= function(){
 $( "#dropStage" ).remove()
+}
+
+WIPageBuilder.editAttr = function(id){
+	if($("#"+id).hasClass('editMode')){
+		$("#"+id).css('display','none');
+        $("#"+id).removeClass('editMode');
+        $(".fieldActions").css('top','-96%');
+	}else{
+		$("#"+id).css('display','block');
+        $("#"+id).addClass('editMode');
+        $(".fieldActions").css('top','-38%');
+	}
+
 }

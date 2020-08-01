@@ -64,7 +64,7 @@ var cookieName = 'wide';
 
 function changeLayout(layout) {
 $.cookie(cookieName, layout);
-$('head link[data-name=layout]').attr('href', 'WITheme/OSDP/site/css/layout/' + layout + '.css');
+$('head link[data-name=layout]').attr('href', 'css/layout/' + layout + '.css');
 }
 
 if( $.cookie(cookieName)) {
@@ -75,15 +75,11 @@ $("#wide").click( function(){ $
 changeLayout('wide');
 });
 
-$("#boxed").click( function(event){ 
-  event.preventDefault()
+$("#boxed").click( function(){ $
 changeLayout('boxed');
-$(".bg").removeClass('hidden');
-
 });
 
 });
-
 
 
 
@@ -412,7 +408,7 @@ var cookieName = 'default';
 
 function changeLayout(layout) {
 $.cookie(cookieName, layout);
-$('head link[data-name=skins]').attr('href', 'WITheme/OSDP/site/css/skins/' + layout + '.css');
+$('head link[data-name=skins]').attr('href', 'css/skins/' + layout + '.css');
 }
 
 if( $.cookie(cookieName)) {

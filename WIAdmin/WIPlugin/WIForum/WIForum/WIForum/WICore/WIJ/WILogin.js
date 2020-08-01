@@ -58,7 +58,7 @@ login.loginUser = function (data) {
         success: function (result) {
            WICore.removeLoadingButton(btn);
            if( result.status === 'success' )
-               window.location = result.page;
+               window.location.reload();
            else {
                WICore.displayErrorMessage($("#login-username"));
                WICore.displayErrorMessage($("#login-password"), result.message);

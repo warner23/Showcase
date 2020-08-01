@@ -66,13 +66,13 @@
 
    <?php 
 
-    $modal->moduleModal('new-cat', 'Add new category', 'WIForum', 'ForumCategory','create category'); 
+    $modal->moduleModal('new-cat', 'Add new category', 'WIForum', 'ForumCategory','create category',''); 
 
-    $modal->moduleModal('new-section', 'Add new section', 'WIForum', 'ForumSection','create section'); 
+    $modal->moduleModal('new-section', 'Add new section', 'WIForum', 'ForumSection','create section',''); 
 
-    $modal->moduleModal('edit-cat', 'Edit category', 'WIForum', 'ForumEditCategory','edit category'); 
+    $modal->moduleModal('edit-cat', 'Edit category', 'WIForum', 'ForumEditCategory','edit category',''); 
 
-    $modal->moduleModal('edit-section', 'Edit Section', 'WIForum', 'ForumEditSection','edit section'); 
+    $modal->moduleModal('edit-section', 'Edit Section', 'WIForum', 'ForumEditSection','edit section',''); 
 
-    $modal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory','delete category'); 
+    $modal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory','delete category',''); 
    ?>

@@ -17,25 +17,17 @@ class WIAdminChat
 	public function User_pic($userId)
 	 {
 
-	 	//echo "user" . $userId;
-/*	 		 	$query = $this->WIdb->prepare('SELECT * FROM `wi_user_details` WHERE `user_id` =:value');
-	 	$query->bindParam(':value', $userId, PDO::PARAM_INT);
-	 	$query->execute();*/
-
 	 	$res = $this->WIdb->select("SELECT * FROM `wi_user_details` WHERE `user_id` =:value", 
             array(
             "value" => $userId
             )
         );
 	    foreach ($res as $result) {
-	    	//print_r($result);
-	    	//echo "ave" . $result[0]['avatar'];
-	    	//if($result["avatar"] === " ")
 	    	if(!empty($result["avatar"])){
-			 echo '<img alt="user image" class="online" src="../WIAdmin/WIMedia/Img/avator/' . $result["avatar"] . '" width="60px" />';
+			 echo '<img alt="user image" class="online" src="../WIAdmin/WIMedia/Img/avator/'. $userId.'/' . $result["avatar"] . '" width="60px" />';
 			
 		} else {
-		  echo '<img alt="user image" class="online" src="../WIAdmin/WIMedia/Img/avator/image01.jpg" width="60px" />';
+		  echo '<img alt="user image" class="online" src="../WIAdmin/WIMedia/Img/avator/'. $userId.'/image01.jpg" width="60px" />';
 		}
 
 	    	
@@ -45,17 +37,11 @@ class WIAdminChat
 		public function chatUsername($userId)
 	 {
 
-	 	//echo "user" . $userId;
-/*	 		 	$query = $this->WIdb->prepare('SELECT * FROM `wi_members` WHERE `user_id` =:value');
-	 	$query->bindParam(':value', $userId, PDO::PARAM_INT);
-	 	$query->execute();*/
-
 	 	$result = $this->WIdb->select("SELECT * FROM `wi_members` WHERE `user_id` =:value", 
             array(
             "value" => $userId
             )
         );
-	    	//print_r($result);
 	    	return $result[0]['username'];
 	}
 
@@ -128,25 +114,14 @@ class WIAdminChat
 	public function SendMessage($Message, $user_id)
 	{
 		
-		$debate_date = date("Y-m-d H:i:s");
+		$timesent = date("Y-m-d H:i:s");
 		//echo "date". $debate_date;
-		$userId = WISession::get('user_id');
-		//echo "user_id". $userId;
 		//$userId = WISession::get('user_id');
-		//echo "user_id". $userId;
-/*		$sql = "INSERT INTO wi_admin_msg( msg, wtime, user_id) VALUES ( :msg, :wtime, :userId)";
-
-		$query = $this->WIdb->prepare($sql);
-		$query->bindParam(':msg', $Message, PDO::PARAM_STR);
-		$query->bindParam(':wtime', $debate_date, PDO::PARAM_INT);
-		$query->bindParam(':userId', $user_id, PDO::PARAM_INT);
-		$query->execute();*/
-
 
 		$this->WIdb->insert('wi_admin_msg', array(
-            "msg"     => $Message,
-            "wtime" => $debate_date,
-            "userId" => $user_id
+            "msg"     => strip_tags($Message),
+            "wtime" => $timesent,
+            "user_id" => $user_id
 
                 )); 
 			
@@ -157,63 +132,56 @@ class WIAdminChat
 		                );
 		            
 		            //output result
-		            echo json_encode ($result);
+		   echo json_encode ($result);
 		            
 		}	
 
 
-		public function getChatMessages($last_chat_time, $userId)
+	public function getChatMessages($last_chat_time, $userId)
 	{
-		
+        $chats = $this->WIdb->select("SELECT wi_admin_msg.* FROM wi_admin_msg INNER JOIN ( SELECT id FROM wi_admin_msg  ORDER BY id ASC) AS items ON wi_admin_msg.id = items.id");
+       	foreach ($chats as $chat) {
+       	$username = WIAdminChat::chatUsername($chat['user_id']);
+       	$attachemnts = $chat['attachments'];
+       	$user_pic = WIAdminChat::User_pic($chat['user_id']);
 
-		$sql = "SELECT wi_admin_msg.* FROM wi_admin_msg INNER JOIN ( SELECT id FROM wi_admin_msg  ORDER BY id ASC) AS items ON wi_admin_msg.id = items.id";
-		$stmt = $this->WIdb->prepare($sql);
-        $stmt->execute();
-
-		 while($chats = $stmt->fetchAll(PDO::FETCH_ASSOC)){
-       			foreach ($chats as $chat) {
-       				$username = WIAdminChat::chatUsername($chat['user_id']);
-       				$attachemnts = $chat['attachments'];
-       		$user_pic = WIAdminChat::User_pic($chat['user_id']);
-
-       		if ($attachemnts === "y") {
+       	if ($attachemnts === "y") {
        			echo '<div class="item message-row" id="' . $chat['id']. '">
-										' . $user_pic . '
-                                        <p class="message">
-                                            <a href="#" class="name">
-                                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> ' . $chat['wtime'] . '</small>
-                                               ' . $username . '
-                                            </a>
-                                           ' . $chat['msg'] . '
-                                        </p>
-                                        <div class="attachment">
-                                            <h4>Attachments:</h4>
-                                            <p class="filename">
-                                                Theme-thumbnail-image.jpg
-                                            </p>
-                                            <div class="pull-right">
-                                                <button class="btn btn-primary btn-sm btn-flat">Open</button>
-                                            </div>
-                                        </div><!-- /.attachment -->
-                                    </div><!-- /.item -->';
+					' . $user_pic . '
+                    <p class="message">
+                        <a href="#" class="name">
+                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> ' . $chat['wtime'] . '</small>
+                           ' . $username . '
+                        </a>
+                       ' . $chat['msg'] . '
+                    </p>
+                    <div class="attachment">
+                        <h4>Attachments:</h4>
+                        <p class="filename">
+                            Theme-thumbnail-image.jpg
+                        </p>
+                        <div class="pull-right">
+                            <button class="btn btn-primary btn-sm btn-flat">Open</button>
+                        </div>
+                    </div><!-- /.attachment -->
+                </div><!-- /.item -->';
        		}else{
        			echo '<div class="item message-row" id="' . $chat['id']. '">
-										' . $user_pic . '
-                                        <p class="message">
-                                            <a href="#" class="name">
-                                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> ' . $chat['wtime'] . '</small>
-                                               ' . $username . '
-                                            </a>
-                                           ' . $chat['msg'] . '
-                                        </p>
-                                    </div><!-- /.item -->';
+					' . $user_pic . '
+                    <p class="message">
+                        <a href="#" class="name">
+                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> ' . $chat['wtime'] . '</small>
+                           ' . $username . '
+                        </a>
+                       ' . $chat['msg'] . '
+                    </p>
+                </div><!-- /.item -->';
        		}
 			
         }
       
-       			}
+    }
 
-       	}
-       			
-
+ 
+ 
 }

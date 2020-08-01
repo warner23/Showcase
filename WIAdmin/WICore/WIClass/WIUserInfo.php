@@ -37,7 +37,7 @@ class WIUserInfo
         );
 
 	    if(!empty($result[0]["avatar"])){
-			 echo '<img class="profile online" src="../WIAdmin/WIMedia/Img/avator/' . $result[0]["avatar"] . '" width="218px" />';
+			 echo '<img class="profile online" src="../WIAdmin/WIMedia/Img/avator/'. $userId.'/' . $result[0]["avatar"] . '" width="218px" />';
 			
 		} else {
 		  echo '<img class="profile online" src="../WIAdmin/WIMedia/Img/avator/image01.jpg" width="218px" />';
@@ -57,7 +57,7 @@ class WIUserInfo
         );
 
 		if(!empty($result[0]["avatar"])){
-			 echo '<img class="user-image online" src="../WIAdmin/WIMedia/Img/avator/' . $result[0]["avatar"] . '" width="218px" />';
+			 echo '<img class="user-image online" src="../WIAdmin/WIMedia/Img/avator/'. $userId.'/' . $result[0]["avatar"] . '" width="218px" />';
 			
 		} else {
 		  echo '<img class="user-image " src="../WIAdmin/WIMedia/Img/avator/image01.jpg" width="218px" />';

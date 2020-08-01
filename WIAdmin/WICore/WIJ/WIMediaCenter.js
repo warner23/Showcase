@@ -45,7 +45,52 @@ function sendFileToHeaderServer(formData,status)
     status.setAbort(jqXHR);
 }
 
-function sendFileToPageServer(formData,status)
+function sendFileToProductServer(formData,status)
+{
+      var uploadURL ="WICore/WIClass/ProductImageUpload.php"; //Upload URL
+    var extraData ={}; //Extra Data.
+    $(".ajax-loading").removeClass("hide").addClass("show");
+    var jqXHR=$.ajax({
+            xhr: function() {
+            var xhrobj = $.ajaxSettings.xhr();
+            if (xhrobj.upload) {
+                    xhrobj.upload.addEventListener('progress', function(event) {
+                        var percent = 0;
+                        var position = event.loaded || event.position;
+                        var total = event.total;
+                        if (event.lengthComputable) {
+                            percent = Math.ceil(position / total * 100);
+                        }
+                        //Set progress
+                        status.setProgress(percent);
+                    }, false);
+                }
+            return xhrobj;
+        },
+    url: uploadURL,
+    type: "POST",
+    contentType:false,
+    processData: false,
+        cache: false,
+        data: formData,
+        success: function(data){
+            info = JSON.parse(data);
+            //alert(info.name);
+            status.setProgress(100);
+            $(".ajax-loading").removeClass("show").addClass("hide");
+            $("#pstatus").append("File upload Done<br>").fadeOut(7000);
+            $("#productdragandrophandler").remove()
+            $("#modal-product-upload-details").removeClass("show").addClass("hide"); 
+            preview = ('<img src="'+info.name+'" class="img-responsive cp product" id="ProductPic" value="'+info.id+'">');
+            $("#product_pic").empty(); 
+            $("#product_pic").append(preview);        
+        }
+    }); 
+ 
+    status.setAbort(jqXHR);
+}
+
+function sendFileToPageServer(formData,status, selector)
 {
       var uploadURL ="WICore/WIClass/PageImageUpload.php"; //Upload URL
     var extraData ={}; //Extra Data.
@@ -76,13 +121,14 @@ function sendFileToPageServer(formData,status)
             info = JSON.parse(data);
             console.log(info.name);
             status.setProgress(100);
-            $("#dragandrophandler").remove();
+            $("#ModDragandDropHandler").remove();
             $("img.cp").remove();
-            $("#modal-page-upload-details").removeClass("show").addClass("hide");
-            var preview = '<img src="'+info.name+'" class="img-responsive cp" style="width:140px;" id="pagePic" value="'+info.id+'">';
-            $("#newpic .mediaPic").before(preview);
-            $("#newpic").removeAttr("id");
+            //$("#modal-page-upload-details").removeClass("show").addClass("hide");
+            $("#modal-media-upload-details").removeClass("show").addClass("hide");
+            //var preview = ('<img src="'+info.name+'" class="img-responsive cp" id="pagePic" value="'+info.id+'" style="width:140px;">');
+            var preview = '<img src="'+info.name+'" class="img-responsive cp" style="width:180px;" id="pagePic" value="'+info.id+'">';
 
+            $("#"+selector).append(preview);
         }
     }); 
  
@@ -318,7 +364,7 @@ function createStatusbar(obj)
         });
     }
 }
-function handleFileUpload(files,obj,dir)
+function handleFileUpload(files,obj,dir, selector)
 {
    for (var i = 0; i < files.length; i++) 
    {
@@ -338,13 +384,15 @@ function handleFileUpload(files,obj,dir)
         }else if(dir === "forum"){
             sendFileToForumServer(fd,status);
         }else if(dir === "page"){
-            sendFileToPageServer(fd,status);
+            sendFileToPageServer(fd,status, selector);
         }else if(dir === "media"){
             sendFileToMediaServer(fd,status);
         }else if(dir === "lang"){
             sendFileToLangServer(fd,status);
         }else if(dir === "editlang"){
             sendFileToEditLangServer(fd,status);
+        }else if(dir === "product") {
+             sendFileToProductServer(fd,status);
         }
  
    }

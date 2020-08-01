@@ -9,6 +9,7 @@ class WIBlog
 	function __construct() 
 	{
        $this->WIdb = WIdb::getInstance();
+       $this->Comment = new WIComment();
     }
 
 
@@ -175,7 +176,7 @@ class WIBlog
                                    <p>                                      
                                    ' . $post['post'] . '                               
                                    </p>                                    
-                                   <a href="' . $post['href'] . '" class="read-more">' . $post['button_name'] . '</a>                             
+                                   <textarea class="form-control" name="comment" rows="3"></textarea>                            
                                    </div>                         
                                    </article><!-- .blog-post end --> </div>';
 				}
@@ -227,7 +228,7 @@ class WIBlog
     <p>                                     
     ' . $post['post'] . '                                 
     </p>                                    
-    <a href="blog_post.html" class="read-more">Read more</a>                              
+    <textarea class="form-control" name="comment" rows="3"></textarea>                             
     </div>                        
     </article>
       <!-- .blog-post end -->';
@@ -493,22 +494,16 @@ class WIBlog
 	public function hasPosts()
 	{
 		
-		$sql = "SELECT * FROM `wi_blog` ORDER BY day DESC";
-		$query = $this->WIdb->prepare($sql);
-		$query->execute();
-
-		$res = $query->fetchAll(PDO::FETCH_ASSOC);
+		$res = $this->WIdb->select('SELECT * FROM `wi_blog` ORDER BY day DESC');
 		//print_r($res);
 		if(count($res) < 1){
 			echo "No Posts Yet.";
 		}else{
 
 		foreach ($res as $media) {
-			//print_r($media);
-			$MediaType = $media['type'];
-			foreach ($MediaType as $type) {
-				//print_r($type);
-			}
+		
+		$MediaType = $media['type'];
+
 		if($media['type'] === "NoMedia"){
 				
 				echo '<div class="blog_style_2"><article class="post_container">                             
@@ -528,10 +523,10 @@ class WIBlog
             <div class="blog-meta">                                        
             <ul>                                            
             <li class="fa fa-user">                                               
-             <a href="#">' . $media['user'] . '</a>                                            
+             <a href="javascript:void(0)">' . $media['user'] . '</a>                                            
              </li>                                            
              <li class="post-tags fa fa-tags">                                                
-             <a href="#">news, </a>                                               
+             <a href="javascript:void(0)">news, </a>                                               
               <a href="#">dois</a>                                            
               </li>                                        
               </ul>                                   
@@ -540,11 +535,26 @@ class WIBlog
                ' . $media['post'] . '                                  
                </p>                                    
                                            
-               </div>                        
-                              
-                    </article></div>
-                              
-                         <!-- .blog-post end -->';
+                </div>  
+         <div class="comments-comments">';
+              $comments = $this->Comment->getBlogComments($media['id']);
+              foreach ($comments as $c) {
+              	echo '<blockquote>' . $c['comment'] . '
+              	<small>' . $c['posted_by_name'] . ' <em>at ' . $c['post_time'] . '</em></small>
+              	</backquote>';
+              }
+               echo '</div>   
+
+         <textarea class="form-control" name="comment" rows="3" id="comment-text-'.$media['id'].'"></textarea> 
+
+          <div class="form-group">
+                    <button class="btn btn-primary" id="btn-comment-'.$media['id'].'" onclick="WIComment.newCommment(`'.$media['id'].'`)" type="submit">
+                        <i class="fa fa-comment"></i>
+                        '.WILang::get("comment").'
+                    </button>
+                </div>                        
+                                
+         </article>';
 		}
 	    if($media['type'] === "blog_slider"){
 			echo '<!-- .latest-posts start -->                            
@@ -561,19 +571,19 @@ class WIBlog
    <figure class="post-image">                                  
    <div class="slideshow-container">
 
-<div class="mySlides fade">
+<div class="mySlides">
   <div class="numbertext"></div>
    <img src="../../../WIAdmin/WIMedia/Img/blog/revslider/' . $media['image'] . '" style="width:100%">
   <div class="text">' . $media['caption'] . '</div>
 </div>
 
-<div class="mySlides fade">
+<div class="mySlides">
   <div class="numbertext"></div>
 <img src="../../../WIAdmin/WIMedia/Img/blog/revslider/' . $media['image2'] . '" style="width:100%">        
   <div class="text">' . $media['caption1'] . '</div>
 </div>
 
-<div class="mySlides fade">
+<div class="mySlides">
   <div class="numbertext"></div>
 <img src="../../../WIAdmin/WIMedia/Img/blog/revslider/' . $media['image3'] . '" style="width:100%">
   <div class="text">' . $media['caption2'] . '</div>
@@ -598,19 +608,37 @@ class WIBlog
     <div class="blog-meta">                                        
     <ul>                                            
     <li class="fa fa-user">                                                
-    <a href="#">' . $media['user'] . '</a>                                            
+    <a href="javascript:void(0)">' . $media['user'] . '</a>                                            
     </li>                                           
      <li class="post-tags fa fa-tags">                                               
-      <a href="#">news, </a>                                                
-      <a href="#">dois</a>                                            
+      <a href="javascript:void(0)">news, </a>                                                
+      <a href="javascript:void(0)">dois</a>                                            
       </li>                                        
 </ul>                                    
 </div>                                    
 <p>                                        
 ' . $media['post'] . '                                  
 </p>                                    
-</div>                        
-</article><!-- .blog-post end -->
+ </div>  
+         <div class="comments-comments">';
+              $comments = $this->Comment->getBlogComments($media['id']);
+              foreach ($comments as $c) {
+              	echo '<blockquote>' . $c['comment'] . '
+              	<small>' . $c['posted_by_name'] . ' <em>at ' . $c['post_time'] . '</em></small>
+              	</backquote>';
+              }
+               echo '</div>   
+
+         <textarea class="form-control" name="comment" rows="3" id="comment-text-'.$media['id'].'"></textarea> 
+
+          <div class="form-group">
+                    <button class="btn btn-primary" id="btn-comment-'.$media['id'].'" onclick="WIComment.newCommment(`'.$media['id'].'`)" type="submit">
+                        <i class="fa fa-comment"></i>
+                        '.WILang::get("comment").'
+                    </button>
+                </div>                        
+                                
+         </article>
 <script type="text/javascript">
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -662,19 +690,37 @@ function showSlides(n) {
    <div class="blog-meta">                                        
    <ul>                                            
    <li class="fa fa-user">                                                
-   <a href="#">' . $media['user'] . '</a>                                            
+   <a href="javascript:void(0)">' . $media['user'] . '</a>                                            
    </li>                                            
    <li class="post-tags fa fa-tags">                                                
-   <a href="#">news, </a>                                                
-   <a href="#">dois</a>                                            
+   <a href="javascript:void(0)">news, </a>                                                
+   <a href="javascript:void(0)">dois</a>                                            
    </li>                                        
    </ul>                                    
    </div>                                   
     <p>                                     
     ' . $media['post'] . '                                 
     </p>                                    
-    </div>                        
-    </article><!-- .blog-post end --> ';
+     </div>  
+         <div class="comments-comments">';
+              $comments = $this->Comment->getBlogComments($media['id']);
+              foreach ($comments as $c) {
+              	echo '<blockquote>' . $c['comment'] . '
+              	<small>' . $c['posted_by_name'] . ' <em>at ' . $c['post_time'] . '</em></small>
+              	</backquote>';
+              }
+               echo '</div>   
+
+         <textarea class="form-control" name="comment" rows="3" id="comment-text-'.$media['id'].'"></textarea> 
+
+          <div class="form-group">
+                    <button class="btn btn-primary" id="btn-comment-'.$media['id'].'" onclick="WIComment.newCommment(`'.$media['id'].'`)" type="submit">
+                        <i class="fa fa-comment"></i>
+                        '.WILang::get("comment").'
+                    </button>
+                </div>                        
+                                
+         </article>';
 			
 		}
 		//$type = "blog_image";
@@ -692,7 +738,7 @@ function showSlides(n) {
                               </div>                                
                               </div><!-- .post-info end -->                                
                               <figure class="post-image">                 
-                              <a href="#"><img src="../../../WIAdmin/WIMedia/Img/blog/' . $media['image'] . '" alt=""></a>                
+                              <a href="javascript:void(0)"><img src="../../../WIAdmin/WIMedia/Img/blog/' . $media['image'] . '" alt=""></a>                
                               </figure>                               
                                <div class="post-content">                                    
                                <a href="blog_post.html">                                        
@@ -701,20 +747,37 @@ function showSlides(n) {
                                <div class="blog-meta">                                        
                                <ul>                                            
                                <li class="fa fa-user">                                                
-                               <a href="#">' . $media['user'] . '</a>                                           
+                               <a href="javascript:void(0)">' . $media['user'] . '</a>                                           
                                 </li>                                           
                                  <li class="post-tags fa fa-tags">                                               
-                                  <a href="#">news, </a>                                                
-                                  <a href="#">dois</a>                                           
+                                  <a href="javascript:void(0)">news, </a>                                                
+                                  <a href="javascript:void(0)">dois</a>                                           
                                    </li>                                        
                                    </ul>                                    
                                    </div>                                    
                                    <p>                                      
                                    ' . $media['post'] . '                               
                                    </p>                                    
-                                                               
-                                   </div>                         
-                                   </article><!-- .blog-post end --> </div>';
+                                    </div>  
+         <div class="comments-comments">';
+              $comments = $this->Comment->getBlogComments($media['id']);
+              foreach ($comments as $c) {
+              	echo '<blockquote>' . $c['comment'] . '
+              	<small>' . $c['posted_by_name'] . ' <em>at ' . $c['post_time'] . '</em></small>
+              	</backquote>';
+              }
+               echo '</div>   
+
+         <textarea class="form-control" name="comment" rows="3" id="comment-text-'.$media['id'].'"></textarea> 
+
+          <div class="form-group">
+                    <button class="btn btn-primary" id="btn-comment-'.$media['id'].'" onclick="WIComment.newCommment(`'.$media['id'].'`)" type="submit">
+                        <i class="fa fa-comment"></i>
+                        '.WILang::get("comment").'
+                    </button>
+                </div>                        
+                                
+         </article>';
 		}
 
 		if($media['type'] === "blog_audio"){
@@ -741,19 +804,37 @@ function showSlides(n) {
        <div class="blog-meta">                                        
        <ul>                                            
        <li class="fa fa-user">                                                
-       <a href="#">' . $media['user'] . '</a>                                            
+       <a href="javascript:void(0)">' . $media['user'] . '</a>                                            
        </li>                                            
        <li class="post-tags fa fa-tags">                                               
-        <a href="#">news, </a>                                                
-        <a href="#">dois</a>                                            
+        <a href="javascript:void(0)">news, </a>                                                
+        <a href="javascript:void(0)">dois</a>                                            
         </li>                                        
         </ul>                                    
         </div>                                   
          <p>                                      
-         ' . $media['post'] . '</p>                                    
-         <a href="blog_post.html" class="read-more">Read more</a>                             
-         </div>                         
-         </article><!-- .blog-post end -->  ';
+         ' . $media['post'] . '</p> 
+
+          </div>  
+         <div class="comments-comments">';
+              $comments = $this->Comment->getBlogComments($media['id']);
+              foreach ($comments as $c) {
+              	echo '<blockquote>' . $c['comment'] . '
+              	<small>' . $c['posted_by_name'] . ' <em>at ' . $c['post_time'] . '</em></small>
+              	</backquote>';
+              }
+               echo '</div>   
+
+         <textarea class="form-control" name="comment" rows="3" id="comment-text-'.$media['id'].'"></textarea> 
+
+          <div class="form-group">
+                    <button class="btn btn-primary" id="btn-comment-'.$media['id'].'" onclick="WIComment.newCommment(`'.$media['id'].'`)" type="submit">
+                        <i class="fa fa-comment"></i>
+                        '.WILang::get("comment").'
+                    </button>
+                </div>                        
+                                
+         </article>';
 		}
 
 		if($media['type'] === "blog_youtube"){
@@ -779,20 +860,37 @@ function showSlides(n) {
      <div class="blog-meta">                                        
      <ul>                                           
       <li class="fa fa-user">                                                
-      <a href="#">' . $media['user'] . '</a>                                            
+      <a href="javascript:void(0)">' . $media['user'] . '</a>                                            
       </li>                                            
       <li class="post-tags fa fa-tags">                                                
-      <a href="#">news, </a>                                                
-     <a href="#">dois</a>                                            
+      <a href="javascript:void(0)">news, </a>                                                
+     <a href="javascript:void(0)">dois</a>                                            
       </li>                                        
     </ul>                                    
     </div>                                    
     <p>                                     
     ' . $media['post'] . '                                 
     </p>                                    
-    </div>                        
-    </article></div>
-      <!-- .blog-post end -->';
+     </div>  
+         <div class="comments-comments">';
+              $comments = $this->Comment->getBlogComments($media['id']);
+              foreach ($comments as $c) {
+              	echo '<blockquote>' . $c['comment'] . '
+              	<small>' . $c['posted_by_name'] . ' <em>at ' . $c['post_time'] . '</em></small>
+              	</backquote>';
+              }
+               echo '</div>   
+
+         <textarea class="form-control" name="comment" rows="3" id="comment-text-'.$media['id'].'"></textarea> 
+
+          <div class="form-group">
+                    <button class="btn btn-primary" id="btn-comment-'.$media['id'].'" onclick="WIComment.newCommment(`'.$media['id'].'`)" type="submit">
+                        <i class="fa fa-comment"></i>
+                        '.WILang::get("comment").'
+                    </button>
+                </div>                        
+                                
+         </article>';
 			  }
 
 			}
@@ -800,190 +898,6 @@ function showSlides(n) {
 	}
 
 
-
-
-
-	/*public function hasPosts1()
-	{
-		
-		$sql = "SELECT * FROM `wi_blog`";
-		$query = $this->WIdb->prepare($sql);
-		$query->execute();
-
-		$res = $query->fetchAll(PDO::FETCH_ASSOC);
-		//print_r($res);
-		if(count($res) < 1){
-			echo "No Posts Yet.";
-		}else{
-		//print_r($res);
-		//$type = $res['type'];
-		//$date = $res['day'];
-		//echo $type;
-	     //$type = "NoMedia";
-		foreach ($res as $media) {
-			//print_r($media);
-		if($media['type'] === "NoMedia"){
-				$sql = "SELECT * FROM `wi_blog` WHERE type =:type ORDER BY day DESC";
-		$query = $this->WIdb->prepare($sql);
-		$query->bindParam(':type', $media['type'], PDO::PARAM_STR);
-		$query->execute();
-
-		while($posts = $query->fetchAll(PDO::FETCH_ASSOC) ){
-			foreach ($posts as $post) {
-				echo '<div class="blog_style_2"><article class="post_container">                             
-         <div class="post-info">                                    
-         <div class="post-date">                                        
-         <span class="day">' . $post['day'] . '</span>                                        
-         <span class="month">' . $post['month'] . '</span>                                    
-         </div>                                    
-         <div class="post-category">                                      
-         <i class="fa fa-file-text-o"></i>                                    
-         </div>                               
-          </div><!-- .post-info end -->                                
-          <div class="post-content">                                   
-           <a href="blog_post.html">                                       
-            <h4>' . $post['title'] . '</h4>                                    
-            </a>                                    
-            <div class="blog-meta">                                        
-            <ul>                                            
-            <li class="fa fa-user">                                               
-             <a href="#">' . $post['user'] . '</a>                                            
-             </li>                                            
-             <li class="post-tags fa fa-tags">                                                
-             <a href="#">news, </a>                                               
-              <a href="#">dois</a>                                            
-              </li>                                        
-              </ul>                                   
-               </div>                                    
-               <p>                                      
-               ' . $post['post'] . '                                  
-               </p>                                    
-               <a href="' . $post['href'] . '">' . $post['button_name'] . '</a>                             
-               </div>                        
-                              
-                    </article></div>
-                              
-                         <!-- .blog-post end -->';
-			}
-			
-			}
-
-
-		}
-
-
-
-	    if($media['type'] === "mediaSlider"){
-			
-		}
-
-		if($media['type'] === "mediaVideo"){
-			
-		}
-		//$type = "blog_image";
-		if($media['type'] === "blog_image"){
-			
-			$sql = "SELECT * FROM `wi_blog` WHERE type =:type ORDER BY day DESC";
-		$query = $this->WIdb->prepare($sql);
-		$query->bindParam(':type', $media['type'], PDO::PARAM_STR);
-		$query->execute();
-
-		while($posts = $query->fetchAll(PDO::FETCH_ASSOC) ){
-			foreach ($posts as $post) {
-				echo '<!-- .latest-posts start --><div class="blog_style_2">                            
-                              <article class="post_container">                              
-                              <div class="post-info">                                    
-                              <div class="post-date">                                        
-                              <span class="day">' . $post['day'] . '</span>                                        
-                              <span class="month">' . $post['month'] . '</span>                                    
-                              </div>                                    
-                              <div class="post-category">                                     
-                              <i class="fa fa-picture-o"></i>                                    
-                              </div>                                
-                              </div><!-- .post-info end -->                                
-                              <figure class="post-image">                 
-                              <a href="#"><img src="WIMedia/Img/blog/' . $post['image'] . '" alt=""></a>                
-                              </figure>                               
-                               <div class="post-content">                                    
-                               <a href="blog_post.html">                                        
-                               <h4>' . $post['title'] . '</h4>                                    
-                               </a>                                    
-                               <div class="blog-meta">                                        
-                               <ul>                                            
-                               <li class="fa fa-user">                                                
-                               <a href="#">' . $post['user'] . '</a>                                           
-                                </li>                                           
-                                 <li class="post-tags fa fa-tags">                                               
-                                  <a href="#">news, </a>                                                
-                                  <a href="#">dois</a>                                           
-                                   </li>                                        
-                                   </ul>                                    
-                                   </div>                                    
-                                   <p>                                      
-                                   ' . $post['post'] . '                               
-                                   </p>                                    
-                                   <a href="' . $post['href'] . '" class="read-more">' . $post['button_name'] . '</a>                             
-                                   </div>                         
-                                   </article><!-- .blog-post end --> </div>';
-				}
-			}
-		}
-
-		if($media['type'] === "mediaaudio"){
-			
-		}
-
-		if($media['type'] === "blog_youtube"){
-			$sql = "SELECT * FROM `wi_blog` WHERE type =:type ORDER BY day DESC";
-		$query = $this->WIdb->prepare($sql);
-		$query->bindParam(':type', $media['type'], PDO::PARAM_STR);
-		$query->execute();
-		while($posts = $query->fetchAll(PDO::FETCH_ASSOC) ){
-			foreach ($posts as $post) {
-			echo '<!-- .latest-posts start -->                            
-    <article class="post_container">                              
-    <div class="post-info">                                    
-    <div class="post-date">                                        
-    <span class="day">' . $post['day']. '</span>                                        
-    <span class="month">' . $post['month'] .'</span>                                    
-    </div>                                    
-    <div class="post-category">                                     
-    <i class="fa fa-picture-o"></i>                                    
-    </div>                                
-    </div><!-- .post-info end -->                                
-    <figure class="post-video">                                    
-   <iframe src="' . $post['youtube'] .'" allowfullscreen></iframe>         
-     </figure>                                
-     <div class="post-content">                                    
-     <a href="blog_post.html">                                        
-     <h4>Blog post with Youtube</h4>                                    
-     </a>                                    
-     <div class="blog-meta">                                        
-     <ul>                                           
-      <li class="fa fa-user">                                                
-      <a href="#">' . $post['user'] . '</a>                                            
-      </li>                                            
-      <li class="post-tags fa fa-tags">                                                
-      <a href="#">news, </a>                                                
-     <a href="#">dois</a>                                            
-      </li>                                        
-    </ul>                                    
-    </div>                                    
-    <p>                                     
-    ' . $post['post'] . '                                 
-    </p>                                    
-    <a href="blog_post.html" class="read-more">Read more</a>                              
-    </div>                        
-    </article>
-      <!-- .blog-post end -->';
-			  }
-			}
-		}
-
-			}
-		}
-	}*/
-		
 
 }
 

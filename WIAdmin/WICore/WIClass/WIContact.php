@@ -44,13 +44,9 @@ class WIContact
 
     public function Messages()
     {
-/*        $sql = "SELECT * FROM `wi_contact_message`";
-
-        $query = $this->WIdb->prepare($sql);
-        $query->execute();*/
 
         $result = $this->WIdb->select("SELECT * FROM `wi_contact_message`");
-        foreach ($res as $key => $value) {
+        foreach ($result as $key => $value) {
             echo '<li><!-- start message -->
                     <a href="#">
                       <h4>
@@ -60,7 +56,6 @@ class WIContact
                       <p>' . $value['message'] . '</p>
                     </a>
                   </li>';
-        
         }
     }
  }

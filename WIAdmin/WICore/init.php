@@ -35,6 +35,7 @@ $modal          = new WIModal();
 $blog           = new WIBlog();
 $forum          = new WIForum();
 $shop           = new WIShop();
+$products       = new WIProduct();
 
 
 ?>

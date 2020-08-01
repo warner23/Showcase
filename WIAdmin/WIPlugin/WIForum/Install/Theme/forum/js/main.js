@@ -42,13 +42,6 @@ $(document).ready(function($) {
 			shadow:0								//0 = no Shadow, 1,2,3 = 3 Different Art of Shadows -  (No Shadow in Fullwidth Version !)
 		});
 
-//
-
-
-
-/// end 
-
-
 
 
 // Accordion Toggle Items

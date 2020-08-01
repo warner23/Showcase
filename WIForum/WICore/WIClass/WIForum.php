@@ -7,7 +7,6 @@
 *             
 *             
 */
-
 	class WIForum
 {
 	public function __construct()
@@ -24,68 +23,7 @@
 		$sections = $this->WIdb->select("SELECT * FROM `wi_forum_sections`");
 		$posts = $this->WIdb->select("SELECT * FROM `wi_forum_posts`");
 
-		echo '<style>
-			#postviewer{
-			   width: 71%;
-			       float: right;
-    overflow: scroll;
-			}
-
-			.well {
-    height: 32em;
-    padding: 19px;
-    margin-bottom: 20px;
-    background-color: #f5f5f5;
-    border: 1px solid #e3e3e3;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-		}
-
-		.ui-tabs-vertical
-		 {
-    height: 29em;
-        width: 84em;
-		}
-
-		.ui-tabs-vertical .ui-tabs-nav li {
-    clear: left;
-    width: 100%;
-    border-bottom-width: 1px !important;
-    border-right-width: 0 !important;
-    margin: 0 -1px .2em 0;
-    height: 2.27em;
-}
-
-		#forum_category {
-
-}
-
-.ui-tabs-vertical .ui-tabs-nav{
-	padding: 0.2em 0.1em 0.2em 0.2em;
-    float: left;
-    width: 12em;
-    height: 28.5em;
-    overflow: scroll;
-}
-
-.font-align{
-	text-align: center;
-    margin-top: 4px;
-}
-
-#forum_post_title{
-	text-align: center;
-    font-size: large;
-    font-variant-caps: all-petite-caps;
-}
-
-#forum_post{
-	    text-align: center;
-    font-size: initial;
-}
-
-				</style>  <script>
+		echo '<script>
 			  $( function() {
 
 			    var index = "key";
@@ -291,17 +229,17 @@
 		while($result = $query->fetch(PDO::FETCH_ASSOC))
 		{
 			echo '<div class="col-100">
-<div class="col-labels1">'. $result['post_title'] .'</div></div>
-			<div class="inner_col">
-<div class="section_box">
-<div class="avatpic_post"><a href="#"><img class="ava" src="#"></a>
-</div><!-- end avatpic-->
-<div class="post_name">' . $result['thread_title'] . '</div><!-- end section-->
-<div class="post_comment">' . $result['post_body'] . '</div><!-- end section-->
-<div class="post_author">' . $result['post_author'] . '</div><!-- end section-->
-<div class="last_time">' . $result['date_time'] . '</div><!-- end section-->
-</div><!-- end section box-->
-</div><!-- end inner col-->';
+			<div class="col-labels1">'. $result['post_title'] .'</div></div>
+						<div class="inner_col">
+			<div class="section_box">
+			<div class="avatpic_post"><a href="#"><img class="ava" src="#"></a>
+			</div><!-- end avatpic-->
+			<div class="post_name">' . $result['thread_title'] . '</div><!-- end section-->
+			<div class="post_comment">' . $result['post_body'] . '</div><!-- end section-->
+			<div class="post_author">' . $result['post_author'] . '</div><!-- end section-->
+			<div class="last_time">' . $result['date_time'] . '</div><!-- end section-->
+			</div><!-- end section box-->
+			</div><!-- end inner col-->';
 		}
 
 	}
@@ -375,32 +313,23 @@
 					);
 		$count = "0";
 		$len = count($result);
-
 		foreach ($result as $res) {
-
-			if($count == "0" || $count == $len){
-				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
-			<div class-"col-lg-12 col-xs-11 col-md-12">
+			$count++;
+			if($count == $len){
+				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">';
+				self::userImage($res['user_posted']);
+			echo '<div class-"col-lg-12 col-xs-11 col-md-12">
 					<input type="hidden" id="post_id" value="'. $res['id'] .'">
 					<input type="hidden" id="section_id" value="'. $res['section_id'] .'">
 					<input type="hidden" id="cat_id" value="'. $res['category_id'] .'">
 				  	<div id="forum_post_title">' . $res['title'] .'</div>
 				  		  <div id="forum_post">' . $res['post'] .'</div>
-				  		  </div><li><button onclick="WIForum.CreatePost(`'. $res['category_id'] .'`,`'. $res['section_id'] .'`)">Reply</button></li>
-				  	</li>';
-			}elseif($count == $len){
-				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
-			<div class-"col-lg-12 col-xs-11 col-md-12">
-					<input type="hidden" id="post_id" value="'. $res['id'] .'">
-					<input type="hidden" id="section_id" value="'. $res['section_id'] .'">
-					<input type="hidden" id="cat_id" value="'. $res['category_id'] .'">
-				  	<div id="forum_post_title">' . $res['title'] .'</div>
-				  		  <div id="forum_post">' . $res['post'] .'</div>
-				  		  </div>
-				  	</li><li><button onclick="WIForum.CreatePost(`'. $res['category_id'] .'`,`'. $res['section_id'] .'`)">Reply</button></li>';
+				  		  </div></li>
+				  	<button id="forumCreatePost" onclick="WIForum.CreatePost(`'. $res['category_id'] .'`,`'. $res['section_id'] .'`)">Reply</button>';
 			}else{
-				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
-			<div class-"col-lg-12 col-xs-11 col-md-12">
+				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">';
+				self::userImage($res['user_posted']);
+			echo '<div class-"col-lg-12 col-xs-11 col-md-12">
 					<input type="hidden" id="post_id" value="'. $res['id'] .'">
 				  	<div id="forum_post_title">' . $res['title'] .'</div>
 				  		  <div id="forum_post">' . $res['post'] .'</div>
@@ -408,7 +337,7 @@
 				  	</li>';
 			}
 
-			$count++;
+			
 		}
 
 	}
@@ -417,9 +346,59 @@
 	{
 		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
 		<input id="'.$cat_id.'" class="casting" name="category_id" type="hidden">
-		<input id="'.$section_id.'" class="casting" name="section_id" type="hidden">';
-		$this->wysiwyg->Editor();
-		echo '</li>';
+		<input id="'.$section_id.'" class="casting" name="section_id" type="hidden">
+		<input id="title" class="title" name="title" type="text" placeholder="title">';
+           $this->wysiwyg->Editor();
+        echo '<div class="form-group">
+         <button class="btn btn-primary" id="btn-post" onclick="WIForum.newPost(`'.$cat_id.'`,`'.$section_id.'`)" type="submit">
+          <i class="fa fa-comment"></i>
+                        '.WILang::get("post").'
+                    </button>
+                </div>
+		</li>';
+	}
+
+
+	public function newPost($cat_id, $section_id, $fposting, $title)
+	{
+
+		$user_id = WISession::get('user_id');
+		$this->WIdb->insert('wi_forum_posts', array(
+            "category_id"     => $cat_id,
+            "section_id"  => $section_id,
+            "title"  => strip_tags($title),
+            "post" => $fposting,
+            "user_posted" => $user_id
+        )); 
+
+        $msg = "You have successfully posted to this forum.";
+
+        $result = array(
+        "status"  => "completed",
+        "msg"     => $msg,
+        "id"      => $section_id
+        );
+
+        echo json_encode($result);
+	}
+
+	public function userImage($user_id)
+	{
+		$result = $this->WIdb->select(
+                    "SELECT * FROM `wi_user_details`
+                     WHERE `user_id` = :u",
+                     array(
+                       "u" => $user_id
+                     )
+                  );
+
+		$avatorPic = $result[0]['avatar'];
+
+		if($avatorPic == ""){
+			echo '<img class="blogUser" src="../../WIAdmin/WIMedia/Img/avator/'.$user_id.'/default.png">';
+		}else{
+			echo '<img class="blogUser" src="../../WIAdmin/WIMedia/Img/avator/'.$user_id.'/'. $avatorPic.'">';
+		}
 	}
 
 

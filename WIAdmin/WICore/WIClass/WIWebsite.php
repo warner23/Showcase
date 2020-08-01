@@ -96,13 +96,12 @@ class WIWebsite
 
     public function ViewThemes()
     {
-        $sql = "SELECT * FROM `wi_theme`";
-        $query = $this->WIdb->prepare($sql);
-        $query->execute();
-            echo '<ul class="theme">';
-    
-        while($result = $query->fetch(PDO::FETCH_ASSOC)){
-           // print_r($result);
+
+        echo '<ul class="theme">';
+      
+        $result = $this->WIdb->select("SELECT * FROM `wi_theme`");
+
+        foreach($result as $result){
             echo ' <li class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
              
                             <div class="col-sm-3 col-md-3 col-lg-3 col-xs-3">
@@ -1274,18 +1273,28 @@ class WIWebsite
         
         //get starting position to fetch the records
         $page_position = (($page_number-1) * $item_per_page);
-        $sql1 = "SELECT * FROM `wi_trans` ORDER BY `id` ASC LIMIT :page, :item_per_page";
+/*        $sql1 = "SELECT * FROM `wi_trans` ORDER BY `id` ASC LIMIT :page, :item_per_page";
         $query1 = $this->WIdb->prepare($sql1);
         $query1->bindParam(':page', $page_position, PDO::PARAM_INT);
         $query1->bindParam(':item_per_page', $item_per_page, PDO::PARAM_INT);
-        $query1->execute();
+        $query1->execute();*/
+
         echo '<div class="col-sm-12 col-md-12 col-lg-12">
              <label class="col-sm-2 col-md-2 col-lg-2 col-xs-2" for="language">Language:<span class="required">*</span></label>
              <label class="col-sm-4 col-md-4 col-lg-4 col-xs-4" for="Keyword">Keyword:<span class="required">*</span></label>
               <label class="col-sm-4 col-md-4 col-lg-4 col-xs-4" for="Translation">Translation:<span class="required">*</span></label>
              </div>';
          echo '<ul class="contents">';
-        while($res = $query1->fetch(PDO::FETCH_ASSOC)) //bind variables to prepare statment
+
+         $results = $this->WIdb->select(
+                    "SELECT * FROM `wi_trans` ORDER BY `id` ASC LIMIT :page,:item_per_page",
+                    array(
+                    "page" =>  $page_position,
+                    "item_per_page" => $item_per_page
+                    )
+                  );
+        //while($res = $query1->fetch(PDO::FETCH_ASSOC)) //bind variables to prepare statment
+         foreach($results as $res)
        {
         echo '<li>';
 

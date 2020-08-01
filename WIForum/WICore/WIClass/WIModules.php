@@ -37,7 +37,7 @@ class WIModules
         //echo $mod;
         //echo   'WIAdmin/WIModule/' .$mod.'/'.$mod.'.php';
         $dir = dirname(dirname(dirname(__DIR__)));
-        require_once  $dir .'/WIAdmin/WIModule/' .$mod.'/'.$mod.'.php';
+        require_once  $dir .'/WIAdmin/WIModule/pages/' .$mod.'/'.$mod.'.php';
         
        // echo $mod;
         $mod = new $mod;
@@ -50,7 +50,7 @@ class WIModules
     public function getModMain($mod, $page, $module)
     {
         $dir = dirname(dirname(dirname(__DIR__)));
-        require_once  $dir .'/WIAdmin/WIModule/' .$mod.'/'.$mod.'.php';
+        require_once  $dir .'/WIAdmin/WIModule/pages/' .$mod.'/'.$mod.'.php';
         
         $mod = new $mod;
         $mod->mod_name($module, $page);

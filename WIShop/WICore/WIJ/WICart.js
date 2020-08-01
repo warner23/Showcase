@@ -1,45 +1,7 @@
 
 $(document).ready(function () {
 
-       
-        $("body").delegate(".update", "click", function(){
-            event.preventDefault();
-            var pid = $(this).attr("update_id");
-
-            $.ajax({
-            url      : "action.php",
-            method   : "POST",
-            data     : {
-                updateCart: 1
-            },
-            success  : function(data){
-                //alert(data);
-                $("#cart_checkout").html(data);
-            }
-        })
-
-        });
-
-                $("body").delegate(".delete", "click", function(){
-            event.preventDefault();
-            var pid = $(this).attr("delete_id");
-
-            $.ajax({
-            url      : "action.php",
-            method   : "POST",
-            data     : {
-                deleteItem: 1,
-                delete_id: pid
-            },
-            success  : function(data){
-                //alert(data);
-                $("#cart_checkout").html(data);
-            }
-        })
-        }); 
-
-
-        WICart.addTotals();
+//WICart.addTotals();
 
 
 
@@ -70,8 +32,97 @@ WICart.Cart = function(userId){
     });
 }
 
+WICart.GetKart = function(userId){
+     event.preventDefault();
+        //alert(0);
+
+        $.ajax({
+            url      : "WICore/WIClass/WIAjax.php",
+            method   : "POST",
+            data     : {
+                action : "getCart",
+                userId : userId
+            },
+            success  : function(data){
+                //alert(data);
+                $("#cart_product").html(data);
+            }
+    });
+}
+
+WICart.refresh = function(id){
+    
+    var qty = $("#qty_"+id).val();
+    total = $("#total_"+id).text();
+    console.log(total);
+        $.ajax({
+            url      : "WICore/WIClass/WIAjax.php",
+            method   : "POST",
+            data     : {
+                action : "update_cart",
+                qty : qty,
+                id  : id,
+                total : total
+            },
+            success  : function(result){
+
+                var res = JSON.parse(result);
+
+                if(res.status == "successful"){
+                    window.location.reload();
+                }
+            }
+    });
+}
+
+WICart.Delete = function(id){
+     event.preventDefault();
+        //alert(0);
+
+        $.ajax({
+            url      : "WICore/WIClass/WIAjax.php",
+            method   : "POST",
+            data     : {
+                action : "cart_delete",
+                id : id
+            },
+            success  : function(result){
+
+                var res = JSON.parse(result);
+
+                if(res.status == "successful"){
+                    $("#cart_product").empty();
+                    WICart.GetKart(res.user);
+
+                }
+            }
+    });
+}
+
+WICart.MainKartDelete = function(id){
+     event.preventDefault();
+        //alert(0);
+
+        $.ajax({
+            url      : "WICore/WIClass/WIAjax.php",
+            method   : "POST",
+            data     : {
+                action : "cart_delete",
+                id : id
+            },
+            success  : function(result){
+
+                var res = JSON.parse(result);
+
+                if(res.status == "successful"){
+                   window.location.reload();
+
+                }
+            }
+    });
+}
+
 WICart.addTotals = function(){
-    console.log("triggered");
    var subtotal =  $(".subtotal").val();
    console.log(subtotal);
     $(subtotal).each(function(index){
@@ -85,11 +136,15 @@ totalPrice += parseFloat($(this).html());
   //alert($(this).html());
 });
 
+
     //add VAT
+
 var VAT = totalPrice * 20/100;
 $("#vat").text("VAT : " + VAT);
 
 //Total Price with VAT
 var total = VAT;
-    $("#total").text("Total : " +totalPrice);
+    $("#currency").text("Total : £");
+    $("#total").text(totalPrice);
 }
+

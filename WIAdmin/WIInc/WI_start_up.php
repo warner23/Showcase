@@ -6,11 +6,12 @@
 	<title><?php  echo WEBSITE_NAME; ?></title>
 	<link rel="stylesheet" type="text/css" href="WIInc/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="WIInc/css/dashboard.css">
+	<link rel="stylesheet" type="text/css" href="WIInc/css/admin.css">
 	<link rel="stylesheet" type="text/css" href="WIInc/css/mod.css">
 	<link rel="stylesheet" type="text/css" href="WIInc/css/wipagebuilder.css">
 
 	<link rel="stylesheet" type="text/css" href="WIInc/css/switcher.css">
-
+	<script src="https://kit.fontawesome.com/a96823f5a2.js" crossorigin="anonymous"></script>
 	<script src="WIInc/js/jquery.js"></script>
 	<script type="text/javascript" src="WIInc/js/bootstrap.min.js"></script>
 	
@@ -20,7 +21,9 @@
 <script src="WIInc/js/jquery-1.10.2.js"></script>
   <script src="WIInc/js/jquery_new.js"></script>
   <script src="WIInc/js/jquery-ui.js"></script>
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
   
 
 <script type="text/javascript">

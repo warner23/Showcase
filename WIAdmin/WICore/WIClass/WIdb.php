@@ -47,8 +47,6 @@ class WIdb extends PDO
             $smt->bindParam(":$key", $value, PDO::PARAM_STR);
         }
 
-
-        
         $smt->execute();
         $result = $smt->fetchAll($fetchMode);        
 
@@ -60,7 +58,27 @@ class WIdb extends PDO
             echo "null";
         }
 
-        
+    }
+
+    public function selectwithOptions($sql, $array = array(), $fetchMode = PDO::FETCH_ASSOC)
+    {
+        $this->WIdb = self::getInstance();
+        $smt = $this->WIdb->prepare($sql);
+        foreach ($array as $key => &$value) {
+            //echo ":$key", $value;
+            $smt->bindParam(':$key', $value, PDO::PARAM_STR);
+        }
+
+        $smt->execute();
+        $result = $smt->fetchAll($fetchMode);        
+
+        $smt->closeCursor();
+
+        if($result > 0){
+            return $result;
+        }else{
+            echo "null";
+        }
 
     }
 
@@ -146,6 +164,23 @@ class WIdb extends PDO
     
     }
 
+     public function Arrayinsert($table, $data)
+    {
+        ksort($data);
+
+        $fieldNames = implode('`, `', array_keys($data));
+        var_dump($fieldNames);
+        $fieldValues = ':' . implode(', :', array_keys($data));
+        var_dump($fieldValues);
+        $sth = $this->prepare("INSERT INTO $table (`$fieldNames`) VALUES ($fieldValues)");
+
+        foreach ($data as $key => &$value) {
+            $sth->bindParam(":$key", $value, PDO::PARAM_STR);
+        }
+
+        $sth->execute();
+    
+    }
     
 
 

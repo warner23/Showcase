@@ -430,7 +430,7 @@ class WISite
             echo json_encode ($result);     
 	}
 
-	//header
+	//header && media
 	public function headerDisplay()
 	{
 
@@ -440,6 +440,18 @@ class WISite
         </figure>
         <input type="hidden" name="supload" id="supload" value="header">';
 	}
+
+
+    public function ProductDisplay()
+    {
+
+        echo '<div id="productdragandrophandler">Drag & Drop Files Here</div>
+        <div class="img-preview" id="preview"></div>
+        <div class="upload-msg" id="pstatus"></div>
+        <input type="hidden" name="supload" id="supload" value="product">';
+    }
+
+    //header
 
 	public function header_Settings($settings) 
 	{
@@ -950,6 +962,16 @@ class WISite
         </figure>
         <input type="hidden" name="supload" id="supload" value="page">';
 	}
+
+        public function pageModuleDisplay()
+    {
+
+        echo '<div id="ModDragandDropHandler">Drag & Drop Files Here</div>
+        <div class="img-preview" id="preview"></div>
+        <div class="upload-msg" id="status"></div>
+        </figure>
+        <input type="hidden" name="supload" id="supload" value="page" selector="page">';
+    }
 
     public function MediaPageDisplay()
 	{

@@ -15,7 +15,7 @@ define('WEBSITE_NAME', $webName);
 
 define('WEBSITE_DOMAIN', $domain);
 
-
+define('CONTACT_EMAIL', $contact_email);
 //it can be the same as domain (if script is placed on website's root folder) 
 //or it can cotain path that include subfolders, if script is located in some subfolder and not in root folder
 define('SCRIPT_URL', $script);

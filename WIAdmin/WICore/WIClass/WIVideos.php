@@ -59,7 +59,7 @@ class WIVideos
 		// print result
 		//print_r($result);
 		foreach ($result as $key => $value) {
-			                echo '<div class="col-md-4">
+		echo '<div class="col-md-4">
         <div class="panel panel-info">
         <div class="panel-heading">' . $value . '</div>
         <div class="panel-body"><video src="WIMedia/Vid/' . $value .'" class="img-responsive" style="width:50px; height:50px;"></video></div>

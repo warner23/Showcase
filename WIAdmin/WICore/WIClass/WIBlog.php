@@ -14,17 +14,13 @@ class WIBlog
 
     public function Cat()
 	{
+	$result = $this->WIdb->select("SELECT * FROM `wi_blogcategories`");
 
-
-
-	$query = $this->WIdb->prepare('SELECT * FROM wi_blogcategories');
-	$query->execute();
 	echo '<div class="title_widget">									
 			<h3>Categories</h3>								
 			</div>								
 			<ul class="arrows_list">';
-	while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
-
+		foreach($result as $result){
 		echo '<li><a href="javascript:void(0)" class="category" cid="' . $result['cat_id']. '"><i class="fa fa-angle-right"></i> ' . $result['title'] . '<span>' . count($result) . '</span></a></li>';
 		}
 	echo '</ul>';
@@ -32,10 +28,9 @@ class WIBlog
 
 	public function SelectCategory()
 	{
-		$query = $this->WIdb->prepare('SELECT * FROM wi_blogcategories');
-		$query->execute();
+		$result = $this->WIdb->select("SELECT * FROM `wi_blogcategories`");
 		echo '<label for="Category">Category</label><select name="Category" id="cat"><option value="" selected="selected">Select Category</option> ';
-		while ($res = $query->fetch(PDO::FETCH_ASSOC)) {
+		foreach($result as $res){
 			echo '<option value="' . $res['cat_id'] . '">' . $res['title'] . '</option>';
 		}
 		echo ' </select>';
@@ -246,6 +241,8 @@ class WIBlog
 		public function Resource()
 	{
 		$query = $this->WIdb->prepare('SELECT * FROM wi_resources ORDER BY RAND() LIMIT 0,9');
+
+		
 		$query->execute();
 		while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
 			echo '	<div class="col-md-4 col-lg-4 col-sm-4">

@@ -3,6 +3,7 @@
 **************/
 $(document).ready(function(event)
 {
+    WIJS.viewjs();
     $("#page_selection_js").val('index').prop("selected", true);
     var page = $("#page_selection_js").val();
  WIJS.viewjs(page);

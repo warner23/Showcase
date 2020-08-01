@@ -152,7 +152,7 @@ class WIPage
       $content = $result[0]["contents"];
       //echo $content;
        $directory = dirname(dirname(dirname(__FILE__)));
-      require_once  $directory . '/WIModule/' .$content.'/'.$content.'.php';
+      require_once  $directory . '/WIModule/pages/' .$content.'/'.$content.'.php';
         $mod = new $content;
 
         $mod->editPageContent($content);   
@@ -394,7 +394,6 @@ class WIPage
 
       $query = $this->WIdb->prepare($css);
         $query->execute();
-
       }
 
       if ($JsCheck === "0") {

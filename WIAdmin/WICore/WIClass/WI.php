@@ -14,6 +14,7 @@ include_once 'WIMaintenace.php';
 include_once 'WIWebsite.php';
 include_once 'WIPagination.php';
 include_once 'WISystem.php';
+include_once 'WIProduct.php';
 
 
 //include_once 'WIUserInfo.php';

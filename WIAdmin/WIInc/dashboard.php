@@ -1,6 +1,3 @@
-
-
-
  <aside class="right-side">
     <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -121,8 +118,8 @@
                             </div><!-- /.box -->        
                             
                             <?php
-
-                             $check = dirname(dirname(dirname(dirname(dirname(dirname(dirname(__FILE__))))))) . '/WIShop/';
+                            //echo dirname(dirname(dirname(__FILE__))) . '/WIShop';
+                             $check = dirname(dirname(dirname(__FILE__))) . '/WIShop';
 
                             if(file_exists($check)){
                             echo ' <!-- Custom tabs (Charts with tabs)-->
