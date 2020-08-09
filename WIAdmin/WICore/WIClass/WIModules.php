@@ -1138,10 +1138,9 @@ class WIModules
 
         foreach($results as $res) {
             //var_dump($res);
-            echo '<div class="box box-element ui-draggable">
+            echo '<div class="Components box box-element ui-draggable" id="Components">
                     <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>Remove</a> <span class="drag label"><i class="icon-move"></i>Drag</span>
                     <span class="configuration">
-                    <button type="button" class="btn btn-mini" role="button" id="editorModal" onclick="WIScript.Editor();">Editor</button>
                       <span class="btn-group">
                         <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">Orientation<span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -1330,8 +1329,67 @@ class WIModules
                     ' . $r['module'] . '
                   </div>';
         }
-
         
+         $Pagin = $this->Page->Pagination($item_per_page, $page_number, $rows, $total_pages, $onclick);
+    //print_r($Pagination);
+         echo '</li></ul>';
+         echo '<div align="center">';
+    /* We call the pagination function here to generate Pagination link for us. 
+    As you can see I have passed several parameters to the function. */
+    echo $Pagin;
+    echo '</div>';
+
+     }
+
+
+     public function ActiveElementsActions()
+     {
+
+         if(isset($_POST["page"])){
+        $page_number = filter_var($_POST["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
+        if(!is_numeric($page_number)){die('Invalid page number!');} //incase of invalid page number
+    }else{
+        $page_number = 1; //if there's no page number, set it to 1
+    }
+        $onclick = "nextElement";
+        $module_status = "enabled";
+        $item_per_page = 15;
+        $power = "power_on";
+        $type = "action";
+        $result = $this->WIdb->select(
+                    "SELECT * FROM `wi_elements` WHERE `element_status` = :module_status AND `element_powered` =:power AND `element_type`=:type",
+                     array(
+                       "module_status" => $module_status,
+                       "power" => $power,
+                       "type" => $type,
+                ));
+        //var_dump($result);
+        $rows = count($result);
+
+        //break records into pages
+        $total_pages = ceil($rows/$item_per_page);
+        
+        //get starting position to fetch the records
+        $page_position = (($page_number-1) * $item_per_page);
+        
+
+        echo '<ul class="nav nav-list accordion-group">';
+
+        $res = $this->WIdb->select(
+                    "SELECT * FROM `wi_elements` WHERE `element_status` = :module_status AND `element_powered` =:power AND `element_type`=:type",
+                     array(
+                       "module_status" => $module_status,
+                       "power" => $power,
+                       "type" => $type
+                ));
+        foreach($res as $r){
+
+            echo '<div class="action callToAction box-element ui-draggable" id="action">
+                    <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>Remove</a> <span class="drag label"><i class="icon-move"></i>Drag</span>
+                    ' . $r['element'] . '
+                  </div>';
+        }
+
          $Pagin = $this->Page->Pagination($item_per_page, $page_number, $rows, $total_pages, $onclick);
     //print_r($Pagination);
          echo '</li></ul>';
@@ -1538,8 +1596,19 @@ class WIModules
                        "n" => $mod_name
                      ));
 
-
         if(count($pages) >0){
+
+            $id = $pages[0]['page_id'];
+                $this->WIdb->update(
+                    "wi_pages", 
+                    array("pagemod" => $content, 
+                        "edit_page_mod" => $contents,
+                        "page_status" => "enabled"
+                    ), 
+                    "`page_id` = :id",
+                    array( "id" => $id )
+               );
+        }else if(count($pages) >0){
 
             $id = $pages[0]['page_id'];
                 $this->WIdb->update(
@@ -2484,6 +2553,25 @@ class ' . $mod_name . '
             </div>';
   }
 
+ public function groupConfig1()
+  {
+        echo '<div class="lactionBtnWrapper">
+                <button class="btn litemhandle" type="button" id="lgab">
+                <i class="fas fa-grip-vertical left"></i>
+                </button>
+                <button class="btn item_editToggle" onclick="WIPageBuilder.edit();" type="button">
+                <i class="fas fa-edit"></i>    
+                </button>
+                <button class="btn item_clone" onclick="WIPageBuilder.clone();" type="button">
+                <i class="fas fa-copy"></i>
+                </button>
+                <button class="btn item_remove" onclick="WIPageBuilder.delete();" type="button">
+                <i class="fas fa-times"></i> 
+                </button>
+            </div>';
+  }
+
+
  public function groupConfig()
   {
     echo '<div class="fCheck">
@@ -2630,7 +2718,7 @@ class ' . $mod_name . '
   }
 
 
-      public function fieldEdit()
+  public function fieldEdit()
   {
 
     $tabNum = self::numberGenerator();
@@ -2722,7 +2810,6 @@ class ' . $mod_name . '
                       <option value="value" selected="true">value</option>
                       <option value="isVisible">is visible</option>
                       <option value="isNotVisible">is not visible</option>
-                      
                     </select>
 
                     <select class="condition-comparison">
@@ -2730,13 +2817,19 @@ class ' . $mod_name . '
                       <option value="notEquals">not equals</option>
                       <option value="contains">contains</option>
                       <option value="notContains">not contains</option>
-                      
+                    </select>
+
+                    <select class="condition-comparison">
+                      <option value="equals" selected="true">equals</option>
+                      <option value="notEquals">not equals</option>
+                      <option value="contains">contains</option>
+                      <option value="notContains">not contains</option>
                     </select>
                       <div class="conditons-target">
                         <input type="text" name="" class="f-autocomplete-display-field"  placeholder="target / value" autocomplete="off">
                         <input type="hidden" name="" class="condition-target">
                         <ul class="f-autocomplete-list">
-                        
+            
                       </ul>
                       </div>
 

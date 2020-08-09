@@ -1,3 +1,13 @@
 [22-Jul-2020 10:30:44 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'userId' in 'field list' in /home/warner23/public_html/WIClients/studycorner.co.uk/WIAdmin/WICore/WIClass/WIdb.php on line 166
 [22-Jul-2020 10:33:35 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'userId' in 'field list' in /home/warner23/public_html/WIClients/studycorner.co.uk/WIAdmin/WICore/WIClass/WIdb.php on line 166
 [22-Jul-2020 10:33:41 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'userId' in 'field list' in /home/warner23/public_html/WIClients/studycorner.co.uk/WIAdmin/WICore/WIClass/WIdb.php on line 166
+[05-Aug-2020 21:21:59 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 67
+[05-Aug-2020 21:21:59 UTC] PHP Warning:  PDOStatement::fetchAll() expects parameter 1 to be integer, array given in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 73
+[05-Aug-2020 21:21:59 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIDashboard.php on line 75
+[05-Aug-2020 21:23:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 67
+[05-Aug-2020 21:23:22 UTC] PHP Warning:  PDOStatement::fetchAll() expects parameter 1 to be integer, array given in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 73
+[05-Aug-2020 21:23:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIDashboard.php on line 75
+[05-Aug-2020 21:23:42 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 67
+[05-Aug-2020 21:23:42 UTC] PHP Warning:  PDOStatement::fetchAll() expects parameter 1 to be integer, array given in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 73
+[05-Aug-2020 21:23:42 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIDashboard.php on line 75
+[05-Aug-2020 21:23:46 UTC] PHP Parse error:  syntax error, unexpected '$rand' (T_VARIABLE) in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/elements/Components/Components.php on line 123

@@ -73,32 +73,7 @@
                     </div>
 
                     <div class="col-lg-3 col-xs-6 col-xl-12">
-                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-
-                        <div class="sidebar-nav">
-               <div class="panelling">
-            <div class="panel-wrap">
-         
-
-<div id="tabsMenu">
-
-          <button class="prev-group" onclick="WIPageBuilder.RotateX()" title="Prevous Group" type="button" data-toggle="tooltip" data-placement="top" style="float:left;"><img src="WIMedia/Img/mfp-left.png" ></button>
-  <ul class="panell">
-    <li class="elementsG on">Modules</li>
-
-  </ul>
-   <button class="" onclick="WIPageBuilder.Rotate()" title="Next Group" type="button" data-toggle="tooltip" data-placement="top"><img src="WIMedia/Img/mfp-right.png"></button>
-  <div id="modules" class="on">
-       <div class="module ui-widget-content" id="module">
-
-        </div>
-  </div>
-
-</div>
-  </div>
-</div>
-  </div>    
-                      </div>
+                       
                        <div class="col-lg-8 col-md-8 col-sm-8">  
                           <div class="page" id="pages">
 

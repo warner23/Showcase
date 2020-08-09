@@ -78,7 +78,9 @@ class WIEditor
             <i class="fa fa-intro"></i>
             </a>
             <a href="javascript:void(0);" class="btn tile">
-            <i class="fas fa-brackets-curly"></i></a>
+            <i class="fas fa-brackets-curly"></i>
+            </a>
+            <a href="javascript:void(0);" data-command="actions" class="btn tile"><i class="fa fa-code"></i></a>
 
             <a href="javascript:void(0);" id="eye" title="Preview" class="btn tile" title="Eye">
             <i class="fa fa-eye"></i></a>
@@ -97,6 +99,7 @@ class WIEditor
              echo " $('.toolbar a').click(function(e) {
               console.log('clicked');
 
+
               var textarea = document.getElementById('editor-area');  
             var selection = (textarea.value).substring(textarea.selectionStart,textarea.selectionEnd);
              console.log(selection);
@@ -111,7 +114,10 @@ class WIEditor
                 
                 $('#editor-area').html(text.replace(selection, newElement.outerHTML));
 
-                }else{
+                }else if(command == 'actions'){
+                    
+                }
+                else{
                   const newElement = document.createElement($(this).data('command'));
               newElement.append(selection);
               console.log(newElement);

@@ -17,6 +17,7 @@ class Components
     $type = "Components";
     $font = "wi_" . $element_name;
     $power = "power_on";
+    $status = "enabled";
 
     if($element_name != "Components"){
 
@@ -115,9 +116,12 @@ class Components
         break;
 
         case "Jumbotron":
+
+        $rand = self::numberGenerator();
         $element = '<div class="preview">Jumbotron</div>
                     <div class="view">
-                      <div class="hero-unit textMod" contenteditable="true">
+                      <button id="editorModal" onclick="WIScript.Editor(`'.$rand.'`);" class="btn btn-mini">Editor</button>
+                      <div class="hero-unit" contenteditable="true" id="'.$rand.'">
                         <h1>Hello, world!</h1>
                         <p>This is a template for a simple marketing or information website.
                           It includes a large callout called the herop unit and three  supporting pieaces of content. Use iot as starting point to create something more unique
@@ -333,7 +337,8 @@ class Components
             "element_type" => $type,
             "element_font" => $font,
             "element"     => $element,
-            "element_powered" => $power
+            "element_powered" => $power,
+            "element_status" => $status
         )); 
     }else{
       $this->componentsSystem();
@@ -576,6 +581,13 @@ class Components
     foreach ($element_name as $ele ) {
       $this->Install($ele);
     }
+  }
+
+
+  public function numberGenerator()
+  {
+        $number = rand();
+        return $number;
   }
 
 
