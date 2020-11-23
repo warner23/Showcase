@@ -31,7 +31,7 @@ if ($panelPower === 0) {
 	
 }else{
 
-	$mod->getMod($Panel);
+	$mod->getMod($Panel,$page);
 //include_once 'WIInc/panel.php';
 }
 
@@ -42,7 +42,7 @@ if ($topPower === 0) {
 	
 }else{
 
-	$mod->getMod($top_head);
+	$mod->getMod($top_head,$page);
 }
 
 $headerPower = $web->pageModPower($page, "header");

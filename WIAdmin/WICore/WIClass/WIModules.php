@@ -1562,6 +1562,7 @@ class WIModules
         return $mod_name;
     }
 
+
     public function save_mod( $mod_name, $contents, $content)
     {
         $modules = $this->WIdb->select("SELECT * FROM `wi_mods`
@@ -1684,59 +1685,40 @@ class ' . $mod_name . '
         $this->site = new WISite();
         $this->mod  = new WIModules();
         $this->page = new WIPage();
+        $this->Bootstrap = new WIBootstrap();
     }
 
     public function editMod()
     {
         
-    $this->Web->EditModTemp();
-     $result = $this->WIdb->select("SELECT `edit_page_mod` FROM `wi_pages` WHERE `page_name` =:page", array("page" => $page,));
-        if(count($result) < 1)
-        {
-            echo "No Page Found.";
-        }
-        else{
-           echo $result[0]["edit_page_mod"];
-        }
  
     }
 
     public function editPageContent($page)
     {
-      $result = $this->WIdb->select("SELECT `edit_page_mod` FROM `wi_pages` WHERE `page_name` =:page", array("page" => $page,));
-        if(count($result) < 1)
-        {
-            echo "No Page Found.";
-        }
-        else{
-           echo $result[0]["edit_page_mod"];
-        }
+
 
     }
 
     public function mod_name($module, $page)
     {
+        $this->Bootstrap->mod_name_start();
         if(isset($page)){
         $left_sidePower = $this->Web->pageModPower($page, "left_sidebar");
         $leftSideBar = $this->Web->PageMod($page, "left_sidebar");
         if ($left_sidePower === "0") {
-            
+          $this->Bootstrap->mod_name_nosidebar(); 
         }else{
 
             $this->mod->getMod($leftSideBar);
+            $this->Bootstrap->mod_name_sidebar(); 
         }
         }
 
-        $result = $this->WIdb->select("SELECT `pagemod` FROM `wi_pages` WHERE `page_name` =:page", array("page" => $page) );
-        if(count($result) < 1)
-        {
-            echo "No Page Found.";
-        }
-        else{
-           echo $result[0]["pagemod"];
-        }
-        
-
+        $this->Bootstrap->mod_name_main();
+        echo ' . $content. '
+        echo "</div>
+            </div></div>";
       if(isset($page)){         
         $right_sidePower = $this->Web->pageModPower($page, "right_sidebar");
         $rightSideBar = $this->Web->PageMod($page, "right_sidebar");

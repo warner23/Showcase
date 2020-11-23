@@ -11,3 +11,28 @@
 [05-Aug-2020 21:23:42 UTC] PHP Warning:  PDOStatement::fetchAll() expects parameter 1 to be integer, array given in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 73
 [05-Aug-2020 21:23:42 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIDashboard.php on line 75
 [05-Aug-2020 21:23:46 UTC] PHP Parse error:  syntax error, unexpected '$rand' (T_VARIABLE) in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/elements/Components/Components.php on line 123
+[05-Aug-2020 23:11:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 67
+[05-Aug-2020 23:11:44 UTC] PHP Warning:  PDOStatement::fetchAll() expects parameter 1 to be integer, array given in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 73
+[05-Aug-2020 23:11:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIDashboard.php on line 75
+[27-Aug-2020 22:30:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 67
+[27-Aug-2020 22:30:07 UTC] PHP Warning:  PDOStatement::fetchAll() expects parameter 1 to be integer, array given in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 73
+[27-Aug-2020 22:30:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIDashboard.php on line 75
+[01-Sep-2020 22:03:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 67
+[01-Sep-2020 22:03:38 UTC] PHP Warning:  PDOStatement::fetchAll() expects parameter 1 to be integer, array given in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 73
+[01-Sep-2020 22:03:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIDashboard.php on line 75
+[01-Sep-2020 23:05:54 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 67
+[01-Sep-2020 23:05:54 UTC] PHP Warning:  PDOStatement::fetchAll() expects parameter 1 to be integer, array given in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 73
+[01-Sep-2020 23:05:54 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIDashboard.php on line 75
+[01-Oct-2020 00:56:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 67
+[01-Oct-2020 00:56:12 UTC] PHP Warning:  PDOStatement::fetchAll() expects parameter 1 to be integer, array given in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 73
+[01-Oct-2020 00:56:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIDashboard.php on line 75
+[07-Oct-2020 21:30:40 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 67
+[07-Oct-2020 21:30:40 UTC] PHP Warning:  PDOStatement::fetchAll() expects parameter 1 to be integer, array given in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 73
+[07-Oct-2020 21:30:40 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIDashboard.php on line 75
+[08-Oct-2020 20:34:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 67
+[08-Oct-2020 20:34:50 UTC] PHP Warning:  PDOStatement::fetchAll() expects parameter 1 to be integer, array given in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 73
+[08-Oct-2020 20:34:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIDashboard.php on line 75
+[08-Oct-2020 20:34:54 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 67
+[08-Oct-2020 20:34:54 UTC] PHP Warning:  PDOStatement::fetchAll() expects parameter 1 to be integer, array given in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 73
+[08-Oct-2020 20:34:54 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIDashboard.php on line 75
+[08-Oct-2020 20:34:54 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0','15'' at line 1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WICore/WIClass/WIdb.php on line 50

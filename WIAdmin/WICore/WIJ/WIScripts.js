@@ -582,7 +582,7 @@ WIScript.SaveContent = function(selector){
         var d = $('#editor-area').val();
        
         console.log(d);
-        console.log(selector);
+         console.log(selector);
 
         $("#"+selector).html(d);
         $("#modal-editorModal-details").removeClass('show').addClass('hide');

@@ -741,3 +741,269 @@ Stack trace:
 #2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
 #3 {main}
   thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[23-Jul-2020 15:38:25 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[23-Jul-2020 15:38:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[25-Jul-2020 23:47:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[27-Jul-2020 14:16:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[13-Aug-2020 12:26:45 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[23-Aug-2020 16:50:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[27-Aug-2020 06:43:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[27-Aug-2020 21:24:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[28-Aug-2020 07:11:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[30-Aug-2020 02:06:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[31-Aug-2020 22:03:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[08-Sep-2020 02:11:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[10-Sep-2020 03:01:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[14-Sep-2020 02:27:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[14-Sep-2020 04:22:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[14-Sep-2020 09:12:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[14-Sep-2020 12:01:45 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[16-Sep-2020 02:26:29 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[21-Sep-2020 04:27:20 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[27-Sep-2020 06:32:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[29-Sep-2020 18:12:59 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[01-Oct-2020 00:17:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[01-Oct-2020 19:59:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[03-Oct-2020 09:11:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[03-Oct-2020 10:53:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[07-Oct-2020 10:10:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[07-Oct-2020 21:35:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[07-Oct-2020 21:57:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[09-Oct-2020 03:42:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[13-Oct-2020 04:05:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[15-Oct-2020 04:01:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[15-Oct-2020 20:35:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[16-Oct-2020 20:11:59 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[23-Oct-2020 00:25:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[30-Oct-2020 20:47:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[10-Nov-2020 10:35:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[10-Nov-2020 15:14:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52
+[15-Nov-2020 11:51:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIModal::DeleteCategory() in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php:52
+Stack trace:
+#0 /home/warner23/public_html/WIClients/warner-infinity.com/WIAdmin/WIModule/pages/forum/forum.php(264): WIModal->moduleModal('delete-cat', 'Delete Section', 'WIForum', 'DeleteCategory', 'delete category')
+#1 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModules.php(56): forum->mod_name('forum', 'forum')
+#2 /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/index.php(58): WIModules->getModMain(Object(forum), 'forum', 'forum')
+#3 {main}
+  thrown in /home/warner23/public_html/WIClients/warner-infinity.com/WIForum/WICore/WIClass/WIModal.php on line 52

@@ -99,43 +99,20 @@ class WIPage
       //var_dump($result);
       $content = $result[0]["contents"];
       //echo $content;
+      if ($content === '') {
+          echo "<div class='empty' id='notAssigned'>No Module Assigned to this page yet, please drop a module into your page to assign.</div>";
+        }else{
+        $directory = dirname(dirname(dirname(__FILE__)));
+//include_once  $directory . '/WIInc/edit/' . $page_id . '.php' ;
+      //echo  '/WIModule/' .$name.'/'.$name.'.php';
+      require_once  $directory . '/WIModule/' .$content.'/'.$content.'.php';
+        $content = new $content;
 
-      // getting the info via db ( option 2)
-      $res = $this->WIdb->select(
-                    "SELECT * FROM `wi_modules`
-                     WHERE `name` = :c",
-                     array(
-                       "c" => $content
-                     )
-                  );
-      //var_dump($res);
-
-      if(isset($page)){
-    $left_sidePower = $this->Web->pageModPower($page, "left_sidebar");
-    $leftSideBar = $this->Web->PageMod($page, "left_sidebar");
-    if ($left_sidePower === "0") {
-      
-    }else{
-
-     echo $this->mod->getMod($leftSideBar, $page, $content);
-    }
-
-    }
-         
-      //continuation of option 2
-
-      $contentMod = $res[0]['content'];
-//echo $contentMod;
-      if (strlen($contentMod) > 0) {
-        echo $contentMod;
-      }
-    else{
-      // assign page mod here
-      echo "no contents avilable";
-    }
+        $content->editPageContent($page); 
 
 
     }
+  }
 
 
         public function LoadingPage($page)
@@ -319,11 +296,13 @@ class WIPage
         $tracking_page = $_SERVER["SCRIPT_NAME"];
 
         $country = $maint->ip_info($ip, "country");
+        $location = $maint->ip_info($ip, "location");
+        $city = $location["city"];
         if($country === null){
           $country = "localhost";
         }
 
-        $maint->visitors_log($page, $ip, $country, $ref, $agent, $tracking_page);
+        $maint->visitors_log($page, $ip, $country, $ref, $agent, $tracking_page, $city);
 
         $panelPower = $web->pageModPower($page, "panel");
 
@@ -351,14 +330,7 @@ class WIPage
         $web->MainHeader();
         }
 
-        $menuPower = $web->pageModPower($page, "menu");
-
-        if ($menuPower === "0") {
-          
-        }else{
         $web->MainMenu();
-        }
-
 
         $contents = $web->pageModPower($page, "contents");
         $mod->getModMain($contents, $page, $contents);

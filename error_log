@@ -1,0 +1,27 @@
+[16-Jul-2020 13:36:49 UTC] PHP Warning:  require_once(WIAdmin/WIModule/panel/panel.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIClients/warner-infinity.com/WICore/WIClass/WIModules.php on line 39
+[16-Jul-2020 13:36:49 UTC] PHP Fatal error:  require_once(): Failed opening required 'WIAdmin/WIModule/panel/panel.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIClients/warner-infinity.com/WICore/WIClass/WIModules.php on line 39
+[16-Jul-2020 13:36:50 UTC] PHP Warning:  require_once(WIAdmin/WIModule/panel/panel.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIClients/warner-infinity.com/WICore/WIClass/WIModules.php on line 39
+[16-Jul-2020 13:36:50 UTC] PHP Fatal error:  require_once(): Failed opening required 'WIAdmin/WIModule/panel/panel.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIClients/warner-infinity.com/WICore/WIClass/WIModules.php on line 39
+[16-Jul-2020 13:54:09 UTC] PHP Warning:  require_once(WIAdmin/WIModule/panel/panel.php): failed to open stream: No such file or directory in /home/warner23/public_html/WIClients/warner-infinity.com/WICore/WIClass/WIModules.php on line 39
+[16-Jul-2020 13:54:09 UTC] PHP Fatal error:  require_once(): Failed opening required 'WIAdmin/WIModule/panel/panel.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/warner23/public_html/WIClients/warner-infinity.com/WICore/WIClass/WIModules.php on line 39
+[21-Jul-2020 05:24:16 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[01-Aug-2020 02:14:24 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[14-Aug-2020 11:25:48 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[17-Aug-2020 05:03:34 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[17-Aug-2020 05:03:38 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[17-Aug-2020 05:19:30 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[17-Aug-2020 05:19:35 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[17-Aug-2020 05:19:39 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[17-Aug-2020 05:19:41 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[17-Aug-2020 05:19:44 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[22-Aug-2020 03:10:24 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[22-Aug-2020 03:17:11 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[25-Aug-2020 04:55:41 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[14-Sep-2020 14:28:51 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[25-Sep-2020 01:03:26 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[26-Sep-2020 04:53:57 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[27-Sep-2020 07:56:26 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[28-Sep-2020 08:30:16 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[05-Oct-2020 18:27:38 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[18-Oct-2020 16:45:53 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
+[26-Oct-2020 14:19:17 UTC] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/warner23/public_html/WIClients/warner-infinity.com/index.php on line 10
