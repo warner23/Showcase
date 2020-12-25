@@ -1,0 +1,2 @@
+[01-Apr-2018 17:07:42 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner_stage_db.wi_theatre' doesn't exist in /home/warner/public_html/The_Stage_DB/WICore/WIClass/WITheatres.php on line 84
+[01-Apr-2018 17:16:19 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'warner_stage_db.wi_theatre' doesn't exist in /home/warner/public_html/The_Stage_DB/WICore/WIClass/WITheatres.php on line 84

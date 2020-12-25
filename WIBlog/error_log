@@ -1,0 +1,9 @@
+[07-Mar-2019 09:24:16 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WIWebsite::google_lang() in /home/warner23/public_html/WIAdmin/WIModule/top_head/top_head.php:48
+Stack trace:
+#0 /home/warner23/public_html/WIBlog/WICore/WIClass/WIModules.php(45): top_head->mod_name()
+#1 /home/warner23/public_html/WIBlog/index.php(46): WIModules->getMod(Object(top_head))
+#2 {main}
+  thrown in /home/warner23/public_html/WIAdmin/WIModule/top_head/top_head.php on line 48
+[01-Jul-2020 22:36:32 UTC] PHP Parse error:  syntax error, unexpected 'WILang' (T_STRING), expecting ';' in /home/warner23/public_html/WIBacksites/Showcase/WIBlog/WICore/WIClass/WIComment.php on line 65
+[01-Jul-2020 23:02:47 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/warner23/public_html/WIBacksites/Showcase/WIBlog/WICore/WIClass/WIBlog.php on line 541
+[02-Jul-2020 00:15:00 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/warner23/public_html/WIBacksites/Showcase/WIBlog/WICore/WIClass/WIComment.php on line 57
