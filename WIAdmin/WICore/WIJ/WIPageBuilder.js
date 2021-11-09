@@ -56,6 +56,7 @@ WIPageBuilder.RotateX = function(){
 	$( "#actionsA" ).removeClass('on').addClass('off');
 	$( "#modulesM" ).removeClass('off').addClass('on');
     }else if ($(".elementsM").hasClass('on') ) {
+	  if ($(".elementsM").hasClass('on') ) {
 	$(".elementsM").removeClass('on').addClass('off');
 	$(".elementsJ").removeClass('off').addClass('on');
 	$( "#modulesM" ).removeClass('on').addClass('off');

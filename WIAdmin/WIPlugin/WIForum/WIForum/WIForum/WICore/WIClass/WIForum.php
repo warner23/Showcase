@@ -229,17 +229,17 @@
 		while($result = $query->fetch(PDO::FETCH_ASSOC))
 		{
 			echo '<div class="col-100">
-<div class="col-labels1">'. $result['post_title'] .'</div></div>
-			<div class="inner_col">
-<div class="section_box">
-<div class="avatpic_post"><a href="#"><img class="ava" src="#"></a>
-</div><!-- end avatpic-->
-<div class="post_name">' . $result['thread_title'] . '</div><!-- end section-->
-<div class="post_comment">' . $result['post_body'] . '</div><!-- end section-->
-<div class="post_author">' . $result['post_author'] . '</div><!-- end section-->
-<div class="last_time">' . $result['date_time'] . '</div><!-- end section-->
-</div><!-- end section box-->
-</div><!-- end inner col-->';
+			<div class="col-labels1">'. $result['post_title'] .'</div></div>
+						<div class="inner_col">
+			<div class="section_box">
+			<div class="avatpic_post"><a href="#"><img class="ava" src="#"></a>
+			</div><!-- end avatpic-->
+			<div class="post_name">' . $result['thread_title'] . '</div><!-- end section-->
+			<div class="post_comment">' . $result['post_body'] . '</div><!-- end section-->
+			<div class="post_author">' . $result['post_author'] . '</div><!-- end section-->
+			<div class="last_time">' . $result['date_time'] . '</div><!-- end section-->
+			</div><!-- end section box-->
+			</div><!-- end inner col-->';
 		}
 
 	}
@@ -316,18 +316,20 @@
 		foreach ($result as $res) {
 			$count++;
 			if($count == $len){
-				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
-			<div class-"col-lg-12 col-xs-11 col-md-12">
+				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">';
+				self::userImage($res['user_posted']);
+			echo '<div class-"col-lg-12 col-xs-11 col-md-12">
 					<input type="hidden" id="post_id" value="'. $res['id'] .'">
 					<input type="hidden" id="section_id" value="'. $res['section_id'] .'">
 					<input type="hidden" id="cat_id" value="'. $res['category_id'] .'">
 				  	<div id="forum_post_title">' . $res['title'] .'</div>
 				  		  <div id="forum_post">' . $res['post'] .'</div>
-				  		  </div>
-				  	<button onclick="WIForum.CreatePost(`'. $res['category_id'] .'`,`'. $res['section_id'] .'`)">Reply</button>';
+				  		  </div></li>
+				  	<button id="forumCreatePost" onclick="WIForum.CreatePost(`'. $res['category_id'] .'`,`'. $res['section_id'] .'`)">Reply</button>';
 			}else{
-				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
-			<div class-"col-lg-12 col-xs-11 col-md-12">
+				echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">';
+				self::userImage($res['user_posted']);
+			echo '<div class-"col-lg-12 col-xs-11 col-md-12">
 					<input type="hidden" id="post_id" value="'. $res['id'] .'">
 				  	<div id="forum_post_title">' . $res['title'] .'</div>
 				  		  <div id="forum_post">' . $res['post'] .'</div>
@@ -345,23 +347,14 @@
 		echo '<li class="ui-tabs-tab ui-state-default ui-tab ui-corner-left">
 		<input id="'.$cat_id.'" class="casting" name="category_id" type="hidden">
 		<input id="'.$section_id.'" class="casting" name="section_id" type="hidden">
-		<input id="title" class="title" name="title" type="text" placeholder="title">
-		<script>
-    tinymce.init({
-      selector: "#mytextarea"
-    });
-  </script>
-  <textarea id="mytextarea" name="mytextarea">
-      Hello, World!
-    </textarea>
-
-    <div class="form-group">
-                    <button class="btn btn-primary" id="btn-post" onclick="WIForum.newPost(`'.$cat_id.'`,`'.$section_id.'`)" type="submit">
-                        <i class="fa fa-comment"></i>
+		<input id="title" class="title" name="title" type="text" placeholder="title">';
+           $this->wysiwyg->Editor();
+        echo '<div class="form-group">
+         <button class="btn btn-primary" id="btn-post" onclick="WIForum.newPost(`'.$cat_id.'`,`'.$section_id.'`)" type="submit">
+          <i class="fa fa-comment"></i>
                         '.WILang::get("post").'
                     </button>
                 </div>
-		<!-- //$this->wysiwyg->Editor(); -->
 		</li>';
 	}
 
@@ -387,6 +380,25 @@
         );
 
         echo json_encode($result);
+	}
+
+	public function userImage($user_id)
+	{
+		$result = $this->WIdb->select(
+                    "SELECT * FROM `wi_user_details`
+                     WHERE `user_id` = :u",
+                     array(
+                       "u" => $user_id
+                     )
+                  );
+
+		$avatorPic = $result[0]['avatar'];
+
+		if($avatorPic == ""){
+			echo '<img class="blogUser" src="../../WIAdmin/WIMedia/Img/avator/'.$user_id.'/default.png">';
+		}else{
+			echo '<img class="blogUser" src="../../WIAdmin/WIMedia/Img/avator/'.$user_id.'/'. $avatorPic.'">';
+		}
 	}
 
 

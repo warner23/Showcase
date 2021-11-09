@@ -1330,7 +1330,6 @@ class WIModules
                     ' . $r['module'] . '
                   </div>';
         }
-
         
          $Pagin = $this->Page->Pagination($item_per_page, $page_number, $rows, $total_pages, $onclick);
     //print_r($Pagination);
@@ -1392,7 +1391,6 @@ class WIModules
                   </div>';
         }
 
-        
          $Pagin = $this->Page->Pagination($item_per_page, $page_number, $rows, $total_pages, $onclick);
     //print_r($Pagination);
          echo '</li></ul>';
@@ -1598,8 +1596,45 @@ class WIModules
                      array(
                        "n" => $mod_name
                      ));
+        if(count($modules) >0){
+            $id = $modules[0]['module_id'];
+                $this->WIdb->update(
+                    "wi_mods", 
+                    array("module" => $content, 
+                        "edit_module" => $contents 
+                    ), 
+                    "`module_id` = :id",
+                    array( "id" => $id )
+               );
+        }else{
+            $this->WIdb->insert('wi_mods', array(
+            "module_name"     => $mod_name,
+            "module"     => $content,
+            "edit_module"     => $contents
+        ));
+
+        }
+
+        $pages = $this->WIdb->select("SELECT * FROM `wi_pages`
+                     WHERE `page_name` = :n",
+                     array(
+                       "n" => $mod_name
+                     ));
 
 
+        if(count($pages) >0){
+
+            $id = $pages[0]['page_id'];
+                $this->WIdb->update(
+                    "wi_pages", 
+                    array("pagemod" => $content, 
+                        "edit_page_mod" => $contents,
+                        "page_status" => "enabled"
+                    ), 
+                    "`page_id` = :id",
+                    array( "id" => $id )
+               );
+        }else{
         if(count($pages) >0){
 
             $id = $pages[0]['page_id'];
@@ -2547,6 +2582,57 @@ class ' . $mod_name . '
 
  public function groupConfig()
   {
+        echo '<div class="lactionBtnWrapper">
+                <button class="btn litemhandle" type="button" id="lgab">
+                <i class="fas fa-grip-vertical left"></i>
+                </button>
+                <button class="btn item_editToggle" onclick="WIPageBuilder.edit();" type="button">
+                <i class="fas fa-edit"></i>    
+                </button>
+                <button class="btn item_clone" onclick="WIPageBuilder.clone();" type="button">
+                <i class="fas fa-copy"></i>
+                </button>
+                <button class="btn item_remove" onclick="WIPageBuilder.delete();" type="button">
+                <i class="fas fa-times"></i> 
+                </button>
+            </div>';
+  }
+
+  public function MgroupActions()
+  {
+        echo '<div class="mactionBtnWrapper">
+            <button class="btn mitemhandle" type="button" id="mgab">
+            <i class="fas fa-grip-vertical middle"></i>
+            </button>
+            <button class="btn item_clone" type="button">
+            <i class="fas fa-copy"></i>
+            </button>
+            <button class="btn item_remove" type="button">
+            <i class="fas fa-times"></i> 
+            </button>
+        </div>';
+  }
+
+  public function RgroupActions()
+  {
+            echo '<div class="ractionBtnWrapper">
+                <button class="btn ritemhandle" type="button" id="rgab">
+                <i class="fas fa-grip-vertical right"></i>
+                </button>
+                <button class="btn item_editToggle" type="button">
+                <i class="fas fa-edit"></i>    
+                </button>
+                <button class="btn item_clone" type="button">
+                <i class="fas fa-copy"></i>
+                </button>
+                <button class="btn item_remove" type="button">
+                <i class="fas fa-times"></i> 
+                </button>
+            </div>';
+  }
+
+ public function groupConfig()
+  {
     echo '<div class="fCheck">
         <label for="inputting">
           <input name="inputting" type="checkbox" aria=label="rowSeetingsInputGroupAria" id="inputGroup">
@@ -2691,7 +2777,7 @@ class ' . $mod_name . '
   }
 
 
-      public function fieldEdit()
+  public function fieldEdit()
   {
 
     $tabNum = self::numberGenerator();
@@ -2783,7 +2869,6 @@ class ' . $mod_name . '
                       <option value="value" selected="true">value</option>
                       <option value="isVisible">is visible</option>
                       <option value="isNotVisible">is not visible</option>
-                      
                     </select>
 
                     <select class="condition-comparison">
@@ -2791,13 +2876,19 @@ class ' . $mod_name . '
                       <option value="notEquals">not equals</option>
                       <option value="contains">contains</option>
                       <option value="notContains">not contains</option>
-                      
+                    </select>
+
+                    <select class="condition-comparison">
+                      <option value="equals" selected="true">equals</option>
+                      <option value="notEquals">not equals</option>
+                      <option value="contains">contains</option>
+                      <option value="notContains">not contains</option>
                     </select>
                       <div class="conditons-target">
                         <input type="text" name="" class="f-autocomplete-display-field"  placeholder="target / value" autocomplete="off">
                         <input type="hidden" name="" class="condition-target">
                         <ul class="f-autocomplete-list">
-                        
+            
                       </ul>
                       </div>
 
