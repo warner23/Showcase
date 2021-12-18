@@ -308,10 +308,11 @@ WIScript.handleJsIds = function(e){
         WIScript.callToAction(e);
     }
 
-    
-    
-
 }
+
+
+
+
 WIScript.handleModuleIds = function(e){
 
     console.log(e.target.childNodes);
@@ -589,12 +590,7 @@ WIScript.BaseEdit = function(name){
 WIScript.Editor = function(selector){
     console.log('click');
         $("#modal-editorModal-details").removeClass('hide').addClass('show');
-        
-        /*var t = $(event.target);
-        var c = $(event.target).closest('view');
-        currenteditor = $(event.target).parent().parent().parent().find('.view');
-        editor = $(event.target).parent().parent().parent().parent().find('.box');
-        editor.attr('id', "editorId");*/
+
         WIWYSIWYG.palettes();
         var eText = $("#"+selector).html();
         $('#editor-area').empty().html(eText);
@@ -612,7 +608,7 @@ WIScript.SaveContent = function(selector){
         console.log(d);
          console.log(selector);
 
-        $("div#"+selector).html(d);
+        $("#"+selector).html(d);
         $("#modal-editorModal-details").removeClass('show').addClass('hide');
 }
 

@@ -165,23 +165,14 @@ class WIWebsite
 
         public function MainMenu()
     {
-        $sql = "SELECT * FROM `wi_menu`";
-        $query = $this->WIdb->prepare($sql);
-        $query->execute();
-        $result = $query->fetch();
-        $menu_order = $result['sort'];
 
-        $sql1 = "SELECT * FROM `wi_menu` ORDER BY :order";
-        $query1 = $this->WIdb->prepare($sql1);
-        $query1->bindParam(':order', $menu_order, PDO::PARAM_INT);
-        $query1->execute();
+        $result0 = $this->WIdb->select("SELECT * FROM `wi_menu` ORDER BY `sort`");
         echo '<div class="menu"><div class="col-lg-12 col-md-12 col-sm-12 menusT">
               <div id="nav">
                <ul id="mainMenu" class="mainMenu default">';
-
-        while($res = $query1->fetch(PDO::FETCH_ASSOC))
+        foreach($result0 as $res)
         {    
-         echo '<li><a href="../' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
+         echo '<li class=""><a href="../' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
          if($res['parent'] > 0)
          {
             echo '<li><a href="../' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
@@ -193,35 +184,6 @@ class WIWebsite
             </div></div>';
     }
 
-      public function DebateMenu()
-    {
-        $sql = "SELECT * FROM `wi_menu`";
-        $query = $this->WIdb->prepare($sql);
-        $query->execute();
-        $result = $query->fetch();
-        $menu_order = $result['sort'];
-
-        $sql1 = "SELECT * FROM `wi_menu` ORDER BY :order";
-        $query1 = $this->WIdb->prepare($sql1);
-        $query1->bindParam(':order', $menu_order, PDO::PARAM_INT);
-        $query1->execute();
-        echo '<div class="menu"><div class="col-lg-12 col-md-12 col-sm-12 menusT">
-              <div id="nav">
-               <ul id="mainMenu" class="mainMenu default">';
-
-        while($res = $query1->fetch(PDO::FETCH_ASSOC))
-        {    
-         echo '<li><a href="#" onclick="WIChat.close">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
-         if($res['parent'] > 0)
-         {
-            echo '<li><a href="../' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
-         }
-        }
-        echo '</ul>
-            </div><!-- nav -->   
-            <!-- end of menu -->
-            </div></div>';
-    }
 
 
     public function footer()
@@ -286,7 +248,7 @@ class WIWebsite
 
 
         
-            echo '<a href="' . $lang['href'] . '">
+            echo '<a href="../' . $lang['href'] . '">
                  <img src="../WIAdmin/WIMedia/Img/lang/' . $lang['lang_flag'] . '" alt="' . $lang['name'] .'" title="' . $lang['name'] .'"
                       class="'. WIWebsite::langClassSelector($lang['lang']) .'" /></a>';
             }

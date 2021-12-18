@@ -51,7 +51,7 @@ class About_Us
             
         }else{
 
-            $this->mod->getMod($leftSideBar);
+            $this->mod->getMod($leftSideBar,$page);
         }
         }
 
@@ -73,7 +73,7 @@ class About_Us
             
         }else{
 
-            $this->mod->getMod($rightSideBar);
+            $this->mod->getMod($rightSideBar,$page);
         }
 
         }           

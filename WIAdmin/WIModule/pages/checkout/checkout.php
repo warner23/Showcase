@@ -220,7 +220,7 @@ echo '<div class="container-fluid text-center">
 			
 		}else{
 
-			$this->mod->getMod($leftSideBar);
+			$this->mod->getMod($leftSideBar,$page);
 		}
 		}
 
@@ -246,7 +246,7 @@ echo '<div class="container-fluid text-center">
 			
 		}else{
 
-			$this->mod->getMod($rightSideBar);
+			$this->mod->getMod($rightSideBar,$page);
 		}
 
 		}			

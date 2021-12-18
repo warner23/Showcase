@@ -120,7 +120,7 @@ echo '<div class="container-fluid text-center">
 		if ($lsc > 0) {
 
 			  echo '<div class="col-sm-1 col-lg-2 col-md-2 col-xl-2 col-xs-2 sidenav" id="sidenavL">';
-		 $this->mod->getMod("left_sidebar");  
+		 $this->mod->getMod("left_sidebar",$page);  
 
 		    echo '</div>
 		    <div class=" col-lg-10 col-md-8 col-sm-8 block" id="block">
@@ -197,7 +197,7 @@ echo '<div class="container-fluid text-center">
 		if ($rsc > 0) {
 
 			  echo '</div><div class="col-sm-1 col-lg-2 cool-md-2 col-xl-2 col-xs-2 sidenav" id="sidenavR">';
-		  $this->mod->getMod("right_sidebar");  
+		  $this->mod->getMod("right_sidebar",$page);  
 
 		    echo '</div></div>';
 		}
@@ -218,7 +218,7 @@ echo '<div class="container-fluid text-center">
 			
 		}else{
 
-			$this->mod->getMod($leftSideBar);
+			$this->mod->getMod($leftSideBar,$page);
 		}
 		}
 
@@ -251,7 +251,7 @@ echo '<div class="container-fluid text-center">
 			
 		}else{
 
-			$this->mod->getMod($rightSideBar);
+			$this->mod->getMod($rightSideBar,$page);
 		}
 
 		}			

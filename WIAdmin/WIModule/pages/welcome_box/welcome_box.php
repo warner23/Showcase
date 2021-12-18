@@ -209,17 +209,20 @@ echo '<div class="container-fluid text-center">
 
 	}
 
-	public function mod_name()
+
+	public function mod_name($page)
 	{
+		echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">';
 		if(isset($page)){
 		$left_sidePower = $this->Web->pageModPower($page, "left_sidebar");
 		$leftSideBar = $this->Web->PageMod($page, "left_sidebar");
-		//echo $Panel;
-		if ($left_sidePower === 0) {
-			
+		//echo "side". $leftSideBar;
+		if ($left_sidePower === "0") {
+			echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">';
 		}else{
 
-			$this->mod->getMod($leftSideBar);
+			$this->mod->getMod($leftSideBar,$page);
+			echo '<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">';
 		}
 		}
 
@@ -243,8 +246,8 @@ echo '<div class="container-fluid text-center">
 								<i class="fa fa-laptop"></i>
 							</div>
 							<div class="serv_detail">
-								<h3>' . WILang::get("stuttering") . '</h3>
-								<p>' . WILang::get("stu_desc") . '
+								<h3>' . WILang::get("community") . '</h3>
+								<p>' . WILang::get("learn") . '
 </p>
 							</div>
 						</div>
@@ -256,8 +259,8 @@ echo '<div class="container-fluid text-center">
 								<i class="fa fa-trophy"></i>
 							</div>
 							<div class="serv_detail">
-								<h3>' . WILang::get("lisp") . '</h3>
-								<p>' .WILang::get("lisp_Desc") . '
+								<h3>' . WILang::get("software") . '</h3>
+								<p>' .WILang::get("software") . '
 </p>
 							</div>
 						</div>
@@ -269,8 +272,8 @@ echo '<div class="container-fluid text-center">
 								<i class="fa fa-cogs"></i>
 							</div>
 							<div class="serv_detail">
-								<h3>' . WILang::get("sppech") . '</h3>
-								<p>' . WILang::get("sppech_desc")  . '
+								<h3>' . WILang::get("it") . '</h3>
+								<p>' . WILang::get("it_title")  . '
 </p>
 							</div>
 						</div>
@@ -281,17 +284,20 @@ echo '<div class="container-fluid text-center">
 							<a href="flipcard.php" class="btn">Flashcards</a>
 							</div>
 						</div>
-					</div>';
+					</div>
+				</div>
+			</div>
+		</div>';
 
 		if(isset($page)){			
 		$right_sidePower = $this->Web->pageModPower($page, "right_sidebar");
 		$rightSideBar = $this->Web->PageMod($page, "right_sidebar");
-		//echo $Panel;
-		if ($right_sidePower === 0) {
+		//echo "righ". $right_sidePower;
+		if ($right_sidePower === "0") {
 			
 		}else{
 
-			$this->mod->getMod($rightSideBar);
+			$this->mod->getMod($rightSideBar,$page);
 		}
 
 		}			

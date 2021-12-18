@@ -18,12 +18,13 @@ include_once 'WIUser.php';
 include_once 'WIHelperFunctions.php';
 include_once 'WISite.php';
 include_once 'WIMaintenace.php';
+include_once 'WIModules.php';
+include_once 'WIPage.php';
 include_once 'WIBlog.php';
+include_once 'WIPost.php';
 include_once 'WIComment.php';
 include_once 'WIResponse.php';
-
-
-
+include_once 'WIBootstrap.php';
 
 $WIdb = WIdb::getInstance();
 
@@ -37,6 +38,7 @@ $site   = new WISite();
 $validator = new WIValidator();
 $maint = new WIMaintenace();
 $blog    = new WIBlog();
+$post    = new WIPost();
 $comments  = new WIComment();
 
 if ( isset ( $_GET['lang'] ) )

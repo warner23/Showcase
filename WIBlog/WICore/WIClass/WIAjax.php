@@ -150,10 +150,11 @@ switch ($action) {
         $resource = new WIResources();
         $resource->Search($_POST['keyword']);
         break;
-
+        // blog stuff
+        
         case "nomodepost":
         $blog = new WIBlog();
-        $blog->noMedia($_POST['day'], $_POST['month'], $_POST['post_title'], $_POST['blog_post'], $_POST['type'], $_POST['user'],$_POST['cat_id']);
+        $blog->InsertnoMedia($_POST['PostNoMedia']);
         break;
 
         case "haveposts":
@@ -183,8 +184,14 @@ switch ($action) {
 
         case "youtube":
         $blog = new WIBlog();
-        $blog->YoutubeMedia($_POST['day'], $_POST['month'], $_POST['post_title'], $_POST['ytlink'], $_POST['blog_post'], $_POST['type'], $_POST['user'],$_POST['cat_id']);
+        $blog->YoutubeMedia($_POST['PostYouTube']);
         break;
+
+        case "loadPost":
+        $post = new WIPost();
+        $post->MediaYoutube($_POST['id']);
+        break;
+
 
         case "userRole":
         onlyAdmin();

@@ -15,7 +15,7 @@ class profile_msg
 
 	}
 
-	public function mod_name()
+	public function mod_name($page)
 	{
 
 		echo '
@@ -34,13 +34,13 @@ class profile_msg
   <div id="tabs-1">
       Inbox';
       //include_once 'WIInc/inbox.php';
-      $this->mod->getMod("profile_inbox");
+      $this->mod->getMod("profile_inbox", $page);
 
 
   echo '</div>
   <div id="tabs-2">';
     // include_once 'WIInc/tabbed_sentbox.php';
-  $this->mod->getMod("profile_outbox");
+  $this->mod->getMod("profile_outbox", $page);
 
   echo '</div>
 

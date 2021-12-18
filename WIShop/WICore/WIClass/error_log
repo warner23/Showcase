@@ -833,3 +833,4 @@
 [02-Jul-2020 20:42:47 UTC] PHP Notice:  Undefined index: viewAddressLine2 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 683
 [02-Jul-2020 20:42:47 UTC] PHP Notice:  Undefined index: admin_area_1 in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WICheckout.php on line 686
 [02-Jul-2020 21:23:57 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIProduct.php on line 194
+[23-Jul-2020 15:38:54 UTC] PHP Notice:  Undefined index: title in /home/warner23/public_html/WIClients/warner-infinity.com/WIShop/WICore/WIClass/WIProduct.php on line 194

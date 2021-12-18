@@ -221,7 +221,7 @@ echo '<div class="container-fluid text-center">
 		$leftSideBar = $this->Web->PageMod($page, "left_sidebar");
 		//echo $Panel;
 		if ($left_sidePower > 0) {
-			$this->mod->getMod($leftSideBar);
+			$this->mod->getMod($leftSideBar,$page);
 			echo '<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 text-left">';
 		}elseif ( $right_sidePower > 0){
 			echo '<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 text-left">';
@@ -266,7 +266,7 @@ echo '<div class="container-fluid text-center">
 		
 		//echo $Panel;
 		if ($right_sidePower > 0) {
-			$this->mod->getMod($rightSideBar);
+			$this->mod->getMod($rightSideBar,$page);
 		}
 					
 

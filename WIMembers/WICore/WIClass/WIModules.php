@@ -32,7 +32,7 @@ class WIModules
         
      }
 
-         public function getMod($mod)
+         public function getMod($mod, $page)
     {
         //echo $mod;
         //echo   'p/WIModule/' .$mod.'/'.$mod.'.php';
@@ -41,7 +41,7 @@ class WIModules
        // echo $mod;
         $mod = new $mod;
 
-        $mod->mod_name();
+        $mod->mod_name($page);
     }
 
 

@@ -32,7 +32,7 @@ class WIModules
         
      }
 
-         public function getMod($mod)
+         public function getMod($mod, $page)
     {
         //echo $mod;
         //echo   'WIAdmin/WIModule/' .$mod.'/'.$mod.'.php';
@@ -41,7 +41,7 @@ class WIModules
        // echo $mod;
         $mod = new $mod;
 
-        $mod->mod_name();
+        $mod->mod_name($page);
     }
 
 
@@ -52,7 +52,7 @@ class WIModules
         require_once  'WIAdmin/WIModule/pages/' .$mod.'/'.$mod.'.php';
         
         $mod = new $mod;
-        $mod->mod_name($module, $page);
+        $mod->mod_name($page);
 
 
     }

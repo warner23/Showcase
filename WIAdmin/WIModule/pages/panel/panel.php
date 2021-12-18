@@ -47,7 +47,7 @@ class panel
   }
 
 
-	public function mod_name()
+	public function mod_name($page)
 	{
 
         if($this->login->isLoggedIn()){

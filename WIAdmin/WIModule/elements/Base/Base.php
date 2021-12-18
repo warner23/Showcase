@@ -25,37 +25,33 @@ class base
         case "Title":
         $element = '<div class="preview">Title</div>
                     <div class="view">
-                      <div class="col-md-12">
-                      <h3 contenteditable="true" class="textMod">This is a title</h3>
-                      </div>
+                      <h3 contenteditable="true">This is a title</h3>
                     </div>';
         break;
 
         case "Paragraph":
         $element = '<div class="preview">Paragraph</div>
-                    <div class="view">
-                    <div contenteditable="true" class="textMod">
+                    <div class="view" contenteditable="true">
                       <p>This is the Paragraph, add your own Paragraph here</p>
-                    </div></div>';
+                    </div>';
         break;
 
         case "Address":
         $element = '<div class="preview">Address</div>
                     <div class="view">
-                    <div >
-                      <address contenteditable="true" class="textMod">
+                      <address contenteditable="true">
                         <strong>Twitter, Inc.</strong><br>
                         795 Folsom Ave, Suite 600<br>
                         San Francisco, CA 94107<br>
                         <abbr title="Phone">P:</abbr> (123) 456-7890
                       </address>
-                    </div></div>';
+                    </div>';
         break;
 
         case "Blockquotes":
         $element = '<div class="preview">Blockquote</div>
                     <div class="view clearfix">
-                      <blockquote contenteditable="true" class="textMod">
+                      <blockquote contenteditable="true">
                         <p>Add your own quote</p>
                         <small>Someone<cite title="Source Title"> famous Source Title</cite></small>
                       </blockquote>
@@ -65,7 +61,7 @@ class base
         case "Unordered List":
         $element = '<div class="preview">Unordered List</div>
                     <div class="view">
-                      <ul contenteditable="true" class="textMod">
+                      <ul contenteditable="true">
                         <li>Lorem ipsum dolor sit amet</li>
                         <li>Consectetur adipiscing elit</li>
                         <li>Integer molestie lorem at massa</li>
@@ -81,7 +77,7 @@ class base
         case "Ordered List":
         $element = '<div class="preview">Ordered List</div>
                     <div class="view">
-                      <ol contenteditable="true" class="textMod">
+                      <ol contenteditable="true">
                         <li>Lorem ipsum dolor sit amet</li>
                         <li>Consectetur adipiscing elit</li>
                         <li>Integer molestie lorem at massa</li>
@@ -97,7 +93,7 @@ class base
         case "Description":
         $element = '<div class="preview">Description</div>
                     <div class="view">
-                      <dl contenteditable="true" class="textMod">
+                      <dl contenteditable="true">
                         <dt>Rolex</dt>
                         <dd>A description list is perfect for defining terms.</dd>
                         <dt>Euismod</dt>

@@ -27,19 +27,19 @@ class javascript
         $element = '<div class="preview">Modal</div>
                     <div class="view">
                       <!-- Button to trigger modal -->
-                      <a id="myModalLink" href="#myModalContainer" role="button" class="btn textMod" data-toggle="modal" contenteditable="true">Launch Demo Modal</a>
+                      <a id="myModalLink" href="#myModalContainer" role="button" class="btn" data-toggle="modal" contenteditable="true">Launch Demo Modal</a>
                       <!-- Modal -->
                       <div id="myModalContainer" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                          <h3 id="myModalLabel textMod" contenteditable="true">Title</h3>
+                          <h3 id="myModalLabel" contenteditable="true">Title</h3>
                         </div>
                         <div class="modal-body">
-                          <p contenteditable="true" class="textMod"> Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump ground round strip steak kielbasa short loin t-bone. Biltong capicola corned beef, ribeye chuck andouille sausage ham hock turkey spare ribs beef tail sirloin shank.</p>
+                          <p contenteditable="true"> Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump ground round strip steak kielbasa short loin t-bone. Biltong capicola corned beef, ribeye chuck andouille sausage ham hock turkey spare ribs beef tail sirloin shank.</p>
                         </div>
                         <div class="modal-footer">
-                          <button class="btn textMod" data-dismiss="modal" aria-hidden="true" contenteditable="true">Cancel</button>
-                          <button class="btn btn-primary textMod" contenteditable="true">Save Changes</button>
+                          <button class="btn" data-dismiss="modal" aria-hidden="true" contenteditable="true">Cancel</button>
+                          <button class="btn btn-primary" contenteditable="true">Save Changes</button>
                         </div>
                       </div>
                     </div>';
@@ -51,9 +51,9 @@ class javascript
                       <div class="navbar">
                         <div class="navbar-inner">
                           <div class="container-fluid">
-                            <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a href="#" class="brand textMod" contenteditable="true">Title</a>
+                            <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a href="#" class="brand" contenteditable="true">Title</a>
                             <div class="nav-collapse collapse navbar-responsive-collapse">
-                              <ul class="nav textMod" contenteditable="true">
+                              <ul class="nav" contenteditable="true">
                                 <li class="active"><a href="#">Home</a></li>
                                 <li><a href="#">Link</a></li>
                                 <li><a href="#">Link</a></li>
@@ -70,7 +70,7 @@ class javascript
                                   </ul>
                                 </li>
                               </ul>
-                              <ul class="nav pull-right textMod" contenteditable="true">
+                              <ul class="nav pull-right" contenteditable="true">
                                 <li><a href="#">Link</a></li>
                                 <li class="divider-vertical"></li>
                                 <li class="dropdown">
@@ -99,14 +99,14 @@ class javascript
                       <div class="tabbable" id="myTabs">
                         <!-- Only required for left/right tabs -->
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#tab1" data-toggle="tab" contenteditable="true" class="textMod">Section 1</a></li>
-                          <li><a href="#tab2" data-toggle="tab" contenteditable="true" class="textMod">Section 2</a></li>
+                          <li class="active"><a href="#tab1" data-toggle="tab" contenteditable="true">Section 1</a></li>
+                          <li><a href="#tab2" data-toggle="tab" contenteditable="true">Section 2</a></li>
                         </ul>
                         <div class="tab-content">
-                          <div class="tab-pane active textMod" id="tab1" contenteditable="true">
+                          <div class="tab-pane active" id="tab1" contenteditable="true">
                             <p>Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump ground round strip steak kielbasa short loin t-bone. Biltong capicola corned beef, ribeye chuck andouille sausage ham hock turkey spare ribs beef tail sirloin shank.</p>
                           </div>
-                          <div class="tab-pane textMod id="tab2" contenteditable="true">
+                          <div class="tab-pane" id="tab2" contenteditable="true">
                             <p>Sausage jerky hamburger, andouille salami meatloaf ham hock shank pork corned beef. Boudin spare ribs flank pork loin pork kevin chicken rump cow, ribeye ham tongue. Pork loin jowl filet mignon swine bresaola andouille doner tenderloin ball tip pork. Chicken meatball chuck turkey, jowl ham hamburger salami tenderloin jerky kevin capicola cow andouille. Pig tail pork filet mignon hamburger ham hock. Capicola brisket pork belly, doner cow pastrami corned beef.</p>
                           </div>
                         </div>
@@ -120,22 +120,22 @@ class javascript
                       <div class="tabbable" id="myTabs">
                         <!-- Only required for left/right tabs -->
                         <ul class="nav nav-tabs">
-                          <li class="active"><a href="#tab40" data-toggle="tab" contenteditable="true" class="textMod">Section 1</a></li>
-                          <li><a href="#tab41" data-toggle="tab" contenteditable="true" class="textMod">Section 2</a></li>
-                          <li><a href="#tab42" data-toggle="tab" contenteditable="true" class="textMod">Section 3</a></li>
-                          <li><a href="#tab43" data-toggle="tab" contenteditable="true" class="textMod">Section 4</a></li>
+                          <li class="active"><a href="#tab40" data-toggle="tab" contenteditable="true">Section 1</a></li>
+                          <li><a href="#tab41" data-toggle="tab" contenteditable="true">Section 2</a></li>
+                          <li><a href="#tab42" data-toggle="tab" contenteditable="true">Section 3</a></li>
+                          <li><a href="#tab43" data-toggle="tab" contenteditable="true">Section 4</a></li>
                         </ul>
                         <div class="tab-content">
-                          <div class="tab-pane active textMod" id="tab40" contenteditable="true">
+                          <div class="tab-pane active" id="tab40" contenteditable="true">
                             <p>Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump ground round strip steak kielbasa short loin t-bone. Biltong capicola corned beef, ribeye chuck andouille sausage ham hock turkey spare ribs beef tail sirloin shank.</p>
                           </div>
-                          <div class="tab-pane textMod" id="tab41" contenteditable="true">
+                          <div class="tab-pane" id="tab41" contenteditable="true">
                             <p>Sausage jerky hamburger, andouille salami meatloaf ham hock shank pork corned beef. Boudin spare ribs flank pork loin pork kevin chicken rump cow, ribeye ham tongue. Pork loin jowl filet mignon swine bresaola andouille doner tenderloin ball tip pork. Chicken meatball chuck turkey, jowl ham hamburger salami tenderloin jerky kevin capicola cow andouille. Pig tail pork filet mignon hamburger ham hock. Capicola brisket pork belly, doner cow pastrami corned beef.</p>
                           </div>
-                           <div class="tab-pane active textMod" id="tab42" contenteditable="true">
+                           <div class="tab-pane active" id="tab42" contenteditable="true">
                             <p>Bacon ipsum dolor sit amet doner ham leberkas short loin hamburger, flank drumstick corned beef. Doner meatball venison bresaola biltong chicken. Turkey bacon shoulder strip steak spare ribs tri-tip. Rump ground round strip steak kielbasa short loin t-bone. Biltong capicola corned beef, ribeye chuck andouille sausage ham hock turkey spare ribs beef tail sirloin shank.</p>
                           </div>
-                          <div class="tab-pane class="textMod"" id="tab43" contenteditable="true">
+                          <div class="tab-pane" id="tab43" contenteditable="true">
                             <p>Sausage jerky hamburger, andouille salami meatloaf ham hock shank pork corned beef. Boudin spare ribs flank pork loin pork kevin chicken rump cow, ribeye ham tongue. Pork loin jowl filet mignon swine bresaola andouille doner tenderloin ball tip pork. Chicken meatball chuck turkey, jowl ham hamburger salami tenderloin jerky kevin capicola cow andouille. Pig tail pork filet mignon hamburger ham hock. Capicola brisket pork belly, doner cow pastrami corned beef.</p>
                           </div>
                         </div>
@@ -146,7 +146,7 @@ class javascript
         case "Alerts":
         $element = '<div class="preview">Alerts</div>
                     <div class="view">
-                      <div class="alert textMod" contenteditable="true">
+                      <div class="alert" contenteditable="true">
                         <button type="button" class="close" data-dismiss="alert">×</button>
                         <h4>Alert!</h4>
                         <strong>Warning!</strong> Bacon ipsum dolor sit amet ground round culpa elit, irure incididunt short ribs tongue sed.
@@ -155,19 +155,19 @@ class javascript
         break;
 
         case "Collapse":
-        $element = '<div class="preview">Accordion</div>
+        $element = '<div class="preview">Collapse</div>
                     <div class="view">
                       <div class="accordion" id="myAccordion">
                         <div class="accordion-group">
-                          <div class="accordion-heading"> <a class="accordion-toggle textMod" data-toggle="collapse" data-parent="#myAccordion" href="#collapseOne" contenteditable="true">Group Item  #1 </a> </div>
+                          <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#myAccordion" href="#collapseOne" contenteditable="true">Group Item  #1 </a> </div>
                           <div id="collapseOne" class="accordion-body collapse in">
                             <div class="accordion-inner" contenteditable="true">Bacon ipsum dolor sit amet ground round culpa elit, irure incididunt short ribs tongue sed. Chicken swine cupidatat deserunt. Tongue short ribs bacon bresaola sausage. Rump biltong ribeye tri-tip tenderloin kielbasa. Meatloaf consequat voluptate dolor pork belly t-bone, turducken cow sunt sint.</div>
                           </div>
                         </div>
                         <div class="accordion-group">
-                          <div class="accordion-heading"> <a class="accordion-toggle textMod" data-toggle="collapse" data-parent="#myAccordion" href="#collapseTwo" contenteditable="true"> Group Item #2 </a> </div>
+                          <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#myAccordion" href="#collapseTwo" contenteditable="true"> Group Item #2 </a> </div>
                           <div id="collapseTwo" class="accordion-body collapse">
-                            <div class="accordion-inner textMod" contenteditable="true"> Flank drumstick culpa ground round mollit enim turducken eu bacon pork chop. Prosciutto short loin est short ribs drumstick pork loin salami cillum hamburger beef excepteur veniam meatloaf. Turducken consectetur jowl occaecat eu pancetta sunt ut pork loin. Non shank boudin frankfurter bresaola.</div>
+                            <div class="accordion-inner" contenteditable="true"> Flank drumstick culpa ground round mollit enim turducken eu bacon pork chop. Prosciutto short loin est short ribs drumstick pork loin salami cillum hamburger beef excepteur veniam meatloaf. Turducken consectetur jowl occaecat eu pancetta sunt ut pork loin. Non shank boudin frankfurter bresaola.</div>
                           </div>
                         </div>
                       </div>
@@ -186,21 +186,21 @@ class javascript
                         <div class="carousel-inner">
                           <div class="item active">
                             <img alt="" src="img/1.jpg">
-                            <div class="carousel-caption textMod" contenteditable="true">
+                            <div class="carousel-caption" contenteditable="true">
                               <h4>First Thumbnail Label</h4>
                               <p>Bacon ipsum dolor sit amet ground round culpa elit, irure incididunt short ribs tongue sed. Chicken swine cupidatat deserunt. Tongue short ribs bacon bresaola sausage. Rump biltong ribeye tri-tip tenderloin kielbasa. Meatloaf consequat voluptate dolor pork belly t-bone, turducken cow sunt sint.</p>
                             </div>
                           </div>
                           <div class="item">
                             <img alt="" src="img/2.jpg">
-                            <div class="carousel-caption textMod" contenteditable="true">
+                            <div class="carousel-caption" contenteditable="true">
                               <h4>Second Thumbnail Label</h4>
                               <p>Flank drumstick culpa ground round mollit enim turducken eu bacon pork chop. Prosciutto short loin est short ribs drumstick pork loin salami cillum hamburger beef excepteur veniam meatloaf. Turducken consectetur jowl occaecat eu pancetta sunt ut pork loin. Non shank boudin frankfurter bresaola.</p>
                             </div>
                           </div>
                           <div class="item">
                             <img alt="" src="img/3.jpg">
-                            <div class="carousel-caption textMod" contenteditable="true">
+                            <div class="carousel-caption" contenteditable="true">
                               <h4>Third Thumbnail Label</h4>
                               <p>Veniam in aute, consequat hamburger mollit nisi leberkas chuck ut prosciutto drumstick short loin frankfurter. Aute salami duis voluptate magna kielbasa swine in. Magna pancetta chuck, aliqua laboris ribeye consectetur jerky prosciutto culpa voluptate brisket sausage bresaola. Jerky ut hamburger tempor, ribeye qui pastrami veniam shoulder.</p>
                             </div>

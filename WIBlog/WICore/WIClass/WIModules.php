@@ -194,6 +194,192 @@ class WIModules
         return $mod_name;
     }
 
+    public function save_mod( $mod_name, $contents, $content)
+    {
+        $modules = $this->WIdb->select("SELECT * FROM `wi_mods`
+                     WHERE `module_name` = :n",
+                     array(
+                       "n" => $mod_name
+                     ));
+
+        if(count($modules) >0){
+            $id = $modules[0]['module_id'];
+                $this->WIdb->update(
+                    "wi_mods", 
+                    array("module" => $content, 
+                        "edit_module" => $contents 
+                    ), 
+                    "`module_id` = :id",
+                    array( "id" => $id )
+               );
+        }else{
+            $this->WIdb->insert('wi_mods', array(
+            "module_name"     => $mod_name,
+            "module"     => $content,
+            "edit_module"     => $contents
+        ));
+
+        }
+
+        $pages = $this->WIdb->select("SELECT * FROM `wi_pages`
+                     WHERE `page_name` = :n",
+                     array(
+                       "n" => $mod_name
+                     ));
+
+        if(count($pages) >0){
+
+            $id = $pages[0]['page_id'];
+                $this->WIdb->update(
+                    "wi_pages", 
+                    array("pagemod" => $content, 
+                        "edit_page_mod" => $contents,
+                        "page_status" => "enabled"
+                    ), 
+                    "`page_id` = :id",
+                    array( "id" => $id )
+               );
+        }else if(count($pages) >0){
+
+            $id = $pages[0]['page_id'];
+                $this->WIdb->update(
+                    "wi_pages", 
+                    array("pagemod" => $content, 
+                        "edit_page_mod" => $contents,
+                        "page_status" => "enabled"
+                    ), 
+                    "`page_id` = :id",
+                    array( "id" => $id )
+               );
+        }else{
+            $this->WIdb->insert('wi_pages', array(
+            "page_name"     => $mod_name,
+            "pagemod"     => $content,
+            "edit_page_mod" => $contents
+        ));
+
+        }
+
+        $file_saved = self::saving_mod($mod_name, $contents, $content);
+        if($file_saved == "1")
+        {
+            $msg = "Successfully created Module and saved as file";
+
+    $result = array(
+                "status" => "success",
+                "msg"    => $msg
+            );
+            
+            echo json_encode($result);
+        }else{
+
+
+        $msg = "Successfully created Module";
+
+    $result = array(
+                "status" => "success",
+                "msg"    => $msg
+            );
+            
+            echo json_encode($result);
+        }
+    }
+
+
+    public function saving_mod($mod_name)
+    {
+      
+        $dir = dirname(dirname(dirname(dirname(__FILE__)))) .'/WIAdmin/WIModule/pages/' .$mod_name;
+        echo $dir;
+        if (!file_exists($dir)) {
+                  mkdir($dir, 0777, true);
+        }
+
+      $NewPage = fopen($dir. '/' .$mod_name . '.php', "w") or die("Unable to open file!");
+
+      $File = 
+'<?php
+
+/**
+* 
+*/
+class ' . $mod_name . '
+{
+    function __construct()
+    {
+        $this->WIdb = WIdb::getInstance();
+        $this->Web  = new WIWebsite();
+        $this->site = new WISite();
+        $this->mod  = new WIModules();
+        $this->page = new WIPage();
+        $this->Bootstrap  = new WIBootstrap();
+        $this->user   = new WIUser(WISession::get("user_id"));
+    }
+
+
+    public function editMod()
+    {
+        
+    
+ 
+    }
+
+    public function editPageContent($page)
+    {
+
+
+    }
+
+    public function mod_name($module, $page)
+    {
+        $this->Bootstrap->startMod();
+        if(isset($page)){
+        $left_sidePower = $this->Web->pageModPower($page, "left_sidebar");
+        $leftSideBar = $this->Web->PageMod($page, "left_sidebar");
+        if ($left_sidePower === "0") {
+            
+        }else{
+
+            $this->mod->getMod($leftSideBar);
+        }
+        }
+
+        if($this->user->isAdmin()){
+            $this->Bootstrap->blogAdmin();
+        } else {
+          $this->Bootstrap->blogNotAdmin();
+        }
+        
+        $this->Bootstrap->contents();
+
+      if(isset($page)){         
+        $right_sidePower = $this->Web->pageModPower($page, "right_sidebar");
+        $rightSideBar = $this->Web->PageMod($page, "right_sidebar");
+        //echo $Panel;
+        if ($right_sidePower === "0") {
+            
+        }else{
+
+            $this->mod->getMod($rightSideBar);
+        }
+
+        }           
+                    
+
+    echo "</div>
+            </div>";
+    }  
+}';
+
+
+     
+      fwrite($NewPage, $File);
+      fclose($NewPage);
+    
+
+      return "1";
+    }
+
 
 
 

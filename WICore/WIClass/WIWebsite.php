@@ -166,31 +166,53 @@ class WIWebsite
 
         public function MainMenu()
     {
-        $sql = "SELECT * FROM `wi_menu`";
-        $query = $this->WIdb->prepare($sql);
-        $query->execute();
-        $result = $query->fetch();
-        $menu_order = $result['sort'];
+         $result0 = $this->WIdb->select("SELECT * FROM `wi_menu` ORDER BY `sort`");
+        echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="index.php">'; echo WEBSITE_NAME ; echo '</a>
 
-        $sql1 = "SELECT * FROM `wi_menu` ORDER BY sort";
-        $query1 = $this->WIdb->prepare($sql1);
-        $query1->bindParam(':order', $menu_order, PDO::PARAM_INT);
-        $query1->execute();
-        echo '<div class="menu"><div class="col-lg-12 col-md-12 col-sm-12 menusT">
-              <div id="nav">
-               <ul id="mainMenu" class="mainMenu default">';
-        while($res = $query1->fetch(PDO::FETCH_ASSOC))
-        {    
-         echo '<li class=""><a href="' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">';
+               $count = "0";
+               $loop = count($result0);
+        foreach($result0 as $res)
+        {
+
+          if($count > 0){
+            echo '<li class="nav-item active">
+            <a class="nav-link" href="' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
          if($res['parent'] > 0)
          {
-            echo '<li><a href="' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
+            echo '<li class="nav-item">
+            <a class="nav-link" href="' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
          }
+          }else{
+            echo '<li class="nav-item">
+            <a class="nav-link" href="' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
+         if($res['parent'] > 0)
+         {
+            echo '<li class="nav-item">
+            <a class="nav-link" href="' . $res['link'] . '">' . WILang::get('' .$res['lang'] .'') . '</a></li>';
+         }
+          }   
+         
         }
         echo '</ul>
-            </div><!-- nav -->   
-            <!-- end of menu -->
-            </div></div>';
+            <form class="form-inline">
+      <div class="md-form my-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      </div>
+    </form>
+  </div>
+  <!-- Collapsible content -->
+
+</nav>';
     }
 
 
@@ -287,7 +309,7 @@ class WIWebsite
 
        public function pageModPower($page, $column)
         {
-        //echo "col" . $column;
+       // echo "col" . $page;
 
                 $result[$column] = $this->WIdb->selectColumn(
                     "SELECT * FROM `wi_page` WHERE `name`=:page",
@@ -295,8 +317,10 @@ class WIWebsite
                        "page" => $page
                      ), $column
                   );
-           ($result[$column]);
-         if($result[$column] < 1){
+           //var_dump($result[$column]);
+
+
+         if(count($result[$column]) < 1){
             return $result[$column];
          }else{
             return $result[$column];

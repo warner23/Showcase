@@ -60,7 +60,7 @@ WIBlog.cat = function(){
 				category : 1
 			},
 			success  : function(data){
-				$("#sidebar").html(data);
+				$("#sidebarR").html(data);
 			}
 		})
 	}
@@ -105,81 +105,132 @@ WIBlog.type = function(){
 						.addClass('block');
 	}
 
+}
 
+WIBlog.postPage = function(page, id){
 
+    var date = new Date();
+    var minutes = 30;
+    date.setTime(date.getTime() + (minutes * 60 * 1000));
+    $.cookie("id", id, {expires: date});
+    var paging = page.split(' ').join('_');
+    console.log(paging);
+    window.location = paging+".php";
 }
 
 WIBlog.PostSlider = function(){
 	    var day = $(".day").html();
   var month = $(".month").html();
   var user = $("#slideruser").html();
-  var cat_id =  $("#cat").attr('cat_id');
-  var post_title = $("#post_title").val();
+  var Category =  $("#cat").attr('cat_id');
+  var title = $("#post_title").val();
   var textArea = $('textarea#blog_post');
-  var blog_post = textArea.val();
+  var post = textArea.val();
   var type     = $("#blog_slider").val();
-  var Image0 = $("#media0").attr('value');
-  var Image1 = $("#media1").attr('value');
-  var Image2 = $("#media2").attr('value');
+  var image = $("#media0").attr('value');
+  var image2 = $("#media1").attr('value');
+  var image3 = $("#media2").attr('value');
   var caption     = $("#caption0").val();
   var caption1     = $("#caption1").val();
   var caption2     = $("#caption2").val();
+
+  postSlider = {
+                PostData:{
+                    day           : day,
+                    month         : month,
+                    user          : user,
+                    Category      : Category,
+                    title         : title,
+                    post          : post,
+                    type          : type,
+                    image         : image,
+                    image2        : image2,
+                    image3        : image3,
+                    caption       : caption,
+                    caption1      : caption1,
+                    caption2      : caption2
+
+                },
+                FieldId:{
+                    day           : "day",
+                    month         : "month",
+                    user          : "user",
+                    Category      : "Category",
+                    title         : "title",
+                    post          : "post",
+                    type          : "type",
+                    image         : "image",
+                    image2        : "image2",
+                    image3        : "image3",
+                    caption       : "caption",
+                    caption1      : "caption1",
+                    caption2      : "caption2"
+
+                }
+             };
+
 $.ajax({
       url      : "WICore/WIClass/WIAjax.php",
       method   : "POST",
       data     : {
         action : "postslider",
-        day : day,
-        month  : month,
-        post_title : post_title,
-        blog_post : blog_post,
-        type    : type,
-        cat_id  : cat_id,
-        user    : user,
-        Image0 : Image0,
-        Image1 : Image1,
-        Image2 : Image2,
-        caption : caption,
-        caption1 : caption1,
-        caption2 : caption2,
-
+        postSlider : postSlider,
       },
       success  : function(data){
         $("#blogPostSlider").remove();
+        WIBlog.cat();
         WIBlog.havePosts();
-        //$("#get_resources").html(data);
       }
     })
 
 }
 
 WIBlog.PostNoMedia = function(){
-  var cat_id =  $("#cat").attr('cat_id');
+  var Category =  $("#cat").attr('cat_id');
 	var day = $(".day").html();
 	var month = $(".month").html();
   var user = $("#user").html();
-	var post_title = $("#post_title").val();
+	var title = $("#post_title").val();
   var textArea = $('textarea#blog_post');
-	var blog_post = textArea.val();
+	var post = textArea.val();
 	var type     = $("#noMedia").val();
+
+
+  PostNoMedia = {
+                PostData:{
+                    day           : day,
+                    month         : month,
+                    user          : user,
+                    Category      : Category,
+                    title         : title,
+                    post          : post,
+                    type          : type
+
+
+                },
+                FieldId:{
+                    day           : "day",
+                    month         : "month",
+                    user          : "user",
+                    Category      : "Category",
+                    title         : "title",
+                    post          : "post",
+                    type          : "type"
+
+
+                }
+             };
 $.ajax({
       url      : "WICore/WIClass/WIAjax.php",
       method   : "POST",
       data     : {
         action : "nomodepost",
-        search : 1,
-        day : day,
-        month  : month,
-        post_title : post_title,
-        blog_post : blog_post,
-        type    : type,
-        user    : user,
-        cat_id : cat_id
+        PostNoMedia : PostNoMedia
       },
       success  : function(data){
         $("#noMediaPost").remove();
+        WIBlog.cat();
         WIBlog.havePosts();
-        //$("#get_resources").html(data);
       }
     })
 
@@ -190,30 +241,48 @@ WIBlog.PostImage = function(){
     var day = $(".day").html();
   var month = $(".month").html();
   var user = $("#imguser").html();
-  var cat_id =  $("#cat").attr('cat_id');
-  var post_title = $("#post_title").val();
+  var Category =  $("#cat").attr('cat_id');
+  var title = $("#post_title").val();
   var textArea = $('textarea#blog_post');
-  var blog_post = textArea.val();
+  var post = textArea.val();
   var type     = $("#blog_image").val();
-  var Image = $("#media").attr('value');
+  var image = $("#media").attr('value');
+
+    PostImage = {
+                PostData:{
+                    day           : day,
+                    month         : month,
+                    user          : user,
+                    Category      : Category,
+                    title         : title,
+                    post          : post,
+                    type          : type,
+                    image         : image
+
+                },
+                FieldId:{
+                    day           : "day",
+                    month         : "month",
+                    user          : "user",
+                    Category      : "Category",
+                    title         : "title",
+                    post          : "post",
+                    type          : "type",
+                    image         : "image"
+
+                }
+             };
 $.ajax({
       url      : "WICore/WIClass/WIAjax.php",
       method   : "POST",
       data     : {
         action : "postimage",
-        day : day,
-        month  : month,
-        post_title : post_title,
-        blog_post : blog_post,
-        type    : type,
-        cat_id  : cat_id,
-        user    : user,
-        Image : Image
+        PostImage : PostImage
       },
       success  : function(data){
         $("#blogPostImage").remove();
+        WIBlog.cat();
         WIBlog.havePosts();
-        //$("#get_resources").html(data);
       }
     })
 }
@@ -223,44 +292,87 @@ WIBlog.PostAudio = function(){
     var day = $(".day").html();
   var month = $(".month").html();
   var user = $("#audiouser").html();
-  var cat_id =  $("#cat").attr('cat_id');
-  var post_title = $("#post_title").val();
+  var Category =  $("#cat").attr('cat_id');
+  var title = $("#post_title").val();
   var textArea = $('textarea#blog_post');
-  var blog_post = textArea.val();
+  var post = textArea.val();
   var type     = $("#audio").val();
   var audio = $("#media").attr('value');
+
+    PostAudio = {
+                PostData:{
+                    day           : day,
+                    month         : month,
+                    user          : user,
+                    Category      : Category,
+                    title         : title,
+                    post          : post,
+                    type          : type,
+                    audio         : audio
+
+                },
+                FieldId:{
+                    day           : "day",
+                    month         : "month",
+                    user          : "user",
+                    Category      : "Category",
+                    title         : "title",
+                    post          : "post",
+                    type          : "type",
+                    audio         : "audio"
+
+                }
+             };
 $.ajax({
       url      : "WICore/WIClass/WIAjax.php",
       method   : "POST",
       data     : {
         action : "postaudio",
-        day : day,
-        month  : month,
-        post_title : post_title,
-        blog_post : blog_post,
-        type    : type,
-        cat_id  : cat_id,
-        user    : user,
-        audio : audio
+        PostAudio : PostAudio
       },
       success  : function(data){
         $("#blogPostAudio").remove();
+        WIBlog.cat();
         WIBlog.havePosts();
-        //$("#get_resources").html(data);
       }
     })
 }
 
 WIBlog.PostVideo = function(){
-var cat_id =  $("#cat").attr('cat_id');
+var Category =  $("#cat").attr('cat_id');
     var day = $(".day").html();
   var month = $(".month").html();
   var user = $("#viduser").html();
-  var post_title = $("#post_title").val();
+  var title = $("#post_title").val();
   var textArea = $('textarea#blog_post');
-  var blog_post = textArea.val();
+  var post = textArea.val();
   var type     = $("#blog_video").val();
   var video = $("#media").attr('value');
+
+    PostVideo = {
+                PostData:{
+                    day           : day,
+                    month         : month,
+                    user          : user,
+                    Category      : Category,
+                    title         : title,
+                    post          : post,
+                    type          : type,
+                    video         : video
+
+                },
+                FieldId:{
+                    day           : "day",
+                    month         : "month",
+                    user          : "user",
+                    Category      : "Category",
+                    title         : "title",
+                    post          : "post",
+                    type          : "type",
+                    video         : "video"
+
+                }
+             };
 
 $.ajax({
       url      : "WICore/WIClass/WIAjax.php",
@@ -268,52 +380,63 @@ $.ajax({
       data     : {
         action : "PostVideo",
         search : 1,
-        day : day,
-        month  : month,
-        post_title : post_title,
-        blog_post : blog_post,
-        type    : type,
-        user    : user,
-        cat_id    : cat_id,
-        video : video
+        PostVideo : PostVideo
       },
       success  : function(data){
         $("#blogPostVideo").remove();
+        WIBlog.cat();
         WIBlog.havePosts();
-        //$("#get_resources").html(data);
       }
     })
 }
 
 WIBlog.PostYouTube = function(){
-  var cat_id =  $("#cat").attr('cat_id');
+  var Category =  $("#cat").attr('cat_id');
   var day = $(".day").html();
   var month = $(".month").html();
   var user = $("#ytuser").html();
   var ytlink = $("#youtube_link").val();
-  var post_title = $("#post_title").val();
+  var title = $("#post_title").val();
   var textArea = $('textarea#blog_post');
-  var blog_post = textArea.val();
+  var post = textArea.val();
   var type     = $("#youtube").val();
+
+    PostYouTube = {
+                PostData:{
+                    day           : day,
+                    month         : month,
+                    user          : user,
+                    Category      : Category,
+                    title         : title,
+                    post          : post,
+                    type          : type,
+                    ytlink         : ytlink
+
+                },
+                FieldId:{
+                    day           : "day",
+                    month         : "month",
+                    user          : "user",
+                    Category      : "Category",
+                    title         : "title",
+                    post          : "post",
+                    type          : "type",
+                    ytlink         : "ytlink"
+
+                }
+             };
 $.ajax({
       url      : "WICore/WIClass/WIAjax.php",
       method   : "POST",
       data     : {
         action : "youtube",
         search : 1,
-        day : day,
-        month  : month,
-        post_title : post_title,
-        ytlink   : ytlink,
-        blog_post : blog_post,
-        type    : type,
-        user    : user,
-        cat_id : cat_id
+        PostYouTube : PostYouTube
       },
       success  : function(data){
         $("#youtubeVid").remove();
+        WIBlog.cat();
         WIBlog.havePosts();
-        //$("#get_resources").html(data);
       }
     })
 

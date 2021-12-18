@@ -238,17 +238,19 @@ if(!$login->isLoggedIn()){
 
 	}
 
-	public function mod_name()
+	public function mod_name($page)
 	{
+		echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">';
 		if(isset($page)){
 		$left_sidePower = $this->Web->pageModPower($page, "left_sidebar");
 		$leftSideBar = $this->Web->PageMod($page, "left_sidebar");
-		//echo $Panel;
-		if ($left_sidePower === 0) {
-			
+		echo "keft". $left_sidePower;
+		if ($left_sidePower === "0") {
+			echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">';
 		}else{
 
-			$this->mod->getMod($leftSideBar);
+			$this->mod->getMod($leftSideBar, $page);
+			echo '<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">';
 		}
 		}
 
@@ -258,24 +260,25 @@ if(!$login->isLoggedIn()){
 	//echo "friend" . $friendId;
 	if($friendId > 0){
 	  //include_once 'WIInc/friend_profile.php';
-	self::friendProfile();
+	self::friendProfile($page);
 	}else{
 	//include_once 'WIInc/my_profile.php';
-	self::profilePage($userId);
+	self::profilePage($userId, $page);
 	}
 
 
-
+echo '</div>
+			</div>';
 		
 		if(isset($page)){			
 		$right_sidePower = $this->Web->pageModPower($page, "right_sidebar");
 		$rightSideBar = $this->Web->PageMod($page, "right_sidebar");
-		//echo $Panel;
-		if ($right_sidePower === 0) {
+		//echo $right_sidePower;
+		if ($right_sidePower === "0") {
 			
 		}else{
 
-			$this->mod->getMod($rightSideBar);
+			$this->mod->getMod($rightSideBar, $page);
 		}
 
 		}			
@@ -561,7 +564,7 @@ a.about-item-edit {
 			</div>';
 	}
 
-	public function profilePage($userId)
+	public function profilePage($userId, $page)
 	{
 		echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.4.95/css/materialdesignicons.css">
 
@@ -774,7 +777,7 @@ a.about-item-edit {
 							</div>
 						</div>
 					</div><div id="userTabs">';
-					$this->mod->getMod("profile_tabs");
+					$this->mod->getMod("profile_tabs", $page);
 					echo '</div>
 				</div>
 

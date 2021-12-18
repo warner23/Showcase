@@ -37,21 +37,16 @@ class team_showcase
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center" id="imgTeam">
-                                <input type="hidden" value="newpic" id="selector" class="newpic"> 
-                                  <div class="image picMod" id="imaging">
-                                    <img class="cp img-fluid" src="WIMedia/Img/avator/default.jpg" style="width:50px;" alt="card image">
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
-                                    <div class="textMod" contenteditable="true">
-                                    <h4 class="card-title" id="cardTitle"></h4>
-                                    </div>
-                                    </div>
+                                
+                                    <img class=" img-fluid" src="WIMedia/Img/avator/default.jpg" style="width:50px;" alt="card image">
+
+                                    <button id="cp" >Change Picture</button>
+                                   
+                                    <h4 class="card-title textMod" id="cardTitle">
                                     
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
-                                    <div class="textMod" contenteditable="true">
-                                    <p class="card-text" id="textCard">
-                                    </div>
-                                    </div>
+                                    title
+                                    </h4>
+                                    <p class="card-text textMod" id="textCard">
                                     
                                     </p>
 

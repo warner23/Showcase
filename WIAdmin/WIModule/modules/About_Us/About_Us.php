@@ -28,15 +28,14 @@ class About_Us
                     <div class="view">
         <div class="row">
             <div class="col-xs-12">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">  
-            <input type="hidden" value="newpic" id="selector" class="newpic"> 
-                <div class="aboutus-image float-left hidden-sm picMod" id="newpic">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">    
+                <div class="aboutus-image float-left hidden-sm" id="newpic">
                 <img class="cp" src="WIMedia/Img/blank.jpg" style="width:35px;height:35px;" alt="">
+                </div><button id="changePic" onclick="WIMedia.changePic(`media-edit`)">Change Pic</button>
                 </div>
-                </div>
-
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="aboutus-content textMod" id="aboutusContent" contenteditable="true">
+            <div class="col-md-6 col-sm-6 col-xs-12 textMod">
+                 <button type="button" class="btn btn-mini" role="button" id="editorModal" onclick="WIScript.Editor(`aboutusContent`);">Editor</button>
+                <div class="aboutus-content" id="aboutusContent" contenteditable="true">
                     <h2><p><span>WELCOME TO Site Name</span></p>
                       IM The Best <span>Web Developer</span></h2>
                     
@@ -45,36 +44,26 @@ class About_Us
                     </div>
                 </div>
                     <div class="counter">
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
-                     
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
-                        <div class="textMod" contenteditable="true">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center textMod">
                             <h2 class="counter"><span>15</span></h2>
                             <p>YEARS OF EXPERIENCED</p>
                         </div>
-                        </div>
-                       
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
-                        <div class="textMod" contenteditable="true">
+                        
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center textMod">
                             <h2 class="counter"><span>100</span></h2>
                             <p>WEBSITES COMPLETED</p>
                         </div>
-                        </div>
                         
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
-                        <div class="textMod" contenteditable="true">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center textMod">
                             <h2 class="counter"><span>5</span></h2>
                             <p>AWARDS WON</p>
                         </div>
-                        </div>
-                       
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
-                        <div class="textMod" contenteditable="true">
+                        
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center textMod">
                             <h2 class="counter"><span>10</span></h2>
                             <p>CLIENTS</p>
                         </div>
-                        </div>
-
                         </div>
                     </div>
                     

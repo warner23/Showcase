@@ -15,7 +15,7 @@ class profile_tabs
     $this->image  = new WIImage();
 	}
 
-	public function mod_name()
+	public function mod_name($page)
 	{
         $thisRandNum = rand(9999999999999,999999999999999999);
         		$userId = WISession::get("user_id");
@@ -58,7 +58,7 @@ class profile_tabs
               echo '
           </div>
           <div id="tabs-5">';
-            self::Message($friendId);
+            self::Message($friendId, $page);
               echo '
           </div>';
         	}else{
@@ -98,7 +98,7 @@ class profile_tabs
               echo '
           </div>
           <div id="tabs-5">';
-            self::Message($friendId);
+            self::Message($friendId, $page);
               echo '
           </div>';
           }
@@ -223,12 +223,12 @@ class profile_tabs
           
         }
 
-        public function Message()
+        public function Message($page)
         {
           echo 'Messages';
 
         // include_once 'WIInc/messages_tabbed.php'; 
-              $this->mod->getMod("profile_msg");
+              $this->mod->getMod("profile_msg", $page);
 
           echo '</div>';
 

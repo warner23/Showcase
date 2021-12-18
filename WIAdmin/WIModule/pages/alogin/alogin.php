@@ -58,7 +58,7 @@ class alogin
 		  $rsc = $this->page->GetColums($page_id, "right_sidebar");
 
 		if ($lsc > 0) {
-		        $this->mod->getMod("left_sidebar");  
+		        $this->mod->getMod("left_sidebar",$page);  
 
 		    echo '<div class=" col-lg-10 col-md-8 col-sm-8 block" id="block">
 		    <div class="col-lg-10 col-md-8 col-sm-8" id="Mid">';
@@ -224,7 +224,7 @@ class alogin
 		  
 		if ($rsc > 0) {
 
-		  $this->mod->getMod("right_sidebar");  
+		  $this->mod->getMod("right_sidebar",$page);  
 
 		    echo '</div>';
 		}
@@ -247,7 +247,7 @@ class alogin
     $leftSideBar = $this->Web->PageMod($page, "left_sidebar");
     //echo $Panel;
     if ($left_sidePower > 0) {
-      $this->mod->getMod($leftSideBar);
+      $this->mod->getMod($leftSideBar,$page);
       echo '<div class="col-lg-8 col-md-8 col-sm-8 alogin">';
     }else{
       echo '<div class="col-lg-8 col-md-8 col-sm-8 center">';
@@ -289,7 +289,7 @@ class alogin
 		//echo $Panel;
 		if ($right_sidePower > 0) {
 
-			$this->mod->getMod($rightSideBar);
+			$this->mod->getMod($rightSideBar,$page);
 		}
 
 		}			
