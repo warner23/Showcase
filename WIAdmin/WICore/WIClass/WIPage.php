@@ -282,7 +282,7 @@ class WIPage
 
       $NewPage = fopen($directory. '/'  .$pageName .'.php', "w") or die("Unable to open file!");
 
-      $txt = '<?php
+       $txt = '<?php
         $page = "'. $pageName .'";
 
         include_once "WIInc/WI_StartUp.php";
@@ -291,7 +291,6 @@ class WIPage
 
         $agent = $_SERVER["HTTP_USER_AGENT"];
         $ip = $_SERVER["REMOTE_ADDR"];
-
 
         $tracking_page = $_SERVER["SCRIPT_NAME"];
 
@@ -307,41 +306,32 @@ class WIPage
         $panelPower = $web->pageModPower($page, "panel");
 
         $Panel = $web->PageMod($page, "panel");
-        if ($panelPower === "0") {
-          
-        }else{
-
+        if ($panelPower > 0) {
           $mod->getMod($Panel);
         }
 
         $topPower = $web->pageModPower($page, "top_head");
         $top_head = $web->PageMod($page, "top_head");
-        if ($topPower === "0") {
-          
-        }else{
-
+        if ($topPower > 0) {
           $mod->getMod($top_head);
         }
 
         $headerPower = $web->pageModPower($page, "header");
-        if ($headerPower === "0") {
-          
-        }else{
+        if ($headerPower > 0) {
         $web->MainHeader();
         }
 
         $web->MainMenu();
-
+        
         $contents = $web->pageModPower($page, "contents");
         $mod->getModMain($contents, $page, $contents);
 
         $footerPower = $web->pageModPower($page, "footer");
 
-        if ($footerPower === "0") {
-          
-        }else{
+        if ($footerPower >0) {
         $web->footer();
         }
+        $web->backendJs();
         ?>
         </body>
         </html>
@@ -357,7 +347,7 @@ class WIPage
       if ($cssCheck === "0") {
         
         $css = "INSERT INTO `wi_css` ( `href`, `rel`, `page`) VALUES
-      ( 'site/css/frameworks/bootstrap.css', 'stylesheet', '" . $pageName . "'),
+      ( 'site/css/frameworks/bootstrap4.css', 'stylesheet', '" . $pageName . "'),
       ( 'site/css/login_panel/css/slide.css', 'stylesheet', '" . $pageName . "'),
       ( 'site/css/frameworks/menus.css', 'stylesheet', '" . $pageName . "'),
       ( 'site/css/style.css', 'stylesheet', '" . $pageName . "'),
@@ -410,7 +400,7 @@ class WIPage
         }
       }
         
-        
+      $this->mod->ModTemp($pageName);
       
 
   $results = array(

@@ -9,7 +9,8 @@ class WIWebsite
     function __construct() 
     {
          $this->WIdb = WIdb::getInstance();
-
+         $this->mobileDetect = new WIMobileDetect();
+         $this->Login        = new WILogin();
     }
 
 
@@ -17,24 +18,17 @@ class WIWebsite
 
         public function webSite_essentials($column)
     {
-        $sql = "SELECT * FROM `wi_header`";
-        $query = $this->WIdb->prepare($sql);
-        $query->execute();
-
-        $res = $query->fetch(PDO::PARAM_STR);
-        //echo $res[$column];
-        return $res[$column];
+     $result = $this->WIdb->select("SELECT * FROM `wi_header`");
+        return $result[$column];
     }
 
     public function webSite_icons()
     {
-        $sql = "SELECT * FROM `wi_site`";
-        $query = $this->WIdb->prepare($sql);
-        $query->execute();
+      $result = $this->WIdb->select("SELECT * FROM `wi_site`");
 
-        $res = $query->fetch(PDO::PARAM_STR);
-        //echo $res;
-        echo '<link rel="icon" type="image/png" href="WIAdmin/WIMedia/Img/favicon/' . $res['favicon'] . '"/>';
+        foreach ($result as $res ) {
+          echo '<link rel="icon" type="image/png" href="WIAdmin/WIMedia/Img/favicon/' . $res['favicon'] . '"/>';
+        }
     }
 
     
@@ -42,31 +36,41 @@ class WIWebsite
     public function Meta($page)
     {
       
-         $sql = "SELECT * FROM `wi_meta` WHERE `page`=:page";
-          $query = $this->WIdb->prepare($sql);
-          $query->bindParam(':page', $page, PDO::PARAM_STR);
-          $query->execute();
+        $mobile = $this->mobileDetect->isMobile();
+       //echo $device;
+        if($mobile == 1){ 
+          echo '<meta name="viewport" content="width=device-width, 
+    user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />';
+        }else{
+        $result = $this->WIdb->select("SELECT * FROM `wi_meta` WHERE `page`=:page",
+          array(
+            "page" => $page
+          )
+        );
 
-         while($result = $query->fetch(PDO::FETCH_ASSOC))
+         foreach($result as $res)
         {
-          //print_r($result);
-
-            echo '<meta name="' . $result['name'] . '" content="' . $result['content'] . '" author="' . $result['author'] . '" >';
+            echo '<meta name="' . $res['name'] . '" content="' . $res['content'] . '" author="' . $res['author'] . '" >';
             
+        }
+
         }
 
     }
 
-    public function Theme()
+ public function Theme()
     {
       $in_use = 1;
-      $sql ="SELECT * FROM `wi_theme` WHERE `in_use`=:in_use";
-      $query = $this->WIdb->prepare($sql);
-      $query->bindParam(':in_use', $in_use, PDO::PARAM_INT);
-      $query->execute();
 
-      $result = $query->fetch();
-      $theme = $result['destination'];
+      $result = $this->WIdb->select("SELECT * FROM `wi_theme` WHERE `in_use`=:in_use",
+          array(
+            "in_use" => $in_use
+          )
+        );
+
+      $theme = $result[0]['destination'];
 
       return $theme;
 
@@ -75,12 +79,13 @@ class WIWebsite
 
     public function Styling($page)
     {
-          $sql = "SELECT * FROM `wi_css` WHERE `page`=:page";
-         $query = $this->WIdb->prepare($sql);
-         $query->bindParam(':page', $page, PDO::PARAM_STR);
-        $query->execute();
+      $result = $this->WIdb->select("SELECT * FROM `wi_css` WHERE `page`=:page",
+          array(
+            "page" => $page
+          )
+        );
 
-        while($res = $query->fetch(PDO::FETCH_ASSOC))
+        foreach($result as $res)
         {
         echo '<link href="' . self::theme() . $res['href'] . '" rel="' . $res['rel'] . '">';
         }
@@ -88,17 +93,17 @@ class WIWebsite
 
     public function Scripts($page)
     {
-      $sql = "SELECT * FROM `wi_scripts` WHERE `page`=:page";
-                 $query = $this->WIdb->prepare($sql);
-                 $query->bindParam(':page', $page, PDO::PARAM_STR);
-        $query->execute();
+            $result = $this->WIdb->select("SELECT * FROM `wi_scripts` WHERE `page`=:page",
+          array(
+            "page" => $page
+          )
+        );
 
-        while($res = $query->fetch(PDO::FETCH_ASSOC))
+        foreach($result as $res)
         {
         echo ' <script src="' . self::theme() . $res['src'] . '" type="text/javascript"></script>';
         }
     }
-
     public function StartUp()
     {
         echo '<!DOCTYPE html>
