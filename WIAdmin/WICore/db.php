@@ -1,13 +1,13 @@
 <?php 
 
-define("HOST", "mysql1006.mochahost.com"); 
+define("HOST", "**********"); 
 
 define("TYPE", "mysql"); 
 
-define("USER", "warner23_IVO"); 
+define("USER", "*******"); 
 
-define("PASS", "t4yl0r22??"); 
+define("PASS", "********"); 
 
-define("NAME", "warner23_showcase"); 
+define("NAME", "***********"); 
 
 ?>
